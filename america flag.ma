@@ -1,6 +1,6 @@
 //Maya ASCII 2020 scene
 //Name: america flag.ma
-//Last modified: Sun, Sep 12, 2021 12:37:36 PM
+//Last modified: Mon, Sep 13, 2021 09:39:28 PM
 //Codeset: 1252
 requires maya "2020";
 requires "stereoCamera" "10.0";
@@ -11,22 +11,22 @@ fileInfo "product" "Maya 2020";
 fileInfo "version" "2020";
 fileInfo "cutIdentifier" "201911140446-42a737a01c";
 fileInfo "osv" "Microsoft Windows 10 Technical Preview  (Build 19042)\n";
-fileInfo "UUID" "EE3CD1A0-45CE-2915-1868-869CA556D62B";
+fileInfo "UUID" "99F887AC-4173-8C1A-68AD-FFB15CE9BB3A";
 fileInfo "license" "student";
 createNode transform -shared -name "persp";
 	rename -uuid "5F040074-4B60-D526-4372-69BD658DA021";
 	setAttr ".visibility" no;
-	setAttr ".translate" -type "double3" -0.74973829289230054 5.311833992158153 13.765834523035716 ;
-	setAttr ".rotate" -type "double3" -15.938352729871704 -13.399999999998741 -4.0869571716226093e-16 ;
+	setAttr ".translate" -type "double3" 0.31588377170908005 4.9122311923783935 19.167735536726415 ;
+	setAttr ".rotate" -type "double3" -2.1383527298752076 -0.60000000000002507 -7.7654518624444931e-18 ;
 createNode camera -shared -name "perspShape" -parent "persp";
 	rename -uuid "72C9F691-4877-1F22-0771-C5906F45B625";
 	setAttr -keyable off ".visibility" no;
 	setAttr ".focalLength" 34.999999999999993;
-	setAttr ".centerOfInterest" 13.370066821641684;
+	setAttr ".centerOfInterest" 17.55132345514982;
 	setAttr ".imageName" -type "string" "persp";
 	setAttr ".depthName" -type "string" "persp_depth";
 	setAttr ".maskName" -type "string" "persp_mask";
-	setAttr ".tumblePivot" -type "double3" 2.2296338081359863 1.640374481678009 1.2597394585609436 ;
+	setAttr ".tumblePivot" -type "double3" 0.49954945556049302 4.2573451139210041 1.6295957788128146 ;
 	setAttr ".homeCommand" -type "string" "viewSet -p %camera";
 createNode transform -shared -name "top";
 	rename -uuid "9EF95270-41F2-BC8E-F5A3-FC92C4ADD962";
@@ -268,8 +268,7 @@ createNode particle -name "FireworksRocketsShape" -parent "FireworksRockets";
 	setAttr -lock on -keyable off ".maxCount";
 	setAttr -keyable off ".levelOfDetail";
 	setAttr -keyable off ".inheritFactor";
-	setAttr ".currentTimeSave" 127;
-	setAttr ".currentSceneTime" 127;
+	setAttr ".currentTimeSave" 1;
 	setAttr -keyable off ".inputGeometrySpace";
 	setAttr -keyable off ".enforceCountFromHistory";
 	setAttr -keyable off ".targetGeometrySpace";
@@ -449,8 +448,7 @@ createNode particle -name "FireworksLaunchPositionsShape" -parent "FireworksLaun
 	setAttr ".internalRuntimeBeforeDynamicsExpression" -type "string" ".O[0] = .I[0];";
 	setAttr ".internalRuntimeAfterDynamicsExpression" -type "string" "";
 	setAttr ".internalCreationExpression" -type "string" ".O[0] = .I[0];";
-	setAttr ".currentTimeSave" 127;
-	setAttr ".currentSceneTime" 127;
+	setAttr ".currentTimeSave" 1;
 	setAttr ".cacheWidth" 150;
 	setAttr ".particleRenderType" 2;
 	setAttr ".lifespanPP0" -type "doubleArray" 10 3.4028234600000001e+38 3.4028234600000001e+38
@@ -501,8 +499,7 @@ createNode particle -name "FireworksBurstPositionsShape" -parent "FireworksBurst
 	setAttr ".internalRuntimeBeforeDynamicsExpression" -type "string" ".O[0] = .I[0]";
 	setAttr ".internalRuntimeAfterDynamicsExpression" -type "string" "";
 	setAttr ".internalCreationExpression" -type "string" ".O[0] = .I[0]";
-	setAttr ".currentTimeSave" 127;
-	setAttr ".currentSceneTime" 127;
+	setAttr ".currentTimeSave" 1;
 	setAttr ".cacheWidth" 150;
 	setAttr ".particleRenderType" 2;
 	setAttr ".lifespanPP0" -type "doubleArray" 10 3.4028234600000001e+38 3.4028234600000001e+38
@@ -589,7 +586,6 @@ createNode particle -name "FireworksBurstSparksShape" -parent "FireworksBurstSpa
 	setAttr ".startupCachePath" -type "string" "america flag_startup";
 	setAttr ".mass0" -type "doubleArray" 0 ;
 	setAttr ".particleId0" -type "doubleArray" 0 ;
-	setAttr ".nextId" 1358;
 	setAttr ".birthTime0" -type "doubleArray" 0 ;
 	setAttr ".age0" -type "doubleArray" 0 ;
 	setAttr ".lifespanMode" 3;
@@ -598,8 +594,7 @@ createNode particle -name "FireworksBurstSparksShape" -parent "FireworksBurstSpa
 	setAttr ".internalRuntimeBeforeDynamicsExpression" -type "string" "float $s =  max(.I[0], min(.I[1], mag(.I[2]) * .05));\nfloat $ratio = .I[3]/.O[0];\n$s = (1.0-smoothstep(.9,1,$ratio)) * $s;\n.O[1] = <<$s,1,1>>;";
 	setAttr ".internalRuntimeAfterDynamicsExpression" -type "string" "";
 	setAttr ".internalCreationExpression" -type "string" ".O[0] = rand(3,4);\nfloat $s = 0.0;.O[1] = <<$s,1,1>>;";
-	setAttr ".currentTimeSave" 127;
-	setAttr ".currentSceneTime" 127;
+	setAttr ".currentTimeSave" 1;
 	setAttr ".cacheWidth" 150;
 	setAttr ".instanceData[0].instanceAttributeMapping" -type "stringArray" 12 "aimDirection" "velocity" "objectIndex" "sparkColorIndex" "position" "position" "scale" "sparkScale" "id" "particleId" "age" "age"  ;
 	setAttr ".particleRenderType" 6;
@@ -2852,7 +2847,6 @@ createNode particle -name "FireworksRocketTrailsShape" -parent "FireworksRocketT
 	setAttr ".startupCachePath" -type "string" "america flag_startup";
 	setAttr ".mass0" -type "doubleArray" 0 ;
 	setAttr ".particleId0" -type "doubleArray" 0 ;
-	setAttr ".nextId" 790;
 	setAttr ".birthTime0" -type "doubleArray" 0 ;
 	setAttr ".age0" -type "doubleArray" 0 ;
 	setAttr ".lifespanMode" 3;
@@ -2861,8 +2855,7 @@ createNode particle -name "FireworksRocketTrailsShape" -parent "FireworksRocketT
 	setAttr ".internalRuntimeBeforeDynamicsExpression" -type "string" "float $s =  max(.I[0], min(.I[1], mag(.I[2]) * 5));\nfloat $ratio = .I[3]/.O[0];\n$s = (1.0-smoothstep(.5,1,$ratio)) * $s;\n.O[1] = <<$s,1,1>>;";
 	setAttr ".internalRuntimeAfterDynamicsExpression" -type "string" "";
 	setAttr ".internalCreationExpression" -type "string" ".O[0] = rand(.5,1.5);\n\n// Get the number of cones of diffent colors to be instanced to\n// the particles in the trail, and choose one randomly.\n//\nfloat $indexCount = .I[4];\nint $whichIndex = rand($indexCount);\n\n.O[2] = $whichIndex;\nfloat $sparksColor[] = `getAttr FireworksRocketsShape.rocketTrailColors[$whichIndex]`;\n.O[3] = <<$sparksColor[0], $sparksColor[1], $sparksColor[2]>>;";
-	setAttr ".currentTimeSave" 127;
-	setAttr ".currentSceneTime" 127;
+	setAttr ".currentTimeSave" 1;
 	setAttr ".cacheWidth" 150;
 	setAttr ".instanceData[0].instanceAttributeMapping" -type "stringArray" 12 "aimDirection" "velocity" "objectIndex" "sparkColorIndex" "position" "position" "scale" "trailSparkScale" "id" "particleId" "age" "age"  ;
 	setAttr ".particleRenderType" 6;
@@ -9874,6 +9867,9 @@ createNode mesh -name "Flag_partShape" -parent "Flag_part";
 	setAttr ".holeFaceData" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -name "flag_part4" -parent "pole";
 	rename -uuid "4B2A1372-4008-A77E-CA9E-A7AB2835EE28";
+	setAttr ".translate" -type "double3" 0.16458102388204068 -0.014333910461111073 
+		0.010400317539621229 ;
+	setAttr ".rotate" -type "double3" 0 0 -22.580095558764491 ;
 	setAttr ".rotatePivot" -type "double3" 0.31865122946286295 4.2322087447587835 1.6191945005693933 ;
 	setAttr ".scalePivot" -type "double3" 0.31865122946286295 4.2322087447587835 1.6191945005693935 ;
 createNode mesh -name "flag_part4Shape" -parent "flag_part4";
@@ -12646,15 +12642,18 @@ createNode mesh -name "flag_part4Shape" -parent "flag_part4";
 	setAttr ".holeFaceData" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -name "flag_part5" -parent "pole";
 	rename -uuid "84B776EE-4388-9B4A-6C2D-EEA4EAEEA85F";
+	setAttr ".translate" -type "double3" 0.10128205647949623 0 0 ;
 	setAttr ".rotatePivot" -type "double3" 0.36605130868042002 1.5609138488593133 1.5744054178913327 ;
 	setAttr ".scalePivot" -type "double3" 0.36605130868042002 1.5609138488593133 1.5744054178913329 ;
 createNode mesh -name "flag_part5Shape" -parent "flag_part5";
 	rename -uuid "94ADD87E-489D-32D6-C2F8-F99087C7139A";
 	setAttr -keyable off ".visibility";
+	setAttr -size 2 ".instObjGroups[0].objectGroups";
 	setAttr ".instObjGroups[0].objectGroups[0].objectGrpCompList" -type "componentList" 
 		1 "f[0:847]";
 	setAttr ".visibleInReflections" yes;
 	setAttr ".visibleInRefractions" yes;
+	setAttr ".uvPivot" -type "double2" 0.20000000298023224 0.5499998927116394 ;
 	setAttr ".uvSet[0].uvSetName" -type "string" "map1";
 	setAttr -size 957 ".uvSet[0].uvSetPoints";
 	setAttr ".uvSet[0].uvSetPoints[0:249]" -type "float2" 0 1 0.050000001 1 0.1
@@ -13556,49 +13555,49 @@ createNode mesh -name "flag_part5Shape" -parent "flag_part5";
 	setAttr ".edge[332:497]" 350 351 1 351 352 1 352 353 1 353 354 1 354 355 1
 		 355 356 1 356 357 1 357 358 1 358 359 1 359 360 1 361 362 1 362 363 1 363 364 1 364 365 1
 		 365 366 1 366 367 1 367 368 1 368 369 1 369 370 1 370 371 1 371 372 1 372 373 1 373 374 1
-		 374 375 1 375 376 1 376 377 1 377 378 1 378 379 1 0 19 1 1 20 1 2 21 1 3 22 1 4 23 1
+		 374 375 1 375 376 1 376 377 1 377 378 1 378 379 1 0 19 0 1 20 1 2 21 1 3 22 1 4 23 1
 		 5 24 1 6 25 1 7 26 1 8 27 1 9 28 1 10 29 1 11 30 1 12 31 1 13 32 1 14 33 1 15 34 1
-		 16 35 1 17 36 1 18 37 1 19 38 1 20 39 1 21 40 1 22 41 1 23 42 1 24 43 1 25 44 1 26 45 1
-		 27 46 1 28 47 1 29 48 1 30 49 1 31 50 1 32 51 1 33 52 1 34 53 1 35 54 1 36 55 1 37 56 1
-		 38 57 1 39 58 1 40 59 1 41 60 1 42 61 1 43 62 1 44 63 1 45 64 1 46 65 1 47 66 1 48 67 1
-		 49 68 1 50 69 1 51 70 1 52 71 1 53 72 1 54 73 1 55 74 1 56 75 1 57 76 1 58 77 1 59 78 1
+		 16 35 1 17 36 1 18 37 0 19 38 0 20 39 1 21 40 1 22 41 1 23 42 1 24 43 1 25 44 1 26 45 1
+		 27 46 1 28 47 1 29 48 1 30 49 1 31 50 1 32 51 1 33 52 1 34 53 1 35 54 1 36 55 1 37 56 0
+		 38 57 0 39 58 1 40 59 1 41 60 1 42 61 1 43 62 1 44 63 1 45 64 1 46 65 1 47 66 1 48 67 1
+		 49 68 1 50 69 1 51 70 1 52 71 1 53 72 1 54 73 1 55 74 1 56 75 0 57 76 0 58 77 1 59 78 1
 		 60 79 1 61 80 1 62 81 1 63 82 1 64 83 1 65 84 1 66 85 1 67 86 1 68 87 1 69 88 1 70 89 1
-		 71 90 1 72 91 1 73 92 1 74 93 1 75 94 1 76 95 1 77 96 1 78 97 1 79 98 1 80 99 1 81 100 1
+		 71 90 1 72 91 1 73 92 1 74 93 1 75 94 0 76 95 0 77 96 1 78 97 1 79 98 1 80 99 1 81 100 1
 		 82 101 1 83 102 1 84 103 1 85 104 1 86 105 1 87 106 1 88 107 1 89 108 1 90 109 1
-		 91 110 1 92 111 1 93 112 1 94 113 1 95 114 1 96 115 1 97 116 1 98 117 1 99 118 1
+		 91 110 1 92 111 1 93 112 1 94 113 0 95 114 0 96 115 1 97 116 1 98 117 1 99 118 1
 		 100 119 1 101 120 1 102 121 1 103 122 1 104 123 1 105 124 1 106 125 1 107 126 1 108 127 1
-		 109 128 1 110 129 1 111 130 1 112 131 1 113 132 1 114 133 1 115 134 1 116 135 1 117 136 1
+		 109 128 1 110 129 1 111 130 1 112 131 1 113 132 0 114 133 0 115 134 1 116 135 1 117 136 1
 		 118 137 1 119 138 1 120 139 1 121 140 1 122 141 1 123 142 1 124 143 1 125 144 1 126 145 1
-		 127 146 1 128 147 1 129 148 1 130 149 1 131 150 1 132 151 1 133 152 1 134 153 1 135 154 1
+		 127 146 1 128 147 1 129 148 1 130 149 1 131 150 1 132 151 0 133 152 0 134 153 1 135 154 1
 		 136 155 1 137 156 1;
 	setAttr ".edge[498:663]" 138 157 1 139 158 1 140 159 1 141 160 1 142 161 1
-		 143 162 1 144 163 1 145 164 1 146 165 1 147 166 1 148 167 1 149 168 1 150 169 1 151 170 1
-		 152 171 1 153 172 1 154 173 1 155 174 1 156 175 1 157 176 1 158 177 1 159 178 1 160 179 1
+		 143 162 1 144 163 1 145 164 1 146 165 1 147 166 1 148 167 1 149 168 1 150 169 1 151 170 0
+		 152 171 0 153 172 1 154 173 1 155 174 1 156 175 1 157 176 1 158 177 1 159 178 1 160 179 1
 		 161 180 1 162 181 1 163 182 1 164 183 1 165 184 1 166 185 1 167 186 1 168 187 1 169 188 1
-		 170 189 1 171 190 1 172 191 1 173 192 1 174 193 1 175 194 1 176 195 1 177 196 1 178 197 1
+		 170 189 0 171 190 0 172 191 1 173 192 1 174 193 1 175 194 1 176 195 1 177 196 1 178 197 1
 		 179 198 1 180 199 1 181 200 1 182 201 1 183 202 1 184 203 1 185 204 1 186 205 1 187 206 1
-		 188 207 1 189 208 1 190 209 1 191 210 1 192 211 1 193 212 1 194 213 1 195 214 1 196 215 1
+		 188 207 1 189 208 0 190 209 0 191 210 1 192 211 1 193 212 1 194 213 1 195 214 1 196 215 1
 		 197 216 1 198 217 1 199 218 1 200 219 1 201 220 1 202 221 1 203 222 1 204 223 1 205 224 1
-		 206 225 1 207 226 1 208 227 1 209 228 1 210 229 1 211 230 1 212 231 1 213 232 1 214 233 1
+		 206 225 1 207 226 1 208 227 0 209 228 0 210 229 1 211 230 1 212 231 1 213 232 1 214 233 1
 		 215 234 1 216 235 1 217 236 1 218 237 1 219 238 1 220 239 1 221 240 1 222 241 1 223 242 1
-		 224 243 1 225 244 1 226 245 1 227 246 1 228 247 1 229 248 1 230 249 1 231 250 1 232 251 1
+		 224 243 1 225 244 1 226 245 1 227 246 0 228 247 0 229 248 1 230 249 1 231 250 1 232 251 1
 		 233 252 1 234 253 1 235 254 1 236 255 1 237 256 1 238 257 1 239 258 1 240 259 1 241 260 1
-		 242 261 1 243 262 1 244 263 1 245 264 1 246 265 1 247 266 1 248 267 1 249 268 1 250 269 1
+		 242 261 1 243 262 1 244 263 1 245 264 1 246 265 0 247 266 0 248 267 1 249 268 1 250 269 1
 		 251 270 1 252 271 1 253 272 1 254 273 1 255 274 1 256 275 1 257 276 1 258 277 1 259 278 1
-		 260 279 1 261 280 1 262 281 1 263 282 1 264 283 1 265 284 1 266 285 1 267 286 1 268 287 1
+		 260 279 1 261 280 1 262 281 1 263 282 1 264 283 1 265 284 0 266 285 0 267 286 1 268 287 1
 		 269 288 1 270 289 1 271 290 1 272 291 1 273 292 1 274 293 1 275 294 1 276 295 1 277 296 1
-		 278 297 1 279 298 1 280 299 1 281 300 1 282 301 1 283 302 1 284 303 1 285 304 1 286 305 1
+		 278 297 1 279 298 1 280 299 1 281 300 1 282 301 1 283 302 1 284 303 0 285 304 0 286 305 1
 		 287 306 1 288 307 1 289 308 1 290 309 1 291 310 1 292 311 1 293 312 1 294 313 1 295 314 1
-		 296 315 1 297 316 1 298 317 1 299 318 1 300 319 1 301 320 1 302 321 1 303 322 1;
-	setAttr ".edge[664:829]" 304 323 1 305 324 1 306 325 1 307 326 1 308 327 1
+		 296 315 1 297 316 1 298 317 1 299 318 1 300 319 1 301 320 1 302 321 1 303 322 0;
+	setAttr ".edge[664:829]" 304 323 0 305 324 1 306 325 1 307 326 1 308 327 1
 		 309 328 1 310 329 1 311 330 1 312 331 1 313 332 1 314 333 1 315 334 1 316 335 1 317 336 1
-		 318 337 1 319 338 1 320 339 1 321 340 1 322 341 1 323 342 1 324 343 1 325 344 1 326 345 1
+		 318 337 1 319 338 1 320 339 1 321 340 1 322 341 0 323 342 0 324 343 1 325 344 1 326 345 1
 		 327 346 1 328 347 1 329 348 1 330 349 1 331 350 1 332 351 1 333 352 1 334 353 1 335 354 1
-		 336 355 1 337 356 1 338 357 1 339 358 1 340 359 1 341 360 1 342 361 1 343 362 1 344 363 1
+		 336 355 1 337 356 1 338 357 1 339 358 1 340 359 1 341 360 0 342 361 0 343 362 1 344 363 1
 		 345 364 1 346 365 1 347 366 1 348 367 1 349 368 1 350 369 1 351 370 1 352 371 1 353 372 1
-		 354 373 1 355 374 1 356 375 1 357 376 1 358 377 1 359 378 1 360 379 1 361 0 1 362 1 1
+		 354 373 1 355 374 1 356 375 1 357 376 1 358 377 1 359 378 1 360 379 0 361 0 0 362 1 1
 		 363 2 1 364 3 1 365 4 1 366 5 1 367 6 1 368 7 1 369 8 1 370 9 1 371 10 1 372 11 1
-		 373 12 1 374 13 1 375 14 1 376 15 1 377 16 1 378 17 1 379 18 1 380 506 0 381 382 0
+		 373 12 1 374 13 1 375 14 1 376 15 1 377 16 1 378 17 1 379 18 0 380 506 0 381 382 0
 		 382 383 0 383 490 0 385 507 1 386 387 1 387 388 1 388 491 1 390 508 1 391 392 1 392 393 1
 		 393 492 1 395 509 1 396 397 1 397 398 1 398 493 1 400 494 0 401 402 0 402 403 0 403 478 0
 		 405 495 1 406 407 1 407 408 1 408 479 1 410 496 1 411 412 1 412 413 1 413 480 1 415 497 1
@@ -13669,50 +13668,50 @@ createNode mesh -name "flag_part5Shape" -parent "flag_part5";
 	setAttr ".edge[1328:1493]" 860 861 1 861 862 1 862 863 1 863 864 1 864 865 1
 		 865 866 1 866 867 1 867 868 1 868 869 1 869 870 1 871 872 1 872 873 1 873 874 1 874 875 1
 		 875 876 1 876 877 1 877 878 1 878 879 1 879 880 1 880 881 1 881 882 1 882 883 1 883 884 1
-		 884 885 1 885 886 1 886 887 1 887 888 1 888 889 1 510 529 1 511 530 1 512 531 1 513 532 1
+		 884 885 1 885 886 1 886 887 1 887 888 1 888 889 1 510 529 0 511 530 1 512 531 1 513 532 1
 		 514 533 1 515 534 1 516 535 1 517 536 1 518 537 1 519 538 1 520 539 1 521 540 1 522 541 1
-		 523 542 1 524 543 1 525 544 1 526 545 1 527 546 1 528 547 1 529 548 1 530 549 1 531 550 1
+		 523 542 1 524 543 1 525 544 1 526 545 1 527 546 1 528 547 0 529 548 0 530 549 1 531 550 1
 		 532 551 1 533 552 1 534 553 1 535 554 1 536 555 1 537 556 1 538 557 1 539 558 1 540 559 1
-		 541 560 1 542 561 1 543 562 1 544 563 1 545 564 1 546 565 1 547 566 1 548 567 1 549 568 1
+		 541 560 1 542 561 1 543 562 1 544 563 1 545 564 1 546 565 1 547 566 0 548 567 0 549 568 1
 		 550 569 1 551 570 1 552 571 1 553 572 1 554 573 1 555 574 1 556 575 1 557 576 1 558 577 1
-		 559 578 1 560 579 1 561 580 1 562 581 1 563 582 1 564 583 1 565 584 1 566 585 1 567 586 1
+		 559 578 1 560 579 1 561 580 1 562 581 1 563 582 1 564 583 1 565 584 1 566 585 0 567 586 0
 		 568 587 1 569 588 1 570 589 1 571 590 1 572 591 1 573 592 1 574 593 1 575 594 1 576 595 1
-		 577 596 1 578 597 1 579 598 1 580 599 1 581 600 1 582 601 1 583 602 1 584 603 1 585 604 1
-		 586 605 1 587 606 1 588 607 1 589 608 1 590 609 1 591 610 1 592 611 1 593 612 1 594 613 1
+		 577 596 1 578 597 1 579 598 1 580 599 1 581 600 1 582 601 1 583 602 1 584 603 1 585 604 0
+		 586 605 0 587 606 1 588 607 1 589 608 1 590 609 1 591 610 1 592 611 1 593 612 1 594 613 1
 		 595 614 1 596 615 1 597 616 1 598 617 1 599 618 1 600 619 1 601 620 1 602 621 1 603 622 1
-		 604 623 1 605 624 1 606 625 1 607 626 1 608 627 1 609 628 1 610 629 1 611 630 1 612 631 1
+		 604 623 0 605 624 0 606 625 1 607 626 1 608 627 1 609 628 1 610 629 1 611 630 1 612 631 1
 		 613 632 1 614 633 1 615 634 1 616 635 1 617 636 1 618 637 1 619 638 1 620 639 1 621 640 1
-		 622 641 1 623 642 1 624 643 1 625 644 1 626 645 1 627 646 1 628 647 1 629 648 1 630 649 1
+		 622 641 1 623 642 0 624 643 0 625 644 1 626 645 1 627 646 1 628 647 1 629 648 1 630 649 1
 		 631 650 1 632 651 1 633 652 1 634 653 1 635 654 1 636 655 1 637 656 1 638 657 1 639 658 1
-		 640 659 1 641 660 1 642 661 1 643 662 1 644 663 1 645 664 1 646 665 1 647 666 1;
+		 640 659 1 641 660 1 642 661 0 643 662 0 644 663 1 645 664 1 646 665 1 647 666 1;
 	setAttr ".edge[1494:1659]" 648 667 1 649 668 1 650 669 1 651 670 1 652 671 1
-		 653 672 1 654 673 1 655 674 1 656 675 1 657 676 1 658 677 1 659 678 1 660 679 1 661 680 1
-		 662 681 1 663 682 1 664 683 1 665 684 1 666 685 1 667 686 1 668 687 1 669 688 1 670 689 1
+		 653 672 1 654 673 1 655 674 1 656 675 1 657 676 1 658 677 1 659 678 1 660 679 1 661 680 0
+		 662 681 0 663 682 1 664 683 1 665 684 1 666 685 1 667 686 1 668 687 1 669 688 1 670 689 1
 		 671 690 1 672 691 1 673 692 1 674 693 1 675 694 1 676 695 1 677 696 1 678 697 1 679 698 1
-		 680 699 1 681 700 1 682 701 1 683 702 1 684 703 1 685 704 1 686 705 1 687 706 1 688 707 1
+		 680 699 0 681 700 0 682 701 1 683 702 1 684 703 1 685 704 1 686 705 1 687 706 1 688 707 1
 		 689 708 1 690 709 1 691 710 1 692 711 1 693 712 1 694 713 1 695 714 1 696 715 1 697 716 1
-		 698 717 1 699 718 1 700 719 1 701 720 1 702 721 1 703 722 1 704 723 1 705 724 1 706 725 1
+		 698 717 1 699 718 0 700 719 0 701 720 1 702 721 1 703 722 1 704 723 1 705 724 1 706 725 1
 		 707 726 1 708 727 1 709 728 1 710 729 1 711 730 1 712 731 1 713 732 1 714 733 1 715 734 1
-		 716 735 1 717 736 1 718 737 1 719 738 1 720 739 1 721 740 1 722 741 1 723 742 1 724 743 1
+		 716 735 1 717 736 1 718 737 0 719 738 0 720 739 1 721 740 1 722 741 1 723 742 1 724 743 1
 		 725 744 1 726 745 1 727 746 1 728 747 1 729 748 1 730 749 1 731 750 1 732 751 1 733 752 1
-		 734 753 1 735 754 1 736 755 1 737 756 1 738 757 1 739 758 1 740 759 1 741 760 1 742 761 1
+		 734 753 1 735 754 1 736 755 1 737 756 0 738 757 0 739 758 1 740 759 1 741 760 1 742 761 1
 		 743 762 1 744 763 1 745 764 1 746 765 1 747 766 1 748 767 1 749 768 1 750 769 1 751 770 1
-		 752 771 1 753 772 1 754 773 1 755 774 1 756 775 1 757 776 1 758 777 1 759 778 1 760 779 1
+		 752 771 1 753 772 1 754 773 1 755 774 1 756 775 0 757 776 0 758 777 1 759 778 1 760 779 1
 		 761 780 1 762 781 1 763 782 1 764 783 1 765 784 1 766 785 1 767 786 1 768 787 1 769 788 1
-		 770 789 1 771 790 1 772 791 1 773 792 1 774 793 1 775 794 1 776 795 1 777 796 1 778 797 1
+		 770 789 1 771 790 1 772 791 1 773 792 1 774 793 1 775 794 0 776 795 0 777 796 1 778 797 1
 		 779 798 1 780 799 1 781 800 1 782 801 1 783 802 1 784 803 1 785 804 1 786 805 1 787 806 1
-		 788 807 1 789 808 1 790 809 1 791 810 1 792 811 1 793 812 1 794 813 1 795 814 1 796 815 1
+		 788 807 1 789 808 1 790 809 1 791 810 1 792 811 1 793 812 1 794 813 0 795 814 0 796 815 1
 		 797 816 1 798 817 1 799 818 1 800 819 1 801 820 1 802 821 1 803 822 1 804 823 1 805 824 1
-		 806 825 1 807 826 1 808 827 1 809 828 1 810 829 1 811 830 1 812 831 1 813 832 1;
-	setAttr ".edge[1660:1735]" 814 833 1 815 834 1 816 835 1 817 836 1 818 837 1
+		 806 825 1 807 826 1 808 827 1 809 828 1 810 829 1 811 830 1 812 831 1 813 832 0;
+	setAttr ".edge[1660:1735]" 814 833 0 815 834 1 816 835 1 817 836 1 818 837 1
 		 819 838 1 820 839 1 821 840 1 822 841 1 823 842 1 824 843 1 825 844 1 826 845 1 827 846 1
-		 828 847 1 829 848 1 830 849 1 831 850 1 832 851 1 833 852 1 834 853 1 835 854 1 836 855 1
+		 828 847 1 829 848 1 830 849 1 831 850 1 832 851 0 833 852 0 834 853 1 835 854 1 836 855 1
 		 837 856 1 838 857 1 839 858 1 840 859 1 841 860 1 842 861 1 843 862 1 844 863 1 845 864 1
-		 846 865 1 847 866 1 848 867 1 849 868 1 850 869 1 851 870 1 852 871 1 853 872 1 854 873 1
+		 846 865 1 847 866 1 848 867 1 849 868 1 850 869 1 851 870 0 852 871 0 853 872 1 854 873 1
 		 855 874 1 856 875 1 857 876 1 858 877 1 859 878 1 860 879 1 861 880 1 862 881 1 863 882 1
-		 864 883 1 865 884 1 866 885 1 867 886 1 868 887 1 869 888 1 870 889 1 871 510 1 872 511 1
+		 864 883 1 865 884 1 866 885 1 867 886 1 868 887 1 869 888 1 870 889 0 871 510 0 872 511 1
 		 873 512 1 874 513 1 875 514 1 876 515 1 877 516 1 878 517 1 879 518 1 880 519 1 881 520 1
-		 882 521 1 883 522 1 884 523 1 885 524 1 886 525 1 887 526 1 888 527 1 889 528 1;
+		 882 521 1 883 522 1 884 523 1 885 524 1 886 525 1 887 526 1 888 527 1 889 528 0;
 	setAttr -size 848 -capacityHint 3392 ".face";
 	setAttr ".face[0:499]" -type "polyFaces" 
 		f 4 -1 360 18 -362
@@ -15465,8 +15464,7 @@ createNode nCloth -name "nClothShape1" -parent "nCloth1";
 	setAttr -keyable off ".maxCount";
 	setAttr -keyable off ".levelOfDetail";
 	setAttr -keyable off ".inheritFactor";
-	setAttr ".currentTimeSave" 127;
-	setAttr ".currentSceneTime" 127;
+	setAttr ".currentTimeSave" 1;
 	setAttr -keyable off ".startFrame";
 	setAttr -keyable off ".inputGeometrySpace";
 	setAttr -keyable off ".enforceCountFromHistory";
@@ -15486,9 +15484,9 @@ createNode nCloth -name "nClothShape1" -parent "nCloth1";
 	setAttr ".lifespanPP0" -type "doubleArray" 0 ;
 createNode transform -name "flag_geo" -parent "clothe";
 	rename -uuid "A6733931-48C7-BC98-59FE-AAAA7ABEA928";
-	setAttr ".translate" -type "double3" 0.49175278574119008 -1.8731762520536308 1.6107460821964503 ;
+	setAttr ".translate" -type "double3" 0.51394897110783733 -1.9271383854235222 1.6097743336714685 ;
 	setAttr ".rotate" -type "double3" 1.0260447540812654 0.01367822371228512 0 ;
-	setAttr ".scale" -type "double3" 1.2299090531788988 1.1758407338392796 1.1758407338392796 ;
+	setAttr ".scale" -type "double3" 1.1804891249009084 1.128593366578682 1.128593366578682 ;
 	setAttr ".rotatePivot" -type "double3" 2.4721503091240815 4.8367894322418969 0 ;
 	setAttr ".scalePivot" -type "double3" 2.4721503091240815 4.8367894322418969 0 ;
 createNode mesh -name "flag_geoShape" -parent "flag_geo";
@@ -16685,6 +16683,7 @@ createNode transform -name "rope_2" -parent "rope_group";
 	rename -uuid "A3FB556E-4F9A-D3E7-957C-14A8FBB26E1F";
 createNode transform -name "ROPE_GEO_1" -parent "rope_2";
 	rename -uuid "D7E9C3B6-4A9A-44D3-2BE0-6BA2E7B7511A";
+	setAttr ".translate" -type "double3" 0.10128205647949623 0 0 ;
 createNode mesh -name "ROPE_GEO_Shape1" -parent "ROPE_GEO_1";
 	rename -uuid "4E303C53-496D-BE93-D417-57BD55246817";
 	setAttr -keyable off ".visibility";
@@ -16699,6 +16698,7 @@ createNode transform -name "hairSystem2OutputCurves" -parent "rope_2";
 	rename -uuid "39BC6D64-4668-82BD-1688-65B7C6D1299E";
 createNode transform -name "curve5" -parent "hairSystem2OutputCurves";
 	rename -uuid "54A7A27B-4618-729E-B3E9-F191E0B2ECA7";
+	setAttr ".visibility" no;
 createNode nurbsCurve -name "curveShape4" -parent "curve5";
 	rename -uuid "4A2775FE-4427-FCBA-C245-5B842CFB0DA1";
 	setAttr -keyable off ".visibility";
@@ -16721,6 +16721,7 @@ createNode follicle -name "follicleShape2" -parent "follicle2";
 	setAttr ".degree" 3;
 createNode transform -name "curve4" -parent "follicle2";
 	rename -uuid "588BA5DD-4175-1F17-9EA1-4F87EB07E4F1";
+	setAttr ".visibility" no;
 	setAttr ".rotatePivot" -type "double3" 0.26879789942097976 -0.294707966553446 1.7006844282150269 ;
 	setAttr ".scalePivot" -type "double3" 0.26879789942097976 -0.294707966553446 1.7006844282150269 ;
 createNode nurbsCurve -name "curve4rebuiltCurveShape1" -parent "curve4";
@@ -17047,6 +17048,7 @@ createNode transform -name "rope1" -parent "rope_group";
 	rename -uuid "9C504876-42A8-7321-E7FC-78B0071D711F";
 createNode transform -name "extrudedSurface2" -parent "rope1";
 	rename -uuid "DEE92FDA-45E2-C6EA-B167-AB98B760A33E";
+	setAttr ".translate" -type "double3" -0.061740815782061309 0 0 ;
 createNode mesh -name "extrudedSurfaceShape1" -parent "extrudedSurface2";
 	rename -uuid "10F0D327-4724-9644-5A9D-E489D9C2BE39";
 	setAttr -keyable off ".visibility";
@@ -17060,19 +17062,12 @@ createNode mesh -name "extrudedSurfaceShape1" -parent "extrudedSurface2";
 createNode nucleus -name "nucleus4" -parent "rope1";
 	rename -uuid "E172147B-4759-78CF-C9C0-9199181ED1A7";
 	setAttr ".gravity" 1.6483516693115234;
-	setAttr ".windSpeed" 3.0219781398773193;
-	setAttr ".windNoise" 0.054945055395364761;
-createNode transform -name "curve7" -parent "rope1";
-	rename -uuid "471365F0-474A-BAEA-8B5F-38BC1CC58EFA";
-createNode nurbsCurve -name "curveShape6" -parent "curve7";
-	rename -uuid "92976B14-425D-5683-53C5-CC9AF68E7382";
-	setAttr -keyable off ".visibility";
-	setAttr ".overrideEnabled" yes;
-	setAttr ".overrideColor" 6;
-	setAttr ".tweak" yes;
+	setAttr ".airDensity" 1.0439560413360596;
+	setAttr ".windSpeed" 1.0989010334014893;
+	setAttr ".windNoise" 0.032967034727334976;
 createNode transform -name "hairSystem3OutputCurves" -parent "rope1";
 	rename -uuid "6515CF71-4789-1021-648B-B49CB7A55AD0";
-createNode transform -name "curve6" -parent "rope1";
+createNode transform -name "curve6" -parent "hairSystem3OutputCurves";
 	rename -uuid "FD0BFC31-4221-5828-972E-E69FE994E637";
 	setAttr ".visibility" no;
 	setAttr ".rotatePivot" -type "double3" 0.21436423245549729 1.4960197764684304 1.6108706988269992 ;
@@ -17330,7 +17325,9 @@ createNode nurbsCurve -name "curveShape5" -parent "curve6";
 		0.20967362305791432 -1.3874271996235645 1.6108706988269992
 		0.20965618924317209 -1.3981442464162899 1.6108706988269992
 		;
-createNode transform -name "follicle3" -parent "rope1";
+createNode transform -name "hairSystem3Follicles" -parent "rope1";
+	rename -uuid "A8EC9A52-4DC8-C224-9056-AC9D4C7A9076";
+createNode transform -name "follicle3" -parent "hairSystem3Follicles";
 	rename -uuid "57C0A2E2-4450-7B99-CF32-9AB963F6B3A4";
 createNode follicle -name "follicleShape3" -parent "follicle3";
 	rename -uuid "8B6CB1B0-46A5-9D9D-CFD2-E389E53D8DCC";
@@ -17342,8 +17339,15 @@ createNode follicle -name "follicleShape3" -parent "follicle3";
 	setAttr -size 2 ".clumpWidthScale[0:1]"  0 1 3 1 0.2 3;
 	setAttr -size 2 ".attractionScale[0:1]"  0 1 3 1 0.2 3;
 	setAttr ".degree" 3;
-createNode transform -name "hairSystem3Follicles" -parent "rope1";
-	rename -uuid "A8EC9A52-4DC8-C224-9056-AC9D4C7A9076";
+createNode transform -name "curve7" -parent "follicle3";
+	rename -uuid "471365F0-474A-BAEA-8B5F-38BC1CC58EFA";
+	setAttr ".visibility" no;
+createNode nurbsCurve -name "curveShape6" -parent "curve7";
+	rename -uuid "92976B14-425D-5683-53C5-CC9AF68E7382";
+	setAttr -keyable off ".visibility";
+	setAttr ".overrideEnabled" yes;
+	setAttr ".overrideColor" 6;
+	setAttr ".tweak" yes;
 createNode transform -name "hairSystem3" -parent "rope1";
 	rename -uuid "7C136A88-4695-E45B-EE8C-24AC808F9D24";
 createNode hairSystem -name "hairSystemShape3" -parent "hairSystem3";
@@ -17416,7 +17420,8 @@ createNode nRigid -name "nRigidShape1" -parent "nRigid1";
 	setAttr -keyable off ".maxCount";
 	setAttr -keyable off ".levelOfDetail";
 	setAttr -keyable off ".inheritFactor";
-	setAttr ".currentTimeSave" 127;
+	setAttr ".currentTimeSave" 1;
+	setAttr ".currentSceneTime" 127;
 	setAttr -keyable off ".startFrame";
 	setAttr -keyable off ".inputGeometrySpace";
 	setAttr -keyable off ".enforceCountFromHistory";
@@ -17473,7 +17478,8 @@ createNode nRigid -name "nRigidShape2" -parent "nRigid2";
 	setAttr -keyable off ".maxCount";
 	setAttr -keyable off ".levelOfDetail";
 	setAttr -keyable off ".inheritFactor";
-	setAttr ".currentTimeSave" 127;
+	setAttr ".currentTimeSave" 1;
+	setAttr ".currentSceneTime" 127;
 	setAttr -keyable off ".startFrame";
 	setAttr -keyable off ".inputGeometrySpace";
 	setAttr -keyable off ".enforceCountFromHistory";
@@ -17491,19 +17497,19 @@ createNode nRigid -name "nRigidShape2" -parent "nRigid2";
 	setAttr -keyable on ".lifespan" 1;
 	setAttr ".lifespanPP0" -type "doubleArray" 0 ;
 createNode lightLinker -shared -name "lightLinker1";
-	rename -uuid "F677E089-45B8-E574-B9B8-46ABB61B8318";
+	rename -uuid "149D2CC3-49E1-3A30-BE60-DEAA98426DE4";
 	setAttr -size 48 ".link";
 	setAttr -size 48 ".shadowLink";
 createNode shapeEditorManager -name "shapeEditorManager";
-	rename -uuid "81C611F3-4980-92E4-C449-07AEFD38182C";
+	rename -uuid "AA07DE63-4029-1C85-3973-3C90B545DDDC";
 createNode poseInterpolatorManager -name "poseInterpolatorManager";
-	rename -uuid "0BCC4E08-4764-1B57-C965-A988500FF051";
+	rename -uuid "FCE1E73A-4ABE-2CEF-5825-B5950CCAC999";
 createNode displayLayerManager -name "layerManager";
-	rename -uuid "B9935FA0-4EDC-BDBD-111B-37B68A1E5481";
+	rename -uuid "5F968B22-46D2-0C36-170B-89B7DAD644EE";
 createNode displayLayer -name "defaultLayer";
 	rename -uuid "235A8AFA-4C1F-2576-4588-339B8A89EBAE";
 createNode renderLayerManager -name "renderLayerManager";
-	rename -uuid "B383DCDD-43F2-2D9A-477D-B59378303616";
+	rename -uuid "2A25B0B7-4075-871F-4F29-A0B299C3B19B";
 createNode renderLayer -name "defaultRenderLayer";
 	rename -uuid "C5839BD5-49A4-94B6-B8E7-A499BC74423A";
 	setAttr ".global" yes;
@@ -17560,9 +17566,10 @@ createNode script -name "sceneConfigurationScriptNode";
 createNode rigidSolver -name "rigidSolver";
 	rename -uuid "7553B169-4BEB-0C48-BAF0-44880E32A4C4";
 	setAttr ".startTime" 1;
-	setAttr -size 6 ".translate[3:5]" -type "double3" 0 347.16226371728089 
-		0 -3.8139525767040263 4.8390575240538558 0.56409151985302142 -4.3465094392820331 
-		3.1950837517521875 0;
+	setAttr -size 4 ".translate";
+	setAttr ".translate[3]" -type "double3" 0 347.16226371728089 0 ;
+	setAttr ".translate[4]" -type "double3" -3.8139525767040263 4.8390575240538558 0.56409151985302142 ;
+	setAttr ".translate[5]" -type "double3" -4.3465094392820331 3.1950837517521875 0 ;
 	setAttr ".current" yes;
 createNode expression -name "FireworksRocketSelectHandleExpr";
 	rename -uuid "6DC3C848-45FB-0EC7-EAFE-E2A3EDF133DC";
@@ -18434,8 +18441,8 @@ createNode groupParts -name "groupParts6";
 	setAttr ".isHistoricallyInteresting" 0;
 	setAttr ".inputComponents" -type "componentList" 1 "vtx[6:8]";
 select -noExpand :time1;
-	setAttr ".outTime" 127;
-	setAttr ".unwarpedTime" 127;
+	setAttr ".outTime" 1;
+	setAttr ".unwarpedTime" 1;
 select -noExpand :hardwareRenderingGlobals;
 	setAttr ".objectTypeFilterNameArray" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".objectTypeFilterValueArray" -type "Int32Array" 22 0 1 1
@@ -18962,11 +18969,11 @@ connectAttr "nurbsTessellate3.outputPolygon" "extrudedSurfaceShape1.inMesh";
 connectAttr ":time1.outTime" "nucleus4.currentTime";
 connectAttr "hairSystemShape3.currentState" "nucleus4.inputActive[0]";
 connectAttr "hairSystemShape3.startState" "nucleus4.inputActiveStart[0]";
-connectAttr "follicleShape3.outCurve" "curveShape6.create";
 connectAttr "rebuildCurve3.outputCurve" "curve6rebuiltCurveShape1.create";
 connectAttr "curve6rebuiltCurveShape1.local" "follicleShape3.startPosition";
 connectAttr "curve6.worldMatrix" "follicleShape3.startPositionMatrix";
 connectAttr "hairSystemShape3.outputHair[0]" "follicleShape3.currentPosition";
+connectAttr "follicleShape3.outCurve" "curveShape6.create";
 connectAttr ":time1.outTime" "hairSystemShape3.currentTime";
 connectAttr "nucleus4.outputObjects[0]" "hairSystemShape3.nextState";
 connectAttr "nucleus4.startFrame" "hairSystemShape3.startFrame";
