@@ -1,6 +1,6 @@
 //Maya ASCII 2020 scene
 //Name: firk work.ma
-//Last modified: Tue, Sep 21, 2021 11:51:40 AM
+//Last modified: Tue, Sep 21, 2021 03:54:37 PM
 //Codeset: 1252
 requires maya "2020";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiStandardSurface"
@@ -11,22 +11,22 @@ fileInfo "product" "Maya 2020";
 fileInfo "version" "2020";
 fileInfo "cutIdentifier" "201911140446-42a737a01c";
 fileInfo "osv" "Microsoft Windows 10 Technical Preview  (Build 19042)\n";
-fileInfo "UUID" "3AA16635-42AC-7698-D874-A799608B7760";
+fileInfo "UUID" "EBC4EB17-4698-3CC8-2E69-E2995857CABA";
 fileInfo "license" "student";
 createNode transform -shared -name "persp";
 	rename -uuid "02115EB2-466C-F2A4-D6D7-FC82399F3EC8";
 	setAttr ".visibility" no;
-	setAttr ".translate" -type "double3" -33.676494391613176 7.0243087532324298 -2.9463116549449069 ;
-	setAttr ".rotate" -type "double3" -11.738352729599784 -95.000000000000043 0 ;
+	setAttr ".translate" -type "double3" -5.4562310647752783 10.528933162257539 46.56397000170503 ;
+	setAttr ".rotate" -type "double3" -2.7383527296008432 -8.6000000000010228 0 ;
 createNode camera -shared -name "perspShape" -parent "persp";
 	rename -uuid "4EC354F6-4915-FF81-11D6-ED916F49BAD7";
 	setAttr -keyable off ".visibility" no;
 	setAttr ".focalLength" 34.999999999999993;
-	setAttr ".centerOfInterest" 34.527205668203727;
+	setAttr ".centerOfInterest" 46.129426906099496;
 	setAttr ".imageName" -type "string" "persp";
 	setAttr ".depthName" -type "string" "persp_depth";
 	setAttr ".maskName" -type "string" "persp_mask";
-	setAttr ".tumblePivot" -type "double3" -1.1920928955078125e-07 0 -1.7881393432617188e-07 ;
+	setAttr ".tumblePivot" -type "double3" 1.4338719585031043 8.3250961744514349 1.0052868606725629 ;
 	setAttr ".homeCommand" -type "string" "viewSet -p %camera";
 	setAttr ".aiTranslator" -type "string" "perspective";
 createNode transform -shared -name "top";
@@ -86,9 +86,11 @@ createNode pointEmitter -name "rocket_emitter1";
 	setAttr ".rate" 1;
 	setAttr ".scaleRateByObjectSize" no;
 	setAttr -lock on ".useRatePP";
-	setAttr ".direction" -type "double3" 1 4.9450549389143568 0 ;
-	setAttr ".speedRandom" 1.1538461524133499;
-	setAttr ".alongAxis" 2.5274725305428216;
+	setAttr ".direction" -type "double3" 0 5.8241758231523928 0 ;
+	setAttr ".speed" 0.82417582315239279;
+	setAttr ".speedRandom" 0.43956044211901807;
+	setAttr ".awayFromCenter" 0.989010987782871;
+	setAttr ".alongAxis" 4.9450549389143568;
 	setAttr ".randomDirection" 0.010989011285806096;
 createNode transform -name "rocket_particle1";
 	rename -uuid "5E80F363-44DC-22AF-4660-38ABD34AB117";
@@ -125,6 +127,18 @@ createNode particle -name "rocket_particleShape1" -parent "rocket_particle1";
 		-longName "burstemitter1RemainderPP" -dataType "doubleArray";
 	addAttr -cachedInternally true -hidden true -shortName "burstemitter1RemainderPP0" 
 		-longName "burstemitter1RemainderPP0" -dataType "doubleArray";
+	addAttr -storable false -cachedInternally true -shortName "ageNormalized" -longName "ageNormalized" 
+		-dataType "doubleArray";
+	addAttr -cachedInternally true -hidden true -shortName "ageNormalized0" -longName "ageNormalized0" 
+		-dataType "doubleArray";
+	addAttr -storable false -cachedInternally true -shortName "emitter1RatePP" -longName "emitter1RatePP" 
+		-dataType "doubleArray";
+	addAttr -cachedInternally true -hidden true -shortName "emitter1RatePP0" -longName "emitter1RatePP0" 
+		-dataType "doubleArray";
+	addAttr -storable false -cachedInternally true -hidden true -shortName "emitter1RemainderPP" 
+		-longName "emitter1RemainderPP" -dataType "doubleArray";
+	addAttr -cachedInternally true -hidden true -shortName "emitter1RemainderPP0" -longName "emitter1RemainderPP0" 
+		-dataType "doubleArray";
 	setAttr -keyable off ".visibility";
 	setAttr ".ghostFrames" -type "Int32Array" 0 ;
 	setAttr ".position0" -type "vectorArray" 0 ;
@@ -134,35 +148,45 @@ createNode particle -name "rocket_particleShape1" -parent "rocket_particle1";
 	setAttr ".startupCachePath" -type "string" "firk work_startup";
 	setAttr ".mass0" -type "doubleArray" 0 ;
 	setAttr ".particleId0" -type "doubleArray" 0 ;
-	setAttr ".nextId" 2;
+	setAttr ".nextId" 3;
 	setAttr ".birthTime0" -type "doubleArray" 0 ;
 	setAttr ".age0" -type "doubleArray" 0 ;
 	setAttr ".lifespanMode" 2;
-	setAttr ".lifespanRandom" 0.5;
+	setAttr ".lifespanRandom" 1;
 	setAttr ".internalRuntimeBeforeDynamicsExpression" -type "string" "";
 	setAttr ".internalRuntimeAfterDynamicsExpression" -type "string" "";
-	setAttr ".internalCreationExpression" -type "string" "";
-	setAttr ".currentTimeSave" 55;
-	setAttr ".currentSceneTime" 55;
-	setAttr ".particleRenderType" 4;
+	setAttr ".internalCreationExpression" -type "string" ".O[0]=rand(150,700);";
+	setAttr ".currentTimeSave" 95;
+	setAttr ".currentSceneTime" 95;
 	setAttr ".lifespanPP0" -type "doubleArray" 0 ;
-	setAttr -keyable on ".lifespan" 1;
-	setAttr ".colorAccum" yes;
-	setAttr -keyable on ".radius" 0.1111111119389534;
+	setAttr -keyable on ".lifespan" 2;
+	setAttr -keyable on ".colorAccum" yes;
+	setAttr -keyable on ".useLighting";
+	setAttr -keyable on ".pointSize";
+	setAttr -keyable on ".normalDir";
+	setAttr ".radius" 0.1111111119389534;
 	setAttr ".trail_emitter1RatePP0" -type "doubleArray" 0 ;
 	setAttr ".trail_emitter1RemainderPP0" -type "doubleArray" 0 ;
 	setAttr ".burstemitter1RatePP0" -type "doubleArray" 0 ;
 	setAttr ".burstemitter1RemainderPP0" -type "doubleArray" 0 ;
+	setAttr ".ageNormalized0" -type "doubleArray" 0 ;
+	setAttr ".emitter1RatePP0" -type "doubleArray" 0 ;
+	setAttr ".emitter1RemainderPP0" -type "doubleArray" 0 ;
 createNode pointEmitter -name "trail_emitter1" -parent "rocket_particle1";
 	rename -uuid "DD51C922-41ED-CBF8-D24C-7480F1C66CDF";
-	setAttr ".rate" 41.208791157619636;
+	setAttr ".rate" 24.725274694571784;
 	setAttr ".scaleRateByObjectSize" no;
 	setAttr ".useRatePP" yes;
-	setAttr ".speedRandom" 0.43956044211901807;
-createNode pointEmitter -name "burstemitter1" -parent "rocket_particle1";
-	rename -uuid "CB691061-48FE-3024-A1D4-94B98FB2AC37";
+	setAttr ".speed" 0.38461538103337473;
+	setAttr ".speedRandom" 0.21978021640289616;
+createNode pointEmitter -name "emitter1" -parent "rocket_particle1";
+	rename -uuid "40B1846D-48B6-0B5F-A350-649CA77C7C95";
+	setAttr ".rate" 74.175824083715355;
 	setAttr ".scaleRateByObjectSize" no;
+	setAttr ".scaleRateBySpeed" yes;
 	setAttr ".useRatePP" yes;
+	setAttr ".speed" 3.7362637347285892;
+	setAttr ".speedRandom" 1.0439560395552889;
 createNode transform -name "trail_nParticle1";
 	rename -uuid "4A965776-4875-F2F1-E248-EC999FA01811";
 createNode nParticle -name "trail_nParticleShape1" -parent "trail_nParticle1";
@@ -195,15 +219,16 @@ createNode nParticle -name "trail_nParticleShape1" -parent "trail_nParticle1";
 	setAttr ".acceleration0" -type "vectorArray" 0 ;
 	setAttr ".mass0" -type "doubleArray" 0 ;
 	setAttr ".particleId0" -type "doubleArray" 0 ;
+	setAttr ".nextId" 955;
 	setAttr ".birthTime0" -type "doubleArray" 0 ;
 	setAttr ".age0" -type "doubleArray" 0 ;
 	setAttr ".lifespanMode" 2;
-	setAttr ".lifespanRandom" 0.5;
+	setAttr ".lifespanRandom" 0.3;
 	setAttr ".internalRuntimeBeforeDynamicsExpression" -type "string" "";
 	setAttr ".internalRuntimeAfterDynamicsExpression" -type "string" "";
 	setAttr ".internalCreationExpression" -type "string" "";
-	setAttr ".currentTimeSave" 55;
-	setAttr ".currentSceneTime" 55;
+	setAttr ".currentTimeSave" 95;
+	setAttr ".currentSceneTime" 95;
 	setAttr ".depthSort" yes;
 	setAttr ".particleRenderType" 6;
 	setAttr ".friction" 0;
@@ -233,7 +258,7 @@ createNode nParticle -name "trail_nParticleShape1" -parent "trail_nParticle1";
 	setAttr ".incandescence[0].incandescence_Color" -type "float3" 0 0 0 ;
 	setAttr ".incandescence[0].incandescence_Interp" 1;
 	setAttr ".lifespanPP0" -type "doubleArray" 0 ;
-	setAttr -keyable on ".lifespan" 1;
+	setAttr -keyable on ".lifespan" 0.5;
 	setAttr ".opacityPP0" -type "doubleArray" 0 ;
 	setAttr -keyable on ".colorAccum";
 	setAttr -keyable on ".useLighting";
@@ -243,22 +268,30 @@ createNode nParticle -name "trail_nParticleShape1" -parent "trail_nParticle1";
 	setAttr -keyable on ".normalDir";
 createNode nucleus -name "nucleus1";
 	rename -uuid "3D7388A4-4CAC-9474-DB1E-EA8AE6F61E16";
-	setAttr -size 2 ".inputActive";
-	setAttr -size 2 ".inputActiveStart";
-	setAttr -size 2 ".outputObjects";
-createNode transform -name "burstnParticle1";
-	rename -uuid "7C4B3F31-4F27-5756-20CD-81B3099F8E20";
-createNode nParticle -name "burstnParticleShape1" -parent "burstnParticle1";
-	rename -uuid "C1468348-4ED5-9783-AE7E-44B6B0517DA5";
+	setAttr ".usePlane" yes;
+createNode turbulenceField -name "turbulenceField1";
+	rename -uuid "B55FBC1C-4C11-F6E9-0664-21885293208D";
+	setAttr ".magnitude" 17.582417498496213;
+	setAttr ".attenuation" 0.13736263874426977;
+	setAttr ".falloffCurve[0]"  0 1 1;
+	setAttr ".axialMagnitude[0]"  0 1 1;
+	setAttr ".curveRadius[0]"  0 1 1;
+createNode turbulenceField -name "turbulenceField2";
+	rename -uuid "28864A19-4C00-29D1-0319-9883970E2C72";
+	setAttr ".magnitude" -2.1978022571612144;
+	setAttr ".attenuation" 0.24725274694571783;
+	setAttr ".falloffCurve[0]"  0 1 1;
+	setAttr ".axialMagnitude[0]"  0 1 1;
+	setAttr ".curveRadius[0]"  0 1 1;
+createNode transform -name "particle1";
+	rename -uuid "3166ADDB-4BB4-54A6-6B81-0EA0444A626B";
+createNode particle -name "particleShape1" -parent "particle1";
+	rename -uuid "82E4E524-4B77-5631-CDA6-119C7A8CF675";
 	addAttr -storable false -cachedInternally true -shortName "lifespanPP" -longName "lifespanPP" 
 		-dataType "doubleArray";
 	addAttr -cachedInternally true -hidden true -shortName "lifespanPP0" -longName "lifespanPP0" 
 		-dataType "doubleArray";
 	addAttr -cachedInternally true -shortName "lifespan" -longName "lifespan" -attributeType "double";
-	addAttr -storable false -cachedInternally true -shortName "opacityPP" -longName "opacityPP" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "opacityPP0" -longName "opacityPP0" 
-		-dataType "doubleArray";
 	addAttr -internalSet true -cachedInternally true -shortName "colorAccum" -longName "colorAccum" 
 		-minValue 0 -maxValue 1 -attributeType "bool";
 	addAttr -internalSet true -cachedInternally true -shortName "useLighting" -longName "useLighting" 
@@ -276,68 +309,44 @@ createNode nParticle -name "burstnParticleShape1" -parent "burstnParticle1";
 	setAttr ".position0" -type "vectorArray" 0 ;
 	setAttr ".velocity0" -type "vectorArray" 0 ;
 	setAttr ".acceleration0" -type "vectorArray" 0 ;
+	setAttr ".useStartupCache" yes;
+	setAttr ".startupCachePath" -type "string" "firk work_startup";
 	setAttr ".mass0" -type "doubleArray" 0 ;
 	setAttr ".particleId0" -type "doubleArray" 0 ;
+	setAttr ".nextId" 206;
 	setAttr ".birthTime0" -type "doubleArray" 0 ;
 	setAttr ".age0" -type "doubleArray" 0 ;
 	setAttr ".lifespanMode" 2;
-	setAttr ".lifespanRandom" 0.5;
+	setAttr ".lifespanRandom" 1;
 	setAttr ".internalRuntimeBeforeDynamicsExpression" -type "string" "";
 	setAttr ".internalRuntimeAfterDynamicsExpression" -type "string" "";
 	setAttr ".internalCreationExpression" -type "string" "";
-	setAttr ".currentTimeSave" 55;
-	setAttr ".currentSceneTime" 55;
+	setAttr ".currentTimeSave" 95;
+	setAttr ".currentSceneTime" 95;
+	setAttr ".depthSort" yes;
 	setAttr ".particleRenderType" 6;
-	setAttr ".friction" 0;
-	setAttr ".collisionFlag" 1;
-	setAttr ".selfCollide" no;
-	setAttr -size 2 ".fieldScale[0:1]"  0 1 1 1 0 1;
-	setAttr -size 2 ".pointFieldDropoff[0:1]"  0 1 1 1 0 1;
-	setAttr ".drag" 0;
-	setAttr ".enableSPH" yes;
-	setAttr ".viscosityScale[0]"  0 1 1;
-	setAttr ".surfaceTensionScale[0]"  0 1 1;
-	setAttr ".threshold" 0.6;
-	setAttr ".radiusScale[0]"  0 1 1;
-	setAttr ".massScale[0]"  0 1 1;
-	setAttr ".pointFieldScale[0]"  0 1 1;
-	setAttr ".frictionScale[0]"  0 1 1;
-	setAttr ".stickinessScale[0]"  0 1 1;
-	setAttr ".collideStrengthScale[0]"  0 1 1;
-	setAttr ".bounceScale[0]"  0 1 1;
-	setAttr ".opacity" 0.3;
-	setAttr ".opacityScale[0]"  0 1 0;
-	setAttr ".opacityScaleInput" 1;
-	setAttr ".color[0].color_Position" 0;
-	setAttr ".color[0].color_Color" -type "float3" 0.5 0.69999999 1 ;
-	setAttr ".color[0].color_Interp" 0;
-	setAttr ".colorInputMax" 0;
-	setAttr ".incandescence[0].incandescence_Position" 0;
-	setAttr ".incandescence[0].incandescence_Color" -type "float3" 0 0 0 ;
-	setAttr ".incandescence[0].incandescence_Interp" 0;
 	setAttr ".lifespanPP0" -type "doubleArray" 0 ;
 	setAttr -keyable on ".lifespan" 2;
-	setAttr ".opacityPP0" -type "doubleArray" 0 ;
-	setAttr -keyable on ".colorAccum";
-	setAttr -keyable on ".useLighting";
-	setAttr -keyable on ".lineWidth";
-	setAttr -keyable on ".tailFade";
-	setAttr -keyable on ".tailSize";
-	setAttr -keyable on ".normalDir";
+	setAttr -keyable on ".colorAccum" yes;
+	setAttr -keyable on ".useLighting" yes;
+	setAttr -keyable on ".lineWidth" 3;
+	setAttr -keyable on ".tailFade" -1;
+	setAttr -keyable on ".tailSize" -11.111110687255859;
+	setAttr -keyable on ".normalDir" 1;
 createNode lightLinker -shared -name "lightLinker1";
-	rename -uuid "409D3B48-4D48-5EDC-CD1E-56B62AED3FEE";
-	setAttr -size 7 ".link";
-	setAttr -size 7 ".shadowLink";
+	rename -uuid "23718FA7-43CB-2A34-7FD8-75A4A17720CE";
+	setAttr -size 9 ".link";
+	setAttr -size 9 ".shadowLink";
 createNode shapeEditorManager -name "shapeEditorManager";
-	rename -uuid "B7156D96-4668-D7CC-22D2-389D4472FC33";
+	rename -uuid "93E97BF1-434E-EC5E-AE1C-C5A4CEE57EA1";
 createNode poseInterpolatorManager -name "poseInterpolatorManager";
-	rename -uuid "CDCFB0D9-43E3-2383-95BF-D3B0D94EC9E1";
+	rename -uuid "0738DC00-4C4F-A75E-A756-BE8CA79B613F";
 createNode displayLayerManager -name "layerManager";
-	rename -uuid "ABEE1D9C-473C-2CAE-A158-58A3593685F4";
+	rename -uuid "98CA26F9-412C-114C-B0D0-5E9F5F7487FA";
 createNode displayLayer -name "defaultLayer";
 	rename -uuid "915C89BE-436F-6178-80B3-3EBC3608C18B";
 createNode renderLayerManager -name "renderLayerManager";
-	rename -uuid "A450ACE8-428F-5CCF-0A32-EF9CD074FA8F";
+	rename -uuid "AFAE21CA-42B0-B18C-5D9E-ADB9EAEB3795";
 createNode renderLayer -name "defaultRenderLayer";
 	rename -uuid "D2DA5F98-4A01-D5FD-294D-BABDFAD1A86C";
 	setAttr ".global" yes;
@@ -402,10 +411,11 @@ createNode materialInfo -name "materialInfo4";
 	rename -uuid "645B2424-437C-B435-D052-68B9F4315AB2";
 createNode standardSurface -name "standardSurface2";
 	rename -uuid "FB60F82A-4622-5D7E-26A0-5DA699A2F4A4";
+	setAttr ".emission" 0.66233766078948975;
+	setAttr ".emissionColor" -type "float3" 1 1 0 ;
 createNode shadingEngine -name "standardSurface2SG";
 	rename -uuid "512B267E-4822-C0A4-E28D-B489EE60AD68";
 	setAttr ".isHistoricallyInteresting" 0;
-	setAttr -size 2 ".dagSetMembers";
 	setAttr ".renderableOnlySet" yes;
 createNode materialInfo -name "materialInfo5";
 	rename -uuid "F67DC5E7-4C43-1C71-0339-5CA58BD4CBEF";
@@ -429,7 +439,7 @@ createNode script -name "uiConfigurationScriptNode";
 		+ "            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n"
 		+ "            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -selectCommand \"<function selCom at 0x7f29c5c04aa0>\" \n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n"
-		+ "            -transmitFilters 0\n            -setFilter \"0\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n"
+		+ "            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"graphEditor\" (localizedPanelLabel(\"Graph Editor\")) `;\n"
 		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Graph Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"OutlineEd\");\n            outlinerEditor -e \n                -showShapes 1\n                -showAssignedMaterials 0\n                -showTimeEditor 1\n                -showReferenceNodes 0\n                -showReferenceMembers 0\n                -showAttributes 1\n                -showConnected 1\n                -showAnimCurvesOnly 1\n                -showMuteInfo 0\n                -organizeByLayer 1\n                -organizeByClip 1\n                -showAnimLayerWeight 1\n                -autoExpandLayers 1\n                -autoExpand 1\n                -showDagOnly 0\n                -showAssets 1\n                -showContainedOnly 0\n                -showPublishedAsConnected 0\n                -showParentContainers 0\n                -showContainerContents 0\n                -ignoreDagHierarchy 0\n                -expandConnections 1\n"
 		+ "                -showUpstreamCurves 1\n                -showUnitlessCurves 1\n                -showCompounds 0\n                -showLeafs 1\n                -showNumericAttrsOnly 1\n                -highlightActive 0\n                -autoSelectNewObjects 1\n                -doNotSelectNewObjects 0\n                -dropIsParent 1\n                -transmitFilters 1\n                -setFilter \"0\" \n                -showSetMembers 0\n                -allowMultiSelection 1\n                -alwaysToggleSelect 0\n                -directSelect 0\n                -displayMode \"DAG\" \n                -expandObjects 0\n                -setsIgnoreFilters 1\n                -containersIgnoreFilters 0\n                -editAttrName 0\n                -showAttrValues 0\n                -highlightSecondary 0\n                -showUVAttrsOnly 0\n                -showTextureNodesOnly 0\n                -attrAlphaOrder \"default\" \n                -animLayerFilterOptions \"allAffecting\" \n                -sortOrder \"none\" \n                -longNames 0\n"
 		+ "                -niceNames 1\n                -showNamespace 1\n                -showPinIcons 1\n                -mapMotionTrails 1\n                -ignoreHiddenAttribute 0\n                -ignoreOutlinerColor 0\n                -renderFilterVisible 0\n                $editorName;\n\n\t\t\t$editorName = ($panelName+\"GraphEd\");\n            animCurveEditor -e \n                -displayValues 0\n                -snapTime \"integer\" \n                -snapValue \"none\" \n                -showPlayRangeShades \"off\" \n                -lockPlayRangeShades \"off\" \n                -smoothness \"fine\" \n                -resultSamples 1\n                -resultScreenSamples 0\n                -resultUpdate \"delayed\" \n                -showUpstreamCurves 1\n                -stackedCurvesMin -1\n                -stackedCurvesMax 1\n                -stackedCurvesSpace 0.2\n                -preSelectionHighlight 0\n                -constrainDrag 0\n                -valueLinesToggle 0\n                -highlightAffectedCurves 0\n                $editorName;\n"
@@ -456,9 +466,61 @@ createNode script -name "sceneConfigurationScriptNode";
 	rename -uuid "E829D1A5-4C26-7E34-F87E-9C82EDCFB99B";
 	setAttr ".before" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 200 ";
 	setAttr ".scriptType" 6;
+createNode expression -name "expression1";
+	rename -uuid "3625B617-4997-6D34-0F6E-A7A7D6B583FE";
+	setAttr -keyable on ".nodeState";
+	setAttr ".internalExpression" -type "string" ".O[0]=time";
+createNode arrayMapper -name "arrayMapper1";
+	rename -uuid "B98A693C-4300-DA7D-EDC1-58B2A7626BBF";
+	setAttr ".maxValue" 1000;
+createNode ramp -name "ramp1";
+	rename -uuid "6359F16F-47AC-6092-7B04-40A5071D789E";
+	setAttr -size 2 ".colorEntryList";
+	setAttr ".colorEntryList[0].position" 1;
+	setAttr ".colorEntryList[0].color" -type "float3" 1 1 1 ;
+	setAttr ".colorEntryList[2].position" 0.94311374425888062;
+	setAttr ".colorEntryList[2].color" -type "float3" 0 0 0 ;
+createNode aiStandardSurface -name "aiStandardSurface2";
+	rename -uuid "04A0279C-4D07-6DB3-8F63-B189CFAF7493";
+	setAttr ".base" 1;
+	setAttr ".baseColor" -type "float3" 0.0094786882 0.071090102 1 ;
+	setAttr ".emission" 1;
+	setAttr ".emissionColor" -type "float3" 0.0094786882 0.071090102 1 ;
+createNode shadingEngine -name "aiStandardSurface2SG";
+	rename -uuid "36E8DA62-43ED-A9CE-692F-3E9980BD8A72";
+	setAttr ".isHistoricallyInteresting" 0;
+	setAttr ".renderableOnlySet" yes;
+createNode materialInfo -name "materialInfo6";
+	rename -uuid "D603CD64-43F4-BCCE-890F-6CB7C805B922";
+createNode shadingEngine -name "standardSurface1SG";
+	rename -uuid "47CBEB3E-4C57-6C46-A99C-A7A044858CC7";
+	setAttr ".isHistoricallyInteresting" 0;
+	setAttr ".renderableOnlySet" yes;
+createNode materialInfo -name "materialInfo7";
+	rename -uuid "5ED5BFFD-4A16-8FD5-AAC7-0DA46A943C6C";
+createNode arrayMapper -name "arrayMapper2";
+	rename -uuid "56017AB1-4470-FC1B-0C36-23B5BC33C3A7";
+	setAttr ".maxValue" 1000;
+createNode ramp -name "ramp2";
+	rename -uuid "34D02370-4057-BFBF-5A1A-9EAFE5AF8352";
+	setAttr -size 2 ".colorEntryList";
+	setAttr ".colorEntryList[0].position" 0.94910180568695068;
+	setAttr ".colorEntryList[0].color" -type "float3" 1 1 1 ;
+	setAttr ".colorEntryList[2].position" 0.89520961046218872;
+	setAttr ".colorEntryList[2].color" -type "float3" 0 0 0 ;
+createNode arrayMapper -name "arrayMapper3";
+	rename -uuid "337262B9-4938-651B-E208-16A5B5151B16";
+	setAttr ".maxValue" 1000;
+createNode ramp -name "ramp3";
+	rename -uuid "84C30773-4C48-A9E9-8310-B5B19FE107DB";
+	setAttr -size 2 ".colorEntryList";
+	setAttr ".colorEntryList[0].position" 1;
+	setAttr ".colorEntryList[0].color" -type "float3" 1 1 1 ;
+	setAttr ".colorEntryList[2].position" 0.97005987167358398;
+	setAttr ".colorEntryList[2].color" -type "float3" 0 0 0 ;
 select -noExpand :time1;
-	setAttr ".outTime" 55;
-	setAttr ".unwarpedTime" 55;
+	setAttr ".outTime" 95;
+	setAttr ".unwarpedTime" 95;
 select -noExpand :hardwareRenderingGlobals;
 	setAttr ".objectTypeFilterNameArray" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".objectTypeFilterValueArray" -type "Int32Array" 22 0 1 1
@@ -466,13 +528,22 @@ select -noExpand :hardwareRenderingGlobals;
 		 0 0 0 0 0 0 0 ;
 	setAttr ".floatingPointRTEnable" yes;
 select -noExpand :renderPartition;
-	setAttr -size 7 ".sets";
+	setAttr -size 9 ".sets";
 select -noExpand :renderGlobalsList1;
 select -noExpand :defaultShaderList1;
-	setAttr -size 11 ".shaders";
+	setAttr -size 12 ".shaders";
 select -noExpand :postProcessList1;
 	setAttr -size 2 ".postProcesses";
 select -noExpand :defaultRenderingList1;
+select -noExpand :defaultTextureList1;
+	setAttr -size 3 ".textures";
+select -noExpand :standardSurface1;
+	setAttr ".base" 1;
+	setAttr ".baseColor" -type "float3" 1 0 0 ;
+	setAttr ".specular" 0.16233766078948975;
+	setAttr ".specularColor" -type "float3" 1 0.0090000033 0.0090000033 ;
+	setAttr ".emission" 1;
+	setAttr ".emissionColor" -type "float3" 1 0.0090000033 0.0090000033 ;
 select -noExpand :particleCloud1;
 	setAttr ".color" -type "float3" 0 0 0 ;
 	setAttr ".transparency" -type "float3" 0 0 0 ;
@@ -499,6 +570,13 @@ connectAttr "rocket_particleShape1.startTime" "rocket_emitter1.startTime[0]";
 connectAttr "rocket_particleShape1.seed[0]" "rocket_emitter1.seed[0]";
 connectAttr ":time1.outTime" "rocket_particleShape1.currentTime";
 connectAttr "rocket_emitter1.output[0]" "rocket_particleShape1.newParticles[0]";
+connectAttr "rocket_particleShape1.output[0]" "rocket_particleShape1.trail_emitter1RatePP"
+		;
+connectAttr "turbulenceField2.outputForce[0]" "rocket_particleShape1.inputForce[0]"
+		;
+connectAttr "arrayMapper2.outValuePP" "rocket_particleShape1.burstemitter1RatePP"
+		;
+connectAttr "arrayMapper3.outValuePP" "rocket_particleShape1.emitter1RatePP";
 connectAttr ":time1.outTime" "trail_emitter1.currentTime";
 connectAttr "rocket_particleShape1.cachedWorldCentroid" "trail_emitter1.ownerCentroid"
 		;
@@ -518,23 +596,20 @@ connectAttr "rocket_particleShape1.trail_emitter1RatePP" "trail_emitter1.ratePP"
 		;
 connectAttr "rocket_particleShape1.trail_emitter1RemainderPP" "trail_emitter1.emitCountRemainder[0]"
 		;
-connectAttr ":time1.outTime" "burstemitter1.currentTime";
-connectAttr "rocket_particleShape1.cachedWorldCentroid" "burstemitter1.ownerCentroid"
+connectAttr ":time1.outTime" "emitter1.currentTime";
+connectAttr "rocket_particleShape1.cachedWorldCentroid" "emitter1.ownerCentroid"
 		;
-connectAttr "rocket_particleShape1.centroid" "burstemitter1.translate";
-connectAttr "rocket_particleShape1.cachedWorldPosition" "burstemitter1.ownerPosData"
-		;
-connectAttr "rocket_particleShape1.cachedWorldVelocity" "burstemitter1.ownerVelData"
-		;
-connectAttr "rocket_particleShape1.particleId" "burstemitter1.parentId";
-connectAttr "burstnParticleShape1.isFull" "burstemitter1.isFull[0]";
-connectAttr "burstnParticleShape1.timeStepSize" "burstemitter1.deltaTime[0]";
-connectAttr "burstnParticleShape1.inheritFactor" "burstemitter1.inheritFactor[0]"
-		;
-connectAttr "burstnParticleShape1.startTime" "burstemitter1.startTime[0]";
-connectAttr "burstnParticleShape1.seed[0]" "burstemitter1.seed[0]";
-connectAttr "rocket_particleShape1.burstemitter1RatePP" "burstemitter1.ratePP";
-connectAttr "rocket_particleShape1.burstemitter1RemainderPP" "burstemitter1.emitCountRemainder[0]"
+connectAttr "rocket_particleShape1.centroid" "emitter1.translate";
+connectAttr "rocket_particleShape1.cachedWorldPosition" "emitter1.ownerPosData";
+connectAttr "rocket_particleShape1.cachedWorldVelocity" "emitter1.ownerVelData";
+connectAttr "rocket_particleShape1.particleId" "emitter1.parentId";
+connectAttr "particleShape1.isFull" "emitter1.isFull[0]";
+connectAttr "particleShape1.timeStepSize" "emitter1.deltaTime[0]";
+connectAttr "particleShape1.inheritFactor" "emitter1.inheritFactor[0]";
+connectAttr "particleShape1.startTime" "emitter1.startTime[0]";
+connectAttr "particleShape1.seed[0]" "emitter1.seed[0]";
+connectAttr "rocket_particleShape1.emitter1RatePP" "emitter1.ratePP";
+connectAttr "rocket_particleShape1.emitter1RemainderPP" "emitter1.emitCountRemainder[0]"
 		;
 connectAttr ":time1.outTime" "trail_nParticleShape1.currentTime";
 connectAttr "nucleus1.outputObjects[0]" "trail_nParticleShape1.nextState";
@@ -542,17 +617,20 @@ connectAttr "nucleus1.startFrame" "trail_nParticleShape1.startFrame";
 connectAttr "trail_emitter1.output[0]" "trail_nParticleShape1.newParticles[0]";
 connectAttr "trail_nParticleShape1.internalOpacityRamp" "trail_nParticleShape1.opacityPP"
 		;
+connectAttr "turbulenceField1.outputForce[0]" "trail_nParticleShape1.inputForce[0]"
+		;
 connectAttr ":time1.outTime" "nucleus1.currentTime";
 connectAttr "trail_nParticleShape1.currentState" "nucleus1.inputActive[0]";
-connectAttr "burstnParticleShape1.currentState" "nucleus1.inputActive[1]";
 connectAttr "trail_nParticleShape1.startState" "nucleus1.inputActiveStart[0]";
-connectAttr "burstnParticleShape1.startState" "nucleus1.inputActiveStart[1]";
-connectAttr ":time1.outTime" "burstnParticleShape1.currentTime";
-connectAttr "nucleus1.outputObjects[1]" "burstnParticleShape1.nextState";
-connectAttr "nucleus1.startFrame" "burstnParticleShape1.startFrame";
-connectAttr "burstemitter1.output[0]" "burstnParticleShape1.newParticles[0]";
-connectAttr "burstnParticleShape1.internalOpacityRamp" "burstnParticleShape1.opacityPP"
+connectAttr "trail_nParticleShape1.fieldData" "turbulenceField1.inputData[0]";
+connectAttr "trail_nParticleShape1.ppFieldData[0]" "turbulenceField1.inputPPData[0]"
 		;
+connectAttr "expression1.output[0]" "turbulenceField1.phaseY";
+connectAttr "rocket_particleShape1.fieldData" "turbulenceField2.inputData[0]";
+connectAttr "rocket_particleShape1.ppFieldData[0]" "turbulenceField2.inputPPData[0]"
+		;
+connectAttr ":time1.outTime" "particleShape1.currentTime";
+connectAttr "emitter1.output[0]" "particleShape1.newParticles[0]";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "nParticleWaterSE.message" ":defaultLightSet.message";
@@ -560,6 +638,8 @@ relationship "link" ":lightLinker1" "particleCloud2SG.message" ":defaultLightSet
 relationship "link" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "aiStandardSurface1SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "standardSurface2SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "aiStandardSurface2SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "standardSurface1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "nParticleWaterSE.message" ":defaultLightSet.message";
@@ -567,6 +647,8 @@ relationship "shadowLink" ":lightLinker1" "particleCloud2SG.message" ":defaultLi
 relationship "shadowLink" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "aiStandardSurface1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "standardSurface2SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "aiStandardSurface2SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "standardSurface1SG.message" ":defaultLightSet.message";
 connectAttr "layerManager.displayLayerId[0]" "defaultLayer.identification";
 connectAttr "renderLayerManager.renderLayerId[0]" "defaultRenderLayer.identification"
 		;
@@ -601,17 +683,38 @@ connectAttr "aiStandardSurface1.message" "materialInfo4.texture" -nextAvailable;
 connectAttr "standardSurface2.outColor" "standardSurface2SG.surfaceShader";
 connectAttr "trail_nParticleShape1.instObjGroups" "standardSurface2SG.dagSetMembers"
 		 -nextAvailable;
-connectAttr "burstnParticleShape1.instObjGroups" "standardSurface2SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "standardSurface2SG.message" "materialInfo5.shadingGroup";
 connectAttr "standardSurface2.message" "materialInfo5.material";
 connectAttr "standardSurface2.message" "materialInfo5.texture" -nextAvailable;
+connectAttr ":time1.outTime" "expression1.time";
+connectAttr "ramp1.message" "arrayMapper1.computeNode";
+connectAttr "ramp1.outColor" "arrayMapper1.computeNodeColor";
+connectAttr "aiStandardSurface2.outColor" "aiStandardSurface2SG.surfaceShader";
+connectAttr "aiStandardSurface2SG.message" "materialInfo6.shadingGroup";
+connectAttr "aiStandardSurface2.message" "materialInfo6.material";
+connectAttr "aiStandardSurface2.message" "materialInfo6.texture" -nextAvailable;
+connectAttr ":standardSurface1.outColor" "standardSurface1SG.surfaceShader";
+connectAttr "particleShape1.instObjGroups" "standardSurface1SG.dagSetMembers" -nextAvailable
+		;
+connectAttr "standardSurface1SG.message" "materialInfo7.shadingGroup";
+connectAttr ":standardSurface1.message" "materialInfo7.material";
+connectAttr ":standardSurface1.message" "materialInfo7.texture" -nextAvailable;
+connectAttr "ramp2.message" "arrayMapper2.computeNode";
+connectAttr "ramp2.outColor" "arrayMapper2.computeNodeColor";
+connectAttr "rocket_particleShape1.ageNormalized" "arrayMapper2.vCoordPP";
+connectAttr "ramp3.message" "arrayMapper3.computeNode";
+connectAttr "ramp3.outColor" "arrayMapper3.computeNodeColor";
+connectAttr "rocket_particleShape1.ageNormalized" "arrayMapper3.vCoordPP";
 connectAttr "nParticleWaterSE.partition" ":renderPartition.sets" -nextAvailable;
 connectAttr "particleCloud2SG.partition" ":renderPartition.sets" -nextAvailable;
 connectAttr "lambert2SG.partition" ":renderPartition.sets" -nextAvailable;
 connectAttr "aiStandardSurface1SG.partition" ":renderPartition.sets" -nextAvailable
 		;
 connectAttr "standardSurface2SG.partition" ":renderPartition.sets" -nextAvailable
+		;
+connectAttr "aiStandardSurface2SG.partition" ":renderPartition.sets" -nextAvailable
+		;
+connectAttr "standardSurface1SG.partition" ":renderPartition.sets" -nextAvailable
 		;
 connectAttr "blinn1.message" ":defaultShaderList1.shaders" -nextAvailable;
 connectAttr "npWaterVolume.message" ":defaultShaderList1.shaders" -nextAvailable
@@ -623,8 +726,13 @@ connectAttr "aiStandardSurface1.message" ":defaultShaderList1.shaders" -nextAvai
 		;
 connectAttr "standardSurface2.message" ":defaultShaderList1.shaders" -nextAvailable
 		;
+connectAttr "aiStandardSurface2.message" ":defaultShaderList1.shaders" -nextAvailable
+		;
 connectAttr "defaultRenderLayer.message" ":defaultRenderingList1.rendering" -nextAvailable
 		;
+connectAttr "ramp1.message" ":defaultTextureList1.textures" -nextAvailable;
+connectAttr "ramp2.message" ":defaultTextureList1.textures" -nextAvailable;
+connectAttr "ramp3.message" ":defaultTextureList1.textures" -nextAvailable;
 connectAttr "rocket_particleShape1.instObjGroups" ":initialParticleSE.dagSetMembers"
 		 -nextAvailable;
 // End of firk work.ma
