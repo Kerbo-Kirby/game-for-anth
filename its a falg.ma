@@ -1,30 +1,29 @@
 //Maya ASCII 2020 scene
 //Name: its a falg.ma
-//Last modified: Mon, Sep 20, 2021 08:48:45 PM
+//Last modified: Thu, Sep 23, 2021 03:11:01 PM
 //Codeset: 1252
 requires maya "2020";
 requires "stereoCamera" "10.0";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiSkyDomeLight"
 		 -nodeType "aiStandardSurface" "mtoa" "4.0.0";
-requires "stereoCamera" "10.0";
 currentUnit -linear centimeter -angle degree -time film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2020";
 fileInfo "version" "2020";
 fileInfo "cutIdentifier" "201911140446-42a737a01c";
 fileInfo "osv" "Microsoft Windows 10 Technical Preview  (Build 19042)\n";
-fileInfo "UUID" "947F59FE-4C3B-62AF-8266-D8BE5CFE5041";
+fileInfo "UUID" "942AF50C-4E5F-83DB-929A-09AC6F8C06D3";
 fileInfo "license" "student";
 createNode transform -shared -name "persp";
 	rename -uuid "5F040074-4B60-D526-4372-69BD658DA021";
 	setAttr ".visibility" no;
-	setAttr ".translate" -type "double3" 9.8311259655109442 38.053101347868434 18.655365807333741 ;
-	setAttr ".rotate" -type "double3" -40.538352729873154 23.800000000004523 -3.4761692708685185e-15 ;
+	setAttr ".translate" -type "double3" 5.9205426357885838 2.186015238073959 21.944172350962724 ;
+	setAttr ".rotate" -type "double3" 8.6616472701259433 16.200000000005339 0 ;
 createNode camera -shared -name "perspShape" -parent "persp";
 	rename -uuid "72C9F691-4877-1F22-0771-C5906F45B625";
 	setAttr -keyable off ".visibility" no;
 	setAttr ".focalLength" 34.999999999999993;
-	setAttr ".centerOfInterest" 46.490979687589856;
+	setAttr ".centerOfInterest" 37.516509775357193;
 	setAttr ".imageName" -type "string" "persp";
 	setAttr ".depthName" -type "string" "persp_depth";
 	setAttr ".maskName" -type "string" "persp_mask";
@@ -82,3178 +81,6 @@ createNode camera -shared -name "sideShape" -parent "side";
 	setAttr ".homeCommand" -type "string" "viewSet -s %camera";
 	setAttr ".orthographic" yes;
 	setAttr ".aiTranslator" -type "string" "orthographic";
-createNode transform -name "Fireworks";
-	rename -uuid "448C3663-45AB-99DF-D9D6-B4980F414D2C";
-	addAttr -internalSet true -cachedInternally true -shortName "maxBurstSpeed" -longName "maxBurstSpeed" 
-		-defaultValue 20 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "minSparksCount" -longName "minSparksCount" 
-		-defaultValue 100 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "maxSparksCount" -longName "maxSparksCount" 
-		-defaultValue 200 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "sparksColorSpread" 
-		-longName "sparksColorSpread" -defaultValue 3 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "rocketGravity" -longName "rocketGravity" 
-		-defaultValue 9.8 -minValue 0 -attributeType "float";
-	addAttr -cachedInternally true -shortName "showAllBurstPositions" -longName "showAllBurstPositions" 
-		-minValue 0 -maxValue 1 -attributeType "bool";
-	addAttr -cachedInternally true -shortName "showAllLaunchPositions" -longName "showAllLaunchPositions" 
-		-minValue 0 -maxValue 1 -attributeType "bool";
-	addAttr -internalSet true -cachedInternally true -shortName "trailEmitRate" -longName "trailEmitRate" 
-		-defaultValue 150 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "trailEmitSpeed" -longName "trailEmitSpeed" 
-		-defaultValue 0.5 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "trailEmitSpread" -longName "trailEmitSpread" 
-		-defaultValue 0.5 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "trailMinTailSize" -longName "trailMinTailSize" 
-		-defaultValue 0.5 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "trailMaxTailSize" -longName "trailMaxTailSize" 
-		-defaultValue 2 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "trailGlow" -longName "trailGlow" 
-		-defaultValue 0.3 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "trailIncandescence" 
-		-longName "trailIncandescence" -defaultValue 0.25 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "sparksMinTailSize" 
-		-longName "sparksMinTailSize" -defaultValue 0.5 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "sparksMaxTailSize" 
-		-longName "sparksMaxTailSize" -defaultValue 2 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "sparksGlow" -longName "sparksGlow" 
-		-defaultValue 0.3 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "sparksIncandescence" 
-		-longName "sparksIncandescence" -defaultValue 0.25 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "displayGeometry" -longName "displayGeometry" 
-		-defaultValue 1 -minValue 0 -maxValue 1 -attributeType "bool";
-	setAttr ".translate" -type "double3" 1.1616933363423141 0.4204313015839341 -5.3063874039416232 ;
-	setAttr ".rotate" -type "double3" -16.486526449709167 0 0 ;
-	setAttr ".scale" -type "double3" 0.43904916317827686 0.43904916317827686 0.43904916317827686 ;
-	setAttr ".displayHandle" yes;
-	setAttr -keyable on ".maxBurstSpeed";
-	setAttr -keyable on ".minSparksCount";
-	setAttr -keyable on ".maxSparksCount";
-	setAttr -keyable on ".sparksColorSpread" 1;
-	setAttr -keyable on ".rocketGravity";
-	setAttr -keyable on ".showAllBurstPositions";
-	setAttr -keyable on ".showAllLaunchPositions";
-	setAttr -keyable on ".trailEmitRate" 50;
-	setAttr -keyable on ".trailEmitSpeed";
-	setAttr -keyable on ".trailEmitSpread";
-	setAttr -keyable on ".trailMinTailSize" 0.20000000298023224;
-	setAttr -keyable on ".trailMaxTailSize" 0.80000001192092896;
-	setAttr -keyable on ".trailGlow" 0.20000000298023224;
-	setAttr -keyable on ".trailIncandescence";
-	setAttr -keyable on ".sparksMinTailSize" 0.30000001192092896;
-	setAttr -keyable on ".sparksMaxTailSize" 1;
-	setAttr -keyable on ".sparksGlow" 0.20000000298023224;
-	setAttr -keyable on ".sparksIncandescence";
-	setAttr -keyable on ".displayGeometry";
-createNode transform -name "FireworksRocketsGroup" -parent "Fireworks";
-	rename -uuid "EFBE027C-439A-DB6A-07BA-729B6D1FCEE8";
-	setAttr ".translate" -type "double3" 2.52680968482851 -5.9606387655819795 -5.7496996523033669e-15 ;
-	setAttr ".scale" -type "double3" 4.6522181855006135 1.2624479966493256 1.0465986382448322 ;
-	setAttr ".rotatePivot" -type "double3" 0 0.7 0 ;
-	setAttr ".scalePivot" -type "double3" 0 0.7 0 ;
-createNode transform -name "FireworksRockets" -parent "FireworksRocketsGroup";
-	rename -uuid "64B6C6E8-4C5F-6DC4-5DD5-1CAEB5D1F001";
-	setAttr ".displayHandle" yes;
-createNode particle -name "FireworksRocketsShape" -parent "FireworksRockets";
-	rename -uuid "32EFE5C9-4C9F-39BD-CB7F-B199BEAB3CC7";
-	addAttr -storable false -cachedInternally true -shortName "lifespanPP" -longName "lifespanPP" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "lifespanPP0" -longName "lifespanPP0" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -shortName "lifespan" -longName "lifespan" -attributeType "double";
-	addAttr -cachedInternally true -hidden true -shortName "launchPositionPP0" -longName "launchPositionPP0" 
-		-dataType "vectorArray";
-	addAttr -storable false -cachedInternally true -shortName "launchPositionPP" -longName "launchPositionPP" 
-		-dataType "vectorArray";
-	addAttr -cachedInternally true -hidden true -shortName "burstPositionPP0" -longName "burstPositionPP0" 
-		-dataType "vectorArray";
-	addAttr -storable false -cachedInternally true -shortName "burstPositionPP" -longName "burstPositionPP" 
-		-dataType "vectorArray";
-	addAttr -cachedInternally true -hidden true -shortName "launchFramePP0" -longName "launchFramePP0" 
-		-dataType "doubleArray";
-	addAttr -storable false -cachedInternally true -shortName "launchFramePP" -longName "launchFramePP" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "burstFramePP0" -longName "burstFramePP0" 
-		-dataType "doubleArray";
-	addAttr -storable false -cachedInternally true -shortName "burstFramePP" -longName "burstFramePP" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "opacityPP0" -longName "opacityPP0" 
-		-dataType "doubleArray";
-	addAttr -storable false -cachedInternally true -shortName "opacityPP" -longName "opacityPP" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -shortName "initialVelocity" -longName "initialVelocity" 
-		-dataType "vectorArray";
-	addAttr -cachedInternally true -shortName "launched" -longName "launched" -dataType "doubleArray";
-	addAttr -cachedInternally true -shortName "hasBurst" -longName "hasBurst" -dataType "doubleArray";
-	addAttr -internalSet true -cachedInternally true -shortName "displayGeometry" -longName "displayGeometry" 
-		-defaultValue 1 -minValue 0 -maxValue 1 -attributeType "bool";
-	addAttr -cachedInternally true -shortName "spinSpeed" -longName "spinSpeed" -attributeType "double";
-	addAttr -cachedInternally true -shortName "spinSpread" -longName "spinSpread" -attributeType "double";
-	addAttr -cachedInternally true -multi -shortName "fireworksColors" -longName "fireworksColors" 
-		-dataType "double3";
-	addAttr -storable false -cachedInternally true -multi -shortName "fireworksShaders" 
-		-longName "fireworksShaders" -attributeType "message";
-	addAttr -cachedInternally true -multi -shortName "rocketTrailColors" -longName "rocketTrailColors" 
-		-dataType "double3";
-	addAttr -storable false -cachedInternally true -multi -shortName "rocketTrailShaders" 
-		-longName "rocketTrailShaders" -attributeType "message";
-	addAttr -storable false -cachedInternally true -shortName "burstColorIndex" -longName "burstColorIndex" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "burstColorIndex0" -longName "burstColorIndex0" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -shortName "colorPaletteProc" -longName "colorPaletteProc" 
-		-dataType "string";
-	addAttr -storable false -cachedInternally true -shortName "_fireworksRocket" -longName "_fireworksRocket" 
-		-attributeType "message";
-	addAttr -storable false -cachedInternally true -shortName "launchPositionManipMessage" 
-		-longName "launchPositionManipMessage" -attributeType "message";
-	addAttr -storable false -cachedInternally true -shortName "burstPositionManipMessage" 
-		-longName "burstPositionManipMessage" -attributeType "message";
-	addAttr -storable false -cachedInternally true -shortName "rocketsMessage" -longName "rocketsMessage" 
-		-attributeType "message";
-	addAttr -internalSet true -cachedInternally true -shortName "minSparksCount" -longName "minSparksCount" 
-		-defaultValue 100 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "maxSparksCount" -longName "maxSparksCount" 
-		-defaultValue 200 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "sparksColorSpread" 
-		-longName "sparksColorSpread" -defaultValue 3 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "maxBurstSpeed" -longName "maxBurstSpeed" 
-		-defaultValue 20 -minValue 0 -attributeType "float";
-	addAttr -cachedInternally true -shortName "rocketGravity" -longName "rocketGravity" 
-		-defaultValue 9.8 -attributeType "double";
-	addAttr -cachedInternally true -shortName "showAllBurstPositions" -longName "showAllBurstPositions" 
-		-minValue 0 -maxValue 1 -attributeType "bool";
-	addAttr -cachedInternally true -shortName "showAllLaunchPositions" -longName "showAllLaunchPositions" 
-		-minValue 0 -maxValue 1 -attributeType "bool";
-	addAttr -cachedInternally true -shortName "localGravX" -longName "localGravX" -attributeType "double";
-	addAttr -cachedInternally true -shortName "localGravY" -longName "localGravY" -attributeType "double";
-	addAttr -cachedInternally true -shortName "localGravZ" -longName "localGravZ" -attributeType "double";
-	addAttr -storable false -cachedInternally true -shortName "FireworksRocketsEmitterRatePP" 
-		-longName "FireworksRocketsEmitterRatePP" -dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "FireworksRocketsEmitterRatePP0" 
-		-longName "FireworksRocketsEmitterRatePP0" -dataType "doubleArray";
-	addAttr -storable false -cachedInternally true -hidden true -shortName "FireworksRocketsEmitterRemainderPP" 
-		-longName "FireworksRocketsEmitterRemainderPP" -dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "FireworksRocketsEmitterRemainderPP0" 
-		-longName "FireworksRocketsEmitterRemainderPP0" -dataType "doubleArray";
-	setAttr -keyable off ".visibility";
-	setAttr ".ghostFrames" -type "Int32Array" 0 ;
-	setAttr ".position0" -type "vectorArray" 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 ;
-	setAttr ".velocity0" -type "vectorArray" 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 ;
-	setAttr ".acceleration0" -type "vectorArray" 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ;
-	setAttr ".useStartupCache" yes;
-	setAttr ".startupCachePath" -type "string" "its a falg_startup";
-	setAttr ".mass0" -type "doubleArray" 10 1 1 1 1 1 1 1 1 1 1 ;
-	setAttr ".particleId0" -type "doubleArray" 10 0 1 2 3 4 5 6 7 8 9 ;
-	setAttr ".nextId" 10;
-	setAttr ".nextId0" 10;
-	setAttr ".birthTime0" -type "doubleArray" 10 0.083333333333333329 0.083333333333333329
-		 0.083333333333333329 0.083333333333333329 0.083333333333333329 0.083333333333333329
-		 0.083333333333333329 0.083333333333333329 0.083333333333333329 0.083333333333333329 ;
-	setAttr ".age0" -type "doubleArray" 10 -0.041666666666666664 -0.041666666666666664
-		 -0.041666666666666664 -0.041666666666666664 -0.041666666666666664 -0.041666666666666664
-		 -0.041666666666666664 -0.041666666666666664 -0.041666666666666664 -0.041666666666666664 ;
-	setAttr -lock on -keyable off ".expressionsAfterDynamics" yes;
-	setAttr -size 16 ".input";
-	setAttr -size 7 ".output";
-	setAttr ".internalRuntimeBeforeDynamicsExpression" -type "string" "";
-	setAttr ".internalRuntimeAfterDynamicsExpression" -type "string" (
-		"// FLIGHT CONTROLS:\n//\n// Make rocket particles invisible until they are launched\n// and after they have burst.\n//\nif (frame >= .I[0] &&  .O[0] == 0)\n\t.O[1] = 1.0;\n\n//If not yet launched, keep at launch position\n//Give initial velocity at launch time or soonest chance after.\n//\nif (frame <= .I[0]-1)\n{\n\t.O[3] = .O[2];\n\t.O[4] = .I[1];\n}\nelse\nif (0 == .O[5])\n{\n\t.O[3] = .O[2];\n\t.O[5] = 1;\n}\n// Before and after the burst frame, the rocket should not emit.\n//\nif (frame < .I[0] || .O[0] == 1)\n\t.O[6] = 0;\nelse\n\t.O[6] = .I[2];\n\n//\n// BURST CONTROLS:\n//\nvector $rocketPosition = .I[3];\nvector $rocketVelocity = .O[3];\n\n// If the rocket particle is above the minimum explode height or the\n// rocket particle is falling, then make the fireworks burst,\n// if it hasn't already.\n//\nif( frame >= .I[4]-1 && .O[0] == 0)\n{\n    float $fmin = .I[5];\n    float $fmax = .I[6];\n    if( $fmax < $fmin )\n        $fmax = $fmin;\n\n    // Determine a random number of sparks/particles in this burst.\n    //\n    int $emitCount = rand($fmin,$fmax);\n"
-		+ "\n\t   vector $pattern[];\n\t   clear($pattern);\n\n    // Fill the pattern array with random vectors, producing\n    // a random, spherical explosion.\n    //\n    for( $i = 0; $i < $emitCount; $i ++ )\n    {\n        $pattern[$i] = sphrand(1);\n    }\n\n    // Set up the emit action for creating the burst sparks\n    //\n    // Emit into the Sparks particle object\n    //\n    string $cmd = \"emit -object FireworksBurstSparksShape\";\n\n    // Set the position from which the emission occurs to be the \n    // position of the rocket.\n    //\n    for( $i = 0; $i < $emitCount; $i ++ )\n    {\n        $cmd += (\" -pos \"+$rocketPosition);\n    }\n\n    // Set the velocities of the spark particles.\n    //\n    $cmd += \" -at velocity\";\n    for( $i = 0; $i < $emitCount; $i ++ )\n    {\n        //\n        vector $nv = $pattern[$i];\n        $nv = $nv * .I[7] + $rocketVelocity;\n\n        $cmd += (\" -vv \"+$nv);\n    }\n\n    // Set the color index for the sparks.\n    //\n\n    // For each spark particle, choose randomly either the main color\n    // of the burst or one of its adjacent colors -- to get\n"
-		+ "    // color modulation in the burst.\n    //\n    // Number of colors to choose from.\n    //\n    float $indexCount = .I[8];\n\n    int $startIndex = ($indexCount + .I[9] - .I[10]) % $indexCount;\n    int $endIndex = ($startIndex + .I[10] * 2) % $indexCount;\n\n    float $red[]; float $green[]; float $blue[];\n    clear($red); clear($green); clear($blue);\n\n    int $c;\n    for( $c = 0; $c < .I[10] * 2 + 1; $c ++ )\n    {\n\t       float $getColor[] = `getAttr FireworksRocketsShape.fireworksColors[($startIndex+$c)%$indexCount]`;\n\t       $red[$c] = $getColor[0];\n\t       $green[$c] = $getColor[1];\n\t       $blue[$c] = $getColor[2];\n    }\n\n    for ($i = 0; $i < $emitCount; $i++)\n    {\n        int $index = rand(.I[10] * 2 + 1);\n        $cmd += \" -at sparkColorIndex \";\n        $cmd += \"  -fv \" + (($startIndex + $index)%$indexCount);\n        $cmd += \" -at rgbPP \";\n        $cmd += \"  -vv \"+$red[$index]+\" \"+$green[$index]+\" \"+$blue[$index];\n    }\n\n    // Now issue the emit command\n    //\n    eval($cmd);\n\n     .O[0] = 1;\n}");
-	setAttr ".internalCreationExpression" -type "string" (
-		"// All launch particles live starting at time zero. \n// But make particle invisible until it's launched.\n//\n.O[1] = 0.0;\n\n// Compute and store necessary in-flight velocity.\n//\nfloat $totalFlightTimeFrames = .I[4] - .I[0] - 1;\nfloat $totalFlightTimeSeconds = $totalFlightTimeFrames;\n\nstring $timeUnit = `currentUnit -q -time`;\nif ($timeUnit == \"film\")\n    $totalFlightTimeSeconds = $totalFlightTimeFrames/24;\nelse if ($timeUnit == \"ntsc\")\n    $totalFlightTimeSeconds = $totalFlightTimeFrames/30;\nelse if ($timeUnit == \"pal\")\n    $totalFlightTimeSeconds = $totalFlightTimeFrames/25;\nelse if ($timeUnit == \"game\")\n    $totalFlightTimeSeconds = $totalFlightTimeFrames/15;\nelse if ($timeUnit == \"show\")\n    $totalFlightTimeSeconds = $totalFlightTimeFrames/48;\nelse if ($timeUnit == \"palf\")\n    $totalFlightTimeSeconds = $totalFlightTimeFrames/50;\nelse if ($timeUnit == \"ntscf\")\n    $totalFlightTimeSeconds = $totalFlightTimeSeconds/60;\nvector $gravDir = << .I[11], .I[12], .I[13] >>;\nif (!equivalent($totalFlightTimeSeconds,0.0)) {\n"
-		+ "    .O[2] = (.I[14] - .I[1]) /  $totalFlightTimeSeconds     - $gravDir * 0.5 * .I[15] * $totalFlightTimeSeconds;\n    // Initialize velocity to zero prior to launch. Set launched flag false.\n    .O[3] = <<0,0,0>>;\n    .O[5] = 0;\n    .O[0] = 0;\n.O[6] = 0;\n}\n\n\t.O[4] = .I[1];");
-	setAttr -lock on -keyable off ".dynamicsWeight";
-	setAttr -lock on -keyable off ".forcesInWorld";
-	setAttr -keyable off ".emissionInWorld";
-	setAttr -lock on -keyable off ".maxCount";
-	setAttr -keyable off ".levelOfDetail";
-	setAttr -keyable off ".inheritFactor";
-	setAttr ".currentTimeSave" 61;
-	setAttr ".currentSceneTime" 61;
-	setAttr -keyable off ".inputGeometrySpace";
-	setAttr -keyable off ".enforceCountFromHistory";
-	setAttr -keyable off ".targetGeometrySpace";
-	setAttr -keyable off ".goalSmoothness";
-	setAttr ".cacheWidth" 150;
-	setAttr -keyable off ".traceDepth";
-	setAttr ".lifespanPP0" -type "doubleArray" 10 3.4028234600000001e+38 3.4028234600000001e+38
-		 3.4028234600000001e+38 3.4028234600000001e+38 3.4028234600000001e+38 3.4028234600000001e+38
-		 3.4028234600000001e+38 3.4028234600000001e+38 3.4028234600000001e+38 3.4028234600000001e+38 ;
-	setAttr -keyable on ".lifespan" 1;
-	setAttr ".launchPositionPP0" -type "vectorArray" 10 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ;
-	setAttr ".burstPositionPP0" -type "vectorArray" 10 3.3955128829999999 23.00737762
-		 2.0973286839999998 0.1166873968 24.851838140000002 4.8823273580000004 3.6213800209999998
-		 29.080959369999999 -4.1908069340000003 1.368702871 21.563132809999999 -1.632917562 -1.983087418
-		 24.108155350000001 -4.3980322190000001 1.8633780339999999 22.697395629999999 1.8298391220000001 -3.5539976960000002
-		 20.948503609999999 1.812930658 0.79219094229999998 29.27599627 2.8343930930000001 -1.286424338
-		 29.079024260000001 -4.101349989 -2.2637615050000002 29.80176195 2.7279824609999999 ;
-	setAttr ".launchFramePP0" -type "doubleArray" 10 1 11 21 31 41 51 61 71 81 91 ;
-	setAttr ".burstFramePP0" -type "doubleArray" 10 43 60 79 75 98 81 95 103 117
-		 147 ;
-	setAttr ".opacityPP0" -type "doubleArray" 10 0 0 0 0 0 0 0 0 0 0 ;
-	setAttr -keyable on ".displayGeometry";
-	setAttr -keyable on ".spinSpeed";
-	setAttr -keyable on ".spinSpread";
-	setAttr -size 32 ".fireworksColors";
-	setAttr ".fireworksColors[0]" -type "double3" 1 0 0 ;
-	setAttr ".fireworksColors[1]" -type "double3" 1 0.19354838709677424 0 ;
-	setAttr ".fireworksColors[2]" -type "double3" 1 0.38709677419354838 0 ;
-	setAttr ".fireworksColors[3]" -type "double3" 1 0.58064516129032251 0 ;
-	setAttr ".fireworksColors[4]" -type "double3" 1 0.77419354838709675 0 ;
-	setAttr ".fireworksColors[5]" -type "double3" 1 0.967741935483871 0 ;
-	setAttr ".fireworksColors[6]" -type "double3" 0.83870967741935498 1 0 ;
-	setAttr ".fireworksColors[7]" -type "double3" 0.64516129032258074 1 0 ;
-	setAttr ".fireworksColors[8]" -type "double3" 0.45161290322580649 1 0 ;
-	setAttr ".fireworksColors[9]" -type "double3" 0.25806451612903203 1 0 ;
-	setAttr ".fireworksColors[10]" -type "double3" 0.064516129032258007 1 0 ;
-	setAttr ".fireworksColors[11]" -type "double3" 0 1 0.12903225806451601 ;
-	setAttr ".fireworksColors[12]" -type "double3" 0 1 0.32258064516129004 ;
-	setAttr ".fireworksColors[13]" -type "double3" 0 1 0.5161290322580645 ;
-	setAttr ".fireworksColors[14]" -type "double3" 0 1 0.70967741935483852 ;
-	setAttr ".fireworksColors[15]" -type "double3" 0 1 0.90322580645161299 ;
-	setAttr ".fireworksColors[16]" -type "double3" 0 0.90322580645161299 1 ;
-	setAttr ".fireworksColors[17]" -type "double3" 0 0.70967741935483897 1 ;
-	setAttr ".fireworksColors[18]" -type "double3" 0 0.51612903225806406 1 ;
-	setAttr ".fireworksColors[19]" -type "double3" 0 0.32258064516129004 1 ;
-	setAttr ".fireworksColors[20]" -type "double3" 0 0.12903225806451601 1 ;
-	setAttr ".fireworksColors[21]" -type "double3" 0.064516129032258007 0 1 ;
-	setAttr ".fireworksColors[22]" -type "double3" 0.25806451612903203 0 1 ;
-	setAttr ".fireworksColors[23]" -type "double3" 0.45161290322580605 0 1 ;
-	setAttr ".fireworksColors[24]" -type "double3" 0.64516129032258007 0 1 ;
-	setAttr ".fireworksColors[25]" -type "double3" 0.83870967741935409 0 1 ;
-	setAttr ".fireworksColors[26]" -type "double3" 1 0 0.967741935483871 ;
-	setAttr ".fireworksColors[27]" -type "double3" 1 0 0.77419354838709697 ;
-	setAttr ".fireworksColors[28]" -type "double3" 1 0 0.58064516129032295 ;
-	setAttr ".fireworksColors[29]" -type "double3" 1 0 0.38709677419354893 ;
-	setAttr ".fireworksColors[30]" -type "double3" 1 0 0.19354838709677402 ;
-	setAttr ".fireworksColors[31]" -type "double3" 1 0 0 ;
-	setAttr -size 32 ".fireworksShaders";
-	setAttr -size 5 ".rocketTrailColors";
-	setAttr ".rocketTrailColors[0]" -type "double3" 1 1 0.5 ;
-	setAttr ".rocketTrailColors[1]" -type "double3" 1 1 0.5 ;
-	setAttr ".rocketTrailColors[2]" -type "double3" 1 1 0.5 ;
-	setAttr ".rocketTrailColors[3]" -type "double3" 1 1 0.5 ;
-	setAttr ".rocketTrailColors[4]" -type "double3" 1 1 0.9 ;
-	setAttr -size 5 ".rocketTrailShaders";
-	setAttr ".burstColorIndex0" -type "doubleArray" 10 14 16 28 20 15 27 1 16 18
-		 9 ;
-	setAttr ".colorPaletteProc" -type "string" "defaultFireworksColors";
-	setAttr -keyable on ".minSparksCount";
-	setAttr -keyable on ".maxSparksCount";
-	setAttr -keyable on ".sparksColorSpread";
-	setAttr -keyable on ".maxBurstSpeed";
-	setAttr -keyable on ".rocketGravity";
-	setAttr ".FireworksRocketsEmitterRatePP0" -type "doubleArray" 10 150 150 150
-		 150 150 150 150 150 150 150 ;
-	setAttr ".FireworksRocketsEmitterRemainderPP0" -type "doubleArray" 10 0 0 0 0
-		 0 0 0 0 0 0 ;
-createNode transform -name "FireworksRocketsHeadLocator" -parent "FireworksRockets";
-	rename -uuid "FC674BAB-497B-EFDF-244F-E3A0EFBD155A";
-	setAttr ".visibility" no;
-	setAttr -lock on ".rotateX";
-	setAttr -lock on ".rotateY";
-	setAttr -lock on ".rotateZ";
-	setAttr -lock on ".scaleX";
-	setAttr -lock on ".scaleY";
-	setAttr -lock on ".scaleZ";
-createNode locator -name "FireworksRocketsHeadLocatorShape" -parent "FireworksRocketsHeadLocator";
-	rename -uuid "09CC5A2B-4A25-54D2-40E2-23800B86DC3A";
-	setAttr -keyable off ".visibility";
-createNode pointConstraint -name "FireworksRocketsHeadLocator_pointConstraint1" -parent
-		 "FireworksRocketsHeadLocator";
-	rename -uuid "2BB5DBBD-479F-F5E1-F955-90AA0ABCCD12";
-	addAttr -disconnectBehaviour 0 -cachedInternally true -keyable true -shortName "w0" 
-		-longName "FireworksRocketsGravityHeadLocatorW0" -defaultValue 1 -minValue 0 -attributeType "double";
-	setAttr -keyable on ".nodeState";
-	setAttr -keyable off ".visibility";
-	setAttr -keyable off ".translateX";
-	setAttr -keyable off ".translateY";
-	setAttr -keyable off ".translateZ";
-	setAttr -keyable off ".rotateX";
-	setAttr -keyable off ".rotateY";
-	setAttr -keyable off ".rotateZ";
-	setAttr -keyable off ".scaleX";
-	setAttr -keyable off ".scaleY";
-	setAttr -keyable off ".scaleZ";
-	setAttr ".enableRestPosition" yes;
-	setAttr ".restTranslate" -type "double3" 0 -1 0 ;
-	setAttr -keyable on ".FireworksRocketsGravityHeadLocatorW0";
-createNode transform -name "FireworksRocketsTailLocator" -parent "FireworksRockets";
-	rename -uuid "03596CDF-41D1-6289-97E0-EFB5768A6D78";
-	setAttr ".visibility" no;
-	setAttr -lock on ".rotateX";
-	setAttr -lock on ".rotateY";
-	setAttr -lock on ".rotateZ";
-	setAttr -lock on ".scaleX";
-	setAttr -lock on ".scaleY";
-	setAttr -lock on ".scaleZ";
-createNode locator -name "FireworksRocketsTailLocatorShape" -parent "FireworksRocketsTailLocator";
-	rename -uuid "48176812-4B43-8EEE-1B42-D1BCFBEBD430";
-	setAttr -keyable off ".visibility";
-createNode pointConstraint -name "FireworksRocketsTailLocator_pointConstraint1" -parent
-		 "FireworksRocketsTailLocator";
-	rename -uuid "E2BD05FE-4D56-7CD0-97F8-BB8944B1348D";
-	addAttr -disconnectBehaviour 0 -cachedInternally true -keyable true -shortName "w0" 
-		-longName "FireworksRocketsGravityTailLocatorW0" -defaultValue 1 -minValue 0 -attributeType "double";
-	setAttr -keyable on ".nodeState";
-	setAttr -keyable off ".visibility";
-	setAttr -keyable off ".translateX";
-	setAttr -keyable off ".translateY";
-	setAttr -keyable off ".translateZ";
-	setAttr -keyable off ".rotateX";
-	setAttr -keyable off ".rotateY";
-	setAttr -keyable off ".rotateZ";
-	setAttr -keyable off ".scaleX";
-	setAttr -keyable off ".scaleY";
-	setAttr -keyable off ".scaleZ";
-	setAttr ".enableRestPosition" yes;
-	setAttr -keyable on ".FireworksRocketsGravityTailLocatorW0";
-createNode transform -name "FireworksLaunchPositions" -parent "FireworksRockets";
-	rename -uuid "10E05BB9-4A2F-2E97-E18D-2CAF34C82E27";
-	setAttr -lock on ".translateX";
-	setAttr -lock on ".translateY";
-	setAttr -lock on ".translateZ";
-	setAttr -lock on ".rotateX";
-	setAttr -lock on ".rotateY";
-	setAttr -lock on ".rotateZ";
-	setAttr -lock on ".scaleX";
-	setAttr -lock on ".scaleY";
-	setAttr -lock on ".scaleZ";
-createNode particle -name "FireworksLaunchPositionsShape" -parent "FireworksLaunchPositions";
-	rename -uuid "9DAF5743-48DC-3867-0CCE-2C990409BF0C";
-	addAttr -storable false -cachedInternally true -shortName "lifespanPP" -longName "lifespanPP" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "lifespanPP0" -longName "lifespanPP0" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -shortName "lifespan" -longName "lifespan" -attributeType "double";
-	setAttr -keyable off ".visibility";
-	setAttr ".template" yes;
-	setAttr ".ghostFrames" -type "Int32Array" 0 ;
-	setAttr ".position0" -type "vectorArray" 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 ;
-	setAttr ".velocity0" -type "vectorArray" 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 ;
-	setAttr ".acceleration0" -type "vectorArray" 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ;
-	setAttr ".useStartupCache" yes;
-	setAttr ".startupCachePath" -type "string" "its a falg_startup";
-	setAttr ".mass0" -type "doubleArray" 10 1 1 1 1 1 1 1 1 1 1 ;
-	setAttr ".particleId0" -type "doubleArray" 10 0 1 2 3 4 5 6 7 8 9 ;
-	setAttr ".nextId" 10;
-	setAttr ".nextId0" 10;
-	setAttr ".birthTime0" -type "doubleArray" 10 0.041666666666666664 0.041666666666666664
-		 0.041666666666666664 0.041666666666666664 0.041666666666666664 0.041666666666666664
-		 0.041666666666666664 0.041666666666666664 0.041666666666666664 0.041666666666666664 ;
-	setAttr ".age0" -type "doubleArray" 10 0 0 0 0 0 0 0 0 0 0 ;
-	setAttr ".internalRuntimeBeforeDynamicsExpression" -type "string" ".O[0] = .I[0];";
-	setAttr ".internalRuntimeAfterDynamicsExpression" -type "string" "";
-	setAttr ".internalCreationExpression" -type "string" ".O[0] = .I[0];";
-	setAttr ".currentTimeSave" 61;
-	setAttr ".currentSceneTime" 61;
-	setAttr ".cacheWidth" 150;
-	setAttr ".particleRenderType" 2;
-	setAttr ".lifespanPP0" -type "doubleArray" 10 3.4028234600000001e+38 3.4028234600000001e+38
-		 3.4028234600000001e+38 3.4028234600000001e+38 3.4028234600000001e+38 3.4028234600000001e+38
-		 3.4028234600000001e+38 3.4028234600000001e+38 3.4028234600000001e+38 3.4028234600000001e+38 ;
-	setAttr -keyable on ".lifespan" 1;
-createNode transform -name "FireworksBurstPositions" -parent "FireworksRockets";
-	rename -uuid "68F9B517-4137-8F7D-978D-6FAC1F265B25";
-	setAttr -lock on ".translateX";
-	setAttr -lock on ".translateY";
-	setAttr -lock on ".translateZ";
-	setAttr -lock on ".rotateX";
-	setAttr -lock on ".rotateY";
-	setAttr -lock on ".rotateZ";
-	setAttr -lock on ".scaleX";
-	setAttr -lock on ".scaleY";
-	setAttr -lock on ".scaleZ";
-createNode particle -name "FireworksBurstPositionsShape" -parent "FireworksBurstPositions";
-	rename -uuid "4B5B01E3-4D8D-7832-1761-00B121D12615";
-	addAttr -storable false -cachedInternally true -shortName "lifespanPP" -longName "lifespanPP" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "lifespanPP0" -longName "lifespanPP0" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -shortName "lifespan" -longName "lifespan" -attributeType "double";
-	setAttr -keyable off ".visibility";
-	setAttr ".template" yes;
-	setAttr ".ghostFrames" -type "Int32Array" 0 ;
-	setAttr ".position0" -type "vectorArray" 10 3.3955128829999999 23.00737762 2.0973286839999998 0.1166873968
-		 24.851838140000002 4.8823273580000004 3.6213800209999998 29.080959369999999 -4.1908069340000003 1.368702871
-		 21.563132809999999 -1.632917562 -1.983087418 24.108155350000001 -4.3980322190000001 1.8633780339999999
-		 22.697395629999999 1.8298391220000001 -3.5539976960000002 20.948503609999999 1.812930658 0.79219094229999998
-		 29.27599627 2.8343930930000001 -1.286424338 29.079024260000001 -4.101349989 -2.2637615050000002
-		 29.80176195 2.7279824609999999 ;
-	setAttr ".velocity0" -type "vectorArray" 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 ;
-	setAttr ".acceleration0" -type "vectorArray" 10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-		 0 0 0 0 0 0 0 0 0 0 0 0 0 0 ;
-	setAttr ".useStartupCache" yes;
-	setAttr ".startupCachePath" -type "string" "its a falg_startup";
-	setAttr ".mass0" -type "doubleArray" 10 1 1 1 1 1 1 1 1 1 1 ;
-	setAttr ".particleId0" -type "doubleArray" 10 0 1 2 3 4 5 6 7 8 9 ;
-	setAttr ".nextId" 10;
-	setAttr ".nextId0" 10;
-	setAttr ".birthTime0" -type "doubleArray" 10 0.041666666666666664 0.041666666666666664
-		 0.041666666666666664 0.041666666666666664 0.041666666666666664 0.041666666666666664
-		 0.041666666666666664 0.041666666666666664 0.041666666666666664 0.041666666666666664 ;
-	setAttr ".age0" -type "doubleArray" 10 0 0 0 0 0 0 0 0 0 0 ;
-	setAttr ".internalRuntimeBeforeDynamicsExpression" -type "string" ".O[0] = .I[0]";
-	setAttr ".internalRuntimeAfterDynamicsExpression" -type "string" "";
-	setAttr ".internalCreationExpression" -type "string" ".O[0] = .I[0]";
-	setAttr ".currentTimeSave" 61;
-	setAttr ".currentSceneTime" 61;
-	setAttr ".cacheWidth" 150;
-	setAttr ".particleRenderType" 2;
-	setAttr ".lifespanPP0" -type "doubleArray" 10 3.4028234600000001e+38 3.4028234600000001e+38
-		 3.4028234600000001e+38 3.4028234600000001e+38 3.4028234600000001e+38 3.4028234600000001e+38
-		 3.4028234600000001e+38 3.4028234600000001e+38 3.4028234600000001e+38 3.4028234600000001e+38 ;
-	setAttr -keyable on ".lifespan" 1;
-createNode pointEmitter -name "FireworksRocketsEmitter" -parent "FireworksRockets";
-	rename -uuid "3CDDB20C-4777-A705-63F4-7B92DD6D208C";
-	setAttr ".visibility" no;
-	setAttr ".emitterType" 0;
-	setAttr ".useRatePP" yes;
-	setAttr ".direction" -type "double3" 0 1 0 ;
-createNode gravityField -name "FireworksRocketsGravity" -parent "FireworksRocketsGroup";
-	rename -uuid "E7B79499-441D-6D85-1893-239571BC1B53";
-	setAttr ".visibility" no;
-	setAttr ".falloffCurve[0]"  0 1 1;
-	setAttr ".axialMagnitude[0]"  0 1 1;
-	setAttr ".curveRadius[0]"  0 1 1;
-	setAttr ".directionY" -1;
-createNode transform -name "FireworksRocketsGravityHeadLocator" -parent "FireworksRocketsGroup";
-	rename -uuid "D9000FE9-4F3D-5D3C-3165-93BCE9928B20";
-	setAttr ".visibility" no;
-	setAttr -lock on ".rotateX";
-	setAttr -lock on ".rotateY";
-	setAttr -lock on ".rotateZ";
-	setAttr -lock on ".scaleX";
-	setAttr -lock on ".scaleY";
-	setAttr -lock on ".scaleZ";
-	setAttr ".inheritsTransform" no;
-createNode locator -name "FireworksRocketsGravityHeadLocatorShape" -parent "FireworksRocketsGravityHeadLocator";
-	rename -uuid "0968CD7A-4BD1-4A76-8DF1-D59DB0D31229";
-	setAttr -keyable off ".visibility";
-createNode transform -name "FireworksRocketsGravityTailLocator" -parent "FireworksRocketsGroup";
-	rename -uuid "FE758919-42D2-0A47-B1FA-5B972AEC4CE3";
-	setAttr ".visibility" no;
-	setAttr -lock on ".rotateX";
-	setAttr -lock on ".rotateY";
-	setAttr -lock on ".rotateZ";
-	setAttr -lock on ".scaleX";
-	setAttr -lock on ".scaleY";
-	setAttr -lock on ".scaleZ";
-	setAttr ".inheritsTransform" no;
-createNode locator -name "FireworksRocketsGravityTailLocatorShape" -parent "FireworksRocketsGravityTailLocator";
-	rename -uuid "3D18D5BE-42CA-1EB3-A8E7-E1B7EF133473";
-	setAttr -keyable off ".visibility";
-createNode transform -name "FireworksBurstSparksGroup" -parent "Fireworks";
-	rename -uuid "110216B2-4E70-37DD-AEC6-58A67303D790";
-createNode transform -name "FireworksBurstSparks" -parent "FireworksBurstSparksGroup";
-	rename -uuid "C9A2E626-4A1E-CDC2-8BA2-CA93F393644E";
-createNode particle -name "FireworksBurstSparksShape" -parent "FireworksBurstSparks";
-	rename -uuid "37F07B45-4686-4D03-5F25-10AD6A76E923";
-	addAttr -storable false -cachedInternally true -shortName "lifespanPP" -longName "lifespanPP" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "lifespanPP0" -longName "lifespanPP0" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -shortName "lifespan" -longName "lifespan" -attributeType "double";
-	addAttr -internalSet true -cachedInternally true -shortName "lineWidth" -longName "lineWidth" 
-		-defaultValue 2 -minValue 1 -maxValue 20 -attributeType "long";
-	addAttr -internalSet true -cachedInternally true -shortName "tailSize" -longName "tailSize" 
-		-defaultValue 5 -minValue 0 -maxValue 100 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "minTailSize" -longName "minTailSize" 
-		-defaultValue 1 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "maxTailSize" -longName "maxTailSize" 
-		-defaultValue 1 -minValue 0 -attributeType "float";
-	addAttr -storable false -cachedInternally true -shortName "sparkScale" -longName "sparkScale" 
-		-dataType "vectorArray";
-	addAttr -cachedInternally true -hidden true -shortName "sparkScale0" -longName "sparkScale0" 
-		-dataType "vectorArray";
-	addAttr -storable false -cachedInternally true -shortName "sparkColorIndex" -longName "sparkColorIndex" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "sparkColorIndex0" -longName "sparkColorIndex0" 
-		-dataType "doubleArray";
-	addAttr -storable false -cachedInternally true -shortName "rgbPP" -longName "rgbPP" 
-		-dataType "vectorArray";
-	addAttr -cachedInternally true -hidden true -shortName "rgbPP0" -longName "rgbPP0" 
-		-dataType "vectorArray";
-	setAttr -keyable off ".visibility";
-	setAttr ".ghostFrames" -type "Int32Array" 0 ;
-	setAttr -size 2 ".inputForce";
-	setAttr ".position0" -type "vectorArray" 0 ;
-	setAttr ".velocity0" -type "vectorArray" 0 ;
-	setAttr ".acceleration0" -type "vectorArray" 0 ;
-	setAttr ".useStartupCache" yes;
-	setAttr ".startupCachePath" -type "string" "its a falg_startup";
-	setAttr ".mass0" -type "doubleArray" 0 ;
-	setAttr ".particleId0" -type "doubleArray" 0 ;
-	setAttr ".nextId" 344;
-	setAttr ".birthTime0" -type "doubleArray" 0 ;
-	setAttr ".age0" -type "doubleArray" 0 ;
-	setAttr ".lifespanMode" 3;
-	setAttr -size 4 ".input";
-	setAttr -size 2 ".output";
-	setAttr ".internalRuntimeBeforeDynamicsExpression" -type "string" "float $s =  max(.I[0], min(.I[1], mag(.I[2]) * .05));\nfloat $ratio = .I[3]/.O[0];\n$s = (1.0-smoothstep(.9,1,$ratio)) * $s;\n.O[1] = <<$s,1,1>>;";
-	setAttr ".internalRuntimeAfterDynamicsExpression" -type "string" "";
-	setAttr ".internalCreationExpression" -type "string" ".O[0] = rand(3,4);\nfloat $s = 0.0;.O[1] = <<$s,1,1>>;";
-	setAttr ".currentTimeSave" 61;
-	setAttr ".currentSceneTime" 61;
-	setAttr ".cacheWidth" 150;
-	setAttr ".instanceData[0].instanceAttributeMapping" -type "stringArray" 12 "aimDirection" "velocity" "objectIndex" "sparkColorIndex" "position" "position" "scale" "sparkScale" "id" "particleId" "age" "age"  ;
-	setAttr ".particleRenderType" 6;
-	setAttr -size 2 ".ppFieldData";
-	setAttr ".lifespanPP0" -type "doubleArray" 0 ;
-	setAttr -keyable on ".lifespan" 1;
-	setAttr -keyable on ".minTailSize";
-	setAttr -keyable on ".maxTailSize";
-	setAttr ".sparkScale0" -type "vectorArray" 0 ;
-	setAttr ".sparkColorIndex0" -type "doubleArray" 0 ;
-	setAttr ".rgbPP0" -type "vectorArray" 0 ;
-createNode gravityField -name "FireworksSparksGravity" -parent "FireworksBurstSparksGroup";
-	rename -uuid "C1924783-4187-1D73-6B67-E58CD29061D6";
-	setAttr ".visibility" no;
-	setAttr ".magnitude" 9.8;
-	setAttr ".falloffCurve[0]"  0 1 1;
-	setAttr ".axialMagnitude[0]"  0 1 1;
-	setAttr ".curveRadius[0]"  0 1 1;
-	setAttr ".directionY" -1;
-createNode dragField -name "FireworksSparksDrag" -parent "FireworksBurstSparksGroup";
-	rename -uuid "5AE4C71F-4391-2A95-5D6A-9D82358D2722";
-	setAttr ".visibility" no;
-	setAttr ".magnitude" 2;
-	setAttr ".falloffCurve[0]"  0 1 1;
-	setAttr ".axialMagnitude[0]"  0 1 1;
-	setAttr ".curveRadius[0]"  0 1 1;
-	setAttr ".directionX" 1;
-createNode instancer -name "FireworksBurstSparksInstancer" -parent "FireworksBurstSparksGroup";
-	rename -uuid "ED9B45F9-4DAA-8E08-517F-F4B7F950FE10";
-	setAttr -size 32 ".inputHierarchy";
-createNode transform -name "FireworksBurstSparksColorCones" -parent "FireworksBurstSparksGroup";
-	rename -uuid "22C1657E-4255-08AE-F505-408ECBBD25D2";
-	setAttr ".visibility" no;
-	setAttr ".rotatePivot" -type "double3" 0 0 -3.4694469519536142e-17 ;
-	setAttr ".scalePivot" -type "double3" 0 0 -3.4694469519536142e-17 ;
-createNode transform -name "FireworksBurstSparksColorCone0" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "5C982F35-4334-3D67-14D1-6E95EFB29017";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone0Shape" -parent "FireworksBurstSparksColorCone0";
-	rename -uuid "EF3BB8F0-4FDD-A8D3-2BC8-CCA10084CF04";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone1" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "06B5376C-43BA-2DF2-A61A-1088EB7FB17D";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone1Shape" -parent "FireworksBurstSparksColorCone1";
-	rename -uuid "D00A02A0-403E-F388-211A-02864E2177F2";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone2" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "792B588D-47A2-9E2F-4076-E69B11704F6C";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone2Shape" -parent "FireworksBurstSparksColorCone2";
-	rename -uuid "425C68E1-422B-E3EC-106C-6CA7129410AC";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone3" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "5291A1A1-4B9D-B100-2601-80B40BB60122";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone3Shape" -parent "FireworksBurstSparksColorCone3";
-	rename -uuid "C1A0C037-44EF-E286-EF39-19999B7D2FF1";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone4" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "F5560D49-4616-5DB6-DEA9-2F9AB8F14E8A";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone4Shape" -parent "FireworksBurstSparksColorCone4";
-	rename -uuid "F57A22CC-4673-E4E7-493A-D28869E8BCE1";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone5" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "07880FB0-4648-198A-0DBE-1C9D7F24E267";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone5Shape" -parent "FireworksBurstSparksColorCone5";
-	rename -uuid "2E7F8F73-4DB7-6D15-04B3-D9B5B343809B";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone6" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "76434652-4932-0ED4-B90D-45B9EE363A2A";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone6Shape" -parent "FireworksBurstSparksColorCone6";
-	rename -uuid "86662F41-4D36-59C3-6041-8081DAA7181F";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone7" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "00EC8631-4F0F-CF00-269E-A2ABB336B35E";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone7Shape" -parent "FireworksBurstSparksColorCone7";
-	rename -uuid "A0DF3A5E-44D8-CD22-D55E-849A426EE9E5";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone8" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "EA251B44-4C2C-E23B-6060-D9A7BACA6FDB";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone8Shape" -parent "FireworksBurstSparksColorCone8";
-	rename -uuid "AA2D12EE-469B-26B8-654D-B2849C30EA64";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone9" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "AEE0E590-4A5C-7B61-FAD7-AB9BF544397C";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone9Shape" -parent "FireworksBurstSparksColorCone9";
-	rename -uuid "FDA157B4-4675-5BFF-FEC2-6D90E4A45F77";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone10" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "5C0189E1-4E9C-2939-FB1E-31A9896BC387";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone10Shape" -parent "FireworksBurstSparksColorCone10";
-	rename -uuid "C711CB0D-4C97-331F-8942-059F451CD469";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone11" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "10BD9B44-4E3C-8D77-D605-F4AF9CA37F34";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone11Shape" -parent "FireworksBurstSparksColorCone11";
-	rename -uuid "78734346-41CF-F930-1783-4F966B572322";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone12" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "6C1D7758-4E32-3FE4-2E78-88BB08271686";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone12Shape" -parent "FireworksBurstSparksColorCone12";
-	rename -uuid "2B595470-4AA0-CB24-664A-498A5894C773";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone13" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "B4DEE263-42E0-2748-4A07-FEA284C3C7CF";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone13Shape" -parent "FireworksBurstSparksColorCone13";
-	rename -uuid "10836C2A-4655-54E6-501F-6DA81B6742B5";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone14" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "4A2B8DDD-4233-0702-9F6E-319F0B423096";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone14Shape" -parent "FireworksBurstSparksColorCone14";
-	rename -uuid "E40D8576-4DC6-81B6-9757-548B430612A7";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone15" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "086151A8-45F6-29ED-E0A2-4DB872E858EE";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone15Shape" -parent "FireworksBurstSparksColorCone15";
-	rename -uuid "CDBA09BB-47DD-8D65-B9C1-9095791321AE";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone16" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "11C79507-4B3A-B4F6-3F40-B58959306838";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone16Shape" -parent "FireworksBurstSparksColorCone16";
-	rename -uuid "EA108292-4025-048D-A695-5D8593BDCCC2";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone17" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "49D15A70-4FE2-6EF5-0773-CAAA02C12B12";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone17Shape" -parent "FireworksBurstSparksColorCone17";
-	rename -uuid "AB880E5C-474A-E575-CDCF-BAA785CC698C";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone18" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "B30164D3-4066-87D9-8872-B2BEA1810098";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone18Shape" -parent "FireworksBurstSparksColorCone18";
-	rename -uuid "8E5D385D-4FB0-CD29-15E5-2081D6C1FF21";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone19" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "0A12A9AA-409D-2E74-BD0F-C1AD632167EA";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone19Shape" -parent "FireworksBurstSparksColorCone19";
-	rename -uuid "9C549773-4D82-DA88-481B-C5A783CDC99E";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone20" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "8FD6D1B7-4714-C666-202B-CF84B99E8047";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone20Shape" -parent "FireworksBurstSparksColorCone20";
-	rename -uuid "99373ACB-443B-B6E0-D9B7-C990E23FF709";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone21" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "A7CB4A68-490D-DEA7-54C8-099C1FC39A43";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone21Shape" -parent "FireworksBurstSparksColorCone21";
-	rename -uuid "BA33C5D6-40FE-8138-DB79-20A535C0ABD6";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone22" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "CF64CBC8-4683-E571-EB42-9E9FACF81244";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone22Shape" -parent "FireworksBurstSparksColorCone22";
-	rename -uuid "C2EEC918-4ACC-4C15-ABFE-6D8A7C4BA777";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone23" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "7EAF24FA-4938-10E8-1248-0D923D673EB0";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone23Shape" -parent "FireworksBurstSparksColorCone23";
-	rename -uuid "8D72EB1E-4543-2AB2-FF8F-1AB535EAAF45";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone24" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "7AB0AE73-4916-840E-C1F5-099A789986AB";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone24Shape" -parent "FireworksBurstSparksColorCone24";
-	rename -uuid "4123A4A6-45B4-9FD9-80A7-D7B3A520987E";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone25" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "96D91135-494B-A458-2DD3-3586EAF2A213";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone25Shape" -parent "FireworksBurstSparksColorCone25";
-	rename -uuid "403E3326-4A81-F021-10E1-CDA229D43E2C";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone26" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "8100AD7A-4834-9929-FD0B-2CB4FB62EFA3";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone26Shape" -parent "FireworksBurstSparksColorCone26";
-	rename -uuid "C0CEABAF-46A6-A56A-0611-8C85AC7A14D1";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone27" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "30189F9F-40B7-563E-6D6C-1EA00D0F0D44";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone27Shape" -parent "FireworksBurstSparksColorCone27";
-	rename -uuid "53863BF3-4CF5-71EA-6E69-61856B21B116";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone28" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "79BCBA39-45B3-C4F6-5CA6-42ACB6DAACDD";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone28Shape" -parent "FireworksBurstSparksColorCone28";
-	rename -uuid "8EE20809-48C5-0CB6-8BFE-A5A6F88B525E";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone29" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "B8C24024-45C7-FC21-267D-EEBD4419347C";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone29Shape" -parent "FireworksBurstSparksColorCone29";
-	rename -uuid "B6D9E953-4F7D-CC54-2B96-63963DB6C288";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone30" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "54FA4193-47CD-28C5-C1DC-ECB56CEA26E0";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone30Shape" -parent "FireworksBurstSparksColorCone30";
-	rename -uuid "1172206B-47C1-EB0D-E420-96B3948F65A1";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksBurstSparksColorCone31" -parent "FireworksBurstSparksColorCones";
-	rename -uuid "102B9D35-48E6-E7FD-535A-4C9AF69C4D77";
-	setAttr ".scale" -type "double3" 1 0.1 0.1 ;
-createNode nurbsSurface -name "FireworksBurstSparksColorCone31Shape" -parent "FireworksBurstSparksColorCone31";
-	rename -uuid "D2231B2E-4D7F-4099-0470-ABB03483F28F";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksTrailSparksGroup" -parent "Fireworks";
-	rename -uuid "A53558F2-4F05-F48C-892F-6B91CAEB266D";
-createNode transform -name "FireworksRocketTrails" -parent "FireworksTrailSparksGroup";
-	rename -uuid "3548CD7A-48CB-4841-0EF1-7494870ADA96";
-createNode particle -name "FireworksRocketTrailsShape" -parent "FireworksRocketTrails";
-	rename -uuid "E51D9E42-4637-74D1-4110-9CBC4ADA64D5";
-	addAttr -storable false -cachedInternally true -shortName "lifespanPP" -longName "lifespanPP" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "lifespanPP0" -longName "lifespanPP0" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -shortName "lifespan" -longName "lifespan" -attributeType "double";
-	addAttr -storable false -cachedInternally true -shortName "sparkColorIndex" -longName "sparkColorIndex" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "sparkColorIndex0" -longName "sparkColorIndex0" 
-		-dataType "doubleArray";
-	addAttr -storable false -cachedInternally true -shortName "rgbPP" -longName "rgbPP" 
-		-dataType "vectorArray";
-	addAttr -cachedInternally true -hidden true -shortName "rgbPP0" -longName "rgbPP0" 
-		-dataType "vectorArray";
-	addAttr -storable false -cachedInternally true -shortName "trailSparkScale" -longName "trailSparkScale" 
-		-dataType "vectorArray";
-	addAttr -cachedInternally true -hidden true -shortName "trailSparkScale0" -longName "trailSparkScale0" 
-		-dataType "vectorArray";
-	addAttr -internalSet true -cachedInternally true -shortName "lineWidth" -longName "lineWidth" 
-		-defaultValue 2 -minValue 1 -maxValue 20 -attributeType "long";
-	addAttr -internalSet true -cachedInternally true -shortName "tailSize" -longName "tailSize" 
-		-defaultValue 10 -minValue 0 -maxValue 100 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "minTailSize" -longName "minTailSize" 
-		-defaultValue 0.5 -minValue 0 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "maxTailSize" -longName "maxTailSize" 
-		-defaultValue 2 -minValue 0 -attributeType "float";
-	setAttr -keyable off ".visibility";
-	setAttr ".ghostFrames" -type "Int32Array" 0 ;
-	setAttr -size 2 ".inputForce";
-	setAttr ".position0" -type "vectorArray" 0 ;
-	setAttr ".velocity0" -type "vectorArray" 0 ;
-	setAttr ".acceleration0" -type "vectorArray" 0 ;
-	setAttr ".useStartupCache" yes;
-	setAttr ".startupCachePath" -type "string" "its a falg_startup";
-	setAttr ".mass0" -type "doubleArray" 0 ;
-	setAttr ".particleId0" -type "doubleArray" 0 ;
-	setAttr ".nextId" 401;
-	setAttr ".birthTime0" -type "doubleArray" 0 ;
-	setAttr ".age0" -type "doubleArray" 0 ;
-	setAttr ".lifespanMode" 3;
-	setAttr -size 5 ".input";
-	setAttr -size 4 ".output";
-	setAttr ".internalRuntimeBeforeDynamicsExpression" -type "string" "float $s =  max(.I[0], min(.I[1], mag(.I[2]) * 5));\nfloat $ratio = .I[3]/.O[0];\n$s = (1.0-smoothstep(.5,1,$ratio)) * $s;\n.O[1] = <<$s,1,1>>;";
-	setAttr ".internalRuntimeAfterDynamicsExpression" -type "string" "";
-	setAttr ".internalCreationExpression" -type "string" ".O[0] = rand(.5,1.5);\n\n// Get the number of cones of diffent colors to be instanced to\n// the particles in the trail, and choose one randomly.\n//\nfloat $indexCount = .I[4];\nint $whichIndex = rand($indexCount);\n\n.O[2] = $whichIndex;\nfloat $sparksColor[] = `getAttr FireworksRocketsShape.rocketTrailColors[$whichIndex]`;\n.O[3] = <<$sparksColor[0], $sparksColor[1], $sparksColor[2]>>;";
-	setAttr ".currentTimeSave" 61;
-	setAttr ".currentSceneTime" 61;
-	setAttr ".cacheWidth" 150;
-	setAttr ".instanceData[0].instanceAttributeMapping" -type "stringArray" 12 "aimDirection" "velocity" "objectIndex" "sparkColorIndex" "position" "position" "scale" "trailSparkScale" "id" "particleId" "age" "age"  ;
-	setAttr ".particleRenderType" 6;
-	setAttr -size 2 ".ppFieldData";
-	setAttr ".lifespanPP0" -type "doubleArray" 0 ;
-	setAttr -keyable on ".lifespan" 1;
-	setAttr ".sparkColorIndex0" -type "doubleArray" 0 ;
-	setAttr ".rgbPP0" -type "vectorArray" 0 ;
-	setAttr ".trailSparkScale0" -type "vectorArray" 0 ;
-createNode instancer -name "FireworksRocketTrailsInstancer" -parent "FireworksTrailSparksGroup";
-	rename -uuid "7451AFE8-4C16-38DC-CF5A-79AF7A4E122D";
-	setAttr -size 5 ".inputHierarchy";
-createNode transform -name "FireworksRocketTrailsColorCones" -parent "FireworksTrailSparksGroup";
-	rename -uuid "9B027B2B-4E13-C6A6-6B4C-3F9705FEBCE8";
-	setAttr ".visibility" no;
-	setAttr ".rotatePivot" -type "double3" 0 0 -1.7347234759768071e-17 ;
-	setAttr ".scalePivot" -type "double3" 0 0 -1.7347234759768071e-17 ;
-createNode transform -name "FireworksRocketTrailsColorCone0" -parent "FireworksRocketTrailsColorCones";
-	rename -uuid "780375D8-484D-1D9B-716F-4E8D4C96C2C7";
-	setAttr ".scale" -type "double3" 0.3 0.05 0.05 ;
-createNode nurbsSurface -name "FireworksRocketTrailsColorCone0Shape" -parent "FireworksRocketTrailsColorCone0";
-	rename -uuid "97700CB3-4EC5-C4CF-5A11-E9897559357B";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksRocketTrailsColorCone1" -parent "FireworksRocketTrailsColorCones";
-	rename -uuid "76AE7835-4701-C621-B047-C584BB4A17EA";
-	setAttr ".scale" -type "double3" 0.3 0.05 0.05 ;
-createNode nurbsSurface -name "FireworksRocketTrailsColorCone1Shape" -parent "FireworksRocketTrailsColorCone1";
-	rename -uuid "EE507235-45BE-6B7E-2A1E-F48134DAD194";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksRocketTrailsColorCone2" -parent "FireworksRocketTrailsColorCones";
-	rename -uuid "C93D3E2A-4A44-F209-9AB6-85964AB03283";
-	setAttr ".scale" -type "double3" 0.3 0.05 0.05 ;
-createNode nurbsSurface -name "FireworksRocketTrailsColorCone2Shape" -parent "FireworksRocketTrailsColorCone2";
-	rename -uuid "93A687D2-4DC6-AC17-2E76-69B53AEE2EA1";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksRocketTrailsColorCone3" -parent "FireworksRocketTrailsColorCones";
-	rename -uuid "20D2EAF1-45E5-1862-8064-408347F49C1C";
-	setAttr ".scale" -type "double3" 0.3 0.05 0.05 ;
-createNode nurbsSurface -name "FireworksRocketTrailsColorCone3Shape" -parent "FireworksRocketTrailsColorCone3";
-	rename -uuid "7758F6E0-446C-141A-569D-CD946AF39059";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode transform -name "FireworksRocketTrailsColorCone4" -parent "FireworksRocketTrailsColorCones";
-	rename -uuid "43B3B83E-44E5-654F-8C7E-12952C4EAC3A";
-	setAttr ".scale" -type "double3" 0.3 0.05 0.05 ;
-createNode nurbsSurface -name "FireworksRocketTrailsColorCone4Shape" -parent "FireworksRocketTrailsColorCone4";
-	rename -uuid "52FC555B-42CE-569D-85B3-3F8915F14B6F";
-	setAttr -keyable off ".visibility";
-	setAttr ".visibleInReflections" yes;
-	setAttr ".visibleInRefractions" yes;
-	setAttr ".collisionOffsetVelocityMultiplier[0]"  0 1 1;
-	setAttr ".collisionDepthVelocityMultiplier[0]"  0 1 1;
-	setAttr ".divisionsU" 0;
-	setAttr ".divisionsV" 0;
-	setAttr ".curvePrecision" 4;
-	setAttr ".curvePrecisionShaded" 4;
-	setAttr ".cached" -type "nurbsSurface" 
-		3 3 0 2 no 
-		6 0 0 0 2.2360679774997898 2.2360679774997898 2.2360679774997898
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		
-		44
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		1 -1.1081941875543881 -3.7833575821193565e-18
-		1 -0.78361162489122449 -0.7836116248912246
-		0.99999999999999989 -1.1100856969603225e-16 -1.1081941875543884
-		1 0.78361162489122449 -0.78361162489122449
-		1 1.1081941875543881 -2.1235639003536357e-16
-		1 0.78361162489122449 0.78361162489122449
-		1 6.7857323231109122e-17 1.1081941875543877
-		1 -0.78361162489122449 0.78361162489122427
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		0.33333333333333331 -0.73879612503625869 1.7888541597709648e-17
-		0.33333333333333326 -0.52240774992748296 -0.52240774992748296
-		0.33333333333333326 -7.4005713130688157e-17 -0.73879612503625891
-		0.33333333333333326 0.52240774992748296 -0.52240774992748285
-		0.33333333333333331 0.73879612503625869 -1.2116014670445316e-16
-		0.33333333333333337 0.52240774992748296 0.52240774992748307
-		0.33333333333333337 4.5238215487406077e-17 0.73879612503625847
-		0.33333333333333337 -0.52240774992748296 0.52240774992748285
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-0.33333333333333331 -0.36939806251812934 3.9560440777538653e-17
-		-0.33333333333333331 -0.26120387496374148 -0.26120387496374148
-		-0.33333333333333331 -3.7002856565344078e-17 -0.36939806251812946
-		-0.33333333333333331 0.26120387496374148 -0.26120387496374142
-		-0.33333333333333331 0.36939806251812934 -2.9963903373542742e-17
-		-0.33333333333333331 0.26120387496374148 0.26120387496374153
-		-0.33333333333333331 2.2619107743703039e-17 0.36939806251812923
-		-0.33333333333333331 -0.26120387496374148 0.26120387496374142
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		-1 0 6.123233995736766e-17
-		
-		;
-	setAttr ".uDivisionsFactor" 4.5;
-	setAttr ".vDivisionsFactor" 4.5;
-createNode gravityField -name "FireworksRocketTrailsGravity" -parent "FireworksTrailSparksGroup";
-	rename -uuid "FF57F655-4F9C-86CE-59F5-A8A6F260161A";
-	setAttr ".visibility" no;
-	setAttr ".magnitude" 2.5;
-	setAttr ".falloffCurve[0]"  0 1 1;
-	setAttr ".axialMagnitude[0]"  0 1 1;
-	setAttr ".curveRadius[0]"  0 1 1;
-	setAttr ".directionY" -1;
-createNode dragField -name "FireworksRocketTrailsDrag" -parent "FireworksTrailSparksGroup";
-	rename -uuid "C83966A8-49D7-0292-3297-57A24BAEFFCA";
-	setAttr ".visibility" no;
-	setAttr ".magnitude" 2;
-	setAttr ".falloffCurve[0]"  0 1 1;
-	setAttr ".axialMagnitude[0]"  0 1 1;
-	setAttr ".curveRadius[0]"  0 1 1;
-	setAttr ".directionX" 1;
-createNode transform -name "FireworksLaunchPositionManip" -parent "Fireworks";
-	rename -uuid "25462B21-4CC8-1337-2843-0AA9516C0D3E";
-	setAttr ".visibility" no;
-createNode locator -name "FireworksLaunchPositionManipShape" -parent "FireworksLaunchPositionManip";
-	rename -uuid "6872C05C-4601-1706-8CD0-C6AE61912BC9";
-	setAttr -keyable off ".visibility";
-createNode transform -name "FireworksBurstPositionManip" -parent "Fireworks";
-	rename -uuid "D30F4E6B-4CD6-2050-A59E-7B9F9AB97803";
-	setAttr ".visibility" no;
-	setAttr ".translate" -type "double3" 3.3955128829999999 23.00737762 2.0973286839999998 ;
-createNode locator -name "FireworksBurstPositionManipShape" -parent "FireworksBurstPositionManip";
-	rename -uuid "EBB321DB-44C2-4EDF-B089-D2A2A5FEC1A4";
-	setAttr -keyable off ".visibility";
 createNode transform -name "pPlane2";
 	rename -uuid "5FDAAF44-4419-4528-BC95-B989B4143D10";
 	setAttr ".visibility" no;
@@ -15485,8 +12312,7 @@ createNode nCloth -name "nClothShape1" -parent "nCloth1";
 	setAttr -keyable off ".maxCount";
 	setAttr -keyable off ".levelOfDetail";
 	setAttr -keyable off ".inheritFactor";
-	setAttr ".currentTimeSave" 61;
-	setAttr ".currentSceneTime" 61;
+	setAttr ".currentTimeSave" 143;
 	setAttr -keyable off ".startFrame";
 	setAttr -keyable off ".inputGeometrySpace";
 	setAttr -keyable off ".enforceCountFromHistory";
@@ -17450,8 +14276,7 @@ createNode nRigid -name "nRigidShape1" -parent "nRigid1";
 	setAttr -keyable off ".maxCount";
 	setAttr -keyable off ".levelOfDetail";
 	setAttr -keyable off ".inheritFactor";
-	setAttr ".currentTimeSave" 61;
-	setAttr ".currentSceneTime" 61;
+	setAttr ".currentTimeSave" 143;
 	setAttr -keyable off ".startFrame";
 	setAttr -keyable off ".inputGeometrySpace";
 	setAttr -keyable off ".enforceCountFromHistory";
@@ -17508,8 +14333,7 @@ createNode nRigid -name "nRigidShape2" -parent "nRigid2";
 	setAttr -keyable off ".maxCount";
 	setAttr -keyable off ".levelOfDetail";
 	setAttr -keyable off ".inheritFactor";
-	setAttr ".currentTimeSave" 61;
-	setAttr ".currentSceneTime" 61;
+	setAttr ".currentTimeSave" 143;
 	setAttr -keyable off ".startFrame";
 	setAttr -keyable off ".inputGeometrySpace";
 	setAttr -keyable off ".enforceCountFromHistory";
@@ -17569,95 +14393,23 @@ createNode pointEmitter -name "cloud_emitter" -parent "cloud";
 	setAttr ".speed" 0.10989011285806095;
 	setAttr ".speedRandom" 3.5164835183256931;
 	setAttr ".particleColor" -type "float3" 0.6883117 0.6883117 0.6883117 ;
-createNode transform -name "cloud_particle" -parent "cloud";
-	rename -uuid "4583AA0B-4444-E2F4-C1F9-86BA1A2B4F14";
-	setAttr ".translate" -type "double3" 0 0 9.6664921008501956 ;
-	setAttr ".rotatePivot" -type "double3" -4.1583498790860176 7.9916846752166748 -13.901453971862793 ;
-	setAttr ".scalePivot" -type "double3" -4.1583498790860176 7.9916846752166748 -13.901453971862793 ;
-createNode nParticle -name "cloud_particleShape" -parent "cloud_particle";
-	rename -uuid "656C8CDE-4FEA-7354-64CE-2FAC300AE977";
-	addAttr -storable false -cachedInternally true -shortName "lifespanPP" -longName "lifespanPP" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "lifespanPP0" -longName "lifespanPP0" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -shortName "lifespan" -longName "lifespan" -attributeType "double";
-	addAttr -storable false -cachedInternally true -shortName "opacityPP" -longName "opacityPP" 
-		-dataType "doubleArray";
-	addAttr -cachedInternally true -hidden true -shortName "opacityPP0" -longName "opacityPP0" 
-		-dataType "doubleArray";
-	addAttr -internalSet true -cachedInternally true -shortName "betterIllumination" 
-		-longName "betterIllumination" -minValue 0 -maxValue 1 -attributeType "bool";
-	addAttr -internalSet true -cachedInternally true -shortName "surfaceShading" -longName "surfaceShading" 
-		-minValue 0 -maxValue 1 -attributeType "float";
-	addAttr -internalSet true -cachedInternally true -shortName "flatShaded" -longName "flatShaded" 
-		-minValue 0 -maxValue 1 -attributeType "bool";
-	setAttr -keyable off ".visibility";
-	setAttr ".ghostFrames" -type "Int32Array" 0 ;
-	setAttr ".position0" -type "vectorArray" 0 ;
-	setAttr ".velocity0" -type "vectorArray" 0 ;
-	setAttr ".acceleration0" -type "vectorArray" 0 ;
-	setAttr ".mass0" -type "doubleArray" 0 ;
-	setAttr ".particleId0" -type "doubleArray" 0 ;
-	setAttr ".nextId" 892;
-	setAttr ".birthTime0" -type "doubleArray" 0 ;
-	setAttr ".age0" -type "doubleArray" 0 ;
-	setAttr ".lifespanMode" 1;
-	setAttr ".internalRuntimeBeforeDynamicsExpression" -type "string" "";
-	setAttr ".internalRuntimeAfterDynamicsExpression" -type "string" "";
-	setAttr ".internalCreationExpression" -type "string" "";
-	setAttr ".currentTimeSave" 61;
-	setAttr ".currentSceneTime" 61;
-	setAttr ".particleRenderType" 8;
-	setAttr ".friction" 0;
-	setAttr ".collisionFlag" 1;
-	setAttr ".selfCollide" no;
-	setAttr -size 2 ".fieldScale[0:1]"  0 1 1 1 0 1;
-	setAttr -size 2 ".pointFieldDropoff[0:1]"  0 1 1 1 0 1;
-	setAttr ".drag" 0;
-	setAttr ".viscosityScale[0]"  0 1 1;
-	setAttr ".surfaceTensionScale[0]"  0 1 1;
-	setAttr ".threshold" 0.6;
-	setAttr ".radius" 0.5494505763053894;
-	setAttr ".radiusScale[0]"  0 1 1;
-	setAttr ".massScale[0]"  0 1 1;
-	setAttr ".pointFieldScale[0]"  0 1 1;
-	setAttr ".frictionScale[0]"  0 1 1;
-	setAttr ".stickinessScale[0]"  0 1 1;
-	setAttr ".collideStrengthScale[0]"  0 1 1;
-	setAttr ".bounceScale[0]"  0 1 1;
-	setAttr ".opacity" 0.3;
-	setAttr ".opacityScale[0]"  0 1 1;
-	setAttr ".opacityScaleInput" 1;
-	setAttr ".color[0].color_Position" 0;
-	setAttr ".color[0].color_Color" -type "float3" 1 1 1 ;
-	setAttr ".color[0].color_Interp" 1;
-	setAttr ".colorInputMax" 0;
-	setAttr ".incandescence[0].incandescence_Position" 0;
-	setAttr ".incandescence[0].incandescence_Color" -type "float3" 0 0 0 ;
-	setAttr ".incandescence[0].incandescence_Interp" 1;
-	setAttr ".lifespanPP0" -type "doubleArray" 0 ;
-	setAttr -keyable on ".lifespan" 1;
-	setAttr ".opacityPP0" -type "doubleArray" 0 ;
-	setAttr -keyable on ".betterIllumination";
-	setAttr -keyable on ".surfaceShading";
-	setAttr -keyable on ".flatShaded";
 createNode nucleus -name "cloud_nucleas" -parent "cloud";
 	rename -uuid "CA4CF462-4DCF-02D4-6307-5ABCB05F47C2";
 	setAttr ".gravity" 0;
 createNode lightLinker -shared -name "lightLinker1";
-	rename -uuid "929D72D0-484A-B8C1-925A-76AE8EC9911D";
+	rename -uuid "9031BC52-4C9F-0C0F-B386-7FA46BB1EF90";
 	setAttr -size 53 ".link";
 	setAttr -size 53 ".shadowLink";
 createNode shapeEditorManager -name "shapeEditorManager";
-	rename -uuid "BF002BBB-4BCE-B71B-D5B7-2AAD0D91C7E6";
+	rename -uuid "F7256C2F-41E0-1C44-76BE-4492D0B868C3";
 createNode poseInterpolatorManager -name "poseInterpolatorManager";
-	rename -uuid "2A2684B2-4449-22F6-C58D-F5B29FA9CD7E";
+	rename -uuid "1DDD7B23-49ED-8B93-7906-3B89AEF9DC66";
 createNode displayLayerManager -name "layerManager";
-	rename -uuid "0AE0CCEF-473F-373D-541F-1E9137340EC0";
+	rename -uuid "286103B5-44CE-E04A-E718-1D8B7DC62A79";
 createNode displayLayer -name "defaultLayer";
 	rename -uuid "235A8AFA-4C1F-2576-4588-339B8A89EBAE";
 createNode renderLayerManager -name "renderLayerManager";
-	rename -uuid "4D58C01D-45C6-A093-654A-8AB851E654DD";
+	rename -uuid "313C6912-464F-EF85-E036-95A64D037BCC";
 createNode renderLayer -name "defaultRenderLayer";
 	rename -uuid "C5839BD5-49A4-94B6-B8E7-A499BC74423A";
 	setAttr ".global" yes;
@@ -17665,19 +14417,19 @@ createNode script -name "uiConfigurationScriptNode";
 	rename -uuid "84BA45D3-49B0-D606-388C-2E88B7CA3BE4";
 	setAttr ".before" -type "string" (
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 1024\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
+		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
 		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n"
-		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 1024\n            -fogging 0\n"
+		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n"
 		+ "            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n"
 		+ "            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n"
-		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 1024\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n"
+		+ "            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n"
 		+ "            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n"
 		+ "            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n"
-		+ "            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 1024\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n"
+		+ "            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n"
 		+ "            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n"
-		+ "            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 1\n            -captureSequenceNumber -1\n            -width 1119\n            -height 685\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n"
+		+ "            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 1\n            -captureSequenceNumber -1\n            -width 1119\n            -height 683\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n"
 		+ "            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n"
 		+ "            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -selectCommand \"<function selCom at 0x7f29c5c04aa0>\" \n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n"
@@ -17699,7 +14451,7 @@ createNode script -name "uiConfigurationScriptNode";
 		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"contentBrowserPanel\" (localizedPanelLabel(\"Content Browser\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Content Browser\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\n"
-		+ "{ string $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 1024\n                -fogging 0\n                -fogSource \"fragment\" \n"
+		+ "{ string $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"persp\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 16384\n                -fogging 0\n                -fogSource \"fragment\" \n"
 		+ "                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n"
 		+ "                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n"
 		+ "                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
@@ -17719,26 +14471,6 @@ createNode rigidSolver -name "rigidSolver";
 	setAttr ".translate[4]" -type "double3" -3.8139525767040263 4.8390575240538558 0.56409151985302142 ;
 	setAttr ".translate[5]" -type "double3" -4.3465094392820331 3.1950837517521875 0 ;
 	setAttr ".current" yes;
-createNode expression -name "FireworksRocketSelectHandleExpr";
-	rename -uuid "6DC3C848-45FB-0EC7-EAFE-E2A3EDF133DC";
-	setAttr -keyable on ".nodeState";
-	setAttr -size 3 ".input";
-	setAttr -size 3 ".input";
-	setAttr -size 3 ".output";
-	setAttr ".internalExpression" -type "string" ".O[0] = .I[0];\n.O[1] = .I[1] + 1.5;\n.O[2] = .I[2] ;";
-	setAttr ".animated" 0;
-createNode expression -name "FireworksRocketsGravityHeadLocatorExpr";
-	rename -uuid "9E86E015-4383-EA48-546D-E49CCD561672";
-	setAttr -keyable on ".nodeState";
-	setAttr -size 3 ".input";
-	setAttr -size 3 ".input";
-	setAttr -size 3 ".output";
-	setAttr ".internalExpression" -type "string" "// Set the locator's translate to be the normalized direction of the gravity\r\n//\r\n\r\nfloat $x = .I[0];\r\nfloat $y = .I[1];\r\nfloat $z = .I[2];\r\n\r\nvector $uDir = unit( << $x,  $y, $z >> );\r\n.O[0] = $uDir.x;\r\n.O[1] = $uDir.y;\r\n.O[2] = $uDir.z;";
-createNode plusMinusAverage -name "plusMinusAverage1";
-	rename -uuid "48A6EF45-4129-9C4B-FF5C-04B48DD6E55C";
-	setAttr ".operation" 2;
-	setAttr -size 2 ".input3D";
-	setAttr -size 2 ".input3D";
 createNode lambert -name "FireworksRocketTrailsColor0";
 	rename -uuid "33CEE405-4793-A2DB-415C-90A07E09D1F4";
 	setAttr -lock on ".color" -type "float3" 1 1 0.5 ;
@@ -18109,16 +14841,11 @@ createNode shadingEngine -name "FireworksBurstSparksColor31SG";
 	setAttr ".renderableOnlySet" yes;
 createNode materialInfo -name "materialInfo37";
 	rename -uuid "FBED626B-44E6-4101-CF40-D09234DCF4B5";
-createNode expression -name "FireworksExpr";
-	rename -uuid "D3521850-47DA-F838-30B2-96BC37C68F10";
-	setAttr -keyable on ".nodeState";
-	setAttr -size 4 ".output";
-	setAttr ".internalExpression" -type "string" ".O[0] = 1 - .I[0];\n.O[1] = .I[0];\n.O[2] = 1 - .I[0];\n.O[3] = .I[0];\nfloat $animStart = `playbackOptions -q -min`;\nif (frame < $animStart+1) seed(1);";
 createNode expression -name "FireworksTrailShadersExpr";
 	rename -uuid "BC13985C-47B4-D579-6107-5C89173ECFA6";
 	setAttr -keyable on ".nodeState";
-	setAttr -size 16 ".input";
-	setAttr -size 16 ".input";
+	setAttr -size 16 ".input[3:15]"  0.25 1 1 0.5 1 1 0.5 1 1 0.5 1 1 0.89999997615814209;
+	setAttr -size 15 ".input";
 	setAttr -size 15 ".output";
 	setAttr ".internalExpression" -type "string" (
 		"// Set the incandescence of the trail shaders.\n// It is based on the shader color, with an\n// incandescence intensity value added in.\n//\nfloat $r = .I[0];\nfloat $g = .I[1];\nfloat $b = .I[2];\nvector $rgb = <<$r, $g, $b>>;\nvector $hsv = rgb_to_hsv($rgb);\n$hsv = <<$hsv.x, $hsv.y, .I[3]>>;\n$rgb = hsv_to_rgb($hsv);\n.O[0] = $rgb.x;\n.O[1] = $rgb.y;\n.O[2] = $rgb.z;\n\nfloat $r = .I[4];\nfloat $g = .I[5];\nfloat $b = .I[6];\nvector $rgb = <<$r, $g, $b>>;\nvector $hsv = rgb_to_hsv($rgb);\n$hsv = <<$hsv.x, $hsv.y, .I[3]>>;\n$rgb = hsv_to_rgb($hsv);\n.O[3] = $rgb.x;\n.O[4] = $rgb.y;\n.O[5] = $rgb.z;\n\nfloat $r = .I[7];\nfloat $g = .I[8];\nfloat $b = .I[9];\nvector $rgb = <<$r, $g, $b>>;\nvector $hsv = rgb_to_hsv($rgb);\n$hsv = <<$hsv.x, $hsv.y, .I[3]>>;\n$rgb = hsv_to_rgb($hsv);\n.O[6] = $rgb.x;\n.O[7] = $rgb.y;\n.O[8] = $rgb.z;\n\nfloat $r = .I[10];\nfloat $g = .I[11];\nfloat $b = .I[12];\nvector $rgb = <<$r, $g, $b>>;\nvector $hsv = rgb_to_hsv($rgb);\n$hsv = <<$hsv.x, $hsv.y, .I[3]>>;\n$rgb = hsv_to_rgb($hsv);\n.O[9] = $rgb.x;\n.O[10] = $rgb.y;\n.O[11] = $rgb.z;\n"
@@ -18126,8 +14853,16 @@ createNode expression -name "FireworksTrailShadersExpr";
 createNode expression -name "FireworksSparksShadersExpr";
 	rename -uuid "4F314B23-4A4A-B152-DBBC-7F87BBDE80F5";
 	setAttr -keyable on ".nodeState";
-	setAttr -size 97 ".input";
-	setAttr -size 97 ".input";
+	setAttr -size 97 ".input[3:96]"  0.25 1 0.19354838132858276 0 1 0.38709676265716553 
+		0 1 0.58064514398574829 0 1 0.77419352531433105 0 1 0.96774190664291382 0 0.83870965242385864 
+		1 0 0.64516127109527588 1 0 0.45161288976669312 1 0 0.25806450843811035 1 0 0.064516127109527588 
+		1 0 0 1 0.12903225421905518 0 1 0.32258063554763794 0 1 0.5161290168762207 0 1 0.70967739820480347 
+		0 1 0.90322577953338623 0 0.90322577953338623 1 0 0.70967739820480347 1 0 0.5161290168762207 
+		1 0 0.32258063554763794 1 0 0.12903225421905518 1 0.064516127109527588 0 1 0.25806450843811035 
+		0 1 0.45161288976669312 0 1 0.64516127109527588 0 1 0.83870965242385864 0 1 1 0 0.96774190664291382 
+		1 0 0.77419352531433105 1 0 0.58064514398574829 1 0 0.38709676265716553 1 0 0.19354838132858276 
+		1 0 0;
+	setAttr -size 96 ".input";
 	setAttr -size 96 ".output";
 	setAttr ".internalExpression" -type "string" (
 		"// Set the incandescence of the sparks shaders.\n// It is based on the shader color, with an\n// incandescence intensity value added in.\n//\nfloat $r = .I[0];\nfloat $g = .I[1];\nfloat $b = .I[2];\nvector $rgb = <<$r, $g, $b>>;\nvector $hsv = rgb_to_hsv($rgb);\n$hsv = <<$hsv.x, $hsv.y, .I[3]>>;\n$rgb = hsv_to_rgb($hsv);\n.O[0] = $rgb.x;\n.O[1] = $rgb.y;\n.O[2] = $rgb.z;\n\nfloat $r = .I[4];\nfloat $g = .I[5];\nfloat $b = .I[6];\nvector $rgb = <<$r, $g, $b>>;\nvector $hsv = rgb_to_hsv($rgb);\n$hsv = <<$hsv.x, $hsv.y, .I[3]>>;\n$rgb = hsv_to_rgb($hsv);\n.O[3] = $rgb.x;\n.O[4] = $rgb.y;\n.O[5] = $rgb.z;\n\nfloat $r = .I[7];\nfloat $g = .I[8];\nfloat $b = .I[9];\nvector $rgb = <<$r, $g, $b>>;\nvector $hsv = rgb_to_hsv($rgb);\n$hsv = <<$hsv.x, $hsv.y, .I[3]>>;\n$rgb = hsv_to_rgb($hsv);\n.O[6] = $rgb.x;\n.O[7] = $rgb.y;\n.O[8] = $rgb.z;\n\nfloat $r = .I[10];\nfloat $g = .I[11];\nfloat $b = .I[12];\nvector $rgb = <<$r, $g, $b>>;\nvector $hsv = rgb_to_hsv($rgb);\n$hsv = <<$hsv.x, $hsv.y, .I[3]>>;\n$rgb = hsv_to_rgb($hsv);\n.O[9] = $rgb.x;\n.O[10] = $rgb.y;\n.O[11] = $rgb.z;\n"
@@ -20162,7 +16897,6 @@ createNode aiStandardSurface -name "aiStandardSurface1";
 createNode shadingEngine -name "aiStandardSurface1SG";
 	rename -uuid "AB447A0B-461F-A13C-753A-218BC944911C";
 	setAttr ".isHistoricallyInteresting" 0;
-	setAttr -size 3 ".dagSetMembers";
 	setAttr ".renderableOnlySet" yes;
 createNode materialInfo -name "materialInfo49";
 	rename -uuid "FA7D63E2-460B-50D2-8A12-8B8248411FDC";
@@ -20200,8 +16934,8 @@ createNode shadingEngine -name "particleCloud2SG";
 createNode materialInfo -name "materialInfo51";
 	rename -uuid "CEF257D3-434A-DFFB-5919-788BDA9E1CDA";
 select -noExpand :time1;
-	setAttr ".outTime" 61;
-	setAttr ".unwarpedTime" 61;
+	setAttr ".outTime" 143;
+	setAttr ".unwarpedTime" 143;
 select -noExpand :hardwareRenderingGlobals;
 	setAttr ".objectTypeFilterNameArray" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".objectTypeFilterValueArray" -type "Int32Array" 22 0 1 1
@@ -20225,12 +16959,12 @@ select -noExpand :lambert1;
 select -noExpand :standardSurface1;
 	setAttr ".diffuseRoughness" 0.14935064315795898;
 	setAttr ".metalness" 0.48701298236846924;
+	setAttr ".emissionColor" -type "float3" 1 0 0 ;
 select -noExpand :initialShadingGroup;
 	setAttr -size 3 ".dagSetMembers";
 	setAttr ".renderableOnlySet" yes;
 	setAttr -size 2 ".groupNodes";
 select -noExpand :initialParticleSE;
-	setAttr -size 2 ".dagSetMembers";
 	setAttr ".renderableOnlySet" yes;
 select -noExpand :defaultRenderGlobals;
 	addAttr -cachedInternally true -hidden true -shortName "dss" -longName "defaultSurfaceShader" 
@@ -20252,400 +16986,6 @@ select -noExpand :defaultColorMgtGlobals;
 select -noExpand :hardwareRenderGlobals;
 	setAttr ".colorTextureResolution" 256;
 	setAttr ".bumpTextureResolution" 512;
-select -noExpand :ikSystem;
-	setAttr -size 4 ".ikSolver";
-connectAttr "FireworksLaunchPositionsShape.centroid" "Fireworks.selectHandle";
-connectAttr "FireworksRocketSelectHandleExpr.output[0]" "FireworksRockets.selectHandleX"
-		;
-connectAttr "FireworksRocketSelectHandleExpr.output[1]" "FireworksRockets.selectHandleY"
-		;
-connectAttr "FireworksRocketSelectHandleExpr.output[2]" "FireworksRockets.selectHandleZ"
-		;
-connectAttr "Fireworks.displayGeometry" "FireworksRocketsShape.displayGeometry";
-connectAttr "Fireworks.minSparksCount" "FireworksRocketsShape.minSparksCount";
-connectAttr "Fireworks.maxSparksCount" "FireworksRocketsShape.maxSparksCount";
-connectAttr "Fireworks.sparksColorSpread" "FireworksRocketsShape.sparksColorSpread"
-		;
-connectAttr "Fireworks.maxBurstSpeed" "FireworksRocketsShape.maxBurstSpeed";
-connectAttr "Fireworks.rocketGravity" "FireworksRocketsShape.rocketGravity";
-connectAttr ":time1.outTime" "FireworksRocketsShape.currentTime";
-connectAttr "FireworksRocketsGravity.outputForce[0]" "FireworksRocketsShape.inputForce[0]"
-		;
-connectAttr "Fireworks.message" "FireworksRocketsShape.rocketsMessage";
-connectAttr "plusMinusAverage1.output3Dx" "FireworksRocketsShape.localGravX";
-connectAttr "plusMinusAverage1.output3Dy" "FireworksRocketsShape.localGravY";
-connectAttr "plusMinusAverage1.output3Dz" "FireworksRocketsShape.localGravZ";
-connectAttr "Fireworks.showAllBurstPositions" "FireworksRocketsShape.showAllBurstPositions"
-		;
-connectAttr "Fireworks.showAllLaunchPositions" "FireworksRocketsShape.showAllLaunchPositions"
-		;
-connectAttr "FireworksRocketsShape.output[6]" "FireworksRocketsShape.FireworksRocketsEmitterRatePP"
-		;
-connectAttr "FireworksRocketTrailsColor0.message" "FireworksRocketsShape.rocketTrailShaders[0]"
-		;
-connectAttr "FireworksRocketTrailsColor1.message" "FireworksRocketsShape.rocketTrailShaders[1]"
-		;
-connectAttr "FireworksRocketTrailsColor2.message" "FireworksRocketsShape.rocketTrailShaders[2]"
-		;
-connectAttr "FireworksRocketTrailsColor3.message" "FireworksRocketsShape.rocketTrailShaders[3]"
-		;
-connectAttr "FireworksRocketTrailsColor4.message" "FireworksRocketsShape.rocketTrailShaders[4]"
-		;
-connectAttr "FireworksBurstSparksColor0.message" "FireworksRocketsShape.fireworksShaders[0]"
-		;
-connectAttr "FireworksBurstSparksColor1.message" "FireworksRocketsShape.fireworksShaders[1]"
-		;
-connectAttr "FireworksBurstSparksColor2.message" "FireworksRocketsShape.fireworksShaders[2]"
-		;
-connectAttr "FireworksBurstSparksColor3.message" "FireworksRocketsShape.fireworksShaders[3]"
-		;
-connectAttr "FireworksBurstSparksColor4.message" "FireworksRocketsShape.fireworksShaders[4]"
-		;
-connectAttr "FireworksBurstSparksColor5.message" "FireworksRocketsShape.fireworksShaders[5]"
-		;
-connectAttr "FireworksBurstSparksColor6.message" "FireworksRocketsShape.fireworksShaders[6]"
-		;
-connectAttr "FireworksBurstSparksColor7.message" "FireworksRocketsShape.fireworksShaders[7]"
-		;
-connectAttr "FireworksBurstSparksColor8.message" "FireworksRocketsShape.fireworksShaders[8]"
-		;
-connectAttr "FireworksBurstSparksColor9.message" "FireworksRocketsShape.fireworksShaders[9]"
-		;
-connectAttr "FireworksBurstSparksColor10.message" "FireworksRocketsShape.fireworksShaders[10]"
-		;
-connectAttr "FireworksBurstSparksColor11.message" "FireworksRocketsShape.fireworksShaders[11]"
-		;
-connectAttr "FireworksBurstSparksColor12.message" "FireworksRocketsShape.fireworksShaders[12]"
-		;
-connectAttr "FireworksBurstSparksColor13.message" "FireworksRocketsShape.fireworksShaders[13]"
-		;
-connectAttr "FireworksBurstSparksColor14.message" "FireworksRocketsShape.fireworksShaders[14]"
-		;
-connectAttr "FireworksBurstSparksColor15.message" "FireworksRocketsShape.fireworksShaders[15]"
-		;
-connectAttr "FireworksBurstSparksColor16.message" "FireworksRocketsShape.fireworksShaders[16]"
-		;
-connectAttr "FireworksBurstSparksColor17.message" "FireworksRocketsShape.fireworksShaders[17]"
-		;
-connectAttr "FireworksBurstSparksColor18.message" "FireworksRocketsShape.fireworksShaders[18]"
-		;
-connectAttr "FireworksBurstSparksColor19.message" "FireworksRocketsShape.fireworksShaders[19]"
-		;
-connectAttr "FireworksBurstSparksColor20.message" "FireworksRocketsShape.fireworksShaders[20]"
-		;
-connectAttr "FireworksBurstSparksColor21.message" "FireworksRocketsShape.fireworksShaders[21]"
-		;
-connectAttr "FireworksBurstSparksColor22.message" "FireworksRocketsShape.fireworksShaders[22]"
-		;
-connectAttr "FireworksBurstSparksColor23.message" "FireworksRocketsShape.fireworksShaders[23]"
-		;
-connectAttr "FireworksBurstSparksColor24.message" "FireworksRocketsShape.fireworksShaders[24]"
-		;
-connectAttr "FireworksBurstSparksColor25.message" "FireworksRocketsShape.fireworksShaders[25]"
-		;
-connectAttr "FireworksBurstSparksColor26.message" "FireworksRocketsShape.fireworksShaders[26]"
-		;
-connectAttr "FireworksBurstSparksColor27.message" "FireworksRocketsShape.fireworksShaders[27]"
-		;
-connectAttr "FireworksBurstSparksColor28.message" "FireworksRocketsShape.fireworksShaders[28]"
-		;
-connectAttr "FireworksBurstSparksColor29.message" "FireworksRocketsShape.fireworksShaders[29]"
-		;
-connectAttr "FireworksBurstSparksColor30.message" "FireworksRocketsShape.fireworksShaders[30]"
-		;
-connectAttr "FireworksBurstSparksColor31.message" "FireworksRocketsShape.fireworksShaders[31]"
-		;
-connectAttr "FireworksRocketsShape.output[3]" "FireworksRocketsShape.velocity";
-connectAttr "FireworksRocketsShape.output[4]" "FireworksRocketsShape.position";
-connectAttr "FireworksRocketsShape.launchFramePP" "FireworksRocketsShape.input[0]"
-		;
-connectAttr "FireworksRocketsShape.launchPositionPP" "FireworksRocketsShape.input[1]"
-		;
-connectAttr "FireworksRocketsEmitter.rate" "FireworksRocketsShape.input[2]";
-connectAttr "FireworksRocketsShape.worldPosition" "FireworksRocketsShape.input[3]"
-		;
-connectAttr "FireworksRocketsShape.burstFramePP" "FireworksRocketsShape.input[4]"
-		;
-connectAttr "FireworksRocketsShape.minSparksCount" "FireworksRocketsShape.input[5]"
-		;
-connectAttr "FireworksRocketsShape.maxSparksCount" "FireworksRocketsShape.input[6]"
-		;
-connectAttr "FireworksRocketsShape.maxBurstSpeed" "FireworksRocketsShape.input[7]"
-		;
-connectAttr "FireworksBurstSparksInstancer.hierarchyCount" "FireworksRocketsShape.input[8]"
-		;
-connectAttr "FireworksRocketsShape.burstColorIndex" "FireworksRocketsShape.input[9]"
-		;
-connectAttr "FireworksRocketsShape.sparksColorSpread" "FireworksRocketsShape.input[10]"
-		;
-connectAttr "FireworksRocketsShape.localGravX" "FireworksRocketsShape.input[11]"
-		;
-connectAttr "FireworksRocketsShape.localGravY" "FireworksRocketsShape.input[12]"
-		;
-connectAttr "FireworksRocketsShape.localGravZ" "FireworksRocketsShape.input[13]"
-		;
-connectAttr "FireworksRocketsShape.burstPositionPP" "FireworksRocketsShape.input[14]"
-		;
-connectAttr "FireworksRocketsShape.rocketGravity" "FireworksRocketsShape.input[15]"
-		;
-connectAttr ":time1.outTime" "FireworksRocketsShape.time";
-connectAttr "FireworksLaunchPositionManip.message" "FireworksRocketsShape.launchPositionManipMessage"
-		;
-connectAttr "FireworksBurstPositionManip.message" "FireworksRocketsShape.burstPositionManipMessage"
-		;
-connectAttr "FireworksRocketsShape.output[0]" "FireworksRocketsShape.hasBurst";
-connectAttr "FireworksRocketsShape.output[1]" "FireworksRocketsShape.opacityPP";
-connectAttr "FireworksRocketsShape.output[2]" "FireworksRocketsShape.initialVelocity"
-		;
-connectAttr "FireworksRocketsShape.output[5]" "FireworksRocketsShape.launched";
-connectAttr "FireworksRocketsHeadLocator_pointConstraint1.constraintTranslateX" "FireworksRocketsHeadLocator.translateX"
-		;
-connectAttr "FireworksRocketsHeadLocator_pointConstraint1.constraintTranslateY" "FireworksRocketsHeadLocator.translateY"
-		;
-connectAttr "FireworksRocketsHeadLocator_pointConstraint1.constraintTranslateZ" "FireworksRocketsHeadLocator.translateZ"
-		;
-connectAttr "FireworksRocketsHeadLocator.parentInverseMatrix" "FireworksRocketsHeadLocator_pointConstraint1.constraintParentInverseMatrix"
-		;
-connectAttr "FireworksRocketsHeadLocator.rotatePivot" "FireworksRocketsHeadLocator_pointConstraint1.constraintRotatePivot"
-		;
-connectAttr "FireworksRocketsHeadLocator.rotatePivotTranslate" "FireworksRocketsHeadLocator_pointConstraint1.constraintRotateTranslate"
-		;
-connectAttr "FireworksRocketsGravityHeadLocator.translate" "FireworksRocketsHeadLocator_pointConstraint1.target[0].targetTranslate"
-		;
-connectAttr "FireworksRocketsGravityHeadLocator.rotatePivot" "FireworksRocketsHeadLocator_pointConstraint1.target[0].targetRotatePivot"
-		;
-connectAttr "FireworksRocketsGravityHeadLocator.rotatePivotTranslate" "FireworksRocketsHeadLocator_pointConstraint1.target[0].targetRotateTranslate"
-		;
-connectAttr "FireworksRocketsGravityHeadLocator.parentMatrix" "FireworksRocketsHeadLocator_pointConstraint1.target[0].targetParentMatrix"
-		;
-connectAttr "FireworksRocketsHeadLocator_pointConstraint1.FireworksRocketsGravityHeadLocatorW0" "FireworksRocketsHeadLocator_pointConstraint1.target[0].targetWeight"
-		;
-connectAttr "FireworksRocketsTailLocator_pointConstraint1.constraintTranslateX" "FireworksRocketsTailLocator.translateX"
-		;
-connectAttr "FireworksRocketsTailLocator_pointConstraint1.constraintTranslateY" "FireworksRocketsTailLocator.translateY"
-		;
-connectAttr "FireworksRocketsTailLocator_pointConstraint1.constraintTranslateZ" "FireworksRocketsTailLocator.translateZ"
-		;
-connectAttr "FireworksRocketsTailLocator.parentInverseMatrix" "FireworksRocketsTailLocator_pointConstraint1.constraintParentInverseMatrix"
-		;
-connectAttr "FireworksRocketsTailLocator.rotatePivot" "FireworksRocketsTailLocator_pointConstraint1.constraintRotatePivot"
-		;
-connectAttr "FireworksRocketsTailLocator.rotatePivotTranslate" "FireworksRocketsTailLocator_pointConstraint1.constraintRotateTranslate"
-		;
-connectAttr "FireworksRocketsGravityTailLocator.translate" "FireworksRocketsTailLocator_pointConstraint1.target[0].targetTranslate"
-		;
-connectAttr "FireworksRocketsGravityTailLocator.rotatePivot" "FireworksRocketsTailLocator_pointConstraint1.target[0].targetRotatePivot"
-		;
-connectAttr "FireworksRocketsGravityTailLocator.rotatePivotTranslate" "FireworksRocketsTailLocator_pointConstraint1.target[0].targetRotateTranslate"
-		;
-connectAttr "FireworksRocketsGravityTailLocator.parentMatrix" "FireworksRocketsTailLocator_pointConstraint1.target[0].targetParentMatrix"
-		;
-connectAttr "FireworksRocketsTailLocator_pointConstraint1.FireworksRocketsGravityTailLocatorW0" "FireworksRocketsTailLocator_pointConstraint1.target[0].targetWeight"
-		;
-connectAttr "FireworksRocketsShape.showAllLaunchPositions" "FireworksLaunchPositionsShape.visibility"
-		;
-connectAttr ":time1.outTime" "FireworksLaunchPositionsShape.currentTime";
-connectAttr "FireworksLaunchPositionsShape.output[0]" "FireworksLaunchPositionsShape.position"
-		;
-connectAttr "FireworksRocketsShape.launchPositionPP0" "FireworksLaunchPositionsShape.input[0]"
-		;
-connectAttr "FireworksRocketsShape.showAllBurstPositions" "FireworksBurstPositionsShape.visibility"
-		;
-connectAttr ":time1.outTime" "FireworksBurstPositionsShape.currentTime";
-connectAttr "FireworksBurstPositionsShape.output[0]" "FireworksBurstPositionsShape.position"
-		;
-connectAttr "FireworksRocketsShape.burstPositionPP0" "FireworksBurstPositionsShape.input[0]"
-		;
-connectAttr "Fireworks.trailEmitRate" "FireworksRocketsEmitter.rate";
-connectAttr ":time1.outTime" "FireworksRocketsEmitter.currentTime";
-connectAttr "FireworksRocketsShape.cachedWorldCentroid" "FireworksRocketsEmitter.ownerCentroid"
-		;
-connectAttr "FireworksRocketsShape.centroid" "FireworksRocketsEmitter.translate"
-		;
-connectAttr "FireworksRocketsShape.cachedWorldPosition" "FireworksRocketsEmitter.ownerPosData"
-		;
-connectAttr "FireworksRocketsShape.cachedWorldVelocity" "FireworksRocketsEmitter.ownerVelData"
-		;
-connectAttr "FireworksRocketsShape.particleId" "FireworksRocketsEmitter.parentId"
-		;
-connectAttr "FireworksRocketsShape.FireworksRocketsEmitterRatePP" "FireworksRocketsEmitter.ratePP"
-		;
-connectAttr "FireworksRocketsShape.FireworksRocketsEmitterRemainderPP" "FireworksRocketsEmitter.emitCountRemainder[0]"
-		;
-connectAttr "FireworksRocketTrailsShape.isFull" "FireworksRocketsEmitter.isFull[0]"
-		;
-connectAttr "FireworksRocketTrailsShape.timeStepSize" "FireworksRocketsEmitter.deltaTime[0]"
-		;
-connectAttr "FireworksRocketTrailsShape.inheritFactor" "FireworksRocketsEmitter.inheritFactor[0]"
-		;
-connectAttr "FireworksRocketTrailsShape.startTime" "FireworksRocketsEmitter.startTime[0]"
-		;
-connectAttr "FireworksRocketTrailsShape.seed[0]" "FireworksRocketsEmitter.seed[0]"
-		;
-connectAttr "Fireworks.trailEmitSpeed" "FireworksRocketsEmitter.speed";
-connectAttr "Fireworks.trailEmitSpread" "FireworksRocketsEmitter.spread";
-connectAttr "FireworksRocketsShape.fieldData" "FireworksRocketsGravity.inputData[0]"
-		;
-connectAttr "FireworksRocketsShape.ppFieldData[0]" "FireworksRocketsGravity.inputPPData[0]"
-		;
-connectAttr "FireworksRocketsShape.rocketGravity" "FireworksRocketsGravity.magnitude"
-		;
-connectAttr "FireworksRocketsGravityHeadLocatorExpr.output[0]" "FireworksRocketsGravityHeadLocator.translateX"
-		;
-connectAttr "FireworksRocketsGravityHeadLocatorExpr.output[1]" "FireworksRocketsGravityHeadLocator.translateY"
-		;
-connectAttr "FireworksRocketsGravityHeadLocatorExpr.output[2]" "FireworksRocketsGravityHeadLocator.translateZ"
-		;
-connectAttr "FireworksExpr.output[2]" "FireworksBurstSparksShape.visibility";
-connectAttr "Fireworks.sparksMinTailSize" "FireworksBurstSparksShape.minTailSize"
-		;
-connectAttr "Fireworks.sparksMaxTailSize" "FireworksBurstSparksShape.maxTailSize"
-		;
-connectAttr ":time1.outTime" "FireworksBurstSparksShape.currentTime";
-connectAttr "FireworksSparksDrag.outputForce[0]" "FireworksBurstSparksShape.inputForce[0]"
-		;
-connectAttr "FireworksSparksGravity.outputForce[0]" "FireworksBurstSparksShape.inputForce[1]"
-		;
-connectAttr "FireworksBurstSparksShape.minTailSize" "FireworksBurstSparksShape.input[0]"
-		;
-connectAttr "FireworksBurstSparksShape.maxTailSize" "FireworksBurstSparksShape.input[1]"
-		;
-connectAttr "FireworksBurstSparksShape.velocity" "FireworksBurstSparksShape.input[2]"
-		;
-connectAttr "FireworksBurstSparksShape.age" "FireworksBurstSparksShape.input[3]"
-		;
-connectAttr "FireworksBurstSparksShape.output[0]" "FireworksBurstSparksShape.lifespanPP"
-		;
-connectAttr "FireworksBurstSparksShape.output[1]" "FireworksBurstSparksShape.sparkScale"
-		;
-connectAttr "FireworksBurstSparksShape.fieldData" "FireworksSparksGravity.inputData[0]"
-		;
-connectAttr "FireworksBurstSparksShape.ppFieldData[1]" "FireworksSparksGravity.inputPPData[0]"
-		;
-connectAttr "FireworksBurstSparksShape.fieldData" "FireworksSparksDrag.inputData[0]"
-		;
-connectAttr "FireworksBurstSparksShape.ppFieldData[0]" "FireworksSparksDrag.inputPPData[0]"
-		;
-connectAttr "FireworksBurstSparksShape.instanceData[0].instancePointData" "FireworksBurstSparksInstancer.inputPoints"
-		;
-connectAttr "FireworksBurstSparksColorCone0.matrix" "FireworksBurstSparksInstancer.inputHierarchy[0]"
-		;
-connectAttr "FireworksBurstSparksColorCone1.matrix" "FireworksBurstSparksInstancer.inputHierarchy[1]"
-		;
-connectAttr "FireworksBurstSparksColorCone2.matrix" "FireworksBurstSparksInstancer.inputHierarchy[2]"
-		;
-connectAttr "FireworksBurstSparksColorCone3.matrix" "FireworksBurstSparksInstancer.inputHierarchy[3]"
-		;
-connectAttr "FireworksBurstSparksColorCone4.matrix" "FireworksBurstSparksInstancer.inputHierarchy[4]"
-		;
-connectAttr "FireworksBurstSparksColorCone5.matrix" "FireworksBurstSparksInstancer.inputHierarchy[5]"
-		;
-connectAttr "FireworksBurstSparksColorCone6.matrix" "FireworksBurstSparksInstancer.inputHierarchy[6]"
-		;
-connectAttr "FireworksBurstSparksColorCone7.matrix" "FireworksBurstSparksInstancer.inputHierarchy[7]"
-		;
-connectAttr "FireworksBurstSparksColorCone8.matrix" "FireworksBurstSparksInstancer.inputHierarchy[8]"
-		;
-connectAttr "FireworksBurstSparksColorCone9.matrix" "FireworksBurstSparksInstancer.inputHierarchy[9]"
-		;
-connectAttr "FireworksBurstSparksColorCone10.matrix" "FireworksBurstSparksInstancer.inputHierarchy[10]"
-		;
-connectAttr "FireworksBurstSparksColorCone11.matrix" "FireworksBurstSparksInstancer.inputHierarchy[11]"
-		;
-connectAttr "FireworksBurstSparksColorCone12.matrix" "FireworksBurstSparksInstancer.inputHierarchy[12]"
-		;
-connectAttr "FireworksBurstSparksColorCone13.matrix" "FireworksBurstSparksInstancer.inputHierarchy[13]"
-		;
-connectAttr "FireworksBurstSparksColorCone14.matrix" "FireworksBurstSparksInstancer.inputHierarchy[14]"
-		;
-connectAttr "FireworksBurstSparksColorCone15.matrix" "FireworksBurstSparksInstancer.inputHierarchy[15]"
-		;
-connectAttr "FireworksBurstSparksColorCone16.matrix" "FireworksBurstSparksInstancer.inputHierarchy[16]"
-		;
-connectAttr "FireworksBurstSparksColorCone17.matrix" "FireworksBurstSparksInstancer.inputHierarchy[17]"
-		;
-connectAttr "FireworksBurstSparksColorCone18.matrix" "FireworksBurstSparksInstancer.inputHierarchy[18]"
-		;
-connectAttr "FireworksBurstSparksColorCone19.matrix" "FireworksBurstSparksInstancer.inputHierarchy[19]"
-		;
-connectAttr "FireworksBurstSparksColorCone20.matrix" "FireworksBurstSparksInstancer.inputHierarchy[20]"
-		;
-connectAttr "FireworksBurstSparksColorCone21.matrix" "FireworksBurstSparksInstancer.inputHierarchy[21]"
-		;
-connectAttr "FireworksBurstSparksColorCone22.matrix" "FireworksBurstSparksInstancer.inputHierarchy[22]"
-		;
-connectAttr "FireworksBurstSparksColorCone23.matrix" "FireworksBurstSparksInstancer.inputHierarchy[23]"
-		;
-connectAttr "FireworksBurstSparksColorCone24.matrix" "FireworksBurstSparksInstancer.inputHierarchy[24]"
-		;
-connectAttr "FireworksBurstSparksColorCone25.matrix" "FireworksBurstSparksInstancer.inputHierarchy[25]"
-		;
-connectAttr "FireworksBurstSparksColorCone26.matrix" "FireworksBurstSparksInstancer.inputHierarchy[26]"
-		;
-connectAttr "FireworksBurstSparksColorCone27.matrix" "FireworksBurstSparksInstancer.inputHierarchy[27]"
-		;
-connectAttr "FireworksBurstSparksColorCone28.matrix" "FireworksBurstSparksInstancer.inputHierarchy[28]"
-		;
-connectAttr "FireworksBurstSparksColorCone29.matrix" "FireworksBurstSparksInstancer.inputHierarchy[29]"
-		;
-connectAttr "FireworksBurstSparksColorCone30.matrix" "FireworksBurstSparksInstancer.inputHierarchy[30]"
-		;
-connectAttr "FireworksBurstSparksColorCone31.matrix" "FireworksBurstSparksInstancer.inputHierarchy[31]"
-		;
-connectAttr "FireworksExpr.output[3]" "FireworksBurstSparksInstancer.visibility"
-		;
-connectAttr "FireworksExpr.output[0]" "FireworksRocketTrailsShape.visibility";
-connectAttr ":time1.outTime" "FireworksRocketTrailsShape.currentTime";
-connectAttr "Fireworks.trailMinTailSize" "FireworksRocketTrailsShape.minTailSize"
-		;
-connectAttr "FireworksRocketTrailsShape.minTailSize" "FireworksRocketTrailsShape.input[0]"
-		;
-connectAttr "FireworksRocketTrailsShape.maxTailSize" "FireworksRocketTrailsShape.input[1]"
-		;
-connectAttr "FireworksRocketTrailsShape.velocity" "FireworksRocketTrailsShape.input[2]"
-		;
-connectAttr "FireworksRocketTrailsShape.age" "FireworksRocketTrailsShape.input[3]"
-		;
-connectAttr "FireworksRocketTrailsInstancer.hierarchyCount" "FireworksRocketTrailsShape.input[4]"
-		;
-connectAttr "Fireworks.trailMaxTailSize" "FireworksRocketTrailsShape.maxTailSize"
-		;
-connectAttr "FireworksRocketTrailsGravity.outputForce[0]" "FireworksRocketTrailsShape.inputForce[0]"
-		;
-connectAttr "FireworksRocketTrailsDrag.outputForce[0]" "FireworksRocketTrailsShape.inputForce[1]"
-		;
-connectAttr "FireworksRocketsEmitter.output[0]" "FireworksRocketTrailsShape.newParticles[0]"
-		;
-connectAttr "FireworksRocketTrailsShape.output[0]" "FireworksRocketTrailsShape.lifespanPP"
-		;
-connectAttr "FireworksRocketTrailsShape.output[1]" "FireworksRocketTrailsShape.trailSparkScale"
-		;
-connectAttr "FireworksRocketTrailsShape.output[2]" "FireworksRocketTrailsShape.sparkColorIndex"
-		;
-connectAttr "FireworksRocketTrailsShape.output[3]" "FireworksRocketTrailsShape.rgbPP"
-		;
-connectAttr "FireworksRocketTrailsShape.instanceData[0].instancePointData" "FireworksRocketTrailsInstancer.inputPoints"
-		;
-connectAttr "FireworksRocketTrailsColorCone0.matrix" "FireworksRocketTrailsInstancer.inputHierarchy[0]"
-		;
-connectAttr "FireworksRocketTrailsColorCone1.matrix" "FireworksRocketTrailsInstancer.inputHierarchy[1]"
-		;
-connectAttr "FireworksRocketTrailsColorCone2.matrix" "FireworksRocketTrailsInstancer.inputHierarchy[2]"
-		;
-connectAttr "FireworksRocketTrailsColorCone3.matrix" "FireworksRocketTrailsInstancer.inputHierarchy[3]"
-		;
-connectAttr "FireworksRocketTrailsColorCone4.matrix" "FireworksRocketTrailsInstancer.inputHierarchy[4]"
-		;
-connectAttr "FireworksExpr.output[1]" "FireworksRocketTrailsInstancer.visibility"
-		;
-connectAttr "FireworksRocketTrailsShape.fieldData" "FireworksRocketTrailsGravity.inputData[0]"
-		;
-connectAttr "FireworksRocketTrailsShape.ppFieldData[0]" "FireworksRocketTrailsGravity.inputPPData[0]"
-		;
-connectAttr "FireworksRocketTrailsShape.fieldData" "FireworksRocketTrailsDrag.inputData[0]"
-		;
-connectAttr "FireworksRocketTrailsShape.ppFieldData[1]" "FireworksRocketTrailsDrag.inputPPData[0]"
-		;
 connectAttr ":defaultColorMgtGlobals.cmEnabled" "imagePlaneShape1.colorManagementEnabled"
 		;
 connectAttr ":defaultColorMgtGlobals.configFileEnabled" "imagePlaneShape1.colorManagementConfigFileEnabled"
@@ -20766,22 +17106,7 @@ connectAttr "geoConnector1.ownerCentroidLocal" "cloud_emitter.translate";
 connectAttr "geoConnector1.ownerPositions" "cloud_emitter.ownerPosData";
 connectAttr "geoConnector1.ownerVelocities" "cloud_emitter.ownerVelData";
 connectAttr "geoConnector1.sweptGeometry" "cloud_emitter.sweptGeometry";
-connectAttr "cloud_particleShape.isFull" "cloud_emitter.isFull[0]";
-connectAttr "cloud_particleShape.timeStepSize" "cloud_emitter.deltaTime[0]";
-connectAttr "cloud_particleShape.inheritFactor" "cloud_emitter.inheritFactor[0]"
-		;
-connectAttr "cloud_particleShape.startTime" "cloud_emitter.startTime[0]";
-connectAttr "cloud_particleShape.seed[0]" "cloud_emitter.seed[0]";
-connectAttr ":time1.outTime" "cloud_particleShape.currentTime";
-connectAttr "cloud_nucleas.outputObjects[0]" "cloud_particleShape.nextState";
-connectAttr "cloud_nucleas.startFrame" "cloud_particleShape.startFrame";
-connectAttr "cloud_emitter.output[0]" "cloud_particleShape.newParticles[0]";
-connectAttr "cloud_particleShape.internalOpacityRamp" "cloud_particleShape.opacityPP"
-		;
 connectAttr ":time1.outTime" "cloud_nucleas.currentTime";
-connectAttr "cloud_particleShape.currentState" "cloud_nucleas.inputActive[0]";
-connectAttr "cloud_particleShape.startState" "cloud_nucleas.inputActiveStart[0]"
-		;
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "FireworksRocketTrailsColor0SG.message" ":defaultLightSet.message";
@@ -20892,29 +17217,8 @@ connectAttr "layerManager.displayLayerId[0]" "defaultLayer.identification";
 connectAttr "renderLayerManager.renderLayerId[0]" "defaultRenderLayer.identification"
 		;
 connectAttr ":time1.outTime" "rigidSolver.currentTime";
-connectAttr "FireworksRocketsShape.centroidX" "FireworksRocketSelectHandleExpr.input[0]"
-		;
-connectAttr "FireworksRocketsShape.centroidY" "FireworksRocketSelectHandleExpr.input[1]"
-		;
-connectAttr "FireworksRocketsShape.centroidZ" "FireworksRocketSelectHandleExpr.input[2]"
-		;
-connectAttr "FireworksRockets.message" "FireworksRocketSelectHandleExpr.objectMsg"
-		;
-connectAttr "FireworksRocketsGravity.directionX" "FireworksRocketsGravityHeadLocatorExpr.input[0]"
-		;
-connectAttr "FireworksRocketsGravity.directionY" "FireworksRocketsGravityHeadLocatorExpr.input[1]"
-		;
-connectAttr "FireworksRocketsGravity.directionZ" "FireworksRocketsGravityHeadLocatorExpr.input[2]"
-		;
-connectAttr "FireworksRocketsGravityHeadLocator.message" "FireworksRocketsGravityHeadLocatorExpr.objectMsg"
-		;
-connectAttr "FireworksRocketsHeadLocator.translate" "plusMinusAverage1.input3D[0]"
-		;
-connectAttr "FireworksRocketsTailLocator.translate" "plusMinusAverage1.input3D[1]"
-		;
 connectAttr "FireworksRocketTrailsColor0.color" "FireworksRocketTrailsColor0.ambientColor"
 		;
-connectAttr "Fireworks.trailGlow" "FireworksRocketTrailsColor0.glowIntensity";
 connectAttr "FireworksTrailShadersExpr.output[0]" "FireworksRocketTrailsColor0.incandescenceR"
 		;
 connectAttr "FireworksTrailShadersExpr.output[1]" "FireworksRocketTrailsColor0.incandescenceG"
@@ -20923,14 +17227,11 @@ connectAttr "FireworksTrailShadersExpr.output[2]" "FireworksRocketTrailsColor0.i
 		;
 connectAttr "FireworksRocketTrailsColor0.outColor" "FireworksRocketTrailsColor0SG.surfaceShader"
 		;
-connectAttr "FireworksRocketTrailsColorCone0Shape.instObjGroups" "FireworksRocketTrailsColor0SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksRocketTrailsColor0SG.message" "materialInfo1.shadingGroup"
 		;
 connectAttr "FireworksRocketTrailsColor0.message" "materialInfo1.material";
 connectAttr "FireworksRocketTrailsColor1.color" "FireworksRocketTrailsColor1.ambientColor"
 		;
-connectAttr "Fireworks.trailGlow" "FireworksRocketTrailsColor1.glowIntensity";
 connectAttr "FireworksTrailShadersExpr.output[3]" "FireworksRocketTrailsColor1.incandescenceR"
 		;
 connectAttr "FireworksTrailShadersExpr.output[4]" "FireworksRocketTrailsColor1.incandescenceG"
@@ -20939,14 +17240,11 @@ connectAttr "FireworksTrailShadersExpr.output[5]" "FireworksRocketTrailsColor1.i
 		;
 connectAttr "FireworksRocketTrailsColor1.outColor" "FireworksRocketTrailsColor1SG.surfaceShader"
 		;
-connectAttr "FireworksRocketTrailsColorCone1Shape.instObjGroups" "FireworksRocketTrailsColor1SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksRocketTrailsColor1SG.message" "materialInfo2.shadingGroup"
 		;
 connectAttr "FireworksRocketTrailsColor1.message" "materialInfo2.material";
 connectAttr "FireworksRocketTrailsColor2.color" "FireworksRocketTrailsColor2.ambientColor"
 		;
-connectAttr "Fireworks.trailGlow" "FireworksRocketTrailsColor2.glowIntensity";
 connectAttr "FireworksTrailShadersExpr.output[6]" "FireworksRocketTrailsColor2.incandescenceR"
 		;
 connectAttr "FireworksTrailShadersExpr.output[7]" "FireworksRocketTrailsColor2.incandescenceG"
@@ -20955,14 +17253,11 @@ connectAttr "FireworksTrailShadersExpr.output[8]" "FireworksRocketTrailsColor2.i
 		;
 connectAttr "FireworksRocketTrailsColor2.outColor" "FireworksRocketTrailsColor2SG.surfaceShader"
 		;
-connectAttr "FireworksRocketTrailsColorCone2Shape.instObjGroups" "FireworksRocketTrailsColor2SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksRocketTrailsColor2SG.message" "materialInfo3.shadingGroup"
 		;
 connectAttr "FireworksRocketTrailsColor2.message" "materialInfo3.material";
 connectAttr "FireworksRocketTrailsColor3.color" "FireworksRocketTrailsColor3.ambientColor"
 		;
-connectAttr "Fireworks.trailGlow" "FireworksRocketTrailsColor3.glowIntensity";
 connectAttr "FireworksTrailShadersExpr.output[9]" "FireworksRocketTrailsColor3.incandescenceR"
 		;
 connectAttr "FireworksTrailShadersExpr.output[10]" "FireworksRocketTrailsColor3.incandescenceG"
@@ -20971,14 +17266,11 @@ connectAttr "FireworksTrailShadersExpr.output[11]" "FireworksRocketTrailsColor3.
 		;
 connectAttr "FireworksRocketTrailsColor3.outColor" "FireworksRocketTrailsColor3SG.surfaceShader"
 		;
-connectAttr "FireworksRocketTrailsColorCone3Shape.instObjGroups" "FireworksRocketTrailsColor3SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksRocketTrailsColor3SG.message" "materialInfo4.shadingGroup"
 		;
 connectAttr "FireworksRocketTrailsColor3.message" "materialInfo4.material";
 connectAttr "FireworksRocketTrailsColor4.color" "FireworksRocketTrailsColor4.ambientColor"
 		;
-connectAttr "Fireworks.trailGlow" "FireworksRocketTrailsColor4.glowIntensity";
 connectAttr "FireworksTrailShadersExpr.output[12]" "FireworksRocketTrailsColor4.incandescenceR"
 		;
 connectAttr "FireworksTrailShadersExpr.output[13]" "FireworksRocketTrailsColor4.incandescenceG"
@@ -20987,14 +17279,11 @@ connectAttr "FireworksTrailShadersExpr.output[14]" "FireworksRocketTrailsColor4.
 		;
 connectAttr "FireworksRocketTrailsColor4.outColor" "FireworksRocketTrailsColor4SG.surfaceShader"
 		;
-connectAttr "FireworksRocketTrailsColorCone4Shape.instObjGroups" "FireworksRocketTrailsColor4SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksRocketTrailsColor4SG.message" "materialInfo5.shadingGroup"
 		;
 connectAttr "FireworksRocketTrailsColor4.message" "materialInfo5.material";
 connectAttr "FireworksBurstSparksColor0.color" "FireworksBurstSparksColor0.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor0.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[0]" "FireworksBurstSparksColor0.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[1]" "FireworksBurstSparksColor0.incandescenceG"
@@ -21003,13 +17292,10 @@ connectAttr "FireworksSparksShadersExpr.output[2]" "FireworksBurstSparksColor0.i
 		;
 connectAttr "FireworksBurstSparksColor0.outColor" "FireworksBurstSparksColor0SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone0Shape.instObjGroups" "FireworksBurstSparksColor0SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor0SG.message" "materialInfo6.shadingGroup";
 connectAttr "FireworksBurstSparksColor0.message" "materialInfo6.material";
 connectAttr "FireworksBurstSparksColor1.color" "FireworksBurstSparksColor1.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor1.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[3]" "FireworksBurstSparksColor1.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[4]" "FireworksBurstSparksColor1.incandescenceG"
@@ -21018,13 +17304,10 @@ connectAttr "FireworksSparksShadersExpr.output[5]" "FireworksBurstSparksColor1.i
 		;
 connectAttr "FireworksBurstSparksColor1.outColor" "FireworksBurstSparksColor1SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone1Shape.instObjGroups" "FireworksBurstSparksColor1SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor1SG.message" "materialInfo7.shadingGroup";
 connectAttr "FireworksBurstSparksColor1.message" "materialInfo7.material";
 connectAttr "FireworksBurstSparksColor2.color" "FireworksBurstSparksColor2.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor2.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[6]" "FireworksBurstSparksColor2.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[7]" "FireworksBurstSparksColor2.incandescenceG"
@@ -21033,13 +17316,10 @@ connectAttr "FireworksSparksShadersExpr.output[8]" "FireworksBurstSparksColor2.i
 		;
 connectAttr "FireworksBurstSparksColor2.outColor" "FireworksBurstSparksColor2SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone2Shape.instObjGroups" "FireworksBurstSparksColor2SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor2SG.message" "materialInfo8.shadingGroup";
 connectAttr "FireworksBurstSparksColor2.message" "materialInfo8.material";
 connectAttr "FireworksBurstSparksColor3.color" "FireworksBurstSparksColor3.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor3.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[9]" "FireworksBurstSparksColor3.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[10]" "FireworksBurstSparksColor3.incandescenceG"
@@ -21048,13 +17328,10 @@ connectAttr "FireworksSparksShadersExpr.output[11]" "FireworksBurstSparksColor3.
 		;
 connectAttr "FireworksBurstSparksColor3.outColor" "FireworksBurstSparksColor3SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone3Shape.instObjGroups" "FireworksBurstSparksColor3SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor3SG.message" "materialInfo9.shadingGroup";
 connectAttr "FireworksBurstSparksColor3.message" "materialInfo9.material";
 connectAttr "FireworksBurstSparksColor4.color" "FireworksBurstSparksColor4.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor4.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[12]" "FireworksBurstSparksColor4.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[13]" "FireworksBurstSparksColor4.incandescenceG"
@@ -21063,14 +17340,11 @@ connectAttr "FireworksSparksShadersExpr.output[14]" "FireworksBurstSparksColor4.
 		;
 connectAttr "FireworksBurstSparksColor4.outColor" "FireworksBurstSparksColor4SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone4Shape.instObjGroups" "FireworksBurstSparksColor4SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor4SG.message" "materialInfo10.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor4.message" "materialInfo10.material";
 connectAttr "FireworksBurstSparksColor5.color" "FireworksBurstSparksColor5.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor5.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[15]" "FireworksBurstSparksColor5.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[16]" "FireworksBurstSparksColor5.incandescenceG"
@@ -21079,14 +17353,11 @@ connectAttr "FireworksSparksShadersExpr.output[17]" "FireworksBurstSparksColor5.
 		;
 connectAttr "FireworksBurstSparksColor5.outColor" "FireworksBurstSparksColor5SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone5Shape.instObjGroups" "FireworksBurstSparksColor5SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor5SG.message" "materialInfo11.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor5.message" "materialInfo11.material";
 connectAttr "FireworksBurstSparksColor6.color" "FireworksBurstSparksColor6.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor6.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[18]" "FireworksBurstSparksColor6.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[19]" "FireworksBurstSparksColor6.incandescenceG"
@@ -21095,14 +17366,11 @@ connectAttr "FireworksSparksShadersExpr.output[20]" "FireworksBurstSparksColor6.
 		;
 connectAttr "FireworksBurstSparksColor6.outColor" "FireworksBurstSparksColor6SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone6Shape.instObjGroups" "FireworksBurstSparksColor6SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor6SG.message" "materialInfo12.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor6.message" "materialInfo12.material";
 connectAttr "FireworksBurstSparksColor7.color" "FireworksBurstSparksColor7.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor7.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[21]" "FireworksBurstSparksColor7.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[22]" "FireworksBurstSparksColor7.incandescenceG"
@@ -21111,14 +17379,11 @@ connectAttr "FireworksSparksShadersExpr.output[23]" "FireworksBurstSparksColor7.
 		;
 connectAttr "FireworksBurstSparksColor7.outColor" "FireworksBurstSparksColor7SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone7Shape.instObjGroups" "FireworksBurstSparksColor7SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor7SG.message" "materialInfo13.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor7.message" "materialInfo13.material";
 connectAttr "FireworksBurstSparksColor8.color" "FireworksBurstSparksColor8.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor8.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[24]" "FireworksBurstSparksColor8.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[25]" "FireworksBurstSparksColor8.incandescenceG"
@@ -21127,14 +17392,11 @@ connectAttr "FireworksSparksShadersExpr.output[26]" "FireworksBurstSparksColor8.
 		;
 connectAttr "FireworksBurstSparksColor8.outColor" "FireworksBurstSparksColor8SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone8Shape.instObjGroups" "FireworksBurstSparksColor8SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor8SG.message" "materialInfo14.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor8.message" "materialInfo14.material";
 connectAttr "FireworksBurstSparksColor9.color" "FireworksBurstSparksColor9.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor9.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[27]" "FireworksBurstSparksColor9.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[28]" "FireworksBurstSparksColor9.incandescenceG"
@@ -21143,14 +17405,11 @@ connectAttr "FireworksSparksShadersExpr.output[29]" "FireworksBurstSparksColor9.
 		;
 connectAttr "FireworksBurstSparksColor9.outColor" "FireworksBurstSparksColor9SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone9Shape.instObjGroups" "FireworksBurstSparksColor9SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor9SG.message" "materialInfo15.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor9.message" "materialInfo15.material";
 connectAttr "FireworksBurstSparksColor10.color" "FireworksBurstSparksColor10.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor10.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[30]" "FireworksBurstSparksColor10.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[31]" "FireworksBurstSparksColor10.incandescenceG"
@@ -21159,14 +17418,11 @@ connectAttr "FireworksSparksShadersExpr.output[32]" "FireworksBurstSparksColor10
 		;
 connectAttr "FireworksBurstSparksColor10.outColor" "FireworksBurstSparksColor10SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone10Shape.instObjGroups" "FireworksBurstSparksColor10SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor10SG.message" "materialInfo16.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor10.message" "materialInfo16.material";
 connectAttr "FireworksBurstSparksColor11.color" "FireworksBurstSparksColor11.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor11.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[33]" "FireworksBurstSparksColor11.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[34]" "FireworksBurstSparksColor11.incandescenceG"
@@ -21175,14 +17431,11 @@ connectAttr "FireworksSparksShadersExpr.output[35]" "FireworksBurstSparksColor11
 		;
 connectAttr "FireworksBurstSparksColor11.outColor" "FireworksBurstSparksColor11SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone11Shape.instObjGroups" "FireworksBurstSparksColor11SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor11SG.message" "materialInfo17.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor11.message" "materialInfo17.material";
 connectAttr "FireworksBurstSparksColor12.color" "FireworksBurstSparksColor12.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor12.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[36]" "FireworksBurstSparksColor12.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[37]" "FireworksBurstSparksColor12.incandescenceG"
@@ -21191,14 +17444,11 @@ connectAttr "FireworksSparksShadersExpr.output[38]" "FireworksBurstSparksColor12
 		;
 connectAttr "FireworksBurstSparksColor12.outColor" "FireworksBurstSparksColor12SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone12Shape.instObjGroups" "FireworksBurstSparksColor12SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor12SG.message" "materialInfo18.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor12.message" "materialInfo18.material";
 connectAttr "FireworksBurstSparksColor13.color" "FireworksBurstSparksColor13.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor13.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[39]" "FireworksBurstSparksColor13.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[40]" "FireworksBurstSparksColor13.incandescenceG"
@@ -21207,14 +17457,11 @@ connectAttr "FireworksSparksShadersExpr.output[41]" "FireworksBurstSparksColor13
 		;
 connectAttr "FireworksBurstSparksColor13.outColor" "FireworksBurstSparksColor13SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone13Shape.instObjGroups" "FireworksBurstSparksColor13SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor13SG.message" "materialInfo19.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor13.message" "materialInfo19.material";
 connectAttr "FireworksBurstSparksColor14.color" "FireworksBurstSparksColor14.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor14.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[42]" "FireworksBurstSparksColor14.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[43]" "FireworksBurstSparksColor14.incandescenceG"
@@ -21223,14 +17470,11 @@ connectAttr "FireworksSparksShadersExpr.output[44]" "FireworksBurstSparksColor14
 		;
 connectAttr "FireworksBurstSparksColor14.outColor" "FireworksBurstSparksColor14SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone14Shape.instObjGroups" "FireworksBurstSparksColor14SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor14SG.message" "materialInfo20.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor14.message" "materialInfo20.material";
 connectAttr "FireworksBurstSparksColor15.color" "FireworksBurstSparksColor15.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor15.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[45]" "FireworksBurstSparksColor15.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[46]" "FireworksBurstSparksColor15.incandescenceG"
@@ -21239,14 +17483,11 @@ connectAttr "FireworksSparksShadersExpr.output[47]" "FireworksBurstSparksColor15
 		;
 connectAttr "FireworksBurstSparksColor15.outColor" "FireworksBurstSparksColor15SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone15Shape.instObjGroups" "FireworksBurstSparksColor15SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor15SG.message" "materialInfo21.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor15.message" "materialInfo21.material";
 connectAttr "FireworksBurstSparksColor16.color" "FireworksBurstSparksColor16.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor16.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[48]" "FireworksBurstSparksColor16.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[49]" "FireworksBurstSparksColor16.incandescenceG"
@@ -21255,14 +17496,11 @@ connectAttr "FireworksSparksShadersExpr.output[50]" "FireworksBurstSparksColor16
 		;
 connectAttr "FireworksBurstSparksColor16.outColor" "FireworksBurstSparksColor16SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone16Shape.instObjGroups" "FireworksBurstSparksColor16SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor16SG.message" "materialInfo22.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor16.message" "materialInfo22.material";
 connectAttr "FireworksBurstSparksColor17.color" "FireworksBurstSparksColor17.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor17.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[51]" "FireworksBurstSparksColor17.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[52]" "FireworksBurstSparksColor17.incandescenceG"
@@ -21271,14 +17509,11 @@ connectAttr "FireworksSparksShadersExpr.output[53]" "FireworksBurstSparksColor17
 		;
 connectAttr "FireworksBurstSparksColor17.outColor" "FireworksBurstSparksColor17SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone17Shape.instObjGroups" "FireworksBurstSparksColor17SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor17SG.message" "materialInfo23.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor17.message" "materialInfo23.material";
 connectAttr "FireworksBurstSparksColor18.color" "FireworksBurstSparksColor18.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor18.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[54]" "FireworksBurstSparksColor18.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[55]" "FireworksBurstSparksColor18.incandescenceG"
@@ -21287,14 +17522,11 @@ connectAttr "FireworksSparksShadersExpr.output[56]" "FireworksBurstSparksColor18
 		;
 connectAttr "FireworksBurstSparksColor18.outColor" "FireworksBurstSparksColor18SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone18Shape.instObjGroups" "FireworksBurstSparksColor18SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor18SG.message" "materialInfo24.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor18.message" "materialInfo24.material";
 connectAttr "FireworksBurstSparksColor19.color" "FireworksBurstSparksColor19.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor19.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[57]" "FireworksBurstSparksColor19.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[58]" "FireworksBurstSparksColor19.incandescenceG"
@@ -21303,14 +17535,11 @@ connectAttr "FireworksSparksShadersExpr.output[59]" "FireworksBurstSparksColor19
 		;
 connectAttr "FireworksBurstSparksColor19.outColor" "FireworksBurstSparksColor19SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone19Shape.instObjGroups" "FireworksBurstSparksColor19SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor19SG.message" "materialInfo25.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor19.message" "materialInfo25.material";
 connectAttr "FireworksBurstSparksColor20.color" "FireworksBurstSparksColor20.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor20.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[60]" "FireworksBurstSparksColor20.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[61]" "FireworksBurstSparksColor20.incandescenceG"
@@ -21319,14 +17548,11 @@ connectAttr "FireworksSparksShadersExpr.output[62]" "FireworksBurstSparksColor20
 		;
 connectAttr "FireworksBurstSparksColor20.outColor" "FireworksBurstSparksColor20SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone20Shape.instObjGroups" "FireworksBurstSparksColor20SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor20SG.message" "materialInfo26.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor20.message" "materialInfo26.material";
 connectAttr "FireworksBurstSparksColor21.color" "FireworksBurstSparksColor21.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor21.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[63]" "FireworksBurstSparksColor21.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[64]" "FireworksBurstSparksColor21.incandescenceG"
@@ -21335,14 +17561,11 @@ connectAttr "FireworksSparksShadersExpr.output[65]" "FireworksBurstSparksColor21
 		;
 connectAttr "FireworksBurstSparksColor21.outColor" "FireworksBurstSparksColor21SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone21Shape.instObjGroups" "FireworksBurstSparksColor21SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor21SG.message" "materialInfo27.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor21.message" "materialInfo27.material";
 connectAttr "FireworksBurstSparksColor22.color" "FireworksBurstSparksColor22.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor22.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[66]" "FireworksBurstSparksColor22.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[67]" "FireworksBurstSparksColor22.incandescenceG"
@@ -21351,14 +17574,11 @@ connectAttr "FireworksSparksShadersExpr.output[68]" "FireworksBurstSparksColor22
 		;
 connectAttr "FireworksBurstSparksColor22.outColor" "FireworksBurstSparksColor22SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone22Shape.instObjGroups" "FireworksBurstSparksColor22SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor22SG.message" "materialInfo28.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor22.message" "materialInfo28.material";
 connectAttr "FireworksBurstSparksColor23.color" "FireworksBurstSparksColor23.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor23.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[69]" "FireworksBurstSparksColor23.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[70]" "FireworksBurstSparksColor23.incandescenceG"
@@ -21367,14 +17587,11 @@ connectAttr "FireworksSparksShadersExpr.output[71]" "FireworksBurstSparksColor23
 		;
 connectAttr "FireworksBurstSparksColor23.outColor" "FireworksBurstSparksColor23SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone23Shape.instObjGroups" "FireworksBurstSparksColor23SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor23SG.message" "materialInfo29.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor23.message" "materialInfo29.material";
 connectAttr "FireworksBurstSparksColor24.color" "FireworksBurstSparksColor24.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor24.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[72]" "FireworksBurstSparksColor24.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[73]" "FireworksBurstSparksColor24.incandescenceG"
@@ -21383,14 +17600,11 @@ connectAttr "FireworksSparksShadersExpr.output[74]" "FireworksBurstSparksColor24
 		;
 connectAttr "FireworksBurstSparksColor24.outColor" "FireworksBurstSparksColor24SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone24Shape.instObjGroups" "FireworksBurstSparksColor24SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor24SG.message" "materialInfo30.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor24.message" "materialInfo30.material";
 connectAttr "FireworksBurstSparksColor25.color" "FireworksBurstSparksColor25.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor25.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[75]" "FireworksBurstSparksColor25.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[76]" "FireworksBurstSparksColor25.incandescenceG"
@@ -21399,14 +17613,11 @@ connectAttr "FireworksSparksShadersExpr.output[77]" "FireworksBurstSparksColor25
 		;
 connectAttr "FireworksBurstSparksColor25.outColor" "FireworksBurstSparksColor25SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone25Shape.instObjGroups" "FireworksBurstSparksColor25SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor25SG.message" "materialInfo31.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor25.message" "materialInfo31.material";
 connectAttr "FireworksBurstSparksColor26.color" "FireworksBurstSparksColor26.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor26.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[78]" "FireworksBurstSparksColor26.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[79]" "FireworksBurstSparksColor26.incandescenceG"
@@ -21415,14 +17626,11 @@ connectAttr "FireworksSparksShadersExpr.output[80]" "FireworksBurstSparksColor26
 		;
 connectAttr "FireworksBurstSparksColor26.outColor" "FireworksBurstSparksColor26SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone26Shape.instObjGroups" "FireworksBurstSparksColor26SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor26SG.message" "materialInfo32.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor26.message" "materialInfo32.material";
 connectAttr "FireworksBurstSparksColor27.color" "FireworksBurstSparksColor27.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor27.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[81]" "FireworksBurstSparksColor27.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[82]" "FireworksBurstSparksColor27.incandescenceG"
@@ -21431,14 +17639,11 @@ connectAttr "FireworksSparksShadersExpr.output[83]" "FireworksBurstSparksColor27
 		;
 connectAttr "FireworksBurstSparksColor27.outColor" "FireworksBurstSparksColor27SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone27Shape.instObjGroups" "FireworksBurstSparksColor27SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor27SG.message" "materialInfo33.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor27.message" "materialInfo33.material";
 connectAttr "FireworksBurstSparksColor28.color" "FireworksBurstSparksColor28.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor28.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[84]" "FireworksBurstSparksColor28.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[85]" "FireworksBurstSparksColor28.incandescenceG"
@@ -21447,14 +17652,11 @@ connectAttr "FireworksSparksShadersExpr.output[86]" "FireworksBurstSparksColor28
 		;
 connectAttr "FireworksBurstSparksColor28.outColor" "FireworksBurstSparksColor28SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone28Shape.instObjGroups" "FireworksBurstSparksColor28SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor28SG.message" "materialInfo34.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor28.message" "materialInfo34.material";
 connectAttr "FireworksBurstSparksColor29.color" "FireworksBurstSparksColor29.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor29.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[87]" "FireworksBurstSparksColor29.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[88]" "FireworksBurstSparksColor29.incandescenceG"
@@ -21463,14 +17665,11 @@ connectAttr "FireworksSparksShadersExpr.output[89]" "FireworksBurstSparksColor29
 		;
 connectAttr "FireworksBurstSparksColor29.outColor" "FireworksBurstSparksColor29SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone29Shape.instObjGroups" "FireworksBurstSparksColor29SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor29SG.message" "materialInfo35.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor29.message" "materialInfo35.material";
 connectAttr "FireworksBurstSparksColor30.color" "FireworksBurstSparksColor30.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor30.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[90]" "FireworksBurstSparksColor30.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[91]" "FireworksBurstSparksColor30.incandescenceG"
@@ -21479,14 +17678,11 @@ connectAttr "FireworksSparksShadersExpr.output[92]" "FireworksBurstSparksColor30
 		;
 connectAttr "FireworksBurstSparksColor30.outColor" "FireworksBurstSparksColor30SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone30Shape.instObjGroups" "FireworksBurstSparksColor30SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor30SG.message" "materialInfo36.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor30.message" "materialInfo36.material";
 connectAttr "FireworksBurstSparksColor31.color" "FireworksBurstSparksColor31.ambientColor"
 		;
-connectAttr "Fireworks.sparksGlow" "FireworksBurstSparksColor31.glowIntensity";
 connectAttr "FireworksSparksShadersExpr.output[93]" "FireworksBurstSparksColor31.incandescenceR"
 		;
 connectAttr "FireworksSparksShadersExpr.output[94]" "FireworksBurstSparksColor31.incandescenceG"
@@ -21495,21 +17691,15 @@ connectAttr "FireworksSparksShadersExpr.output[95]" "FireworksBurstSparksColor31
 		;
 connectAttr "FireworksBurstSparksColor31.outColor" "FireworksBurstSparksColor31SG.surfaceShader"
 		;
-connectAttr "FireworksBurstSparksColorCone31Shape.instObjGroups" "FireworksBurstSparksColor31SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "FireworksBurstSparksColor31SG.message" "materialInfo37.shadingGroup"
 		;
 connectAttr "FireworksBurstSparksColor31.message" "materialInfo37.material";
-connectAttr "Fireworks.displayGeometry" "FireworksExpr.input[0]";
-connectAttr ":time1.outTime" "FireworksExpr.time";
-connectAttr "Fireworks.message" "FireworksExpr.objectMsg";
 connectAttr "FireworksRocketTrailsColor0.colorR" "FireworksTrailShadersExpr.input[0]"
 		;
 connectAttr "FireworksRocketTrailsColor0.colorG" "FireworksTrailShadersExpr.input[1]"
 		;
 connectAttr "FireworksRocketTrailsColor0.colorB" "FireworksTrailShadersExpr.input[2]"
 		;
-connectAttr "Fireworks.trailIncandescence" "FireworksTrailShadersExpr.input[3]";
 connectAttr "FireworksRocketTrailsColor1.colorR" "FireworksTrailShadersExpr.input[4]"
 		;
 connectAttr "FireworksRocketTrailsColor1.colorG" "FireworksTrailShadersExpr.input[5]"
@@ -21539,8 +17729,6 @@ connectAttr "FireworksBurstSparksColor0.colorR" "FireworksSparksShadersExpr.inpu
 connectAttr "FireworksBurstSparksColor0.colorG" "FireworksSparksShadersExpr.input[1]"
 		;
 connectAttr "FireworksBurstSparksColor0.colorB" "FireworksSparksShadersExpr.input[2]"
-		;
-connectAttr "Fireworks.sparksIncandescence" "FireworksSparksShadersExpr.input[3]"
 		;
 connectAttr "FireworksBurstSparksColor1.colorR" "FireworksSparksShadersExpr.input[4]"
 		;
@@ -22054,12 +18242,6 @@ connectAttr ":defaultArnoldDriver.message" ":defaultArnoldRenderOptions.driver";
 connectAttr "aiSkyDomeLightShape1.message" "hyperShadePrimaryNodeEditorSavedTabsInfo.tabGraphInfo[0].nodeInfo[0].dependNode"
 		;
 connectAttr "aiStandardSurface1.outColor" "aiStandardSurface1SG.surfaceShader";
-connectAttr "FireworksBurstPositionsShape.instObjGroups" "aiStandardSurface1SG.dagSetMembers"
-		 -nextAvailable;
-connectAttr "FireworksLaunchPositionsShape.instObjGroups" "aiStandardSurface1SG.dagSetMembers"
-		 -nextAvailable;
-connectAttr "FireworksRocketsShape.instObjGroups" "aiStandardSurface1SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "aiStandardSurface1SG.message" "materialInfo49.shadingGroup";
 connectAttr "aiStandardSurface1.message" "materialInfo49.material";
 connectAttr "aiStandardSurface1.message" "materialInfo49.texture" -nextAvailable
@@ -22083,8 +18265,6 @@ connectAttr "particleSamplerInfo1.outColor" "npWaterVolume.color";
 connectAttr "particleSamplerInfo1.outIncandescence" "npWaterVolume.incandescence"
 		;
 connectAttr "particleCloud2.outColor" "particleCloud2SG.volumeShader";
-connectAttr "cloud_particleShape.instObjGroups" "particleCloud2SG.dagSetMembers"
-		 -nextAvailable;
 connectAttr "particleCloud2SG.message" "materialInfo51.shadingGroup";
 connectAttr "FireworksRocketTrailsColor0SG.partition" ":renderPartition.sets" -nextAvailable
 		;
@@ -22303,10 +18483,6 @@ connectAttr "flag_part5Shape.instObjGroups.objectGroups[0]" ":initialShadingGrou
 		 -nextAvailable;
 connectAttr "groupId5.message" ":initialShadingGroup.groupNodes" -nextAvailable;
 connectAttr "groupId6.message" ":initialShadingGroup.groupNodes" -nextAvailable;
-connectAttr "FireworksRocketTrailsShape.instObjGroups" ":initialParticleSE.dagSetMembers"
-		 -nextAvailable;
-connectAttr "FireworksBurstSparksShape.instObjGroups" ":initialParticleSE.dagSetMembers"
-		 -nextAvailable;
 connectAttr "aiSkyDomeLight1.instObjGroups" ":defaultLightSet.dagSetMembers" -nextAvailable
 		;
 // End of its a falg.ma
