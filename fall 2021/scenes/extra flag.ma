@@ -1,6 +1,6 @@
 //Maya ASCII 2022 scene
 //Name: extra flag.ma
-//Last modified: Tue, Oct 19, 2021 01:22:03 PM
+//Last modified: Tue, Oct 19, 2021 01:27:02 PM
 //Codeset: 1252
 requires maya "2022";
 requires "stereoCamera" "10.0";
@@ -11,18 +11,18 @@ fileInfo "product" "Maya 2022";
 fileInfo "version" "2022";
 fileInfo "cutIdentifier" "202102181415-29bfc1879c";
 fileInfo "osv" "Windows 10 Enterprise v2009 (Build: 19042)";
-fileInfo "UUID" "7F2DB03D-48F9-A413-B1CB-B8B89EFE2651";
+fileInfo "UUID" "07A55F4B-412A-FE6B-3A96-85BF7B5373C4";
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "5F040074-4B60-D526-4372-69BD658DA021";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 6.7011217162037644 1.9909971512359512 12.699780274423485 ;
-	setAttr ".r" -type "double3" 21.261647270092006 17.399999999998883 -4.166343879021623e-16 ;
+	setAttr ".t" -type "double3" 4.0870434692718023 5.2169409048657389 11.533330544175916 ;
+	setAttr ".r" -type "double3" 7.461647270092219 4.9999999999990905 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "72C9F691-4877-1F22-0771-C5906F45B625";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 12.504888234933354;
+	setAttr ".coi" 10.077369724169587;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -435,6 +435,7 @@ createNode transform -n "pole";
 	rename -uid "760CDF4E-48AA-BE51-A907-5097C8AB7DB5";
 createNode transform -n "flag_part1" -p "pole";
 	rename -uid "F9218C40-49C2-E825-20BD-35A5A2404A44";
+	setAttr ".t" -type "double3" 0 -0.0071977330799892769 0 ;
 	setAttr ".rp" -type "double3" 0 8.6464247457192478 1.5973730160368471 ;
 	setAttr ".sp" -type "double3" 0 8.6464247457192478 1.5973730160368471 ;
 createNode mesh -n "flag_partShape1" -p "flag_part1";
@@ -20014,7 +20015,7 @@ createNode nCloth -n "nClothShape1" -p "nCloth1";
 	setAttr -k off ".mxc";
 	setAttr -k off ".lod";
 	setAttr -k off ".inh";
-	setAttr ".cts" 38;
+	setAttr ".cts" 51;
 	setAttr -k off ".stf";
 	setAttr -k off ".igs";
 	setAttr -k off ".ecfh";
@@ -21421,8 +21422,8 @@ createNode polyPlanarProj -n "polyPlanarProj2";
 	setAttr ".prgt" 664;
 	setAttr ".ptop" 802;
 select -ne :time1;
-	setAttr ".o" 38;
-	setAttr ".unw" 38;
+	setAttr ".o" 51;
+	setAttr ".unw" 51;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
