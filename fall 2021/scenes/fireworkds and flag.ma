@@ -1,6 +1,6 @@
 //Maya ASCII 2022 scene
 //Name: fireworkds and flag.ma
-//Last modified: Thu, Nov 11, 2021 04:39:44 PM
+//Last modified: Tue, Nov 30, 2021 08:38:01 PM
 //Codeset: 1252
 file -rdi 1 -ns "SPURT" -rfn "SPURTRN" -op "v=0;" -typ "mayaAscii" "C:/Users/peyto/Documents/game-for-anth/fall 2021//scenes/SPURT.ma";
 file -rdi 1 -ns "fireworkfinal" -rfn "fireworkfinalRN" -op "v=0;" -typ "mayaAscii"
@@ -8,17 +8,21 @@ file -rdi 1 -ns "fireworkfinal" -rfn "fireworkfinalRN" -op "v=0;" -typ "mayaAsci
 file -rdi 1 -ns "extra_flag1" -rfn "extra_flagRN1" -op "v=0;" -typ "mayaAscii"
 		 "C:/Users/peyto/Documents/game-for-anth/fall 2021//scenes/extra flag.ma";
 file -rdi 1 -ns "firk_work" -rfn "firk_workRN" -op "v=0;" -typ "mayaAscii" "C:/Users/peyto/Documents/game-for-anth/fall 2021//scenes/firk work.ma";
+file -rdi 1 -ns "rocket" -rfn "rocketRN" -op "v=0;" -typ "mayaAscii" "C:/Users/peyto/Documents/game-for-anth/fall 2021//scenes/1 rocket.ma";
 file -r -ns "SPURT" -dr 1 -rfn "SPURTRN" -op "v=0;" -typ "mayaAscii" "C:/Users/peyto/Documents/game-for-anth/fall 2021//scenes/SPURT.ma";
 file -r -ns "fireworkfinal" -dr 1 -rfn "fireworkfinalRN" -op "v=0;" -typ "mayaAscii"
 		 "C:/Users/peyto/Documents/game-for-anth/fall 2021//scenes/fireworkfinal.ma";
 file -r -ns "extra_flag1" -dr 1 -rfn "extra_flagRN1" -op "v=0;" -typ "mayaAscii"
 		 "C:/Users/peyto/Documents/game-for-anth/fall 2021//scenes/extra flag.ma";
 file -r -ns "firk_work" -dr 1 -rfn "firk_workRN" -op "v=0;" -typ "mayaAscii" "C:/Users/peyto/Documents/game-for-anth/fall 2021//scenes/firk work.ma";
+file -r -ns "rocket" -dr 1 -rfn "rocketRN" -op "v=0;" -typ "mayaAscii" "C:/Users/peyto/Documents/game-for-anth/fall 2021//scenes/1 rocket.ma";
 requires maya "2022";
 requires "stereoCamera" "10.0";
-requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiSkyDomeLight"
-		 -nodeType "aiAreaLight" -nodeType "aiStandardSurface" -nodeType "aiPhysicalSky" -nodeType "aiAtmosphereVolume"
-		 "mtoa" "4.2.1";
+requires -nodeType "aiOptions" -nodeType "aiAOV" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter"
+		 -nodeType "aiSkyDomeLight" -nodeType "aiAreaLight" -nodeType "aiStandardSurface"
+		 -nodeType "aiPhysicalSky" -nodeType "aiAtmosphereVolume" "mtoa" "4.2.1";
+requires -nodeType "simpleSelector" -nodeType "renderSetupLayer" -nodeType "renderSetup"
+		 -nodeType "collection" -nodeType "materialOverride" "renderSetup.py" "1.0";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
@@ -26,22 +30,22 @@ fileInfo "product" "Maya 2022";
 fileInfo "version" "2022";
 fileInfo "cutIdentifier" "202102181415-29bfc1879c";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19042)";
-fileInfo "UUID" "30251D76-492A-85B1-DC3F-4A9F5DD34492";
+fileInfo "UUID" "F0325C02-47E2-120D-AADD-A5B701C53B3C";
 createNode transform -s -n "persp";
 	rename -uid "0E9CF165-4C6E-AF5F-F593-128DADF6E1E5";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 16.951790998364395 7.1838671441032762 9.1115097307935393 ;
-	setAttr ".r" -type "double3" -5.1383527296083198 28.999999999998774 0 ;
+	setAttr ".t" -type "double3" 0.34498745131262054 13.694026239187377 18.709586343024043 ;
+	setAttr ".r" -type "double3" -22.538352729609144 -8.200000000001463 2.0083798881404936e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "FCEF899E-412B-BCCB-CE45-FA83AC68599D";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 35.106954719097402;
+	setAttr ".coi" 18.704517763157714;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 0 4.0396528820794586 -21.470330767640043 ;
+	setAttr ".tp" -type "double3" 2.8090343475341797 6.5245513916015625 1.6102855205535889 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 	setAttr ".ai_translator" -type "string" "perspective";
 createNode transform -s -n "top";
@@ -102,6 +106,7 @@ createNode aiAreaLight -n "aiAreaLightShape1" -p "aiAreaLight1";
 	rename -uid "DA7B8BC5-4D97-BB53-9681-21AE569060C8";
 	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr -k off ".v";
+	setAttr ".rlio[0]" 1 yes 0;
 	setAttr ".csh" no;
 	setAttr ".rcsh" no;
 	setAttr ".intensity" 10;
@@ -114,7 +119,7 @@ createNode aiAreaLight -n "aiAreaLightShape1" -p "aiAreaLight1";
 		} ;
 createNode transform -n "camera1";
 	rename -uid "FF0F07C3-4303-00F7-6B76-A585A99445C7";
-	setAttr ".t" -type "double3" 2.7604641833070409 -3.9006280615830446 16.868312628374031 ;
+	setAttr ".t" -type "double3" 2.7604641833070054 -3.9006280615815738 16.868312628372255 ;
 	setAttr ".r" -type "double3" 39.595966351839898 1.8667585754421148 -0.89231432224096974 ;
 	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999989 0.99999999999999989 ;
 createNode camera -n "cameraShape1" -p "camera1";
@@ -123,7 +128,7 @@ createNode camera -n "cameraShape1" -p "camera1";
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
 	setAttr ".ovr" 1.3;
-	setAttr ".coi" 32.108085071852628;
+	setAttr ".coi" 32.108085071850446;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
@@ -137,30 +142,34 @@ createNode aiSkyDomeLight -n "aiSkyDomeLightShape1" -p "aiSkyDomeLight1";
 	rename -uid "B1969640-4C72-94EB-7165-9AB0F112A397";
 	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr -k off ".v";
+	setAttr ".rlio[0]" 1 yes 0;
 	setAttr ".csh" no;
 	setAttr ".rcsh" no;
 	setAttr ".sc" -type "float3" 0.063108273 0.13551669 0.32467532 ;
 	setAttr ".intensity" 0.25974026322364807;
 	setAttr ".aal" -type "attributeAlias" {"exposure","aiExposure"} ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "7AE7CB0D-4188-6992-502B-2FB6AB9FA49A";
-	setAttr -s 99 ".lnk";
-	setAttr -s 99 ".slnk";
+	rename -uid "E5BB4C94-4AD7-FF53-709A-9894FE7FE15B";
+	setAttr -s 101 ".lnk";
+	setAttr -s 101 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "84CCE413-4019-B453-2F70-B39E49A09537";
+	rename -uid "CECEEC55-4849-0FBD-0573-798491B6C515";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "5E960E20-4AE2-83C2-358F-EE90A58CF488";
+	rename -uid "2B2EE2D1-4D12-C3CC-71B4-B58B71FBFA75";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "6C826B2F-42F4-5290-3F43-92A75D3F88CC";
+	rename -uid "CBC0738D-40CE-8F10-A4C8-46BEDD50DD54";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "1569D1AE-40B4-B4CF-8C20-5CB728EE0019";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "5BE6AAB6-44BD-0578-783B-F980DD560CE9";
+	rename -uid "09091296-4864-D203-52BC-73948814D420";
+	setAttr ".rlmi[1]"  1;
+	setAttr -s 2 ".rlmi";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "312FE464-4A15-CA31-A215-79BEA6F0828F";
 	setAttr ".g" yes;
 createNode aiOptions -s -n "defaultArnoldRenderOptions";
 	rename -uid "79AC97E8-43FA-2865-13E9-15BE8E066FB4";
+	setAttr -s 2 ".aovs";
 	setAttr ".mb_en" yes;
 	setAttr ".version" -type "string" "4.2.4";
 createNode aiAOVFilter -s -n "defaultArnoldFilter";
@@ -187,10 +196,10 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n"
 		+ "            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n"
 		+ "            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n"
-		+ "            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 723\n            -height 708\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n"
+		+ "            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 721\n            -height 723\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n"
 		+ "            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 1\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n"
 		+ "            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n"
-		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 389\n            -height 708\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n"
+		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 388\n            -height 723\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n"
 		+ "\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n"
 		+ "            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n"
 		+ "            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n"
@@ -217,11 +226,11 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n"
 		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n"
 		+ "        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"vertical2\\\" -ps 1 65 100 -ps 2 35 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Front View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 723\\n    -height 708\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 723\\n    -height 708\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 721\\n    -height 723\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 721\\n    -height 723\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 389\\n    -height 708\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 389\\n    -height 708\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 388\\n    -height 723\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 388\\n    -height 723\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -283,7 +292,7 @@ createNode reference -n "SPURTRN";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"SPURTRN"
 		"SPURTRN" 0
-		"SPURTRN" 20
+		"SPURTRN" 26
 		2 "|SPURT:Spurt_Grp" "visibility" " 1"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter1" "visibility" " 0"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter1" "translate" " -type \"double3\" 3.5904500758225657 0.95952791449496022 -12.42874982222141966"
@@ -293,7 +302,7 @@ createNode reference -n "SPURTRN";
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1" "translate" " -type \"double3\" 3.635469622885247 0 -6.351331242333071"
 		
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1|SPURT:Spurt_nParticleShape1" "currentSceneTime" 
-		" 529"
+		" 87"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1|SPURT:Spurt_nParticleShape1" "cacheWidth" 
 		" 601"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1|SPURT:Spurt_nParticleShape1" "depthSort" 
@@ -310,13 +319,23 @@ createNode reference -n "SPURTRN";
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2" "translate" " -type \"double3\" 2.50802730821480502 0 0"
 		
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2|SPURT:Spurt_nParticleShape2" "currentSceneTime" 
-		" 529"
+		" 87"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2|SPURT:Spurt_nParticleShape2" "cacheWidth" 
 		" 601"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2|SPURT:Spurt_nParticleShape2" "depthSort" 
 		" 1"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2|SPURT:Spurt_nParticleShape2" "normalDir" 
 		" -k 1 1"
+		2 "SPURT:nParticlePointsSE" "aiCustomAOVs" " -s 2"
+		2 "SPURT:nParticlePointsSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "SPURT:nParticlePointsSE" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "SPURT:aiStandardSurface1SG" "aiCustomAOVs" " -s 2"
+		2 "SPURT:aiStandardSurface1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "SPURT:aiStandardSurface1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
 		5 4 "SPURTRN" "|SPURT:Spurt_Grp|SPURT:Spurt_emitter1.rate" "SPURTRN.placeHolderList[1]" 
 		""
 		5 4 "SPURTRN" "|SPURT:Spurt_Grp|SPURT:Spurt_emitter2.rate" "SPURTRN.placeHolderList[2]" 
@@ -345,17 +364,17 @@ createNode reference -n "fireworkfinalRN";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"fireworkfinalRN"
 		"fireworkfinalRN" 0
-		"fireworkfinalRN" 17
+		"fireworkfinalRN" 62
 		2 "|fireworkfinal:fanali|fireworkfinal:rocket_emitter1" "translate" " -type \"double3\" 0 9.41808628122057101 -25.51642567824367092"
 		
 		2 "|fireworkfinal:fanali|fireworkfinal:rocket_emitter1" "alongAxis" " 5.82417582315239279"
 		
 		2 "|fireworkfinal:fanali|fireworkfinal:rocket_particle1|fireworkfinal:rocket_particleShape1" 
-		"currentSceneTime" " 529"
+		"currentSceneTime" " 87"
 		2 "|fireworkfinal:fanali|fireworkfinal:rocket_particle1|fireworkfinal:rocket_particleShape1" 
 		"cacheWidth" " 601"
 		2 "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1|fireworkfinal:trail_nParticleShape1" 
-		"currentSceneTime" " 529"
+		"currentSceneTime" " 87"
 		2 "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1|fireworkfinal:trail_nParticleShape1" 
 		"cacheWidth" " 601"
 		2 "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1|fireworkfinal:trail_nParticleShape1" 
@@ -363,13 +382,88 @@ createNode reference -n "fireworkfinalRN";
 		2 "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1|fireworkfinal:trail_nParticleShape1" 
 		"pointSize" " -k 1 2"
 		2 "|fireworkfinal:fanali|fireworkfinal:burstparticle|fireworkfinal:burstparticleShape" 
-		"currentSceneTime" " 529"
+		"currentSceneTime" " 87"
 		2 "|fireworkfinal:fanali|fireworkfinal:burstparticle|fireworkfinal:burstparticleShape" 
 		"cacheWidth" " 601"
 		2 "|fireworkfinal:fanali|fireworkfinal:burstparticle|fireworkfinal:burstparticleShape" 
 		"depthSort" " 0"
 		2 "|fireworkfinal:fanali|fireworkfinal:burstparticle|fireworkfinal:burstparticleShape" 
 		"pointSize" " -k 1 2"
+		2 "fireworkfinal:nParticleWaterSE" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:nParticleWaterSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:nParticleWaterSE" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:particleCloud2SG" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:particleCloud2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:particleCloud2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:lambert2SG" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:lambert2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:lambert2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:aiStandardSurface1SG" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:aiStandardSurface1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:aiStandardSurface1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:standardSurface2SG" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:standardSurface2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:standardSurface2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:aiStandardSurface2SG" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:aiStandardSurface2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:aiStandardSurface2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:standardSurface1SG" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:standardSurface1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:standardSurface1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:particleCloud3SG" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:particleCloud3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:particleCloud3SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:lambert3SG" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:lambert3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:lambert3SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:particleCloud4SG" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:particleCloud4SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:particleCloud4SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:aiStandardSurface3SG" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:aiStandardSurface3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:aiStandardSurface3SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:surfaceShader1SG" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:surfaceShader1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:surfaceShader1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:aiStandardSurface4SG" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:aiStandardSurface4SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:aiStandardSurface4SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:aiStandardSurface5SG" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:aiStandardSurface5SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:aiStandardSurface5SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "fireworkfinal:nParticlePointsSE" "aiCustomAOVs" " -s 2"
+		2 "fireworkfinal:nParticlePointsSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "fireworkfinal:nParticlePointsSE" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
 		3 "|fireworkfinal:fanali|fireworkfinal:burstparticle|fireworkfinal:burstparticleShape.instObjGroups" 
 		"fireworkfinal:aiStandardSurface5SG.dagSetMembers" "-na"
 		5 4 "fireworkfinalRN" "|fireworkfinal:fanali|fireworkfinal:rocket_emitter1.rate" 
@@ -394,8 +488,14 @@ createNode aiStandardSurface -n "aiStandardSurface1";
 	setAttr ".emission_color" -type "float3" 0 0 1 ;
 createNode shadingEngine -n "aiStandardSurface1SG";
 	rename -uid "95188DE2-434F-407B-4C70-19AC75A68172";
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
+	setAttr -s 2 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "albedo";
+	setAttr ".aovs[1].aov_name" -type "string" "emission";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_albedo","aiCustomAOVs[0]","ai_aov_emission"
+		,"aiCustomAOVs[1]"} ;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "7E7741D6-4CF2-D87B-B86A-F6B06BF76079";
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
@@ -424,12 +524,336 @@ createNode reference -n "extra_flagRN1";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"extra_flagRN1"
 		"extra_flagRN1" 0
-		"extra_flagRN1" 3
+		"extra_flagRN1" 198
 		2 "|extra_flag1:flag|extra_flag1:group1|extra_flag1:Cloth_Nucleas" "gravity" 
 		" 6.04400014877319336"
 		2 "|extra_flag1:flag|extra_flag1:flag_nCloth1|extra_flag1:flag_nClothShape1" 
 		"cacheWidth" " 601"
-		2 "extra_flag1:flag_shader" "Kd" " 1";
+		2 "extra_flag1:FireworksRocketTrailsColor0SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksRocketTrailsColor0SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksRocketTrailsColor0SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksRocketTrailsColor1SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksRocketTrailsColor1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksRocketTrailsColor1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksRocketTrailsColor2SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksRocketTrailsColor2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksRocketTrailsColor2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksRocketTrailsColor3SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksRocketTrailsColor3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksRocketTrailsColor3SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksRocketTrailsColor4SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksRocketTrailsColor4SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksRocketTrailsColor4SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor0SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor0SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor0SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor1SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor2SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor3SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor3SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor4SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor4SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor4SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor5SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor5SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor5SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor6SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor6SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor6SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor7SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor7SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor7SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor8SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor8SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor8SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor9SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor9SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor9SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor10SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor10SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor10SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor11SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor11SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor11SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor12SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor12SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor12SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor13SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor13SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor13SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor14SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor14SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor14SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor15SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor15SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor15SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor16SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor16SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor16SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor17SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor17SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor17SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor18SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor18SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor18SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor19SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor19SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor19SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor20SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor20SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor20SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor21SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor21SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor21SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor22SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor22SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor22SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor23SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor23SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor23SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor24SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor24SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor24SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor25SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor25SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor25SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor26SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor26SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor26SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor27SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor27SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor27SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor28SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor28SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor28SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor29SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor29SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor29SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor30SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor30SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor30SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor31SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:FireworksBurstSparksColor31SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:FireworksBurstSparksColor31SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:lambert2SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:lambert2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:lambert2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:lambert3SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:lambert3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:lambert3SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:lambert3metalSG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:lambert3metalSG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:lambert3metalSG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:blinn1SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:blinn1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:blinn1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:standardSurface1SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:standardSurface1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:standardSurface1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:lambert4SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:lambert4SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:lambert4SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:lambert5SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:lambert5SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:lambert5SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:extrudedSurface1SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:extrudedSurface1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:extrudedSurface1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:lambert7SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:lambert7SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:lambert7SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:blinn2SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:blinn2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:blinn2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:blinn3SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:blinn3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:blinn3SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiStandardSurface1SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiStandardSurface1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiStandardSurface1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:nParticleWaterSE" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:nParticleWaterSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:nParticleWaterSE" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:particleCloud2SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:particleCloud2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:particleCloud2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiStandardSurface2SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiStandardSurface2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiStandardSurface2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiStandardSurface3SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiStandardSurface3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiStandardSurface3SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiStandardSurface4SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiStandardSurface4SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiStandardSurface4SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiStandardSurface5SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiStandardSurface5SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiStandardSurface5SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiStandardSurface7SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiStandardSurface7SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiStandardSurface7SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiStandardSurface8SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiStandardSurface8SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiStandardSurface8SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiStandardSurface9SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiStandardSurface9SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiStandardSurface9SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiLambert1SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiLambert1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiLambert1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiStandardSurface10SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiStandardSurface10SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiStandardSurface10SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiStandardSurface11SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiStandardSurface11SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiStandardSurface11SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiStandardSurface12SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiStandardSurface12SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiStandardSurface12SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiStandardSurface15SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiStandardSurface15SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiStandardSurface15SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:flag_shader" "Kd" " 1"
+		2 "extra_flag1:aiLambert2SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiLambert2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiLambert2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "extra_flag1:aiStandardSurface16SG" "aiCustomAOVs" " -s 2"
+		2 "extra_flag1:aiStandardSurface16SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "extra_flag1:aiStandardSurface16SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode reference -n "firk_workRN";
@@ -438,21 +862,91 @@ createNode reference -n "firk_workRN";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"firk_workRN"
 		"firk_workRN" 0
-		"firk_workRN" 9
+		"firk_workRN" 51
 		2 "|firk_work:rocket_emitter1" "visibility" " 0"
 		2 "|firk_work:rocket_emitter1" "translate" " -type \"double3\" 0 11.06015040906625124 -21.08013326068751425"
 		
 		2 "|firk_work:rocket_particle1|firk_work:rocket_particleShape1" "currentSceneTime" 
-		" 529"
+		" 87"
 		2 "|firk_work:rocket_particle1|firk_work:rocket_particleShape1" "cacheWidth" 
 		" 601"
 		2 "|firk_work:trail_nParticle1|firk_work:trail_nParticleShape1" "currentSceneTime" 
-		" 529"
+		" 87"
 		2 "|firk_work:trail_nParticle1|firk_work:trail_nParticleShape1" "cacheWidth" 
 		" 601"
 		2 "|firk_work:burstparticle|firk_work:burstparticleShape" "currentSceneTime" 
-		" 529"
+		" 87"
 		2 "|firk_work:burstparticle|firk_work:burstparticleShape" "cacheWidth" " 601"
+		
+		2 "firk_work:nParticleWaterSE" "aiCustomAOVs" " -s 2"
+		2 "firk_work:nParticleWaterSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:nParticleWaterSE" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "firk_work:particleCloud2SG" "aiCustomAOVs" " -s 2"
+		2 "firk_work:particleCloud2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:particleCloud2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "firk_work:lambert2SG" "aiCustomAOVs" " -s 2"
+		2 "firk_work:lambert2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:lambert2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "firk_work:aiStandardSurface1SG" "aiCustomAOVs" " -s 2"
+		2 "firk_work:aiStandardSurface1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:aiStandardSurface1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "firk_work:standardSurface2SG" "aiCustomAOVs" " -s 2"
+		2 "firk_work:standardSurface2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:standardSurface2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "firk_work:aiStandardSurface2SG" "aiCustomAOVs" " -s 2"
+		2 "firk_work:aiStandardSurface2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:aiStandardSurface2SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "firk_work:standardSurface1SG" "aiCustomAOVs" " -s 2"
+		2 "firk_work:standardSurface1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:standardSurface1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "firk_work:particleCloud3SG" "aiCustomAOVs" " -s 2"
+		2 "firk_work:particleCloud3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:particleCloud3SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "firk_work:lambert3SG" "aiCustomAOVs" " -s 2"
+		2 "firk_work:lambert3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:lambert3SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "firk_work:particleCloud4SG" "aiCustomAOVs" " -s 2"
+		2 "firk_work:particleCloud4SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:particleCloud4SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "firk_work:aiStandardSurface3SG" "aiCustomAOVs" " -s 2"
+		2 "firk_work:aiStandardSurface3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:aiStandardSurface3SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "firk_work:aiStandardHair1SG" "aiCustomAOVs" " -s 2"
+		2 "firk_work:aiStandardHair1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:aiStandardHair1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "firk_work:aiStandardSurface4SG" "aiCustomAOVs" " -s 2"
+		2 "firk_work:aiStandardSurface4SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:aiStandardSurface4SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
+		
+		2 "firk_work:standardSurface3SG" "aiCustomAOVs" " -s 2"
+		2 "firk_work:standardSurface3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
+		
+		2 "firk_work:standardSurface3SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"emission\""
 		
 		5 4 "firk_workRN" "|firk_work:rocket_emitter1.rate" "firk_workRN.placeHolderList[1]" 
 		"";
@@ -463,9 +957,54 @@ createNode animCurveTU -n "rocket_emitter1_rate2";
 	setAttr ".tan" 18;
 	setAttr ".wgt" no;
 	setAttr -s 7 ".ktv[0:6]"  0 0 130 0 139 1 140 1 294 0 295 0 300 0;
+createNode renderSetup -n "renderSetup";
+	rename -uid "E92D92F7-434E-0AE6-8B3D-EA93C990A3F8";
+createNode renderSetupLayer -n "flag";
+	rename -uid "2C472390-4135-64FE-CDB6-379B01F74681";
+createNode renderLayer -n "rs_flag";
+	rename -uid "BE1FB198-441D-B46F-1E2D-2F812676DE44";
+	setAttr ".do" 1;
+createNode collection -n "flag_colllection";
+	rename -uid "B0CF02BF-47E1-BBAC-9FC0-2889ADB24A70";
+createNode simpleSelector -n "collection1Selector";
+	rename -uid "5AAABB04-4759-DAAE-FCA9-D09E198BA894";
+	setAttr ".ssl" -type "string" "|extra_flag1:flag\n|extra_flag1:flag|extra_flag1:group1\n|extra_flag1:flag|extra_flag1:flag_geo\n|extra_flag1:flag|extra_flag1:flag_nCloth1\n|extra_flag1:flag|extra_flag1:dynamicConstraint1\n|aiAreaLight1\n|aiSkyDomeLight1\n|camera1";
+createNode materialOverride -n "flag1";
+	rename -uid "EDC62D7B-4DF5-8B8D-DCC8-EA85CF5D8729";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+createNode collection -n "collection2";
+	rename -uid "015757D5-4311-C9D2-3354-14B197730D32";
+createNode simpleSelector -n "collection2Selector";
+	rename -uid "81D044F8-43EB-3380-2532-C2A5336E4584";
+	setAttr ".ssl" -type "string" "|firk_work:burstparticle\n|firk_work:trail_nParticle1\n|firk_work:rocket_particle1|firk_work:burst_emitter1\n|firk_work:rocket_particle1|firk_work:trail_emitter1\n|firk_work:rocket_particle1\n|SPURT:Spurt_Grp|SPURT:Spurt_emitter2\n|SPURT:Spurt_Grp|SPURT:Spurt_Nucleas\n|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1\n|SPURT:Spurt_Grp|SPURT:Spurt_emitter1\n|fireworkfinal:fanali|fireworkfinal:burstparticle\n|fireworkfinal:fanali|fireworkfinal:turbulenceField2\n|fireworkfinal:fanali|fireworkfinal:trail_turbulenceField1\n|fireworkfinal:fanali|fireworkfinal:trail_nParticle1\n|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2\n|fireworkfinal:fanali\n|fireworkfinal:fanali|fireworkfinal:rocket_emitter1\n|fireworkfinal:fanali|fireworkfinal:rocket_particle1\n|aiSkyDomeLight1\n|aiAreaLight1\n|camera1";
+createNode materialOverride -n "fireworkmat";
+	rename -uid "1D1A5896-46F3-B59B-C267-E3B02E24C57C";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+createNode aiAOV -n "aiAOV_albedo";
+	rename -uid "A914952E-4430-6296-4597-759EEA22E588";
+	setAttr ".aovn" -type "string" "albedo";
+	setAttr ".aovt" 5;
+createNode aiAOV -n "aiAOV_emission";
+	rename -uid "2817039C-4411-A384-FB5F-85ABEC2EE18B";
+	setAttr ".aovn" -type "string" "emission";
+	setAttr ".aovt" 5;
+createNode reference -n "rocketRN";
+	rename -uid "D88889C5-4295-FAA9-CA5E-F6ABF73D6A84";
+	setAttr ".ed" -type "dataReferenceEdits" 
+		"rocketRN"
+		"rocketRN" 0
+		"rocketRN" 3
+		2 "|rocket:rocket1" "translate" " -type \"double3\" -3.43633430279078311 0.88003097857985368 -2.6915774715693308"
+		
+		2 "|rocket:rocket1|rocket:nParticle1|rocket:nParticleShape1" "currentSceneTime" 
+		" 87"
+		2 "|rocket:rocket1|rocket:particle1|rocket:particleShape1" "currentSceneTime" 
+		" 87";
+	setAttr ".ptag" -type "string" "";
+lockNode -l 1 ;
 select -ne :time1;
-	setAttr -av ".o" 529;
-	setAttr ".unw" 529;
+	setAttr -av ".o" 87;
+	setAttr ".unw" 87;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
@@ -473,34 +1012,45 @@ select -ne :hardwareRenderingGlobals;
 		 0 0 0 0 ;
 	setAttr ".fprt" yes;
 select -ne :renderPartition;
-	setAttr -s 99 ".st";
+	setAttr -s 101 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 16 ".s";
+	setAttr -s 17 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderUtilityList1;
 	setAttr -s 70 ".u";
 select -ne :defaultRenderingList1;
-	setAttr -s 5 ".r";
+	setAttr -s 7 ".r";
 select -ne :lightList1;
 	setAttr -s 2 ".l";
 select -ne :defaultTextureList1;
 	setAttr -s 62 ".tx";
 select -ne :initialShadingGroup;
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ro" yes;
+	setAttr -s 2 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "albedo";
+	setAttr ".aovs[1].aov_name" -type "string" "emission";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_albedo","aiCustomAOVs[0].aovName"
+		,"ai_aov_emission","aiCustomAOVs[1].aovName"} ;
 select -ne :initialParticleSE;
+	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ro" yes;
+	setAttr -s 2 ".aovs";
+	setAttr ".aovs[0].aov_name" -type "string" "albedo";
+	setAttr ".aovs[1].aov_name" -type "string" "emission";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_albedo","aiCustomAOVs[0].aovName"
+		,"ai_aov_emission","aiCustomAOVs[1].aovName"} ;
 select -ne :defaultRenderGlobals;
 	addAttr -ci true -h true -sn "dss" -ln "defaultSurfaceShader" -dt "string";
 	setAttr ".ren" -type "string" "arnold";
 	setAttr ".outf" 51;
 	setAttr ".imfkey" -type "string" "png";
-	setAttr ".an" yes;
 	setAttr ".fs" 466;
 	setAttr ".ef" 540;
+	setAttr ".ofc" 1;
 	setAttr ".pff" yes;
-	setAttr ".peie" 0;
 	setAttr ".ifp" -type "string" "final firework turntable\\(not set; using scene name)";
 	setAttr ".dss" -type "string" "lambert1";
 select -ne :defaultResolution;
@@ -524,6 +1074,9 @@ connectAttr "fireworkfinalRN.phl[3]" "hyperShadePrimaryNodeEditorSavedTabsInfo.t
 connectAttr "fireworkfinalRN.phl[4]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
 		;
 connectAttr "rocket_emitter1_rate2.o" "firk_workRN.phl[1]";
+connectAttr "rs_flag.ri" "aiAreaLight1.rlio[0]";
+connectAttr "rs_flag.ri" "camera1.rlio[0]";
+connectAttr "rs_flag.ri" "aiSkyDomeLight1.rlio[0]";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "aiStandardSurface1SG.message" ":defaultLightSet.message";
@@ -537,6 +1090,8 @@ connectAttr ":defaultArnoldDisplayDriver.msg" ":defaultArnoldRenderOptions.drive
 connectAttr ":defaultArnoldFilter.msg" ":defaultArnoldRenderOptions.filt";
 connectAttr ":defaultArnoldDriver.msg" ":defaultArnoldRenderOptions.drvr";
 connectAttr "aiAtmosphereVolume.msg" ":defaultArnoldRenderOptions.atm";
+connectAttr "aiAOV_albedo.msg" ":defaultArnoldRenderOptions.aovs" -na;
+connectAttr "aiAOV_emission.msg" ":defaultArnoldRenderOptions.aovs" -na;
 connectAttr "aiStandardSurface1.out" "aiStandardSurface1SG.ss";
 connectAttr "aiStandardSurface1SG.msg" "materialInfo1.sg";
 connectAttr "aiStandardSurface1.msg" "materialInfo1.m";
@@ -547,11 +1102,38 @@ connectAttr "aiAreaLightShape1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tg
 		;
 connectAttr "aiStandardSurface1SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
 		;
+connectAttr "flag.msg" "renderSetup.frl";
+connectAttr "flag.msg" "renderSetup.lrl";
+connectAttr "rs_flag.msg" "flag.lrl";
+connectAttr "renderSetup.lit" "flag.pls";
+connectAttr "flag_colllection.msg" "flag.cl";
+connectAttr "collection2.msg" "flag.ch";
+connectAttr "renderLayerManager.rlmi[1]" "rs_flag.rlid";
+connectAttr "collection1Selector.c" "flag_colllection.sel";
+connectAttr "flag.lit" "flag_colllection.pls";
+connectAttr "flag.nic" "flag_colllection.pic";
+connectAttr "flag1.msg" "flag_colllection.cl";
+connectAttr "flag1.msg" "flag_colllection.ch";
+connectAttr "flag_colllection.lit" "flag1.pls";
+connectAttr "flag_colllection.en" "flag1.pen";
+connectAttr "collection2Selector.c" "collection2.sel";
+connectAttr "flag_colllection.nxt" "collection2.prv";
+connectAttr "flag.lit" "collection2.pls";
+connectAttr "flag.nic" "collection2.pic";
+connectAttr "fireworkmat.msg" "collection2.cl";
+connectAttr "fireworkmat.msg" "collection2.ch";
+connectAttr "collection2.lit" "fireworkmat.pls";
+connectAttr "collection2.en" "fireworkmat.pen";
+connectAttr ":defaultArnoldDriver.msg" "aiAOV_albedo.out[0].drvr";
+connectAttr ":defaultArnoldFilter.msg" "aiAOV_albedo.out[0].ftr";
+connectAttr ":defaultArnoldDriver.msg" "aiAOV_emission.out[0].drvr";
+connectAttr ":defaultArnoldFilter.msg" "aiAOV_emission.out[0].ftr";
 connectAttr "time1_outTime.o" ":time1.o";
 connectAttr "aiStandardSurface1SG.pa" ":renderPartition.st" -na;
 connectAttr "aiAtmosphereVolume.msg" ":defaultShaderList1.s" -na;
 connectAttr "aiStandardSurface1.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "rs_flag.msg" ":defaultRenderingList1.r" -na;
 connectAttr "aiAreaLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "aiSkyDomeLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "aiAreaLight1.iog" ":defaultLightSet.dsm" -na;
