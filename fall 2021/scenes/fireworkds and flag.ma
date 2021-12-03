@@ -1,6 +1,6 @@
 //Maya ASCII 2022 scene
 //Name: fireworkds and flag.ma
-//Last modified: Wed, Dec 01, 2021 10:10:26 PM
+//Last modified: Thu, Dec 02, 2021 11:47:07 PM
 //Codeset: 1252
 file -rdi 1 -ns "SPURT" -rfn "SPURTRN" -op "v=0;" -typ "mayaAscii" "C:/Users/peyto/Documents/game-for-anth/fall 2021//scenes/SPURT.ma";
 file -rdi 1 -ns "fireworkfinal" -rfn "fireworkfinalRN" -op "v=0;" -typ "mayaAscii"
@@ -25,29 +25,28 @@ file -r -ns "rocket3" -dr 1 -rfn "rocket2RN" -typ "mayaAscii" "C:/Users/peyto/Do
 requires maya "2022";
 requires "stereoCamera" "10.0";
 requires -nodeType "aiOptions" -nodeType "aiAOV" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter"
-		 -nodeType "aiSkyDomeLight" -nodeType "aiAreaLight" -nodeType "aiStandardSurface"
+		 -nodeType "aiSkyDomeLight" -nodeType "aiAreaLight" -nodeType "aiUtility" -nodeType "aiStandardSurface"
 		 -nodeType "aiPhysicalSky" -nodeType "aiAtmosphereVolume" "mtoa" "4.2.1";
-requires -nodeType "simpleSelector" -nodeType "renderSetupLayer" -nodeType "renderSetup"
-		 -nodeType "collection" -nodeType "shaderOverride" -nodeType "materialOverride" -nodeType "lightItem"
-		 -nodeType "lightEditor" "renderSetup.py" "1.0";
+requires -nodeType "renderSetup" -nodeType "lightItem" -nodeType "lightEditor" "renderSetup.py" "1.0";
+requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2022";
 fileInfo "version" "2022";
 fileInfo "cutIdentifier" "202102181415-29bfc1879c";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19042)";
-fileInfo "UUID" "2D6D8F99-40B1-6A55-F22C-C59FC8F14A2F";
+fileInfo "UUID" "D0BF0370-4663-41B2-7E31-9491E9267A80";
 createNode transform -s -n "persp";
 	rename -uid "0E9CF165-4C6E-AF5F-F593-128DADF6E1E5";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 2.7451088271033726 10.329849425890355 19.92352132709749 ;
-	setAttr ".r" -type "double3" -11.738352729611453 -0.20000000000130441 6.2120587082209088e-18 ;
+	setAttr ".t" -type "double3" 4.6121183305658944 6.7275552653909578 8.9511285836048042 ;
+	setAttr ".r" -type "double3" -1.5383527296116772 13.799999999999319 -2.5586660838752155e-17 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "FCEF899E-412B-BCCB-CE45-FA83AC68599D";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 18.704517763158059;
+	setAttr ".coi" 7.5617656078610782;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -106,15 +105,14 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -n "aiAreaLight1";
 	rename -uid "81A9F0C2-480C-C0D3-5996-34BB933E26A6";
-	setAttr -s 2 ".rlio";
-	setAttr -s 2 ".rlio";
+	setAttr -s 2 ".rlio[0:1]" 1 yes 0 2 yes 0;
 	setAttr ".t" -type "double3" 7.6082046550766442 9.6277820951384818 14.906349621129738 ;
 	setAttr ".r" -type "double3" -21.275980628027071 39.055046985891089 -10.124753489353838 ;
 createNode aiAreaLight -n "aiAreaLightShape1" -p "aiAreaLight1";
 	rename -uid "DA7B8BC5-4D97-BB53-9681-21AE569060C8";
 	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr -k off ".v";
-	setAttr ".rlio[0]" 1 yes 0;
+	setAttr -s 2 ".rlio[0:1]" 1 yes 0 4 yes 0;
 	setAttr ".csh" no;
 	setAttr ".rcsh" no;
 	setAttr ".intensity" 10;
@@ -128,8 +126,8 @@ createNode aiAreaLight -n "aiAreaLightShape1" -p "aiAreaLight1";
 createNode transform -n "camera1";
 	rename -uid "FF0F07C3-4303-00F7-6B76-A585A99445C7";
 	setAttr ".rlio[0]" 1 yes 0;
-	setAttr ".t" -type "double3" 2.4151596928412546 -3.9006280615817355 16.872703943458273 ;
-	setAttr ".r" -type "double3" 39.608426661794844 1.0668555532361144 -0.89199535774149563 ;
+	setAttr ".t" -type "double3" 2.8884561928267884 -3.0152452854513871 19.236873380476318 ;
+	setAttr ".r" -type "double3" 32.395966351840059 1.8667585754421265 -0.89231432224097151 ;
 	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999989 0.99999999999999989 ;
 createNode camera -n "cameraShape1" -p "camera1";
 	rename -uid "F1B3AB13-4739-A513-9B25-69A69CA5B97C";
@@ -137,7 +135,7 @@ createNode camera -n "cameraShape1" -p "camera1";
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
 	setAttr ".ovr" 1.3;
-	setAttr ".coi" 32.10808507185061;
+	setAttr ".coi" 32.108085071849224;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
@@ -146,41 +144,38 @@ createNode camera -n "cameraShape1" -p "camera1";
 	setAttr ".ai_translator" -type "string" "perspective";
 createNode transform -n "aiSkyDomeLight1";
 	rename -uid "AC107A30-4003-E74F-9386-F49AB9E64A60";
-	setAttr -s 2 ".rlio";
-	setAttr -s 2 ".rlio";
+	setAttr -s 2 ".rlio[0:1]" 1 yes 0 2 yes 0;
 	setAttr ".t" -type "double3" 0 -85.926540109696674 0 ;
 createNode aiSkyDomeLight -n "aiSkyDomeLightShape1" -p "aiSkyDomeLight1";
 	rename -uid "B1969640-4C72-94EB-7165-9AB0F112A397";
 	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr -k off ".v";
-	setAttr ".rlio[0]" 1 yes 0;
+	setAttr -s 2 ".rlio[0:1]" 1 yes 0 4 yes 0;
 	setAttr ".csh" no;
 	setAttr ".rcsh" no;
 	setAttr ".sc" -type "float3" 0.063108273 0.13551669 0.32467532 ;
 	setAttr ".intensity" 0.25974026322364807;
 	setAttr ".aal" -type "attributeAlias" {"exposure","aiExposure"} ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "FEC6A6D6-4A94-E0B2-B0A6-69952F32EE03";
+	rename -uid "C148D874-4EC8-10B5-5557-759C02CD12A8";
 	setAttr -s 107 ".lnk";
 	setAttr -s 107 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "D9712E49-442B-4220-8B51-C49ADE8D86C0";
+	rename -uid "9238B779-4DCF-F74A-EA12-6788619CCA4F";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "388A4630-4806-C7D4-1FC8-66B1E2A1A103";
+	rename -uid "75CD9DA0-4E3A-6C2D-147C-239520E6F582";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "FE8D9790-48DE-6A86-66F9-54B9E0C602F1";
+	rename -uid "4C929174-43F4-F32F-31E4-34BE8B43F46F";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "1569D1AE-40B4-B4CF-8C20-5CB728EE0019";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "396CBE91-492E-DB34-15E2-A896C9760574";
-	setAttr -s 3 ".rlmi[1:2]"  1 2;
-	setAttr -s 3 ".rlmi";
+	rename -uid "69E6667D-4C19-D046-943D-C4B3EEE1E338";
+	setAttr -s 5 ".rlmi[1:4]"  1 2 3 4;
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "312FE464-4A15-CA31-A215-79BEA6F0828F";
 	setAttr ".g" yes;
 createNode aiOptions -s -n "defaultArnoldRenderOptions";
 	rename -uid "79AC97E8-43FA-2865-13E9-15BE8E066FB4";
-	setAttr -s 3 ".aovs";
 	setAttr ".mb_en" yes;
 	setAttr ".version" -type "string" "4.2.4";
 createNode aiAOVFilter -s -n "defaultArnoldFilter";
@@ -188,7 +183,9 @@ createNode aiAOVFilter -s -n "defaultArnoldFilter";
 	setAttr ".ai_translator" -type "string" "gaussian";
 createNode aiAOVDriver -s -n "defaultArnoldDriver";
 	rename -uid "BD8A443A-4E01-3524-8267-859E6CA33D72";
+	setAttr ".merge_AOVs" yes;
 	setAttr ".color_management" 1;
+	setAttr ".quality" 70;
 	setAttr ".ai_translator" -type "string" "jpeg";
 createNode aiAOVDriver -s -n "defaultArnoldDisplayDriver";
 	rename -uid "BAE145DB-410E-1F98-2B24-4EBC27408447";
@@ -246,7 +243,7 @@ createNode script -n "uiConfigurationScriptNode";
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "CA696802-4277-CFA1-71C0-8F8820E1BC88";
-	setAttr ".b" -type "string" "playbackOptions -min 0 -max 600 -ast 0 -aet 600 ";
+	setAttr ".b" -type "string" "playbackOptions -min 1 -max 600 -ast 1 -aet 600 ";
 	setAttr ".st" 6;
 createNode aiPhysicalSky -n "aiPhysicalSky1";
 	rename -uid "5DD24E4B-4633-E0A2-2713-25A99111237E";
@@ -303,36 +300,43 @@ createNode reference -n "SPURTRN";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"SPURTRN"
 		"SPURTRN" 0
-		"SPURTRN" 38
+		"SPURTRN" 43
 		2 "|SPURT:Spurt_Grp" "visibility" " 1"
-		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter1" "visibility" " 0"
+		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter1" "visibility" " 1"
+		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter1" "renderLayerInfo[0]" " 4 1 0"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter1" "translate" " -type \"double3\" 3.5904500758225657 0.95952791449496022 -12.42874982222141966"
 		
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter1" "scale" " -type \"double3\" 0.55214367108651674 0.55214367108651674 0.55214367108651674"
 		
+		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1" "renderLayerInfo[0]" " 4 1 0"
+		
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1" "translate" " -type \"double3\" 3.635469622885247 0 -6.351331242333071"
 		
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1|SPURT:Spurt_nParticleShape1" "currentSceneTime" 
-		" 90"
+		" 1"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1|SPURT:Spurt_nParticleShape1" "cacheWidth" 
-		" 601"
+		" 600"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1|SPURT:Spurt_nParticleShape1" "depthSort" 
 		" 1"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1|SPURT:Spurt_nParticleShape1" "useLighting" 
 		" -k 1 0"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1|SPURT:Spurt_nParticleShape1" "normalDir" 
 		" -k 1 1"
-		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter2" "visibility" " 0"
+		2 "|SPURT:Spurt_Grp|SPURT:Spurt_Nucleas" "renderLayerInfo[0]" " 4 1 0"
+		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter2" "visibility" " 1"
+		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter2" "renderLayerInfo[0]" " 4 1 0"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter2" "translate" " -type \"double3\" -2.92718104809778801 0.95952791449496022 -12.50603696699334044"
 		
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter2" "scale" " -type \"double3\" 0.55214367108651674 0.55214367108651674 0.55214367108651674"
 		
+		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2" "renderLayerInfo[0]" " 4 1 0"
+		
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2" "translate" " -type \"double3\" 2.50802730821480502 0 0"
 		
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2|SPURT:Spurt_nParticleShape2" "currentSceneTime" 
-		" 90"
+		" 1"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2|SPURT:Spurt_nParticleShape2" "cacheWidth" 
-		" 601"
+		" 600"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2|SPURT:Spurt_nParticleShape2" "depthSort" 
 		" 1"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2|SPURT:Spurt_nParticleShape2" "normalDir" 
@@ -391,33 +395,51 @@ createNode animCurveTU -n "Spurt_emitter1_rate";
 		 360 0;
 createNode reference -n "fireworkfinalRN";
 	rename -uid "C4AA3B99-4E94-86A6-6A3C-5998CFD24958";
-	setAttr -s 2 ".phl";
+	setAttr -s 6 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
+	setAttr ".phl[3]" 0;
+	setAttr ".phl[4]" 0;
+	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"fireworkfinalRN"
 		"fireworkfinalRN" 0
-		"fireworkfinalRN" 150
+		"fireworkfinalRN" 159
+		2 "|fireworkfinal:fanali|fireworkfinal:rocket_emitter1" "renderLayerInfo[0]" 
+		" 4 1 0"
 		2 "|fireworkfinal:fanali|fireworkfinal:rocket_emitter1" "translate" " -type \"double3\" 0 9.41808628122057101 -25.51642567824367092"
 		
 		2 "|fireworkfinal:fanali|fireworkfinal:rocket_emitter1" "alongAxis" " 5.82417582315239279"
 		
+		2 "|fireworkfinal:fanali|fireworkfinal:rocket_particle1" "renderLayerInfo[0]" 
+		" 4 1 0"
 		2 "|fireworkfinal:fanali|fireworkfinal:rocket_particle1|fireworkfinal:rocket_particleShape1" 
-		"currentSceneTime" " 90"
+		"currentSceneTime" " 1"
 		2 "|fireworkfinal:fanali|fireworkfinal:rocket_particle1|fireworkfinal:rocket_particleShape1" 
-		"cacheWidth" " 601"
+		"cacheWidth" " 600"
+		2 "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1" "renderLayerInfo[0]" 
+		" 4 1 0"
 		2 "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1|fireworkfinal:trail_nParticleShape1" 
-		"currentSceneTime" " 90"
+		"currentSceneTime" " 1"
 		2 "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1|fireworkfinal:trail_nParticleShape1" 
-		"cacheWidth" " 601"
+		"cacheWidth" " 600"
 		2 "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1|fireworkfinal:trail_nParticleShape1" 
 		"depthSort" " 1"
 		2 "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1|fireworkfinal:trail_nParticleShape1" 
 		"pointSize" " -k 1 2"
+		2 "|fireworkfinal:fanali|fireworkfinal:another_fanali_nucleas" "renderLayerInfo[0]" 
+		" 4 1 0"
+		2 "|fireworkfinal:fanali|fireworkfinal:trail_turbulenceField1" "renderLayerInfo[0]" 
+		" 4 1 0"
+		2 "|fireworkfinal:fanali|fireworkfinal:turbulenceField2" "renderLayerInfo[0]" 
+		" 4 1 0"
+		2 "|fireworkfinal:fanali|fireworkfinal:burstparticle" "renderLayerInfo[0]" 
+		" 4 1 0"
 		2 "|fireworkfinal:fanali|fireworkfinal:burstparticle|fireworkfinal:burstparticleShape" 
-		"currentSceneTime" " 90"
+		"currentSceneTime" " 1"
 		2 "|fireworkfinal:fanali|fireworkfinal:burstparticle|fireworkfinal:burstparticleShape" 
-		"cacheWidth" " 601"
+		"cacheWidth" " 600"
 		2 "|fireworkfinal:fanali|fireworkfinal:burstparticle|fireworkfinal:burstparticleShape" 
 		"depthSort" " 0"
 		2 "|fireworkfinal:fanali|fireworkfinal:burstparticle|fireworkfinal:burstparticleShape" 
@@ -682,7 +704,13 @@ createNode reference -n "fireworkfinalRN";
 		5 4 "fireworkfinalRN" "|fireworkfinal:fanali|fireworkfinal:rocket_emitter1.rate" 
 		"fireworkfinalRN.placeHolderList[1]" ""
 		5 3 "fireworkfinalRN" "|fireworkfinal:fanali|fireworkfinal:burstparticle|fireworkfinal:burstparticleShape.instObjGroups" 
-		"fireworkfinalRN.placeHolderList[2]" "fireworkfinal:aiStandardSurface5SG.dsm";
+		"fireworkfinalRN.placeHolderList[2]" "fireworkfinal:aiStandardSurface5SG.dsm"
+		5 0 "fireworkfinalRN" "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1|fireworkfinal:trail_nParticleShape1.instObjGroups" 
+		"fireworkfinal:standardSurface2SG.dagSetMembers" "fireworkfinalRN.placeHolderList[3]" 
+		"fireworkfinalRN.placeHolderList[4]" ""
+		5 0 "fireworkfinalRN" "|fireworkfinal:fanali|fireworkfinal:rocket_particle1|fireworkfinal:rocket_particleShape1.instObjGroups" 
+		"fireworkfinal:standardSurface2SG.dagSetMembers" "fireworkfinalRN.placeHolderList[5]" 
+		"fireworkfinalRN.placeHolderList[6]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTU -n "rocket_emitter1_rate1";
@@ -700,21 +728,18 @@ createNode shadingEngine -n "aiStandardSurface1SG";
 	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
-	setAttr -s 4 ".aovs";
+	setAttr -s 2 ".aovs";
 	setAttr ".aovs[1].aov_name" -type "string" "emission";
-	setAttr ".aovs[4].aov_name" -type "string" "opacity";
-	setAttr ".aovs[6].aov_name" -type "string" "volume";
 	setAttr ".aovs[7].aov_name" -type "string" "background";
 	setAttr ".aal" -type "attributeAlias" {"ai_aov_albedo","aiCustomAOVs[0]","ai_aov_emission"
 		,"aiCustomAOVs[1]","ai_aov_coat_indirect","aiCustomAOVs[2]","ai_aov_diffuse_direct"
 		,"aiCustomAOVs[3]","ai_aov_opacity","aiCustomAOVs[4]","ai_aov_specular","aiCustomAOVs[5]"
-		,"ai_aov_volume","aiCustomAOVs[6].aovName","ai_aov_background","aiCustomAOVs[7].aovName"
-		} ;
+		,"ai_aov_volume","aiCustomAOVs[6]","ai_aov_background","aiCustomAOVs[7]"} ;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "7E7741D6-4CF2-D87B-B86A-F6B06BF76079";
 createNode reference -n "extra_flagRN1";
 	rename -uid "E92DD7FD-4B18-F723-B009-DAA82B9DE309";
-	setAttr -s 18 ".phl";
+	setAttr -s 32 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -733,14 +758,28 @@ createNode reference -n "extra_flagRN1";
 	setAttr ".phl[16]" 0;
 	setAttr ".phl[17]" 0;
 	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
+	setAttr ".phl[24]" 0;
+	setAttr ".phl[25]" 0;
+	setAttr ".phl[26]" 0;
+	setAttr ".phl[27]" 0;
+	setAttr ".phl[28]" 0;
+	setAttr ".phl[29]" 0;
+	setAttr ".phl[30]" 0;
+	setAttr ".phl[31]" 0;
+	setAttr ".phl[32]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"extra_flagRN1"
 		"extra_flagRN1" 0
-		"extra_flagRN1" 606
+		"extra_flagRN1" 611
 		2 "|extra_flag1:flag|extra_flag1:group1|extra_flag1:Cloth_Nucleas" "gravity" 
 		" 6.04400014877319336"
 		2 "|extra_flag1:flag|extra_flag1:flag_nCloth1|extra_flag1:flag_nClothShape1" 
-		"cacheWidth" " 601"
+		"cacheWidth" " 600"
 		2 "extra_flag1:FireworksRocketTrailsColor0SG" "aiCustomAOVs" " -s 8"
 		2 "extra_flag1:FireworksRocketTrailsColor0SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
 		
@@ -1847,70 +1886,96 @@ createNode reference -n "extra_flagRN1";
 		
 		2 "extra_flag1:aiStandardSurface16SG" "aiCustomAOVs[7].aovName" " -type \"string\" \"background\""
 		
-		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface11SG.message" "extra_flagRN1.placeHolderList[1]" 
+		3 "extra_flag1:file52.outColor" "extra_flag1:aiMultiply8.input1" ""
+		3 "extra_flag1:aiMultiply12.outColor" "extra_flag1:rope1.baseColor" ""
+		5 3 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:flag_geo|extra_flag1:flag_geoShape.instObjGroups" 
+		"extra_flagRN1.placeHolderList[1]" ""
+		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:Flag_part1|extra_flag1:Flag_partShape1.instObjGroups" 
+		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[2]" 
+		"extra_flagRN1.placeHolderList[3]" ""
+		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:plag_part|extra_flag1:plag_partShape.instObjGroups" 
+		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[4]" 
+		"extra_flagRN1.placeHolderList[5]" ""
+		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part2|extra_flag1:flag_partShape2.instObjGroups" 
+		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[6]" 
+		"extra_flagRN1.placeHolderList[7]" ""
+		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:Flag_part|extra_flag1:Flag_partShape.instObjGroups" 
+		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[8]" 
+		"extra_flagRN1.placeHolderList[9]" ""
+		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part|extra_flag1:flag_partShape.instObjGroups" 
+		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[10]" 
+		"extra_flagRN1.placeHolderList[11]" ""
+		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part4|extra_flag1:flag_part4Shape.instObjGroups" 
+		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[12]" 
+		"extra_flagRN1.placeHolderList[13]" ""
+		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part5|extra_flag1:flag_part5Shape.instObjGroups" 
+		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[14]" 
+		"extra_flagRN1.placeHolderList[15]" ""
+		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part1|extra_flag1:flag_partShape1.instObjGroups" 
+		"extra_flag1:aiStandardSurface12SG.dagSetMembers" "extra_flagRN1.placeHolderList[16]" 
+		"extra_flagRN1.placeHolderList[17]" ""
+		5 4 "extra_flagRN1" "extra_flag1:aiMultiply8.input1" "extra_flagRN1.placeHolderList[18]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface12SG.message" "extra_flagRN1.placeHolderList[2]" 
+		5 3 "extra_flagRN1" "extra_flag1:aiMultiply8.message" "extra_flagRN1.placeHolderList[19]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:aiLambert2SG.message" "extra_flagRN1.placeHolderList[3]" 
+		5 3 "extra_flagRN1" "extra_flag1:file52.outColor" "extra_flagRN1.placeHolderList[20]" 
+		"extra_flag1:aiMultiply8.input1"
+		5 3 "extra_flagRN1" "extra_flag1:file52.message" "extra_flagRN1.placeHolderList[21]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:rope1.message" "extra_flagRN1.placeHolderList[4]" 
+		5 3 "extra_flagRN1" "extra_flag1:place2dTexture51.message" "extra_flagRN1.placeHolderList[22]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface16SG.message" "extra_flagRN1.placeHolderList[5]" 
+		5 3 "extra_flagRN1" "extra_flag1:file53.message" "extra_flagRN1.placeHolderList[23]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface16SG.message" "extra_flagRN1.placeHolderList[6]" 
+		5 3 "extra_flagRN1" "extra_flag1:place2dTexture52.message" "extra_flagRN1.placeHolderList[24]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:file71.message" "extra_flagRN1.placeHolderList[7]" 
+		5 3 "extra_flagRN1" "extra_flag1:flag_shader.message" "extra_flagRN1.placeHolderList[25]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:place2dTexture70.message" "extra_flagRN1.placeHolderList[8]" 
+		5 3 "extra_flagRN1" "extra_flag1:aiLambert2SG.message" "extra_flagRN1.placeHolderList[26]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:file72.message" "extra_flagRN1.placeHolderList[9]" 
-		""
-		5 3 "extra_flagRN1" "extra_flag1:place2dTexture71.message" "extra_flagRN1.placeHolderList[10]" 
-		""
-		5 3 "extra_flagRN1" "extra_flag1:file73.message" "extra_flagRN1.placeHolderList[11]" 
-		""
-		5 3 "extra_flagRN1" "extra_flag1:place2dTexture72.message" "extra_flagRN1.placeHolderList[12]" 
-		""
-		5 3 "extra_flagRN1" "extra_flag1:file74.message" "extra_flagRN1.placeHolderList[13]" 
-		""
-		5 3 "extra_flagRN1" "extra_flag1:place2dTexture73.message" "extra_flagRN1.placeHolderList[14]" 
-		""
-		5 3 "extra_flagRN1" "extra_flag1:file75.message" "extra_flagRN1.placeHolderList[15]" 
-		""
-		5 3 "extra_flagRN1" "extra_flag1:place2dTexture74.message" "extra_flagRN1.placeHolderList[16]" 
-		""
-		5 3 "extra_flagRN1" "extra_flag1:bump2d12.message" "extra_flagRN1.placeHolderList[17]" 
-		""
-		5 3 "extra_flagRN1" "extra_flag1:aiMultiply12.message" "extra_flagRN1.placeHolderList[18]" 
-		"";
+		5 0 "extra_flagRN1" "extra_flag1:aiMultiply12.outColor" "extra_flag1:rope1.baseColor" 
+		"extra_flagRN1.placeHolderList[27]" "extra_flagRN1.placeHolderList[28]" "extra_flag1:rope1.base_color"
+		
+		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:extrudedSurface3|extra_flag1:extrudedSurfaceShape2.instObjGroups" 
+		"extra_flag1:aiStandardSurface16SG.dagSetMembers" "extra_flagRN1.placeHolderList[29]" 
+		"extra_flagRN1.placeHolderList[30]" ""
+		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:extrudedSurface2|extra_flag1:extrudedSurfaceShape1.instObjGroups" 
+		"extra_flag1:aiStandardSurface16SG.dagSetMembers" "extra_flagRN1.placeHolderList[31]" 
+		"extra_flagRN1.placeHolderList[32]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode reference -n "firk_workRN";
 	rename -uid "8EE0A84A-4D9A-17D0-F951-5AAA9F96932C";
-	setAttr -s 5 ".phl";
+	setAttr -s 6 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
 	setAttr ".phl[4]" 0;
 	setAttr ".phl[5]" 0;
+	setAttr ".phl[6]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"firk_workRN"
 		"firk_workRN" 0
-		"firk_workRN" 139
+		"firk_workRN" 144
 		2 "|firk_work:rocket_emitter1" "visibility" " 0"
+		2 "|firk_work:rocket_emitter1" "renderLayerInfo[0]" " 4 1 0"
 		2 "|firk_work:rocket_emitter1" "translate" " -type \"double3\" 0 11.06015040906625124 -21.08013326068751425"
 		
+		2 "|firk_work:rocket_particle1" "renderLayerInfo[0]" " 4 1 0"
 		2 "|firk_work:rocket_particle1|firk_work:rocket_particleShape1" "currentSceneTime" 
-		" 90"
+		" 1"
 		2 "|firk_work:rocket_particle1|firk_work:rocket_particleShape1" "cacheWidth" 
-		" 601"
+		" 600"
+		2 "|firk_work:trail_nParticle1" "renderLayerInfo[0]" " 4 1 0"
 		2 "|firk_work:trail_nParticle1|firk_work:trail_nParticleShape1" "currentSceneTime" 
-		" 90"
+		" 1"
 		2 "|firk_work:trail_nParticle1|firk_work:trail_nParticleShape1" "cacheWidth" 
-		" 601"
+		" 600"
+		2 "|firk_work:turbulenceField1" "renderLayerInfo[0]" " 4 1 0"
+		2 "|firk_work:turbulenceField2" "renderLayerInfo[0]" " 4 1 0"
+		2 "|firk_work:burstparticle" "renderLayerInfo[0]" " 4 1 0"
 		2 "|firk_work:burstparticle|firk_work:burstparticleShape" "currentSceneTime" 
-		" 90"
-		2 "|firk_work:burstparticle|firk_work:burstparticleShape" "cacheWidth" " 601"
+		" 1"
+		2 "|firk_work:burstparticle|firk_work:burstparticleShape" "cacheWidth" " 600"
 		
 		2 "firk_work:nParticleWaterSE" "aiCustomAOVs" " -s 8"
 		2 "firk_work:nParticleWaterSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
@@ -2152,13 +2217,13 @@ createNode reference -n "firk_workRN";
 		
 		5 4 "firk_workRN" "|firk_work:rocket_emitter1.rate" "firk_workRN.placeHolderList[1]" 
 		""
-		5 3 "firk_workRN" "firk_work:aiStandardSurface4SG.message" "firk_workRN.placeHolderList[2]" 
+		5 3 "firk_workRN" "|firk_work:rocket_particle1|firk_work:rocket_particleShape1.instObjGroups" 
+		"firk_workRN.placeHolderList[2]" ""
+		5 0 "firk_workRN" "|firk_work:trail_nParticle1|firk_work:trail_nParticleShape1.instObjGroups" 
+		"firk_work:aiStandardSurface4SG.dagSetMembers" "firk_workRN.placeHolderList[3]" "firk_workRN.placeHolderList[4]" 
 		""
-		5 3 "firk_workRN" "firk_work:aiStandardSurface4SG.message" "firk_workRN.placeHolderList[3]" 
-		""
-		5 3 "firk_workRN" "firk_work:burst_shader.outColor" "firk_workRN.placeHolderList[4]" 
-		""
-		5 3 "firk_workRN" "firk_work:standardSurface3SG.message" "firk_workRN.placeHolderList[5]" 
+		5 0 "firk_workRN" "|firk_work:burstparticle|firk_work:burstparticleShape.instObjGroups" 
+		"firk_work:standardSurface3SG.dagSetMembers" "firk_workRN.placeHolderList[5]" "firk_workRN.placeHolderList[6]" 
 		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -2169,40 +2234,13 @@ createNode animCurveTU -n "rocket_emitter1_rate2";
 	setAttr -s 7 ".ktv[0:6]"  0 0 130 0 139 1 140 1 294 0 295 0 300 0;
 createNode renderSetup -n "renderSetup";
 	rename -uid "E92D92F7-434E-0AE6-8B3D-EA93C990A3F8";
-createNode renderSetupLayer -n "flag";
-	rename -uid "2C472390-4135-64FE-CDB6-379B01F74681";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-createNode renderLayer -n "rs_flag";
-	rename -uid "BE1FB198-441D-B46F-1E2D-2F812676DE44";
-	setAttr ".do" 1;
-createNode collection -n "flag_colllection";
-	rename -uid "B0CF02BF-47E1-BBAC-9FC0-2889ADB24A70";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
-createNode simpleSelector -n "collection1Selector";
-	rename -uid "5AAABB04-4759-DAAE-FCA9-D09E198BA894";
-	setAttr ".ssl" -type "string" "|extra_flag1:flag\n|extra_flag1:flag|extra_flag1:group1\n|extra_flag1:flag|extra_flag1:flag_geo\n|extra_flag1:flag|extra_flag1:flag_nCloth1\n|extra_flag1:flag|extra_flag1:dynamicConstraint1\n|aiAreaLight1\n|aiSkyDomeLight1";
-createNode collection -n "fire_collect";
-	rename -uid "015757D5-4311-C9D2-3354-14B197730D32";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".nic" 3;
-	setAttr ".is" yes;
-	setAttr ".es" yes;
-createNode simpleSelector -n "collection2Selector";
-	rename -uid "81D044F8-43EB-3380-2532-C2A5336E4584";
-	setAttr ".ssl" -type "string" "|firk_work:burstparticle\n|firk_work:trail_nParticle1\n|firk_work:rocket_particle1|firk_work:burst_emitter1\n|firk_work:rocket_particle1|firk_work:trail_emitter1\n|firk_work:rocket_particle1\n|SPURT:Spurt_Grp|SPURT:Spurt_emitter2\n|SPURT:Spurt_Grp|SPURT:Spurt_Nucleas\n|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1\n|SPURT:Spurt_Grp|SPURT:Spurt_emitter1\n|fireworkfinal:fanali|fireworkfinal:burstparticle\n|fireworkfinal:fanali|fireworkfinal:turbulenceField2\n|fireworkfinal:fanali|fireworkfinal:trail_turbulenceField1\n|fireworkfinal:fanali|fireworkfinal:trail_nParticle1\n|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2\n|fireworkfinal:fanali\n|fireworkfinal:fanali|fireworkfinal:rocket_emitter1\n|fireworkfinal:fanali|fireworkfinal:rocket_particle1\n|aiSkyDomeLight1\n|aiAreaLight1\n|rocket3:rocket1\n|rocket2:rocket1\n|rocket1:rocket1\n|rocket:rocket1";
-createNode materialOverride -n "rock";
-	rename -uid "1D1A5896-46F3-B59B-C267-E3B02E24C57C";
-	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
 createNode aiAOV -n "aiAOV_emission";
 	rename -uid "2817039C-4411-A384-FB5F-85ABEC2EE18B";
 	setAttr ".aovn" -type "string" "emission";
 	setAttr ".aovt" 5;
 createNode reference -n "rocketRN";
 	rename -uid "D88889C5-4295-FAA9-CA5E-F6ABF73D6A84";
-	setAttr -s 42 ".phl";
+	setAttr -s 45 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -2245,20 +2283,27 @@ createNode reference -n "rocketRN";
 	setAttr ".phl[40]" 0;
 	setAttr ".phl[41]" 0;
 	setAttr ".phl[42]" 0;
+	setAttr ".phl[43]" 0;
+	setAttr ".phl[44]" 0;
+	setAttr ".phl[45]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"rocketRN"
 		"rocketRN" 0
-		"rocketRN" 61
+		"rocketRN" 66
 		2 "|rocket:rocket1" "translate" " -type \"double3\" -3.43633430279078311 0.88003097857985368 -2.6915774715693308"
 		
+		2 "|rocket:rocket1|rocket:nParticle1" "renderLayerInfo[0]" " 4 1 0"
 		2 "|rocket:rocket1|rocket:nParticle1|rocket:nParticleShape1" "currentSceneTime" 
-		" 90"
+		" 1"
 		2 "|rocket:rocket1|rocket:nParticle1|rocket:nParticleShape1" "cacheWidth" 
-		" 601"
+		" 600"
+		2 "|rocket:rocket1|rocket:emitter2" "renderLayerInfo[0]" " 4 1 0"
+		2 "|rocket:rocket1|rocket:particle1" "renderLayerInfo[0]" " 4 1 0"
 		2 "|rocket:rocket1|rocket:particle1|rocket:particleShape1" "currentSceneTime" 
-		" 90"
-		2 "|rocket:rocket1|rocket:particle1|rocket:particleShape1" "cacheWidth" " 601"
+		" 1"
+		2 "|rocket:rocket1|rocket:particle1|rocket:particleShape1" "cacheWidth" " 600"
 		
+		2 "|rocket:rocket1|rocket:emitter1" "renderLayerInfo[0]" " 4 1 0"
 		2 "rocket:nParticlePointsSE" "aiCustomAOVs" " -s 6"
 		2 "rocket:nParticlePointsSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"coat_indirect\""
 		
@@ -2367,7 +2412,11 @@ createNode reference -n "rocketRN";
 		""
 		5 4 "rocketRN" "|rocket:rocket1|rocket:emitter1.displaySpeed" "rocketRN.placeHolderList[41]" 
 		""
-		5 3 "rocketRN" "rocket:aiStandardSurface1SG.message" "rocketRN.placeHolderList[42]" 
+		5 0 "rocketRN" "|rocket:rocket1|rocket:particle1|rocket:particleShape1.instObjGroups" 
+		"rocket:aiStandardSurface1SG.dagSetMembers" "rocketRN.placeHolderList[42]" "rocketRN.placeHolderList[43]" 
+		""
+		5 0 "rocketRN" "|rocket:rocket1|rocket:nParticle1|rocket:nParticleShape1.instObjGroups" 
+		"rocket:aiStandardSurface1SG.dagSetMembers" "rocketRN.placeHolderList[44]" "rocketRN.placeHolderList[45]" 
 		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -2584,7 +2633,7 @@ createNode animCurveTU -n "emitter1_displaySpeed";
 	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode reference -n "rocketRN1";
 	rename -uid "37733568-4651-9546-D434-C1947003CBD8";
-	setAttr -s 42 ".phl";
+	setAttr -s 45 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -2627,26 +2676,33 @@ createNode reference -n "rocketRN1";
 	setAttr ".phl[40]" 0;
 	setAttr ".phl[41]" 0;
 	setAttr ".phl[42]" 0;
+	setAttr ".phl[43]" 0;
+	setAttr ".phl[44]" 0;
+	setAttr ".phl[45]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"rocketRN1"
 		"rocketRN1" 0
-		"rocketRN1" 64
+		"rocketRN1" 69
 		2 "|rocket1:rocket1" "translate" " -type \"double3\" 1.57399202449737619 0 -3.83839141016555585"
 		
 		2 "|rocket1:rocket1|rocket1:rocket_nucleas" "translate" " -type \"double3\" 5.5117359996612949 4.30027748769284379 -1.75825638461875355"
 		
+		2 "|rocket1:rocket1|rocket1:nParticle1" "renderLayerInfo[0]" " 4 1 0"
 		2 "|rocket1:rocket1|rocket1:nParticle1" "translate" " -type \"double3\" 3.14798404899475237 0 -7.67678282033111081"
 		
 		2 "|rocket1:rocket1|rocket1:nParticle1|rocket1:nParticleShape1" "currentSceneTime" 
-		" 90"
+		" 1"
 		2 "|rocket1:rocket1|rocket1:nParticle1|rocket1:nParticleShape1" "cacheWidth" 
-		" 601"
+		" 600"
+		2 "|rocket1:rocket1|rocket1:emitter2" "renderLayerInfo[0]" " 4 1 0"
+		2 "|rocket1:rocket1|rocket1:particle1" "renderLayerInfo[0]" " 4 1 0"
 		2 "|rocket1:rocket1|rocket1:particle1" "translate" " -type \"double3\" 3.14798404899475237 0 -7.67678282033111081"
 		
 		2 "|rocket1:rocket1|rocket1:particle1|rocket1:particleShape1" "currentSceneTime" 
-		" 90"
+		" 1"
 		2 "|rocket1:rocket1|rocket1:particle1|rocket1:particleShape1" "cacheWidth" 
-		" 601"
+		" 600"
+		2 "|rocket1:rocket1|rocket1:emitter1" "renderLayerInfo[0]" " 4 1 0"
 		2 "rocket1:nParticlePointsSE" "aiCustomAOVs" " -s 6"
 		2 "rocket1:nParticlePointsSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"coat_indirect\""
 		
@@ -2755,12 +2811,16 @@ createNode reference -n "rocketRN1";
 		"rocketRN1.placeHolderList[40]" ""
 		5 4 "rocketRN1" "|rocket1:rocket1|rocket1:emitter1.displaySpeed" "rocketRN1.placeHolderList[41]" 
 		""
-		5 3 "rocketRN1" "rocket1:aiStandardSurface1SG.message" "rocketRN1.placeHolderList[42]" 
+		5 0 "rocketRN1" "|rocket1:rocket1|rocket1:particle1|rocket1:particleShape1.instObjGroups" 
+		"rocket1:aiStandardSurface1SG.dagSetMembers" "rocketRN1.placeHolderList[42]" "rocketRN1.placeHolderList[43]" 
+		""
+		5 0 "rocketRN1" "|rocket1:rocket1|rocket1:nParticle1|rocket1:nParticleShape1.instObjGroups" 
+		"rocket1:aiStandardSurface1SG.dagSetMembers" "rocketRN1.placeHolderList[44]" "rocketRN1.placeHolderList[45]" 
 		"";
 lockNode -l 1 ;
 createNode reference -n "rocket1RN";
 	rename -uid "291E8BAB-444D-D67F-6ACD-569C2D08E988";
-	setAttr -s 42 ".phl";
+	setAttr -s 45 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -2803,26 +2863,33 @@ createNode reference -n "rocket1RN";
 	setAttr ".phl[40]" 0;
 	setAttr ".phl[41]" 0;
 	setAttr ".phl[42]" 0;
+	setAttr ".phl[43]" 0;
+	setAttr ".phl[44]" 0;
+	setAttr ".phl[45]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"rocket1RN"
 		"rocket1RN" 0
-		"rocket1RN" 64
+		"rocket1RN" 69
 		2 "|rocket2:rocket1" "translate" " -type \"double3\" -4.04770260834141471 0 -4.25469092066085874"
 		
 		2 "|rocket2:rocket1|rocket2:rocket_nucleas" "translate" " -type \"double3\" -4.04770260834141471 0 -4.25469092066085874"
 		
+		2 "|rocket2:rocket1|rocket2:nParticle1" "renderLayerInfo[0]" " 4 1 0"
 		2 "|rocket2:rocket1|rocket2:nParticle1" "translate" " -type \"double3\" -8.09540521668282764 0 -8.50938184132171216"
 		
 		2 "|rocket2:rocket1|rocket2:nParticle1|rocket2:nParticleShape1" "currentSceneTime" 
-		" 90"
+		" 1"
 		2 "|rocket2:rocket1|rocket2:nParticle1|rocket2:nParticleShape1" "cacheWidth" 
-		" 601"
+		" 600"
+		2 "|rocket2:rocket1|rocket2:emitter2" "renderLayerInfo[0]" " 4 1 0"
+		2 "|rocket2:rocket1|rocket2:particle1" "renderLayerInfo[0]" " 4 1 0"
 		2 "|rocket2:rocket1|rocket2:particle1" "translate" " -type \"double3\" -8.09540521668282764 0 -8.50938184132171216"
 		
 		2 "|rocket2:rocket1|rocket2:particle1|rocket2:particleShape1" "currentSceneTime" 
-		" 90"
+		" 1"
 		2 "|rocket2:rocket1|rocket2:particle1|rocket2:particleShape1" "cacheWidth" 
-		" 601"
+		" 600"
+		2 "|rocket2:rocket1|rocket2:emitter1" "renderLayerInfo[0]" " 4 1 0"
 		2 "rocket2:nParticlePointsSE" "aiCustomAOVs" " -s 6"
 		2 "rocket2:nParticlePointsSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"coat_indirect\""
 		
@@ -2931,12 +2998,16 @@ createNode reference -n "rocket1RN";
 		"rocket1RN.placeHolderList[40]" ""
 		5 4 "rocket1RN" "|rocket2:rocket1|rocket2:emitter1.displaySpeed" "rocket1RN.placeHolderList[41]" 
 		""
-		5 3 "rocket1RN" "rocket2:aiStandardSurface1SG.message" "rocket1RN.placeHolderList[42]" 
+		5 0 "rocket1RN" "|rocket2:rocket1|rocket2:nParticle1|rocket2:nParticleShape1.instObjGroups" 
+		"rocket2:aiStandardSurface1SG.dagSetMembers" "rocket1RN.placeHolderList[42]" "rocket1RN.placeHolderList[43]" 
+		""
+		5 0 "rocket1RN" "|rocket2:rocket1|rocket2:particle1|rocket2:particleShape1.instObjGroups" 
+		"rocket2:aiStandardSurface1SG.dagSetMembers" "rocket1RN.placeHolderList[44]" "rocket1RN.placeHolderList[45]" 
 		"";
 lockNode -l 1 ;
 createNode reference -n "rocket2RN";
 	rename -uid "85EA66C7-47CD-7CBB-82EA-31936F769F33";
-	setAttr -s 42 ".phl";
+	setAttr -s 45 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -2979,26 +3050,33 @@ createNode reference -n "rocket2RN";
 	setAttr ".phl[40]" 0;
 	setAttr ".phl[41]" 0;
 	setAttr ".phl[42]" 0;
+	setAttr ".phl[43]" 0;
+	setAttr ".phl[44]" 0;
+	setAttr ".phl[45]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"rocket2RN"
 		"rocket2RN" 0
-		"rocket2RN" 64
+		"rocket2RN" 69
 		2 "|rocket3:rocket1" "translate" " -type \"double3\" 2.38645021034018789 0 -3.9419962755340312"
 		
 		2 "|rocket3:rocket1|rocket3:rocket_nucleas" "translate" " -type \"double3\" 2.38645021034018789 0 -3.9419962755340312"
 		
+		2 "|rocket3:rocket1|rocket3:nParticle1" "renderLayerInfo[0]" " 4 1 0"
 		2 "|rocket3:rocket1|rocket3:nParticle1" "translate" " -type \"double3\" 4.77290042068037579 0 -7.88399255106805974"
 		
 		2 "|rocket3:rocket1|rocket3:nParticle1|rocket3:nParticleShape1" "currentSceneTime" 
-		" 90"
+		" 1"
 		2 "|rocket3:rocket1|rocket3:nParticle1|rocket3:nParticleShape1" "cacheWidth" 
-		" 601"
+		" 600"
+		2 "|rocket3:rocket1|rocket3:emitter2" "renderLayerInfo[0]" " 4 1 0"
+		2 "|rocket3:rocket1|rocket3:particle1" "renderLayerInfo[0]" " 4 1 0"
 		2 "|rocket3:rocket1|rocket3:particle1" "translate" " -type \"double3\" 4.77290042068037579 0 -7.88399255106805974"
 		
 		2 "|rocket3:rocket1|rocket3:particle1|rocket3:particleShape1" "currentSceneTime" 
-		" 90"
+		" 1"
 		2 "|rocket3:rocket1|rocket3:particle1|rocket3:particleShape1" "cacheWidth" 
-		" 601"
+		" 600"
+		2 "|rocket3:rocket1|rocket3:emitter1" "renderLayerInfo[0]" " 4 1 0"
 		2 "rocket3:nParticlePointsSE" "aiCustomAOVs" " -s 6"
 		2 "rocket3:nParticlePointsSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"coat_indirect\""
 		
@@ -3107,7 +3185,11 @@ createNode reference -n "rocket2RN";
 		"rocket2RN.placeHolderList[40]" ""
 		5 4 "rocket2RN" "|rocket3:rocket1|rocket3:emitter1.displaySpeed" "rocket2RN.placeHolderList[41]" 
 		""
-		5 3 "rocket2RN" "rocket3:aiStandardSurface1SG.message" "rocket2RN.placeHolderList[42]" 
+		5 0 "rocket2RN" "|rocket3:rocket1|rocket3:nParticle1|rocket3:nParticleShape1.instObjGroups" 
+		"rocket3:aiStandardSurface1SG.dagSetMembers" "rocket2RN.placeHolderList[42]" "rocket2RN.placeHolderList[43]" 
+		""
+		5 0 "rocket2RN" "|rocket3:rocket1|rocket3:particle1|rocket3:particleShape1.instObjGroups" 
+		"rocket3:aiStandardSurface1SG.dagSetMembers" "rocket2RN.placeHolderList[44]" "rocket2RN.placeHolderList[45]" 
 		"";
 lockNode -l 1 ;
 createNode animCurveTL -n "emitter1_translateX1";
@@ -3747,169 +3829,49 @@ createNode animCurveTU -n "emitter1_displaySpeed3";
 	setAttr ".wgt" no;
 	setAttr -s 3 ".ktv[0:2]"  0 1 120 1 121 1;
 	setAttr -s 3 ".kot[0:2]"  5 5 5;
-createNode renderSetupLayer -n "firework";
-	rename -uid "E295C67A-46FE-5216-83D2-7E953EC7963E";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".nic" 4;
-	setAttr ".es" yes;
-createNode renderLayer -n "rs_firework";
-	rename -uid "0603B615-4EC5-D547-4DD8-BB808A2A4781";
-	setAttr ".do" 2;
-createNode aiAOV -n "aiAOV_opacity";
-	rename -uid "7F0AFC08-428F-8CCD-39D7-2EA6E25622F7";
-	setAttr ".aovn" -type "string" "opacity";
-	setAttr ".aovt" 5;
-createNode materialOverride -n "flag1";
-	rename -uid "11E23D8E-4707-053B-A557-C4A764FDB732";
-	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
-createNode materialOverride -n "materialOverride1";
-	rename -uid "1E4A7738-4F9E-D5EB-0E67-5BA49AF74073";
-	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
-createNode materialOverride -n "materialOverride2";
-	rename -uid "6ACFC9BB-41A9-AEAB-1A8A-18B4D2DCF558";
-	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
-createNode materialOverride -n "materialOverride3";
-	rename -uid "8762B75B-4DBF-DDA7-E1A1-3E91D9122BD3";
-	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
-createNode materialOverride -n "roc2";
-	rename -uid "BEB611C3-47FF-D823-3B7F-709C5934F59C";
-	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
-createNode materialOverride -n "roc1";
-	rename -uid "1AD17E43-4B86-FC2D-DAE5-9796884A2377";
-	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
-createNode materialOverride -n "roc";
-	rename -uid "3AEB1FA7-48F2-49DD-D650-04A6F92C11C2";
-	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
-createNode collection -n "rock1";
-	rename -uid "E29D62B8-4A5A-E27B-FCAE-0A9B7FC95C33";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".nia" 1;
-	setAttr ".is" yes;
-createNode simpleSelector -n "collection3Selector";
-	rename -uid "0058BF22-49A3-05ED-84B4-1DB22133C3AC";
-createNode collection -n "burst";
-	rename -uid "83DC6ED5-419D-CE8A-D077-048958511C07";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".nic" 1;
-	setAttr ".nia" 1;
-	setAttr ".is" yes;
-	setAttr ".es" yes;
-createNode simpleSelector -n "collection4Selector";
-	rename -uid "8964A4D1-4D66-F069-F776-61ADB68CD4EB";
-createNode materialOverride -n "bursy";
-	rename -uid "C7F652F0-4154-6E8F-A632-00899CC22CB9";
-	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
-createNode materialOverride -n "burst1";
-	rename -uid "CF288152-4AC0-1AC9-EE58-53AEE13B7A16";
-	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
-createNode materialOverride -n "burst2";
-	rename -uid "321B89B8-48CE-F34C-C98E-FEBE68CFA7FE";
-	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
-createNode materialOverride -n "burst3";
-	rename -uid "CD683552-4ECD-7CC1-A710-0C9CC9B03FF0";
-	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
-createNode shaderOverride -n "shaderOverride1";
-	rename -uid "1E801AAB-4931-6102-C25A-76BE80589D72";
-	addAttr -ci true -uac -sn "atv" -ln "attrValue" -at "float3" -nc 3;
-	addAttr -ci true -sn "atvr" -ln "attrValueR" -at "float" -p "attrValue";
-	addAttr -ci true -sn "atvg" -ln "attrValueG" -at "float" -p "attrValue";
-	addAttr -ci true -sn "atvb" -ln "attrValueB" -at "float" -p "attrValue";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".es" yes;
-createNode collection -n "burst_shadingEngines";
-	rename -uid "B8184AAD-4721-A2F2-5D2B-EF8E066C608A";
-	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
-	setAttr ".nia" 2;
-	setAttr ".is" yes;
-	setAttr ".es" yes;
-createNode simpleSelector -n "burst_shadingEnginesSelector";
-	rename -uid "585373BE-471D-3A0F-3C1E-FF8BB5A8C52F";
-	setAttr ".pat" -type "string" "*";
-	setAttr ".ppa" -type "string" "*";
-	setAttr ".tf" 11;
-createNode aiAOV -n "aiAOV_volume";
-	rename -uid "DB94989D-41E4-AC4C-206B-ABBA1D75BC96";
-	setAttr ".aovn" -type "string" "volume";
-	setAttr ".aovt" 5;
 createNode lightEditor -n "lightEditor";
 	rename -uid "FAA60D5B-471A-B5D0-9042-A4885DE02E0F";
 createNode lightItem -n "aiAreaLightShape1__LEItem";
 	rename -uid "C89A16D5-4AEE-B983-CBD5-C4AE1C744CC8";
 createNode lightItem -n "aiSkyDomeLightShape1__LEItem";
 	rename -uid "4451CE6F-4931-FF0D-B821-D592659711ED";
+createNode materialInfo -n "materialInfo2";
+	rename -uid "AA0127EB-4CFE-D49B-D584-108CB34D1804";
+createNode aiUtility -n "aiUtility1";
+	rename -uid "0F186AFE-4D13-3DA3-6048-A8A315A1C960";
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "CAE2DFB1-438E-7D8A-CED4-52B2461BF99B";
+	rename -uid "38E8225A-4FC6-E0A6-D077-B2BDBC3A090B";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" 1341.6666133536255 -501.48712445121032 ;
-	setAttr ".tgi[0].vh" -type "double2" 2826.65057990477 1539.1030880884573 ;
-	setAttr -s 14 ".tgi[0].ni";
-	setAttr ".tgi[0].ni[0].x" 1984.2857666015625;
-	setAttr ".tgi[0].ni[0].y" 667.14288330078125;
+	setAttr ".tgi[0].vl" -type "double2" -4866.1666550546643 1068.4977765166311 ;
+	setAttr ".tgi[0].vh" -type "double2" -2626.7992413128491 2057.047355555811 ;
+	setAttr -s 8 ".tgi[0].ni";
+	setAttr ".tgi[0].ni[0].x" -2517.142822265625;
+	setAttr ".tgi[0].ni[0].y" 570;
 	setAttr ".tgi[0].ni[0].nvs" 1923;
-	setAttr ".tgi[0].ni[1].x" 1677.142822265625;
-	setAttr ".tgi[0].ni[1].y" 157.14285278320312;
+	setAttr ".tgi[0].ni[1].x" -3007.200439453125;
+	setAttr ".tgi[0].ni[1].y" 727.395263671875;
 	setAttr ".tgi[0].ni[1].nvs" 1923;
-	setAttr ".tgi[0].ni[2].x" 1984.2857666015625;
-	setAttr ".tgi[0].ni[2].y" 482.85714721679688;
+	setAttr ".tgi[0].ni[2].x" -2210;
+	setAttr ".tgi[0].ni[2].y" 570;
 	setAttr ".tgi[0].ni[2].nvs" 1923;
-	setAttr ".tgi[0].ni[3].x" 2947.142822265625;
-	setAttr ".tgi[0].ni[3].y" 598.5714111328125;
+	setAttr ".tgi[0].ni[3].x" -2824.28564453125;
+	setAttr ".tgi[0].ni[3].y" 525.71429443359375;
 	setAttr ".tgi[0].ni[3].nvs" 1923;
-	setAttr ".tgi[0].ni[4].x" 1984.2857666015625;
-	setAttr ".tgi[0].ni[4].y" 4.2857141494750977;
+	setAttr ".tgi[0].ni[4].x" -3530;
+	setAttr ".tgi[0].ni[4].y" 581.4285888671875;
 	setAttr ".tgi[0].ni[4].nvs" 1923;
-	setAttr ".tgi[0].ni[5].x" 2291.428466796875;
-	setAttr ".tgi[0].ni[5].y" 324.28570556640625;
+	setAttr ".tgi[0].ni[5].x" -3222.857177734375;
+	setAttr ".tgi[0].ni[5].y" 602.85711669921875;
 	setAttr ".tgi[0].ni[5].nvs" 1923;
-	setAttr ".tgi[0].ni[6].x" 1984.2857666015625;
-	setAttr ".tgi[0].ni[6].y" 180;
+	setAttr ".tgi[0].ni[6].x" -3530;
+	setAttr ".tgi[0].ni[6].y" 405.71429443359375;
 	setAttr ".tgi[0].ni[6].nvs" 1923;
-	setAttr ".tgi[0].ni[7].x" 2291.428466796875;
-	setAttr ".tgi[0].ni[7].y" 682.85711669921875;
+	setAttr ".tgi[0].ni[7].x" -3222.857177734375;
+	setAttr ".tgi[0].ni[7].y" 427.14285278320312;
 	setAttr ".tgi[0].ni[7].nvs" 1923;
-	setAttr ".tgi[0].ni[8].x" 1984.2857666015625;
-	setAttr ".tgi[0].ni[8].y" 331.42855834960938;
-	setAttr ".tgi[0].ni[8].nvs" 1923;
-	setAttr ".tgi[0].ni[9].x" 1677.142822265625;
-	setAttr ".tgi[0].ni[9].y" 644.28570556640625;
-	setAttr ".tgi[0].ni[9].nvs" 1923;
-	setAttr ".tgi[0].ni[10].x" 2291.428466796875;
-	setAttr ".tgi[0].ni[10].y" 140;
-	setAttr ".tgi[0].ni[10].nvs" 1923;
-	setAttr ".tgi[0].ni[11].x" 2291.428466796875;
-	setAttr ".tgi[0].ni[11].y" 500;
-	setAttr ".tgi[0].ni[11].nvs" 1923;
-	setAttr ".tgi[0].ni[12].x" 1677.142822265625;
-	setAttr ".tgi[0].ni[12].y" -18.571428298950195;
-	setAttr ".tgi[0].ni[12].nvs" 1923;
-	setAttr ".tgi[0].ni[13].x" 2598.571533203125;
-	setAttr ".tgi[0].ni[13].y" 598.5714111328125;
-	setAttr ".tgi[0].ni[13].nvs" 2387;
 select -ne :time1;
-	setAttr -av ".o" 90;
-	setAttr ".unw" 90;
+	setAttr -av ".o" 1;
+	setAttr ".unw" 1;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
@@ -3920,13 +3882,13 @@ select -ne :renderPartition;
 	setAttr -s 107 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 20 ".s";
+	setAttr -s 21 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderUtilityList1;
 	setAttr -s 70 ".u";
 select -ne :defaultRenderingList1;
-	setAttr -s 11 ".r";
+	setAttr -s 9 ".r";
 select -ne :lightList1;
 	setAttr -s 2 ".l";
 select -ne :defaultTextureList1;
@@ -3970,11 +3932,13 @@ select -ne :defaultRenderGlobals;
 	setAttr ".ren" -type "string" "arnold";
 	setAttr ".outf" 51;
 	setAttr ".imfkey" -type "string" "jpeg";
-	setAttr ".fs" 466;
-	setAttr ".ef" 540;
-	setAttr ".ofc" 1;
+	setAttr ".an" yes;
+	setAttr ".fs" 30;
+	setAttr ".ef" 560;
+	setAttr ".ep" 2;
 	setAttr ".pff" yes;
-	setAttr ".ifp" -type "string" "i need helpe\\(not set; using scene name)";
+	setAttr ".peie" 0;
+	setAttr ".ifp" -type "string" "we dont tqalk about \\(not set; using scene name)";
 	setAttr ".dss" -type "string" "lambert1";
 select -ne :defaultResolution;
 	setAttr ".pa" 1;
@@ -3992,43 +3956,40 @@ connectAttr "Spurt_emitter1_rate.o" "SPURTRN.phl[1]";
 connectAttr "Spurt_emitter2_rate.o" "SPURTRN.phl[2]";
 connectAttr "rocket_emitter1_rate1.o" "fireworkfinalRN.phl[1]";
 connectAttr "fireworkfinalRN.phl[2]" "aiStandardSurface1SG.dsm" -na;
-connectAttr "extra_flagRN1.phl[1]" "materialOverride3.atv";
-connectAttr "extra_flagRN1.phl[2]" "materialOverride2.atv";
-connectAttr "extra_flagRN1.phl[3]" "flag1.atv";
-connectAttr "extra_flagRN1.phl[4]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[13].dn"
+connectAttr "fireworkfinalRN.phl[3]" "fireworkfinalRN.phl[4]";
+connectAttr "fireworkfinalRN.phl[5]" "fireworkfinalRN.phl[6]";
+connectAttr "extra_flagRN1.phl[1]" ":initialShadingGroup.dsm" -na;
+connectAttr "extra_flagRN1.phl[2]" "extra_flagRN1.phl[3]";
+connectAttr "extra_flagRN1.phl[4]" "extra_flagRN1.phl[5]";
+connectAttr "extra_flagRN1.phl[6]" "extra_flagRN1.phl[7]";
+connectAttr "extra_flagRN1.phl[8]" "extra_flagRN1.phl[9]";
+connectAttr "extra_flagRN1.phl[10]" "extra_flagRN1.phl[11]";
+connectAttr "extra_flagRN1.phl[12]" "extra_flagRN1.phl[13]";
+connectAttr "extra_flagRN1.phl[14]" "extra_flagRN1.phl[15]";
+connectAttr "extra_flagRN1.phl[16]" "extra_flagRN1.phl[17]";
+connectAttr "aiUtility1.out" "extra_flagRN1.phl[18]";
+connectAttr "extra_flagRN1.phl[19]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
 		;
-connectAttr "extra_flagRN1.phl[5]" "materialOverride1.atv";
-connectAttr "extra_flagRN1.phl[6]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+connectAttr "extra_flagRN1.phl[20]" "aiUtility1.color";
+connectAttr "extra_flagRN1.phl[21]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
 		;
-connectAttr "extra_flagRN1.phl[7]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
+connectAttr "extra_flagRN1.phl[22]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
 		;
-connectAttr "extra_flagRN1.phl[8]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
+connectAttr "extra_flagRN1.phl[23]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
 		;
-connectAttr "extra_flagRN1.phl[9]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+connectAttr "extra_flagRN1.phl[24]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
 		;
-connectAttr "extra_flagRN1.phl[10]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[12].dn"
+connectAttr "extra_flagRN1.phl[25]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
 		;
-connectAttr "extra_flagRN1.phl[11]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
+connectAttr "extra_flagRN1.phl[26]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
 		;
-connectAttr "extra_flagRN1.phl[12]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
-		;
-connectAttr "extra_flagRN1.phl[13]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
-		;
-connectAttr "extra_flagRN1.phl[14]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
-		;
-connectAttr "extra_flagRN1.phl[15]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
-		;
-connectAttr "extra_flagRN1.phl[16]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
-		;
-connectAttr "extra_flagRN1.phl[17]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
-		;
-connectAttr "extra_flagRN1.phl[18]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
-		;
+connectAttr "extra_flagRN1.phl[27]" "extra_flagRN1.phl[28]";
+connectAttr "extra_flagRN1.phl[29]" "extra_flagRN1.phl[30]";
+connectAttr "extra_flagRN1.phl[31]" "extra_flagRN1.phl[32]";
 connectAttr "rocket_emitter1_rate2.o" "firk_workRN.phl[1]";
-connectAttr "firk_workRN.phl[2]" "burst1.atv";
-connectAttr "firk_workRN.phl[3]" "burst3.atv";
-connectAttr "firk_workRN.phl[4]" "shaderOverride1.atv";
-connectAttr "firk_workRN.phl[5]" "bursy.atv";
+connectAttr "firk_workRN.phl[2]" ":initialParticleSE.dsm" -na;
+connectAttr "firk_workRN.phl[3]" "firk_workRN.phl[4]";
+connectAttr "firk_workRN.phl[5]" "firk_workRN.phl[6]";
 connectAttr "emitter1_rate4.o" "rocketRN.phl[1]";
 connectAttr "emitter1_visibility.o" "rocketRN.phl[2]";
 connectAttr "emitter1_translateX.o" "rocketRN.phl[3]";
@@ -4070,7 +4031,8 @@ connectAttr "emitter1_randomDirection.o" "rocketRN.phl[38]";
 connectAttr "emitter1_directionalSpeed.o" "rocketRN.phl[39]";
 connectAttr "emitter1_scaleSpeedBySize.o" "rocketRN.phl[40]";
 connectAttr "emitter1_displaySpeed.o" "rocketRN.phl[41]";
-connectAttr "rocketRN.phl[42]" "roc.atv";
+connectAttr "rocketRN.phl[42]" "rocketRN.phl[43]";
+connectAttr "rocketRN.phl[44]" "rocketRN.phl[45]";
 connectAttr "emitter1_translateZ1.o" "rocketRN1.phl[1]";
 connectAttr "emitter1_translateX1.o" "rocketRN1.phl[2]";
 connectAttr "emitter1_translateY1.o" "rocketRN1.phl[3]";
@@ -4112,7 +4074,8 @@ connectAttr "emitter1_randomDirection1.o" "rocketRN1.phl[38]";
 connectAttr "emitter1_directionalSpeed1.o" "rocketRN1.phl[39]";
 connectAttr "emitter1_scaleSpeedBySize1.o" "rocketRN1.phl[40]";
 connectAttr "emitter1_displaySpeed1.o" "rocketRN1.phl[41]";
-connectAttr "rocketRN1.phl[42]" "rock.atv";
+connectAttr "rocketRN1.phl[42]" "rocketRN1.phl[43]";
+connectAttr "rocketRN1.phl[44]" "rocketRN1.phl[45]";
 connectAttr "emitter1_translateZ2.o" "rocket1RN.phl[1]";
 connectAttr "emitter1_translateX2.o" "rocket1RN.phl[2]";
 connectAttr "emitter1_translateY2.o" "rocket1RN.phl[3]";
@@ -4154,7 +4117,8 @@ connectAttr "emitter1_randomDirection2.o" "rocket1RN.phl[38]";
 connectAttr "emitter1_directionalSpeed2.o" "rocket1RN.phl[39]";
 connectAttr "emitter1_scaleSpeedBySize2.o" "rocket1RN.phl[40]";
 connectAttr "emitter1_displaySpeed2.o" "rocket1RN.phl[41]";
-connectAttr "rocket1RN.phl[42]" "roc2.atv";
+connectAttr "rocket1RN.phl[42]" "rocket1RN.phl[43]";
+connectAttr "rocket1RN.phl[44]" "rocket1RN.phl[45]";
 connectAttr "emitter1_translateZ3.o" "rocket2RN.phl[1]";
 connectAttr "emitter1_translateX3.o" "rocket2RN.phl[2]";
 connectAttr "emitter1_translateY3.o" "rocket2RN.phl[3]";
@@ -4196,12 +4160,9 @@ connectAttr "emitter1_randomDirection3.o" "rocket2RN.phl[38]";
 connectAttr "emitter1_directionalSpeed3.o" "rocket2RN.phl[39]";
 connectAttr "emitter1_scaleSpeedBySize3.o" "rocket2RN.phl[40]";
 connectAttr "emitter1_displaySpeed3.o" "rocket2RN.phl[41]";
-connectAttr "rocket2RN.phl[42]" "roc1.atv";
-connectAttr "rs_flag.ri" "aiAreaLight1.rlio[0]";
-connectAttr "rs_firework.ri" "aiAreaLight1.rlio[1]";
+connectAttr "rocket2RN.phl[42]" "rocket2RN.phl[43]";
+connectAttr "rocket2RN.phl[44]" "rocket2RN.phl[45]";
 connectAttr "aiAreaLightShape1__LEItem.en" "aiAreaLightShape1.v";
-connectAttr "rs_flag.ri" "aiSkyDomeLight1.rlio[0]";
-connectAttr "rs_firework.ri" "aiSkyDomeLight1.rlio[1]";
 connectAttr "aiSkyDomeLightShape1__LEItem.en" "aiSkyDomeLightShape1.v";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
@@ -4217,99 +4178,12 @@ connectAttr ":defaultArnoldFilter.msg" ":defaultArnoldRenderOptions.filt";
 connectAttr ":defaultArnoldDriver.msg" ":defaultArnoldRenderOptions.drvr";
 connectAttr "aiAtmosphereVolume.msg" ":defaultArnoldRenderOptions.atm";
 connectAttr "aiAOV_emission.msg" ":defaultArnoldRenderOptions.aovs" -na;
-connectAttr "aiAOV_opacity.msg" ":defaultArnoldRenderOptions.aovs" -na;
-connectAttr "aiAOV_volume.msg" ":defaultArnoldRenderOptions.aovs" -na;
 connectAttr "aiStandardSurface1.out" "aiStandardSurface1SG.ss";
 connectAttr "aiStandardSurface1SG.msg" "materialInfo1.sg";
 connectAttr "aiStandardSurface1.msg" "materialInfo1.m";
 connectAttr "aiStandardSurface1.msg" "materialInfo1.t" -na;
-connectAttr "flag.msg" "renderSetup.frl";
-connectAttr "firework.msg" "renderSetup.lrl";
-connectAttr "rs_flag.msg" "flag.lrl";
-connectAttr "renderSetup.lit" "flag.pls";
-connectAttr "flag_colllection.msg" "flag.cl";
-connectAttr "flag_colllection.msg" "flag.ch";
-connectAttr "renderLayerManager.rlmi[1]" "rs_flag.rlid";
-connectAttr "collection1Selector.c" "flag_colllection.sel";
-connectAttr "flag.lit" "flag_colllection.pls";
-connectAttr "flag.nic" "flag_colllection.pic";
-connectAttr "flag1.msg" "flag_colllection.cl";
-connectAttr "materialOverride3.msg" "flag_colllection.ch";
-connectAttr "collection2Selector.c" "fire_collect.sel";
-connectAttr "firework.lit" "fire_collect.pls";
-connectAttr "firework.nic" "fire_collect.pic";
-connectAttr "rock1.msg" "fire_collect.cl";
-connectAttr "burst.msg" "fire_collect.ch";
-connectAttr "rock1.lit" "rock.pls";
-connectAttr "rock1.en" "rock.pen";
 connectAttr ":defaultArnoldDriver.msg" "aiAOV_emission.out[0].drvr";
 connectAttr ":defaultArnoldFilter.msg" "aiAOV_emission.out[0].ftr";
-connectAttr "rs_firework.msg" "firework.lrl";
-connectAttr "flag.nxt" "firework.prv";
-connectAttr "renderSetup.lit" "firework.pls";
-connectAttr "fire_collect.msg" "firework.ch";
-connectAttr "fire_collect.msg" "firework.cl";
-connectAttr "renderLayerManager.rlmi[2]" "rs_firework.rlid";
-connectAttr ":defaultArnoldDriver.msg" "aiAOV_opacity.out[0].drvr";
-connectAttr ":defaultArnoldFilter.msg" "aiAOV_opacity.out[0].ftr";
-connectAttr "flag_colllection.lit" "flag1.pls";
-connectAttr "flag_colllection.en" "flag1.pen";
-connectAttr "flag1.nxt" "materialOverride1.prv";
-connectAttr "flag_colllection.lit" "materialOverride1.pls";
-connectAttr "flag_colllection.en" "materialOverride1.pen";
-connectAttr "materialOverride1.nxt" "materialOverride2.prv";
-connectAttr "flag_colllection.lit" "materialOverride2.pls";
-connectAttr "flag_colllection.en" "materialOverride2.pen";
-connectAttr "materialOverride2.nxt" "materialOverride3.prv";
-connectAttr "flag_colllection.lit" "materialOverride3.pls";
-connectAttr "flag_colllection.en" "materialOverride3.pen";
-connectAttr "rock.nxt" "roc2.prv";
-connectAttr "rock1.lit" "roc2.pls";
-connectAttr "rock1.en" "roc2.pen";
-connectAttr "roc2.nxt" "roc1.prv";
-connectAttr "rock1.lit" "roc1.pls";
-connectAttr "rock1.en" "roc1.pen";
-connectAttr "roc1.nxt" "roc.prv";
-connectAttr "rock1.lit" "roc.pls";
-connectAttr "rock1.en" "roc.pen";
-connectAttr "collection3Selector.c" "rock1.sel";
-connectAttr "fire_collect.lit" "rock1.pls";
-connectAttr "fire_collect.en" "rock1.pen";
-connectAttr "firework.nic" "rock1.pic";
-connectAttr "roc.msg" "rock1.ch";
-connectAttr "rock.msg" "rock1.cl";
-connectAttr "collection2Selector.out" "collection3Selector.in";
-connectAttr "collection4Selector.c" "burst.sel";
-connectAttr "rock1.nxt" "burst.prv";
-connectAttr "fire_collect.lit" "burst.pls";
-connectAttr "fire_collect.en" "burst.pen";
-connectAttr "firework.nic" "burst.pic";
-connectAttr "bursy.msg" "burst.cl";
-connectAttr "burst_shadingEngines.msg" "burst.ch";
-connectAttr "collection2Selector.out" "collection4Selector.in";
-connectAttr "burst.lit" "bursy.pls";
-connectAttr "burst.en" "bursy.pen";
-connectAttr "bursy.nxt" "burst1.prv";
-connectAttr "burst.lit" "burst1.pls";
-connectAttr "burst.en" "burst1.pen";
-connectAttr "burst1.nxt" "burst2.prv";
-connectAttr "burst.lit" "burst2.pls";
-connectAttr "burst.en" "burst2.pen";
-connectAttr "burst2.nxt" "burst3.prv";
-connectAttr "burst.lit" "burst3.pls";
-connectAttr "burst.en" "burst3.pen";
-connectAttr "burst_shadingEngines.lit" "shaderOverride1.pls";
-connectAttr "burst_shadingEngines.en" "shaderOverride1.pen";
-connectAttr "burst_shadingEnginesSelector.c" "burst_shadingEngines.sel";
-connectAttr "burst3.nxt" "burst_shadingEngines.prv";
-connectAttr "burst.lit" "burst_shadingEngines.pls";
-connectAttr "burst.en" "burst_shadingEngines.pen";
-connectAttr "firework.nic" "burst_shadingEngines.pic";
-connectAttr "shaderOverride1.msg" "burst_shadingEngines.cl";
-connectAttr "shaderOverride1.msg" "burst_shadingEngines.ch";
-connectAttr "collection4Selector.out" "burst_shadingEnginesSelector.in";
-connectAttr ":defaultArnoldDriver.msg" "aiAOV_volume.out[0].drvr";
-connectAttr ":defaultArnoldFilter.msg" "aiAOV_volume.out[0].ftr";
 connectAttr "aiAreaLightShape1__LEItem.msg" "lightEditor.fi";
 connectAttr "aiSkyDomeLightShape1__LEItem.msg" "lightEditor.li";
 connectAttr "aiAreaLightShape1.msg" "aiAreaLightShape1__LEItem.lgt";
@@ -4321,13 +4195,14 @@ connectAttr "aiAreaLightShape1__LEItem.nxt" "aiSkyDomeLightShape1__LEItem.prv";
 connectAttr "lightEditor.lit" "aiSkyDomeLightShape1__LEItem.pls";
 connectAttr "lightEditor.en" "aiSkyDomeLightShape1__LEItem.pen";
 connectAttr "lightEditor.nic" "aiSkyDomeLightShape1__LEItem.pic";
+connectAttr "aiUtility1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+		;
 connectAttr "time1_outTime.o" ":time1.o";
 connectAttr "aiStandardSurface1SG.pa" ":renderPartition.st" -na;
 connectAttr "aiAtmosphereVolume.msg" ":defaultShaderList1.s" -na;
 connectAttr "aiStandardSurface1.msg" ":defaultShaderList1.s" -na;
+connectAttr "aiUtility1.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-connectAttr "rs_flag.msg" ":defaultRenderingList1.r" -na;
-connectAttr "rs_firework.msg" ":defaultRenderingList1.r" -na;
 connectAttr "aiAreaLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "aiSkyDomeLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "aiAreaLight1.iog" ":defaultLightSet.dsm" -na;
