@@ -1,6 +1,6 @@
 //Maya ASCII 2022 scene
 //Name: fireworkds and flag.ma
-//Last modified: Thu, Dec 02, 2021 11:47:07 PM
+//Last modified: Fri, Dec 03, 2021 07:21:22 AM
 //Codeset: 1252
 file -rdi 1 -ns "SPURT" -rfn "SPURTRN" -op "v=0;" -typ "mayaAscii" "C:/Users/peyto/Documents/game-for-anth/fall 2021//scenes/SPURT.ma";
 file -rdi 1 -ns "fireworkfinal" -rfn "fireworkfinalRN" -op "v=0;" -typ "mayaAscii"
@@ -27,7 +27,9 @@ requires "stereoCamera" "10.0";
 requires -nodeType "aiOptions" -nodeType "aiAOV" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter"
 		 -nodeType "aiSkyDomeLight" -nodeType "aiAreaLight" -nodeType "aiUtility" -nodeType "aiStandardSurface"
 		 -nodeType "aiPhysicalSky" -nodeType "aiAtmosphereVolume" "mtoa" "4.2.1";
-requires -nodeType "renderSetup" -nodeType "lightItem" -nodeType "lightEditor" "renderSetup.py" "1.0";
+requires -nodeType "simpleSelector" -nodeType "renderSetupLayer" -nodeType "renderSetup"
+		 -nodeType "collection" -nodeType "materialOverride" -nodeType "applyConnectionOverride"
+		 -nodeType "lightItem" -nodeType "lightEditor" "renderSetup.py" "1.0";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
@@ -35,18 +37,18 @@ fileInfo "product" "Maya 2022";
 fileInfo "version" "2022";
 fileInfo "cutIdentifier" "202102181415-29bfc1879c";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19042)";
-fileInfo "UUID" "D0BF0370-4663-41B2-7E31-9491E9267A80";
+fileInfo "UUID" "896AE72E-417F-109A-07FB-39A5CDE35E66";
 createNode transform -s -n "persp";
 	rename -uid "0E9CF165-4C6E-AF5F-F593-128DADF6E1E5";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 4.6121183305658944 6.7275552653909578 8.9511285836048042 ;
+	setAttr ".t" -type "double3" 4.6121183305658962 6.7275552653909578 8.9511285836048149 ;
 	setAttr ".r" -type "double3" -1.5383527296116772 13.799999999999319 -2.5586660838752155e-17 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "FCEF899E-412B-BCCB-CE45-FA83AC68599D";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 7.5617656078610782;
+	setAttr ".coi" 7.5617656078610977;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -112,7 +114,8 @@ createNode aiAreaLight -n "aiAreaLightShape1" -p "aiAreaLight1";
 	rename -uid "DA7B8BC5-4D97-BB53-9681-21AE569060C8";
 	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr -k off ".v";
-	setAttr -s 2 ".rlio[0:1]" 1 yes 0 4 yes 0;
+	setAttr -s 3 ".rlio[0:2]" 1 yes 0 4 yes 0 5 
+		yes 0;
 	setAttr ".csh" no;
 	setAttr ".rcsh" no;
 	setAttr ".intensity" 10;
@@ -126,7 +129,7 @@ createNode aiAreaLight -n "aiAreaLightShape1" -p "aiAreaLight1";
 createNode transform -n "camera1";
 	rename -uid "FF0F07C3-4303-00F7-6B76-A585A99445C7";
 	setAttr ".rlio[0]" 1 yes 0;
-	setAttr ".t" -type "double3" 2.8884561928267884 -3.0152452854513871 19.236873380476318 ;
+	setAttr ".t" -type "double3" 3.0935108162332967 -8.7534750478044963 28.269358207558071 ;
 	setAttr ".r" -type "double3" 32.395966351840059 1.8667585754421265 -0.89231432224097151 ;
 	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999989 0.99999999999999989 ;
 createNode camera -n "cameraShape1" -p "camera1";
@@ -135,7 +138,7 @@ createNode camera -n "cameraShape1" -p "camera1";
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
 	setAttr ".ovr" 1.3;
-	setAttr ".coi" 32.108085071849224;
+	setAttr ".coi" 42.811127179380975;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
@@ -150,27 +153,30 @@ createNode aiSkyDomeLight -n "aiSkyDomeLightShape1" -p "aiSkyDomeLight1";
 	rename -uid "B1969640-4C72-94EB-7165-9AB0F112A397";
 	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr -k off ".v";
-	setAttr -s 2 ".rlio[0:1]" 1 yes 0 4 yes 0;
+	setAttr -s 3 ".rlio[0:2]" 1 yes 0 4 yes 0 5 
+		yes 0;
 	setAttr ".csh" no;
 	setAttr ".rcsh" no;
 	setAttr ".sc" -type "float3" 0.063108273 0.13551669 0.32467532 ;
 	setAttr ".intensity" 0.25974026322364807;
 	setAttr ".aal" -type "attributeAlias" {"exposure","aiExposure"} ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "C148D874-4EC8-10B5-5557-759C02CD12A8";
+	rename -uid "E1C33944-4C86-758F-5A0A-45B647F51D6E";
 	setAttr -s 107 ".lnk";
 	setAttr -s 107 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "9238B779-4DCF-F74A-EA12-6788619CCA4F";
+	rename -uid "E8A192EE-4D55-22A9-4EA8-1A9637ECA129";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "75CD9DA0-4E3A-6C2D-147C-239520E6F582";
+	rename -uid "968FCE5A-4E83-4150-D108-0B93C04164E1";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "4C929174-43F4-F32F-31E4-34BE8B43F46F";
+	rename -uid "0EAABC1C-400D-4D94-3267-299B9AA6154E";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "1569D1AE-40B4-B4CF-8C20-5CB728EE0019";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "69E6667D-4C19-D046-943D-C4B3EEE1E338";
-	setAttr -s 5 ".rlmi[1:4]"  1 2 3 4;
+	rename -uid "8B4F8280-4206-F81E-4378-C3BAB0F9076B";
+	setAttr ".crl" 5;
+	setAttr -s 5 ".rlmi[1:4]"  5 2 3 4;
+	setAttr -s 2 ".rlmi";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "312FE464-4A15-CA31-A215-79BEA6F0828F";
 	setAttr ".g" yes;
@@ -185,7 +191,7 @@ createNode aiAOVDriver -s -n "defaultArnoldDriver";
 	rename -uid "BD8A443A-4E01-3524-8267-859E6CA33D72";
 	setAttr ".merge_AOVs" yes;
 	setAttr ".color_management" 1;
-	setAttr ".quality" 70;
+	setAttr ".quality" 83;
 	setAttr ".ai_translator" -type "string" "jpeg";
 createNode aiAOVDriver -s -n "defaultArnoldDisplayDriver";
 	rename -uid "BAE145DB-410E-1F98-2B24-4EBC27408447";
@@ -395,17 +401,14 @@ createNode animCurveTU -n "Spurt_emitter1_rate";
 		 360 0;
 createNode reference -n "fireworkfinalRN";
 	rename -uid "C4AA3B99-4E94-86A6-6A3C-5998CFD24958";
-	setAttr -s 6 ".phl";
+	setAttr -s 3 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
-	setAttr ".phl[4]" 0;
-	setAttr ".phl[5]" 0;
-	setAttr ".phl[6]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"fireworkfinalRN"
 		"fireworkfinalRN" 0
-		"fireworkfinalRN" 159
+		"fireworkfinalRN" 158
 		2 "|fireworkfinal:fanali|fireworkfinal:rocket_emitter1" "renderLayerInfo[0]" 
 		" 4 1 0"
 		2 "|fireworkfinal:fanali|fireworkfinal:rocket_emitter1" "translate" " -type \"double3\" 0 9.41808628122057101 -25.51642567824367092"
@@ -703,14 +706,10 @@ createNode reference -n "fireworkfinalRN";
 		"fireworkfinal:aiStandardSurface5SG.dagSetMembers" "-na"
 		5 4 "fireworkfinalRN" "|fireworkfinal:fanali|fireworkfinal:rocket_emitter1.rate" 
 		"fireworkfinalRN.placeHolderList[1]" ""
-		5 3 "fireworkfinalRN" "|fireworkfinal:fanali|fireworkfinal:burstparticle|fireworkfinal:burstparticleShape.instObjGroups" 
-		"fireworkfinalRN.placeHolderList[2]" "fireworkfinal:aiStandardSurface5SG.dsm"
-		5 0 "fireworkfinalRN" "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1|fireworkfinal:trail_nParticleShape1.instObjGroups" 
-		"fireworkfinal:standardSurface2SG.dagSetMembers" "fireworkfinalRN.placeHolderList[3]" 
-		"fireworkfinalRN.placeHolderList[4]" ""
-		5 0 "fireworkfinalRN" "|fireworkfinal:fanali|fireworkfinal:rocket_particle1|fireworkfinal:rocket_particleShape1.instObjGroups" 
-		"fireworkfinal:standardSurface2SG.dagSetMembers" "fireworkfinalRN.placeHolderList[5]" 
-		"fireworkfinalRN.placeHolderList[6]" "";
+		5 3 "fireworkfinalRN" "fireworkfinal:aiStandardSurface4SG.message" "fireworkfinalRN.placeHolderList[2]" 
+		""
+		5 3 "fireworkfinalRN" "fireworkfinal:aiStandardSurface4SG.message" "fireworkfinalRN.placeHolderList[3]" 
+		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode animCurveTU -n "rocket_emitter1_rate1";
@@ -729,17 +728,17 @@ createNode shadingEngine -n "aiStandardSurface1SG";
 	setAttr ".ihi" 0;
 	setAttr ".ro" yes;
 	setAttr -s 2 ".aovs";
-	setAttr ".aovs[1].aov_name" -type "string" "emission";
 	setAttr ".aovs[7].aov_name" -type "string" "background";
-	setAttr ".aal" -type "attributeAlias" {"ai_aov_albedo","aiCustomAOVs[0]","ai_aov_emission"
-		,"aiCustomAOVs[1]","ai_aov_coat_indirect","aiCustomAOVs[2]","ai_aov_diffuse_direct"
-		,"aiCustomAOVs[3]","ai_aov_opacity","aiCustomAOVs[4]","ai_aov_specular","aiCustomAOVs[5]"
-		,"ai_aov_volume","aiCustomAOVs[6]","ai_aov_background","aiCustomAOVs[7]"} ;
+	setAttr ".aovs[8].aov_name" -type "string" "emission";
+	setAttr ".aal" -type "attributeAlias" {"ai_aov_albedo","aiCustomAOVs[0]","ai_aov_coat_indirect"
+		,"aiCustomAOVs[2]","ai_aov_diffuse_direct","aiCustomAOVs[3]","ai_aov_opacity","aiCustomAOVs[4]"
+		,"ai_aov_specular","aiCustomAOVs[5]","ai_aov_volume","aiCustomAOVs[6]","ai_aov_background"
+		,"aiCustomAOVs[7]","ai_aov_emission","aiCustomAOVs[8]"} ;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "7E7741D6-4CF2-D87B-B86A-F6B06BF76079";
 createNode reference -n "extra_flagRN1";
 	rename -uid "E92DD7FD-4B18-F723-B009-DAA82B9DE309";
-	setAttr -s 32 ".phl";
+	setAttr -s 16 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -756,26 +755,10 @@ createNode reference -n "extra_flagRN1";
 	setAttr ".phl[14]" 0;
 	setAttr ".phl[15]" 0;
 	setAttr ".phl[16]" 0;
-	setAttr ".phl[17]" 0;
-	setAttr ".phl[18]" 0;
-	setAttr ".phl[19]" 0;
-	setAttr ".phl[20]" 0;
-	setAttr ".phl[21]" 0;
-	setAttr ".phl[22]" 0;
-	setAttr ".phl[23]" 0;
-	setAttr ".phl[24]" 0;
-	setAttr ".phl[25]" 0;
-	setAttr ".phl[26]" 0;
-	setAttr ".phl[27]" 0;
-	setAttr ".phl[28]" 0;
-	setAttr ".phl[29]" 0;
-	setAttr ".phl[30]" 0;
-	setAttr ".phl[31]" 0;
-	setAttr ".phl[32]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"extra_flagRN1"
 		"extra_flagRN1" 0
-		"extra_flagRN1" 611
+		"extra_flagRN1" 605
 		2 "|extra_flag1:flag|extra_flag1:group1|extra_flag1:Cloth_Nucleas" "gravity" 
 		" 6.04400014877319336"
 		2 "|extra_flag1:flag|extra_flag1:flag_nCloth1|extra_flag1:flag_nClothShape1" 
@@ -1886,93 +1869,68 @@ createNode reference -n "extra_flagRN1";
 		
 		2 "extra_flag1:aiStandardSurface16SG" "aiCustomAOVs[7].aovName" " -type \"string\" \"background\""
 		
-		3 "extra_flag1:file52.outColor" "extra_flag1:aiMultiply8.input1" ""
 		3 "extra_flag1:aiMultiply12.outColor" "extra_flag1:rope1.baseColor" ""
-		5 3 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:flag_geo|extra_flag1:flag_geoShape.instObjGroups" 
-		"extra_flagRN1.placeHolderList[1]" ""
-		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:Flag_part1|extra_flag1:Flag_partShape1.instObjGroups" 
-		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[2]" 
-		"extra_flagRN1.placeHolderList[3]" ""
-		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:plag_part|extra_flag1:plag_partShape.instObjGroups" 
-		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[4]" 
-		"extra_flagRN1.placeHolderList[5]" ""
-		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part2|extra_flag1:flag_partShape2.instObjGroups" 
-		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[6]" 
-		"extra_flagRN1.placeHolderList[7]" ""
-		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:Flag_part|extra_flag1:Flag_partShape.instObjGroups" 
-		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[8]" 
-		"extra_flagRN1.placeHolderList[9]" ""
-		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part|extra_flag1:flag_partShape.instObjGroups" 
-		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[10]" 
-		"extra_flagRN1.placeHolderList[11]" ""
-		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part4|extra_flag1:flag_part4Shape.instObjGroups" 
-		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[12]" 
-		"extra_flagRN1.placeHolderList[13]" ""
-		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part5|extra_flag1:flag_part5Shape.instObjGroups" 
-		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "extra_flagRN1.placeHolderList[14]" 
-		"extra_flagRN1.placeHolderList[15]" ""
-		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part1|extra_flag1:flag_partShape1.instObjGroups" 
-		"extra_flag1:aiStandardSurface12SG.dagSetMembers" "extra_flagRN1.placeHolderList[16]" 
-		"extra_flagRN1.placeHolderList[17]" ""
-		5 4 "extra_flagRN1" "extra_flag1:aiMultiply8.input1" "extra_flagRN1.placeHolderList[18]" 
+		3 "extra_flag1:file52.outColor" "extra_flag1:aiMultiply8.input1" ""
+		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface11SG.message" "extra_flagRN1.placeHolderList[1]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:aiMultiply8.message" "extra_flagRN1.placeHolderList[19]" 
+		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface11SG.message" "extra_flagRN1.placeHolderList[2]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:file52.outColor" "extra_flagRN1.placeHolderList[20]" 
+		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface12SG.message" "extra_flagRN1.placeHolderList[3]" 
+		""
+		5 4 "extra_flagRN1" "extra_flag1:aiMultiply8.input1" "extra_flagRN1.placeHolderList[4]" 
+		""
+		5 3 "extra_flagRN1" "extra_flag1:aiMultiply8.message" "extra_flagRN1.placeHolderList[5]" 
+		""
+		5 3 "extra_flagRN1" "extra_flag1:file52.outColor" "extra_flagRN1.placeHolderList[6]" 
 		"extra_flag1:aiMultiply8.input1"
-		5 3 "extra_flagRN1" "extra_flag1:file52.message" "extra_flagRN1.placeHolderList[21]" 
+		5 3 "extra_flagRN1" "extra_flag1:file52.message" "extra_flagRN1.placeHolderList[7]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:place2dTexture51.message" "extra_flagRN1.placeHolderList[22]" 
+		5 3 "extra_flagRN1" "extra_flag1:place2dTexture51.message" "extra_flagRN1.placeHolderList[8]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:file53.message" "extra_flagRN1.placeHolderList[23]" 
+		5 3 "extra_flagRN1" "extra_flag1:file53.message" "extra_flagRN1.placeHolderList[9]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:place2dTexture52.message" "extra_flagRN1.placeHolderList[24]" 
+		5 3 "extra_flagRN1" "extra_flag1:place2dTexture52.message" "extra_flagRN1.placeHolderList[10]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:flag_shader.message" "extra_flagRN1.placeHolderList[25]" 
+		5 3 "extra_flagRN1" "extra_flag1:flag_shader.message" "extra_flagRN1.placeHolderList[11]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:aiLambert2SG.message" "extra_flagRN1.placeHolderList[26]" 
+		5 3 "extra_flagRN1" "extra_flag1:aiLambert2SG.message" "extra_flagRN1.placeHolderList[12]" 
+		""
+		5 3 "extra_flagRN1" "extra_flag1:aiLambert2SG.message" "extra_flagRN1.placeHolderList[13]" 
 		""
 		5 0 "extra_flagRN1" "extra_flag1:aiMultiply12.outColor" "extra_flag1:rope1.baseColor" 
-		"extra_flagRN1.placeHolderList[27]" "extra_flagRN1.placeHolderList[28]" "extra_flag1:rope1.base_color"
+		"extra_flagRN1.placeHolderList[14]" "extra_flagRN1.placeHolderList[15]" "extra_flag1:rope1.base_color"
 		
-		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:extrudedSurface3|extra_flag1:extrudedSurfaceShape2.instObjGroups" 
-		"extra_flag1:aiStandardSurface16SG.dagSetMembers" "extra_flagRN1.placeHolderList[29]" 
-		"extra_flagRN1.placeHolderList[30]" ""
-		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:extrudedSurface2|extra_flag1:extrudedSurfaceShape1.instObjGroups" 
-		"extra_flag1:aiStandardSurface16SG.dagSetMembers" "extra_flagRN1.placeHolderList[31]" 
-		"extra_flagRN1.placeHolderList[32]" "";
+		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface16SG.message" "extra_flagRN1.placeHolderList[16]" 
+		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode reference -n "firk_workRN";
 	rename -uid "8EE0A84A-4D9A-17D0-F951-5AAA9F96932C";
-	setAttr -s 6 ".phl";
+	setAttr -s 3 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
-	setAttr ".phl[4]" 0;
-	setAttr ".phl[5]" 0;
-	setAttr ".phl[6]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"firk_workRN"
 		"firk_workRN" 0
-		"firk_workRN" 144
+		"firk_workRN" 143
 		2 "|firk_work:rocket_emitter1" "visibility" " 0"
-		2 "|firk_work:rocket_emitter1" "renderLayerInfo[0]" " 4 1 0"
+		2 "|firk_work:rocket_emitter1" "renderLayerInfo[0]" " 5 1 0"
 		2 "|firk_work:rocket_emitter1" "translate" " -type \"double3\" 0 11.06015040906625124 -21.08013326068751425"
 		
-		2 "|firk_work:rocket_particle1" "renderLayerInfo[0]" " 4 1 0"
+		2 "|firk_work:rocket_particle1" "renderLayerInfo[0]" " 5 1 0"
 		2 "|firk_work:rocket_particle1|firk_work:rocket_particleShape1" "currentSceneTime" 
 		" 1"
 		2 "|firk_work:rocket_particle1|firk_work:rocket_particleShape1" "cacheWidth" 
 		" 600"
-		2 "|firk_work:trail_nParticle1" "renderLayerInfo[0]" " 4 1 0"
+		2 "|firk_work:trail_nParticle1" "renderLayerInfo[0]" " 5 1 0"
 		2 "|firk_work:trail_nParticle1|firk_work:trail_nParticleShape1" "currentSceneTime" 
 		" 1"
 		2 "|firk_work:trail_nParticle1|firk_work:trail_nParticleShape1" "cacheWidth" 
 		" 600"
-		2 "|firk_work:turbulenceField1" "renderLayerInfo[0]" " 4 1 0"
-		2 "|firk_work:turbulenceField2" "renderLayerInfo[0]" " 4 1 0"
-		2 "|firk_work:burstparticle" "renderLayerInfo[0]" " 4 1 0"
+		2 "|firk_work:turbulenceField1" "renderLayerInfo[0]" " 5 1 0"
+		2 "|firk_work:turbulenceField2" "renderLayerInfo[0]" " 5 1 0"
+		2 "|firk_work:burstparticle" "renderLayerInfo[0]" " 5 1 0"
 		2 "|firk_work:burstparticle|firk_work:burstparticleShape" "currentSceneTime" 
 		" 1"
 		2 "|firk_work:burstparticle|firk_work:burstparticleShape" "cacheWidth" " 600"
@@ -2217,13 +2175,9 @@ createNode reference -n "firk_workRN";
 		
 		5 4 "firk_workRN" "|firk_work:rocket_emitter1.rate" "firk_workRN.placeHolderList[1]" 
 		""
-		5 3 "firk_workRN" "|firk_work:rocket_particle1|firk_work:rocket_particleShape1.instObjGroups" 
-		"firk_workRN.placeHolderList[2]" ""
-		5 0 "firk_workRN" "|firk_work:trail_nParticle1|firk_work:trail_nParticleShape1.instObjGroups" 
-		"firk_work:aiStandardSurface4SG.dagSetMembers" "firk_workRN.placeHolderList[3]" "firk_workRN.placeHolderList[4]" 
+		5 3 "firk_workRN" "firk_work:aiStandardSurface4SG.message" "firk_workRN.placeHolderList[2]" 
 		""
-		5 0 "firk_workRN" "|firk_work:burstparticle|firk_work:burstparticleShape.instObjGroups" 
-		"firk_work:standardSurface3SG.dagSetMembers" "firk_workRN.placeHolderList[5]" "firk_workRN.placeHolderList[6]" 
+		5 3 "firk_workRN" "firk_work:standardSurface3SG.message" "firk_workRN.placeHolderList[3]" 
 		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -2234,13 +2188,9 @@ createNode animCurveTU -n "rocket_emitter1_rate2";
 	setAttr -s 7 ".ktv[0:6]"  0 0 130 0 139 1 140 1 294 0 295 0 300 0;
 createNode renderSetup -n "renderSetup";
 	rename -uid "E92D92F7-434E-0AE6-8B3D-EA93C990A3F8";
-createNode aiAOV -n "aiAOV_emission";
-	rename -uid "2817039C-4411-A384-FB5F-85ABEC2EE18B";
-	setAttr ".aovn" -type "string" "emission";
-	setAttr ".aovt" 5;
 createNode reference -n "rocketRN";
 	rename -uid "D88889C5-4295-FAA9-CA5E-F6ABF73D6A84";
-	setAttr -s 45 ".phl";
+	setAttr -s 42 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -2283,13 +2233,10 @@ createNode reference -n "rocketRN";
 	setAttr ".phl[40]" 0;
 	setAttr ".phl[41]" 0;
 	setAttr ".phl[42]" 0;
-	setAttr ".phl[43]" 0;
-	setAttr ".phl[44]" 0;
-	setAttr ".phl[45]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"rocketRN"
 		"rocketRN" 0
-		"rocketRN" 66
+		"rocketRN" 67
 		2 "|rocket:rocket1" "translate" " -type \"double3\" -3.43633430279078311 0.88003097857985368 -2.6915774715693308"
 		
 		2 "|rocket:rocket1|rocket:nParticle1" "renderLayerInfo[0]" " 4 1 0"
@@ -2304,7 +2251,7 @@ createNode reference -n "rocketRN";
 		2 "|rocket:rocket1|rocket:particle1|rocket:particleShape1" "cacheWidth" " 600"
 		
 		2 "|rocket:rocket1|rocket:emitter1" "renderLayerInfo[0]" " 4 1 0"
-		2 "rocket:nParticlePointsSE" "aiCustomAOVs" " -s 6"
+		2 "rocket:nParticlePointsSE" "aiCustomAOVs" " -s 7"
 		2 "rocket:nParticlePointsSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"coat_indirect\""
 		
 		2 "rocket:nParticlePointsSE" "aiCustomAOVs[1].aovName" " -type \"string\" \"diffuse_direct\""
@@ -2317,7 +2264,9 @@ createNode reference -n "rocketRN";
 		
 		2 "rocket:nParticlePointsSE" "aiCustomAOVs[5].aovName" " -type \"string\" \"background\""
 		
-		2 "rocket:aiStandardSurface1SG" "aiCustomAOVs" " -s 6"
+		2 "rocket:nParticlePointsSE" "aiCustomAOVs[6].aovName" " -type \"string\" \"emission\""
+		
+		2 "rocket:aiStandardSurface1SG" "aiCustomAOVs" " -s 7"
 		2 "rocket:aiStandardSurface1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"coat_indirect\""
 		
 		2 "rocket:aiStandardSurface1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"diffuse_direct\""
@@ -2329,6 +2278,8 @@ createNode reference -n "rocketRN";
 		2 "rocket:aiStandardSurface1SG" "aiCustomAOVs[4].aovName" " -type \"string\" \"volume\""
 		
 		2 "rocket:aiStandardSurface1SG" "aiCustomAOVs[5].aovName" " -type \"string\" \"background\""
+		
+		2 "rocket:aiStandardSurface1SG" "aiCustomAOVs[6].aovName" " -type \"string\" \"emission\""
 		
 		5 4 "rocketRN" "|rocket:rocket1|rocket:emitter1.rate" "rocketRN.placeHolderList[1]" 
 		""
@@ -2412,11 +2363,7 @@ createNode reference -n "rocketRN";
 		""
 		5 4 "rocketRN" "|rocket:rocket1|rocket:emitter1.displaySpeed" "rocketRN.placeHolderList[41]" 
 		""
-		5 0 "rocketRN" "|rocket:rocket1|rocket:particle1|rocket:particleShape1.instObjGroups" 
-		"rocket:aiStandardSurface1SG.dagSetMembers" "rocketRN.placeHolderList[42]" "rocketRN.placeHolderList[43]" 
-		""
-		5 0 "rocketRN" "|rocket:rocket1|rocket:nParticle1|rocket:nParticleShape1.instObjGroups" 
-		"rocket:aiStandardSurface1SG.dagSetMembers" "rocketRN.placeHolderList[44]" "rocketRN.placeHolderList[45]" 
+		5 3 "rocketRN" "rocket:aiStandardSurface1SG.message" "rocketRN.placeHolderList[42]" 
 		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -2633,7 +2580,7 @@ createNode animCurveTU -n "emitter1_displaySpeed";
 	setAttr -s 2 ".kot[0:1]"  5 5;
 createNode reference -n "rocketRN1";
 	rename -uid "37733568-4651-9546-D434-C1947003CBD8";
-	setAttr -s 45 ".phl";
+	setAttr -s 42 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -2676,13 +2623,10 @@ createNode reference -n "rocketRN1";
 	setAttr ".phl[40]" 0;
 	setAttr ".phl[41]" 0;
 	setAttr ".phl[42]" 0;
-	setAttr ".phl[43]" 0;
-	setAttr ".phl[44]" 0;
-	setAttr ".phl[45]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"rocketRN1"
 		"rocketRN1" 0
-		"rocketRN1" 69
+		"rocketRN1" 70
 		2 "|rocket1:rocket1" "translate" " -type \"double3\" 1.57399202449737619 0 -3.83839141016555585"
 		
 		2 "|rocket1:rocket1|rocket1:rocket_nucleas" "translate" " -type \"double3\" 5.5117359996612949 4.30027748769284379 -1.75825638461875355"
@@ -2703,7 +2647,7 @@ createNode reference -n "rocketRN1";
 		2 "|rocket1:rocket1|rocket1:particle1|rocket1:particleShape1" "cacheWidth" 
 		" 600"
 		2 "|rocket1:rocket1|rocket1:emitter1" "renderLayerInfo[0]" " 4 1 0"
-		2 "rocket1:nParticlePointsSE" "aiCustomAOVs" " -s 6"
+		2 "rocket1:nParticlePointsSE" "aiCustomAOVs" " -s 7"
 		2 "rocket1:nParticlePointsSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"coat_indirect\""
 		
 		2 "rocket1:nParticlePointsSE" "aiCustomAOVs[1].aovName" " -type \"string\" \"diffuse_direct\""
@@ -2716,7 +2660,9 @@ createNode reference -n "rocketRN1";
 		
 		2 "rocket1:nParticlePointsSE" "aiCustomAOVs[5].aovName" " -type \"string\" \"background\""
 		
-		2 "rocket1:aiStandardSurface1SG" "aiCustomAOVs" " -s 6"
+		2 "rocket1:nParticlePointsSE" "aiCustomAOVs[6].aovName" " -type \"string\" \"emission\""
+		
+		2 "rocket1:aiStandardSurface1SG" "aiCustomAOVs" " -s 7"
 		2 "rocket1:aiStandardSurface1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"coat_indirect\""
 		
 		2 "rocket1:aiStandardSurface1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"diffuse_direct\""
@@ -2728,6 +2674,8 @@ createNode reference -n "rocketRN1";
 		2 "rocket1:aiStandardSurface1SG" "aiCustomAOVs[4].aovName" " -type \"string\" \"volume\""
 		
 		2 "rocket1:aiStandardSurface1SG" "aiCustomAOVs[5].aovName" " -type \"string\" \"background\""
+		
+		2 "rocket1:aiStandardSurface1SG" "aiCustomAOVs[6].aovName" " -type \"string\" \"emission\""
 		
 		5 4 "rocketRN1" "|rocket1:rocket1|rocket1:emitter1.translateZ" "rocketRN1.placeHolderList[1]" 
 		""
@@ -2811,16 +2759,12 @@ createNode reference -n "rocketRN1";
 		"rocketRN1.placeHolderList[40]" ""
 		5 4 "rocketRN1" "|rocket1:rocket1|rocket1:emitter1.displaySpeed" "rocketRN1.placeHolderList[41]" 
 		""
-		5 0 "rocketRN1" "|rocket1:rocket1|rocket1:particle1|rocket1:particleShape1.instObjGroups" 
-		"rocket1:aiStandardSurface1SG.dagSetMembers" "rocketRN1.placeHolderList[42]" "rocketRN1.placeHolderList[43]" 
-		""
-		5 0 "rocketRN1" "|rocket1:rocket1|rocket1:nParticle1|rocket1:nParticleShape1.instObjGroups" 
-		"rocket1:aiStandardSurface1SG.dagSetMembers" "rocketRN1.placeHolderList[44]" "rocketRN1.placeHolderList[45]" 
+		5 3 "rocketRN1" "rocket1:aiStandardSurface1SG.message" "rocketRN1.placeHolderList[42]" 
 		"";
 lockNode -l 1 ;
 createNode reference -n "rocket1RN";
 	rename -uid "291E8BAB-444D-D67F-6ACD-569C2D08E988";
-	setAttr -s 45 ".phl";
+	setAttr -s 42 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -2863,13 +2807,10 @@ createNode reference -n "rocket1RN";
 	setAttr ".phl[40]" 0;
 	setAttr ".phl[41]" 0;
 	setAttr ".phl[42]" 0;
-	setAttr ".phl[43]" 0;
-	setAttr ".phl[44]" 0;
-	setAttr ".phl[45]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"rocket1RN"
 		"rocket1RN" 0
-		"rocket1RN" 69
+		"rocket1RN" 70
 		2 "|rocket2:rocket1" "translate" " -type \"double3\" -4.04770260834141471 0 -4.25469092066085874"
 		
 		2 "|rocket2:rocket1|rocket2:rocket_nucleas" "translate" " -type \"double3\" -4.04770260834141471 0 -4.25469092066085874"
@@ -2890,7 +2831,7 @@ createNode reference -n "rocket1RN";
 		2 "|rocket2:rocket1|rocket2:particle1|rocket2:particleShape1" "cacheWidth" 
 		" 600"
 		2 "|rocket2:rocket1|rocket2:emitter1" "renderLayerInfo[0]" " 4 1 0"
-		2 "rocket2:nParticlePointsSE" "aiCustomAOVs" " -s 6"
+		2 "rocket2:nParticlePointsSE" "aiCustomAOVs" " -s 7"
 		2 "rocket2:nParticlePointsSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"coat_indirect\""
 		
 		2 "rocket2:nParticlePointsSE" "aiCustomAOVs[1].aovName" " -type \"string\" \"diffuse_direct\""
@@ -2903,7 +2844,9 @@ createNode reference -n "rocket1RN";
 		
 		2 "rocket2:nParticlePointsSE" "aiCustomAOVs[5].aovName" " -type \"string\" \"background\""
 		
-		2 "rocket2:aiStandardSurface1SG" "aiCustomAOVs" " -s 6"
+		2 "rocket2:nParticlePointsSE" "aiCustomAOVs[6].aovName" " -type \"string\" \"emission\""
+		
+		2 "rocket2:aiStandardSurface1SG" "aiCustomAOVs" " -s 7"
 		2 "rocket2:aiStandardSurface1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"coat_indirect\""
 		
 		2 "rocket2:aiStandardSurface1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"diffuse_direct\""
@@ -2915,6 +2858,8 @@ createNode reference -n "rocket1RN";
 		2 "rocket2:aiStandardSurface1SG" "aiCustomAOVs[4].aovName" " -type \"string\" \"volume\""
 		
 		2 "rocket2:aiStandardSurface1SG" "aiCustomAOVs[5].aovName" " -type \"string\" \"background\""
+		
+		2 "rocket2:aiStandardSurface1SG" "aiCustomAOVs[6].aovName" " -type \"string\" \"emission\""
 		
 		5 4 "rocket1RN" "|rocket2:rocket1|rocket2:emitter1.translateZ" "rocket1RN.placeHolderList[1]" 
 		""
@@ -2998,16 +2943,12 @@ createNode reference -n "rocket1RN";
 		"rocket1RN.placeHolderList[40]" ""
 		5 4 "rocket1RN" "|rocket2:rocket1|rocket2:emitter1.displaySpeed" "rocket1RN.placeHolderList[41]" 
 		""
-		5 0 "rocket1RN" "|rocket2:rocket1|rocket2:nParticle1|rocket2:nParticleShape1.instObjGroups" 
-		"rocket2:aiStandardSurface1SG.dagSetMembers" "rocket1RN.placeHolderList[42]" "rocket1RN.placeHolderList[43]" 
-		""
-		5 0 "rocket1RN" "|rocket2:rocket1|rocket2:particle1|rocket2:particleShape1.instObjGroups" 
-		"rocket2:aiStandardSurface1SG.dagSetMembers" "rocket1RN.placeHolderList[44]" "rocket1RN.placeHolderList[45]" 
+		5 3 "rocket1RN" "rocket2:aiStandardSurface1SG.message" "rocket1RN.placeHolderList[42]" 
 		"";
 lockNode -l 1 ;
 createNode reference -n "rocket2RN";
 	rename -uid "85EA66C7-47CD-7CBB-82EA-31936F769F33";
-	setAttr -s 45 ".phl";
+	setAttr -s 42 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -3050,13 +2991,10 @@ createNode reference -n "rocket2RN";
 	setAttr ".phl[40]" 0;
 	setAttr ".phl[41]" 0;
 	setAttr ".phl[42]" 0;
-	setAttr ".phl[43]" 0;
-	setAttr ".phl[44]" 0;
-	setAttr ".phl[45]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"rocket2RN"
 		"rocket2RN" 0
-		"rocket2RN" 69
+		"rocket2RN" 70
 		2 "|rocket3:rocket1" "translate" " -type \"double3\" 2.38645021034018789 0 -3.9419962755340312"
 		
 		2 "|rocket3:rocket1|rocket3:rocket_nucleas" "translate" " -type \"double3\" 2.38645021034018789 0 -3.9419962755340312"
@@ -3077,7 +3015,7 @@ createNode reference -n "rocket2RN";
 		2 "|rocket3:rocket1|rocket3:particle1|rocket3:particleShape1" "cacheWidth" 
 		" 600"
 		2 "|rocket3:rocket1|rocket3:emitter1" "renderLayerInfo[0]" " 4 1 0"
-		2 "rocket3:nParticlePointsSE" "aiCustomAOVs" " -s 6"
+		2 "rocket3:nParticlePointsSE" "aiCustomAOVs" " -s 7"
 		2 "rocket3:nParticlePointsSE" "aiCustomAOVs[0].aovName" " -type \"string\" \"coat_indirect\""
 		
 		2 "rocket3:nParticlePointsSE" "aiCustomAOVs[1].aovName" " -type \"string\" \"diffuse_direct\""
@@ -3090,7 +3028,9 @@ createNode reference -n "rocket2RN";
 		
 		2 "rocket3:nParticlePointsSE" "aiCustomAOVs[5].aovName" " -type \"string\" \"background\""
 		
-		2 "rocket3:aiStandardSurface1SG" "aiCustomAOVs" " -s 6"
+		2 "rocket3:nParticlePointsSE" "aiCustomAOVs[6].aovName" " -type \"string\" \"emission\""
+		
+		2 "rocket3:aiStandardSurface1SG" "aiCustomAOVs" " -s 7"
 		2 "rocket3:aiStandardSurface1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"coat_indirect\""
 		
 		2 "rocket3:aiStandardSurface1SG" "aiCustomAOVs[1].aovName" " -type \"string\" \"diffuse_direct\""
@@ -3102,6 +3042,8 @@ createNode reference -n "rocket2RN";
 		2 "rocket3:aiStandardSurface1SG" "aiCustomAOVs[4].aovName" " -type \"string\" \"volume\""
 		
 		2 "rocket3:aiStandardSurface1SG" "aiCustomAOVs[5].aovName" " -type \"string\" \"background\""
+		
+		2 "rocket3:aiStandardSurface1SG" "aiCustomAOVs[6].aovName" " -type \"string\" \"emission\""
 		
 		5 4 "rocket2RN" "|rocket3:rocket1|rocket3:emitter1.translateZ" "rocket2RN.placeHolderList[1]" 
 		""
@@ -3185,11 +3127,7 @@ createNode reference -n "rocket2RN";
 		"rocket2RN.placeHolderList[40]" ""
 		5 4 "rocket2RN" "|rocket3:rocket1|rocket3:emitter1.displaySpeed" "rocket2RN.placeHolderList[41]" 
 		""
-		5 0 "rocket2RN" "|rocket3:rocket1|rocket3:nParticle1|rocket3:nParticleShape1.instObjGroups" 
-		"rocket3:aiStandardSurface1SG.dagSetMembers" "rocket2RN.placeHolderList[42]" "rocket2RN.placeHolderList[43]" 
-		""
-		5 0 "rocket2RN" "|rocket3:rocket1|rocket3:particle1|rocket3:particleShape1.instObjGroups" 
-		"rocket3:aiStandardSurface1SG.dagSetMembers" "rocket2RN.placeHolderList[44]" "rocket2RN.placeHolderList[45]" 
+		5 3 "rocket2RN" "rocket3:aiStandardSurface1SG.message" "rocket2RN.placeHolderList[42]" 
 		"";
 lockNode -l 1 ;
 createNode animCurveTL -n "emitter1_translateX1";
@@ -3839,36 +3777,1214 @@ createNode materialInfo -n "materialInfo2";
 	rename -uid "AA0127EB-4CFE-D49B-D584-108CB34D1804";
 createNode aiUtility -n "aiUtility1";
 	rename -uid "0F186AFE-4D13-3DA3-6048-A8A315A1C960";
+createNode aiAOV -n "aiAOV_emission";
+	rename -uid "D7415C7C-465E-73FC-C24D-80809162EDCC";
+	setAttr ".aovn" -type "string" "emission";
+	setAttr ".aovt" 5;
+createNode renderSetupLayer -n "renderSetupLayer1";
+	rename -uid "BE71F81E-4DCA-8864-E0A6-53B7B35F7A61";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".nic" 2;
+	setAttr ".es" yes;
+createNode renderLayer -n "rs_renderSetupLayer1";
+	rename -uid "B95CD168-4AD3-5BAF-1BB7-8E96D0897BCA";
+	setAttr ".do" 1;
+createNode collection -n "collection1";
+	rename -uid "02F20429-4D28-8020-FBB9-85B853BE99CA";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".is" yes;
+createNode simpleSelector -n "collection1Selector";
+	rename -uid "D91A6F96-4540-CE74-AB58-76B8742FB6ED";
+	setAttr ".ssl" -type "string" (
+		"|rocket1:rocket1\n|rocket2:rocket1\n|rocket3:rocket1\n|SPURT:Spurt_Grp\n|fireworkfinal:fanali\n|rocket:rocket1\n|firk_work:nucleus2\n|firk_work:burstparticle\n|firk_work:turbulenceField2\n|firk_work:turbulenceField1\n|firk_work:rocket_emitter1\n|firk_work:rocket_particle1\n|firk_work:trail_nParticle1\n|firk_work:nucleus1\n|rocket3:rocket1|rocket3:emitter1\n|rocket3:rocket1|rocket3:particle1\n|rocket3:rocket1|rocket3:emitter2\n|rocket3:rocket1|rocket3:nParticle1\n|rocket2:rocket1|rocket2:emitter1\n|rocket2:rocket1|rocket2:particle1\n|rocket2:rocket1|rocket2:emitter2\n|rocket2:rocket1|rocket2:nParticle1\n|rocket1:rocket1|rocket1:emitter1\n|rocket1:rocket1|rocket1:particle1\n|rocket1:rocket1|rocket1:emitter2\n|rocket1:rocket1|rocket1:nParticle1\n|rocket:rocket1|rocket:emitter1\n|rocket:rocket1|rocket:particle1\n|rocket:rocket1|rocket:emitter2\n|rocket:rocket1|rocket:nParticle1\n|fireworkfinal:fanali|fireworkfinal:burstparticle\n|fireworkfinal:fanali|fireworkfinal:turbulenceField2\n|fireworkfinal:fanali|fireworkfinal:trail_turbulenceField1\n|fireworkfinal:fanali|fireworkfinal:another_fanali_nucleas\n"
+		+ "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1\n|fireworkfinal:fanali|fireworkfinal:rocket_particle1\n|fireworkfinal:fanali|fireworkfinal:rocket_emitter1");
+createNode collection -n "collection2";
+	rename -uid "BD02878E-4345-30D8-4EC2-CE90052CF607";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".is" yes;
+	setAttr ".es" yes;
+createNode simpleSelector -n "collection2Selector";
+	rename -uid "F00F5797-44D2-28CB-2BAC-3D81305E6EB7";
+	setAttr ".ssl" -type "string" "|extra_flag1:flag\n|extra_flag1:flag|extra_flag1:group1\n|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole\n|extra_flag1:flag|extra_flag1:group1|extra_flag1:clothe\n|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope\n|extra_flag1:flag|extra_flag1:group1|extra_flag1:dynamics";
+createNode materialOverride -n "materialOverride1";
+	rename -uid "2542BF7C-422D-0E34-53D2-B88B9C98C553";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".es" yes;
+createNode materialOverride -n "materialOverride2";
+	rename -uid "9D95E3FC-4A5D-A334-31EB-009FF3C9D51E";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".es" yes;
+createNode materialOverride -n "materialOverride3";
+	rename -uid "B0D978E2-45C7-49D9-586A-8EB76044B4DC";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".es" yes;
+createNode materialOverride -n "materialOverride4";
+	rename -uid "BB413F22-44AC-A4C8-DACE-2CAD0722EAA7";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".es" yes;
+createNode materialOverride -n "materialOverride5";
+	rename -uid "3A545994-4786-774D-30A9-0BAAE798D9F8";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".es" yes;
+createNode materialOverride -n "materialOverride6";
+	rename -uid "000B481C-430C-876F-6A64-979AE4772074";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".es" yes;
+createNode materialOverride -n "materialOverride7";
+	rename -uid "21D1E2FF-4471-2F97-6DDE-8AB96464702F";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".es" yes;
+createNode materialOverride -n "materialOverride8";
+	rename -uid "0E59A91C-4E13-A43E-753A-7A8705E08C29";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".es" yes;
+createNode materialOverride -n "materialOverride9";
+	rename -uid "1E7A29F4-4040-56FA-BF12-67A4D91877DD";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".es" yes;
+createNode materialOverride -n "materialOverride10";
+	rename -uid "81E40868-4CB4-D8D5-A632-D59741726B38";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".es" yes;
+createNode materialOverride -n "materialOverride11";
+	rename -uid "C891621C-46A0-DFF7-E6D9-0DA79E66DD9A";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".es" yes;
+createNode materialOverride -n "materialOverride12";
+	rename -uid "AD7B9A8E-4DC8-CE40-1002-0DBFB88B826D";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".es" yes;
+createNode materialOverride -n "materialOverride13";
+	rename -uid "9F438349-4B83-BEBB-7B16-32A545CCC0DA";
+	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
+	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
+	setAttr ".es" yes;
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "38E8225A-4FC6-E0A6-D077-B2BDBC3A090B";
+	rename -uid "4F78E039-469F-12DE-3CF8-9389F777DAE2";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" -4866.1666550546643 1068.4977765166311 ;
-	setAttr ".tgi[0].vh" -type "double2" -2626.7992413128491 2057.047355555811 ;
+	setAttr ".tgi[0].vl" -type "double2" -10134.350742335249 1972.9688419938502 ;
+	setAttr ".tgi[0].vh" -type "double2" -4182.5516331460221 3255.6841672501496 ;
 	setAttr -s 8 ".tgi[0].ni";
-	setAttr ".tgi[0].ni[0].x" -2517.142822265625;
-	setAttr ".tgi[0].ni[0].y" 570;
+	setAttr ".tgi[0].ni[0].x" -3530;
+	setAttr ".tgi[0].ni[0].y" 581.4285888671875;
 	setAttr ".tgi[0].ni[0].nvs" 1923;
-	setAttr ".tgi[0].ni[1].x" -3007.200439453125;
-	setAttr ".tgi[0].ni[1].y" 727.395263671875;
+	setAttr ".tgi[0].ni[1].x" -2517.142822265625;
+	setAttr ".tgi[0].ni[1].y" 570;
 	setAttr ".tgi[0].ni[1].nvs" 1923;
-	setAttr ".tgi[0].ni[2].x" -2210;
-	setAttr ".tgi[0].ni[2].y" 570;
+	setAttr ".tgi[0].ni[2].x" -3530;
+	setAttr ".tgi[0].ni[2].y" 405.71429443359375;
 	setAttr ".tgi[0].ni[2].nvs" 1923;
-	setAttr ".tgi[0].ni[3].x" -2824.28564453125;
-	setAttr ".tgi[0].ni[3].y" 525.71429443359375;
+	setAttr ".tgi[0].ni[3].x" -3007.200439453125;
+	setAttr ".tgi[0].ni[3].y" 727.395263671875;
 	setAttr ".tgi[0].ni[3].nvs" 1923;
-	setAttr ".tgi[0].ni[4].x" -3530;
-	setAttr ".tgi[0].ni[4].y" 581.4285888671875;
+	setAttr ".tgi[0].ni[4].x" -2210;
+	setAttr ".tgi[0].ni[4].y" 570;
 	setAttr ".tgi[0].ni[4].nvs" 1923;
-	setAttr ".tgi[0].ni[5].x" -3222.857177734375;
-	setAttr ".tgi[0].ni[5].y" 602.85711669921875;
+	setAttr ".tgi[0].ni[5].x" -2824.28564453125;
+	setAttr ".tgi[0].ni[5].y" 525.71429443359375;
 	setAttr ".tgi[0].ni[5].nvs" 1923;
-	setAttr ".tgi[0].ni[6].x" -3530;
-	setAttr ".tgi[0].ni[6].y" 405.71429443359375;
+	setAttr ".tgi[0].ni[6].x" -3222.857177734375;
+	setAttr ".tgi[0].ni[6].y" 602.85711669921875;
 	setAttr ".tgi[0].ni[6].nvs" 1923;
 	setAttr ".tgi[0].ni[7].x" -3222.857177734375;
 	setAttr ".tgi[0].ni[7].y" 427.14285278320312;
 	setAttr ".tgi[0].ni[7].nvs" 1923;
+createNode applyConnectionOverride -n "materialOverride5_rocket_nParticleShape1_iog_0_";
+	rename -uid "98FFF70D-447A-C174-5EDF-0580A316CA0E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "rocket:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_rocket_particleShape1_iog_0_";
+	rename -uid "F46E49E4-44F8-1707-4641-1582507ADC87";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "rocket:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "97E1C53D-4A8E-2809-466E-E3A3904E49CB";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "SPURT:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "FFE6B265-4BB9-218F-EFD4-AD8D4F342A57";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "SPURT:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_rocket2_nParticleShape1_iog_0_";
+	rename -uid "B044947D-4004-4FE2-28CA-5797A06BC809";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "rocket2:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_rocket2_particleShape1_iog_0_";
+	rename -uid "0887BB27-493E-860B-5B6E-FAA12DAD506F";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "rocket2:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "183C7391-4192-12D7-CB36-FA8FCF0E8B54";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "fireworkfinal:standardSurface2SG";
+createNode applyConnectionOverride -n "materialOverride5_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "5EA5D3D6-4359-E280-6B19-17BDD051D006";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "fireworkfinal:standardSurface2SG";
+createNode applyConnectionOverride -n "materialOverride5_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "EC472FC4-4F5C-6755-EB33-A09674341D89";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride5_rocket1_nParticleShape1_iog_0_";
+	rename -uid "86DF3D62-43A7-321C-0B1E-C39E48126D1F";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "rocket1:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_rocket1_particleShape1_iog_0_";
+	rename -uid "AEFD9088-4C58-1DA8-1480-3396DF62033A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "rocket1:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "6C3C9E51-48F0-9E09-F221-1BBA9EE729FC";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride5_rocket3_nParticleShape1_iog_0_";
+	rename -uid "DBE02794-41CB-1B36-5519-DF9494392FAA";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "rocket3:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_rocket3_particleShape1_iog_0_";
+	rename -uid "DB23951F-40C8-5B17-9F4D-2697E03AC787";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "rocket3:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "E243441E-4004-DA0B-DDB5-DA9E305CCB87";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "firk_work:aiStandardSurface4SG";
+createNode applyConnectionOverride -n "materialOverride5_firk_work_burstparticleShape_iog_0_";
+	rename -uid "C83869B4-4702-1712-33EB-3B941E6B954D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "firk_work:standardSurface3SG";
+createNode applyConnectionOverride -n "materialOverride6_rocket_nParticleShape1_iog_0_";
+	rename -uid "BFF8DF65-418E-2864-65F1-5B8D26E0491B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_rocket_particleShape1_iog_0_";
+	rename -uid "D92DCD40-4E0C-0195-3F97-3BA3FEE51511";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "0C4E51DE-46F6-8EE6-B3B6-7284F32EAC47";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "1E178B7A-4CE7-A5FB-F54F-46B97CE11C9E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_rocket2_nParticleShape1_iog_0_";
+	rename -uid "3FA0C3F2-4AA5-EF4E-28DC-E1AFDC29B7BD";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_rocket2_particleShape1_iog_0_";
+	rename -uid "83D77F85-4D50-F9B1-C18A-B88434055A69";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "B590FA79-4337-B6B0-C386-9DA23E934078";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "302F15C3-4089-11DE-DE39-52815E65C948";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "2BB80FBB-46D6-94EE-31E0-45B1C3F315FD";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_rocket1_nParticleShape1_iog_0_";
+	rename -uid "ED9CE47D-4DDD-6BA6-1EE8-E5BB9180DD48";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_rocket1_particleShape1_iog_0_";
+	rename -uid "8878D140-4A99-87A6-3537-30897C594EBA";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "E52F970D-4022-03E8-9BB6-9C8FA6642946";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_rocket3_nParticleShape1_iog_0_";
+	rename -uid "558CCE4B-4C5B-1DF5-4C12-E7B22B70833B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_rocket3_particleShape1_iog_0_";
+	rename -uid "64A33BE3-47A4-AEEC-3AD1-DCB0080EA55F";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "0AB26748-4800-6859-BBC4-B2BAF54224D8";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_firk_work_burstparticleShape_iog_0_";
+	rename -uid "1DFDAB34-47A5-3897-7B3F-F68EF6E0104D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_rocket_nParticleShape1_iog_0_";
+	rename -uid "B5B277CD-4E6B-03C9-64D6-3DB27C41130C";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_rocket_particleShape1_iog_0_";
+	rename -uid "9693EB62-42E1-CC9A-4AC0-C4BBC53F03CF";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "8E3D54D7-4D8E-2FB1-80CC-AEA681C3C079";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "16F3A8A1-44D6-D6B0-40EA-52ADECEDCAC8";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_rocket2_nParticleShape1_iog_0_";
+	rename -uid "0AFB557A-470A-D0EA-C7CA-DEBF86A9A567";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_rocket2_particleShape1_iog_0_";
+	rename -uid "32C6970A-43E6-8D43-2BDA-1FA71AD486C4";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "3CE7EF63-4A65-9E18-615A-6FAB3909F0DD";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "627F98EE-4CA2-D3AA-B21B-A0A4FB8FD327";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "CA8A569D-4D3D-5A2E-FC02-A6B37E951AAD";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_rocket1_nParticleShape1_iog_0_";
+	rename -uid "1DE36404-496F-083C-74D1-76A72594542A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_rocket1_particleShape1_iog_0_";
+	rename -uid "A9DDD8CA-432C-0CB9-95C2-05B2D673D446";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "9E1BD989-414E-C226-9A2A-4B89C2E09CDE";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_rocket3_nParticleShape1_iog_0_";
+	rename -uid "6C8CFB4B-4C2C-3BFD-BDE0-F9B4A0171AFA";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_rocket3_particleShape1_iog_0_";
+	rename -uid "F4E635CF-4F20-EBF5-65BD-848C19158C09";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "5BEBCC3E-447B-34EF-C5D7-E18AA1A3BE34";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_firk_work_burstparticleShape_iog_0_";
+	rename -uid "56EC5C19-4764-1591-604E-1FB46CDEC89D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_rocket_nParticleShape1_iog_0_";
+	rename -uid "7D042212-480D-A208-5395-4F98F81E40E8";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_rocket_particleShape1_iog_0_";
+	rename -uid "0E4E8F81-479E-271E-73F9-E8AAEA8C8EA8";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "7437254A-4441-87CD-FDB6-A3A39736BA07";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "CC4F9136-439A-3691-6BA9-85917D2B9F6F";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_rocket2_nParticleShape1_iog_0_";
+	rename -uid "D7552AC2-443A-FBB6-042A-7E9AB701A697";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_rocket2_particleShape1_iog_0_";
+	rename -uid "A3FE70AE-4CF9-C890-EE06-3EA1E838F61D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "1C0F12C0-4D37-9208-AFA3-7F837BBCEFF5";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "69172153-469C-CB85-53F6-14A747B1E2BE";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "050B090C-410F-8147-6316-EF832FABBE01";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_rocket1_nParticleShape1_iog_0_";
+	rename -uid "CD2DEEF5-44E5-1880-8B1A-AC906C0AD395";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_rocket1_particleShape1_iog_0_";
+	rename -uid "7F87F6CA-4977-0C92-9363-59B30E6FE966";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "E06B1535-43E4-17D6-BB25-09B585EA7CDF";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_rocket3_nParticleShape1_iog_0_";
+	rename -uid "072A9492-4C53-E793-167C-64A08C8512DA";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_rocket3_particleShape1_iog_0_";
+	rename -uid "E0613999-4233-5603-C680-5DB4EAD39EE5";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "6E01CF60-4783-9D25-2BBA-D5B721503F3F";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_firk_work_burstparticleShape_iog_0_";
+	rename -uid "591A939B-48CE-F704-6057-B292D7E48818";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_rocket_nParticleShape1_iog_0_";
+	rename -uid "00F8517C-421D-0BBF-9C66-A190FB0E6855";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_rocket_particleShape1_iog_0_";
+	rename -uid "B5C3DCAF-47AB-9893-FF00-EF93EB415E32";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "CA7F03F4-4B9D-3501-94DF-BFABD428B6D2";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "29C61474-41B4-52D2-8B74-5B8C5F0043AB";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_rocket2_nParticleShape1_iog_0_";
+	rename -uid "C8CA4CD9-468B-764B-6583-68A0A170D726";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_rocket2_particleShape1_iog_0_";
+	rename -uid "95EA8ED5-4DB0-8057-5AA2-B7B35538B64D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "B2D20BCB-41B7-1B54-9C55-D5A1FFFDB5F2";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "B0CD47FF-46C8-DEC2-4F9E-7981F1D85288";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "F50C02E8-4715-85B8-D706-C2A98D2DBAEA";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_rocket1_nParticleShape1_iog_0_";
+	rename -uid "54B44DB6-499F-A152-6377-E3924D030B65";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_rocket1_particleShape1_iog_0_";
+	rename -uid "60807BE7-433A-AD05-3893-1BBF988791E6";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "8E9665BC-4BC2-0854-80FF-5F87C2DA7A80";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_rocket3_nParticleShape1_iog_0_";
+	rename -uid "912691CD-4EFE-6022-DD71-948D9C00371E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_rocket3_particleShape1_iog_0_";
+	rename -uid "CFD63DF9-49BA-E93D-5182-ABA1B01F5FC7";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "E3637243-4F30-43F7-A953-37A5C8B812FB";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_firk_work_burstparticleShape_iog_0_";
+	rename -uid "3454E6C9-4875-C329-D58F-768C2397BF01";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_rocket_nParticleShape1_iog_0_";
+	rename -uid "87C31E5C-43A4-6353-76CE-5DB1C8EDE561";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_rocket_particleShape1_iog_0_";
+	rename -uid "9B979A95-4DAE-964D-7505-DFA46756D10D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "CB74059C-414B-08A8-C0B5-419398457F04";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "D8851C0E-403B-0945-DE92-CA80C689A932";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_rocket2_nParticleShape1_iog_0_";
+	rename -uid "E73DD5E6-4625-3531-F75F-869598F65825";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_rocket2_particleShape1_iog_0_";
+	rename -uid "A07D1B62-4CBD-8A15-F068-7092DF034745";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "1C234448-4189-E83D-D4C2-16B78617E708";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "FB2D3624-4558-C0F7-971C-9E92ED221E7D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "B9C58CC8-49FD-1E7B-0F88-AABBECF934A4";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_rocket1_nParticleShape1_iog_0_";
+	rename -uid "B839C318-4707-7C0D-3A9D-9AB1D948EB74";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_rocket1_particleShape1_iog_0_";
+	rename -uid "4EA47A4F-4F00-4632-23F3-78A535AB8D69";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "74D64552-4AE9-0240-BB1D-70954ECA5991";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_rocket3_nParticleShape1_iog_0_";
+	rename -uid "CB549CA6-4563-7174-AEA0-3A8480C3F84D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_rocket3_particleShape1_iog_0_";
+	rename -uid "99E320FD-4C9A-0C4E-8598-F09DF0446E94";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "90B75EF6-4E9D-97D1-AAD9-31B5BC3C24D6";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_firk_work_burstparticleShape_iog_0_";
+	rename -uid "6E9D9A8B-4EAB-9D06-38C7-B8A03A989504";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_rocket_nParticleShape1_iog_0_";
+	rename -uid "BA0ABB6A-4FC7-3435-2B33-2E8693CF139B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_rocket_particleShape1_iog_0_";
+	rename -uid "0B19A8EC-4D88-EC3C-858D-338E2DB45CCD";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "9B9C1473-4E5E-CCB9-3421-20B53AE21272";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "920BF6D7-42A9-228A-4CF2-2289194DE26B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_rocket2_nParticleShape1_iog_0_";
+	rename -uid "A749A94E-4528-91D3-88C9-FEBC4CB92727";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_rocket2_particleShape1_iog_0_";
+	rename -uid "43884B63-4127-9219-27C0-0DA90A428B2A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "7E021333-4310-9886-51A7-36817D92835B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "74C982B2-4164-50E2-9A08-FCAC30A6F999";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "B8F0852A-432C-C8F5-DEF5-499BBB6480A5";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_rocket1_nParticleShape1_iog_0_";
+	rename -uid "84189FDF-4B9C-4B59-C151-3EBEB38974FB";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_rocket1_particleShape1_iog_0_";
+	rename -uid "71E85194-4957-4130-3E70-CFB4BE06887E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "262A44DF-4B85-AB16-230E-47B879C95520";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_rocket3_nParticleShape1_iog_0_";
+	rename -uid "A64DF444-43E7-6358-46A7-DAAE23FA1EFE";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_rocket3_particleShape1_iog_0_";
+	rename -uid "F32EDF64-4D00-7E4A-E199-09864643DEF1";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "6179E6E5-4E7F-81EC-AD67-49ABC27DBB3E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_firk_work_burstparticleShape_iog_0_";
+	rename -uid "AD73A2BF-43A5-589F-2446-9DAB3E564412";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_rocket_nParticleShape1_iog_0_";
+	rename -uid "B51F71E2-4C97-AB17-521E-7B82FD75A47F";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_rocket_particleShape1_iog_0_";
+	rename -uid "0075E25D-41FA-B292-5E67-65B4BD3EE11A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "5F23D9F2-4534-9C77-E6F7-629A0723DB17";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "FD3A86A0-41AE-DFB5-C16D-A1B4FB99B7B3";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_rocket2_nParticleShape1_iog_0_";
+	rename -uid "88E74932-47FB-FFB2-667B-DB8DFA1B03D6";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_rocket2_particleShape1_iog_0_";
+	rename -uid "F41BBDEB-471C-56FE-4B0D-8599FE1999F9";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "335B6D37-4BB3-5862-DE46-21A510F126BC";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "9A1B07CD-49D1-F4E1-328E-C0A692E2FBAF";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "FA6A867E-4E2E-D85B-8EE5-63A69FD7F617";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_rocket1_nParticleShape1_iog_0_";
+	rename -uid "9830FC1D-4DDA-D11F-1DF3-8B9B3EEB9A9F";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_rocket1_particleShape1_iog_0_";
+	rename -uid "A28ECB5D-4A4C-CFF0-D995-D4A8AB6BB9C8";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "C309B55E-44F7-1421-495D-E8B5C2DB75E1";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_rocket3_nParticleShape1_iog_0_";
+	rename -uid "4CD63A74-46C9-6A07-0986-5E8C62374B6A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_rocket3_particleShape1_iog_0_";
+	rename -uid "C67F6AB5-480C-B0AB-7AFB-348EA8BE76F1";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "A7750EA2-40B9-22B6-44F6-0D9EBBF3E849";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_firk_work_burstparticleShape_iog_0_";
+	rename -uid "F979B0DD-41C9-FF4F-77FD-7DB058609492";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride13_rocket_nParticleShape1_iog_0_";
+	rename -uid "DFB68651-4183-67B1-7568-3A81CD5652F3";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|rocket:rocket1|rocket:nParticle1|rocket:nParticleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_rocket_particleShape1_iog_0_";
+	rename -uid "E02D621F-432E-ED4F-C207-7789E6CB9031";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|rocket:rocket1|rocket:particle1|rocket:particleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "657E95C4-4565-D333-5637-2CB06D43958A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1|SPURT:Spurt_nParticleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "6977036D-4707-B2F4-0BCB-2A9CC0303995";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2|SPURT:Spurt_nParticleShape2.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_rocket2_nParticleShape1_iog_0_";
+	rename -uid "0DB40A50-4A27-F625-F404-0E91827D55DE";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|rocket2:rocket1|rocket2:nParticle1|rocket2:nParticleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_rocket2_particleShape1_iog_0_";
+	rename -uid "32714E27-4C07-4483-20FD-D3B3B9E5A63C";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|rocket2:rocket1|rocket2:particle1|rocket2:particleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "49110976-40E4-39BF-0D2D-54812DAE141A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|fireworkfinal:fanali|fireworkfinal:rocket_particle1|fireworkfinal:rocket_particleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "EE313779-4F62-B0B4-DB5C-598050B6FB6F";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1|fireworkfinal:trail_nParticleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "7ECBD308-46AC-CB0C-6AA1-57BAD5D2B013";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|fireworkfinal:fanali|fireworkfinal:burstparticle|fireworkfinal:burstparticleShape.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_rocket1_nParticleShape1_iog_0_";
+	rename -uid "FE3BA432-42FC-DEF6-331D-A1BEB8C84F4D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|rocket1:rocket1|rocket1:nParticle1|rocket1:nParticleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_rocket1_particleShape1_iog_0_";
+	rename -uid "738B6A7E-4C33-C6A8-0BE2-CD8B48E57F2B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|rocket1:rocket1|rocket1:particle1|rocket1:particleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "BE596BFD-4EC1-BE67-702E-4494C7D0861B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|firk_work:rocket_particle1|firk_work:rocket_particleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_rocket3_nParticleShape1_iog_0_";
+	rename -uid "92DECEA4-45C2-06BA-67ED-A299E8B0E0D6";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|rocket3:rocket1|rocket3:nParticle1|rocket3:nParticleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_rocket3_particleShape1_iog_0_";
+	rename -uid "BB1229DA-4BE7-FB2A-BC4D-A18FDBA5F89D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|rocket3:rocket1|rocket3:particle1|rocket3:particleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "613ADB34-4F65-ACD8-561A-A6832FDD6BEB";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|firk_work:trail_nParticle1|firk_work:trail_nParticleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_firk_work_burstparticleShape_iog_0_";
+	rename -uid "8D62A9E2-44EC-9DBB-F544-D2AF9C580BBF";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|firk_work:burstparticle|firk_work:burstparticleShape.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_partShape1_iog_0_";
+	rename -uid "0AD5600C-4ECA-986B-AB94-F1ADE649B4E6";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface12SG";
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_Flag_partShape1_iog_0_";
+	rename -uid "86E9E7E9-4EF2-BAE8-78B6-D1859C36DEB4";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_partShape2_iog_0_";
+	rename -uid "AC0C541F-4C8C-DC9B-ECBC-DE8F5C6A07F4";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_plag_partShape_iog_0_";
+	rename -uid "040D9150-4C5A-B136-2706-5DB81F2E955C";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_partShape_iog_0_";
+	rename -uid "B374BA56-4140-90DC-B88B-8DA35B4D260F";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_Flag_partShape_iog_0_";
+	rename -uid "8CF35C05-4516-33DB-3146-558D3D90963E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_part4Shape_iog_0_";
+	rename -uid "C0CDD17F-4BE1-FB2B-AF5A-A5A43EC15EC6";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_dynamicConstraintShape1_iog_0_";
+	rename -uid "470B5B88-402F-86C7-1DFA-86A02450C0E7";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_part5Shape_iog_0_";
+	rename -uid "A1BDAB47-4A35-561B-1585-E1A7C1956D5A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_extrudedSurfaceShape2_iog_0_";
+	rename -uid "B0587282-4BB0-AF08-5554-7AA036BFF95A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface16SG";
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_curveShape10_iog_0_";
+	rename -uid "4730BEBF-4795-8651-678C-DFAEC521F71B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_follicleShape5_iog_0_";
+	rename -uid "A9034C42-4B8C-7AC9-DBAB-A8BE9C22B058";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_curve10rebuiltCurveShape1_iog_0_";
+	rename -uid "1E906001-4CF4-9BCC-EFC0-C88F80654E8D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_curveShape9_iog_0_";
+	rename -uid "DC2EEEF0-44CA-D1DB-EDEC-96A41F73A1F4";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_hairSystemShape5_iog_0_";
+	rename -uid "B36A604C-459F-B7FF-1F6C-92BD10833D24";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_curveShape8_iog_0_";
+	rename -uid "A5518ADA-457E-2853-1D6A-EF82788F855B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_follicleShape4_iog_0_";
+	rename -uid "EAF0B8E3-45E2-BC46-681E-CDB156519D01";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_curve8rebuiltCurveShape1_iog_0_";
+	rename -uid "C07512F0-4665-F1BC-3F6F-659E07AC32E6";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_curveShape7_iog_0_";
+	rename -uid "711866EA-4C57-7231-EED3-6F8DD541279E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_hairSystemShape4_iog_0_";
+	rename -uid "94F20917-4000-F933-92CB-7DBDD892C9BB";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_extrudedSurfaceShape1_iog_0_";
+	rename -uid "4964922E-4C5E-C1CA-0C04-83A0F35C7F45";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface16SG";
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_nurbsCircleShape2_iog_0_";
+	rename -uid "3885D557-4395-65E2-4160-13A4A5A7F9F3";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_nurbsCircleShape1_iog_0_";
+	rename -uid "D4AE6FBA-49CF-D43F-E791-BFAFE5BD7065";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_geoShape_iog_0_";
+	rename -uid "1F2B3FED-4885-FB43-EF84-E492273030CE";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_outputCloth1_iog_0_";
+	rename -uid "FB6047F0-41CB-97E5-5D13-0A93D40ECDF9";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "extra_flag1:aiLambert2SG";
+createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_nClothShape1_iog_0_";
+	rename -uid "0A13C7CA-4902-932F-F204-F49976D0DB81";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_partShape1_iog_0_";
+	rename -uid "BA42D1FB-43A7-A0C8-E065-4FBD767C06A4";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_Flag_partShape1_iog_0_";
+	rename -uid "D08CFBDE-4794-1EEC-C24B-339A99DA8AB8";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_partShape2_iog_0_";
+	rename -uid "6DCA65B8-41B2-9CE7-5081-26B58C364005";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_plag_partShape_iog_0_";
+	rename -uid "2DA69FF1-481F-2CC8-2399-8387591B9C60";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_partShape_iog_0_";
+	rename -uid "53B74510-434B-761B-F274-978C7060F3B9";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_Flag_partShape_iog_0_";
+	rename -uid "00B43803-4B16-200C-9456-88A8A4112CBF";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_part4Shape_iog_0_";
+	rename -uid "B1789106-4A3F-C64F-548A-7D8854B43DB6";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_dynamicConstraintShape1_iog_0_";
+	rename -uid "E756DAA9-4F88-BA4D-C834-E789665E779E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_part5Shape_iog_0_";
+	rename -uid "E91CF137-40F5-C918-527D-67BC66E1C440";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_extrudedSurfaceShape2_iog_0_";
+	rename -uid "E814A706-4E5C-3604-A919-E698345BEEDD";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_curveShape10_iog_0_";
+	rename -uid "7413ABA0-4D5C-D14C-D762-D3A735F30E54";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_follicleShape5_iog_0_";
+	rename -uid "B341AD43-4066-F1F0-CB6F-BD8ED93B8A51";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_curve10rebuiltCurveShape1_iog_0_";
+	rename -uid "512EB767-41A5-6964-A758-98ABD76565A5";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_curveShape9_iog_0_";
+	rename -uid "310F9100-4AAC-ADBA-E0CC-5FA9390CC5B4";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_hairSystemShape5_iog_0_";
+	rename -uid "BC1BDAB7-4F3F-A448-75AE-6B85475247D4";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_curveShape8_iog_0_";
+	rename -uid "F795CB6B-4199-9550-AC0A-448BE438A5A0";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_follicleShape4_iog_0_";
+	rename -uid "286903AD-4487-E433-2484-7FA5E37EFE6A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_curve8rebuiltCurveShape1_iog_0_";
+	rename -uid "FA70F83A-4019-FE84-0313-9183CCE37A16";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_curveShape7_iog_0_";
+	rename -uid "C73166BC-4434-E940-D8CF-6A9F7F6CE560";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_hairSystemShape4_iog_0_";
+	rename -uid "93775533-4F4F-0CD6-4E1B-60B6F21CBDC1";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_extrudedSurfaceShape1_iog_0_";
+	rename -uid "07760A87-493D-A14A-DFE3-5BADED1C4E7D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_nurbsCircleShape2_iog_0_";
+	rename -uid "96C05744-4B72-9FE7-7DCB-68A4A770F113";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_nurbsCircleShape1_iog_0_";
+	rename -uid "CCD08A83-49CA-D458-8BD5-06AC27638D91";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_geoShape_iog_0_";
+	rename -uid "19708DD4-4529-B5EB-1BFF-D894879CB768";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_outputCloth1_iog_0_";
+	rename -uid "1FE7EAE4-4D9E-2FBD-3B01-8AB5518D0B9C";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_nClothShape1_iog_0_";
+	rename -uid "1315CE39-4C69-A2E2-9764-5BA16FBE8617";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_partShape1_iog_0_";
+	rename -uid "9F997949-495F-037E-A092-B787C19D9F9F";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_Flag_partShape1_iog_0_";
+	rename -uid "8F91EA15-43DA-DE60-4769-0EB192E8FC9E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_partShape2_iog_0_";
+	rename -uid "83352E22-47EE-BFF7-119F-78A722AB6DBD";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_plag_partShape_iog_0_";
+	rename -uid "BDE313C1-418B-2A6E-AC9B-69AC6460C2CA";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_partShape_iog_0_";
+	rename -uid "E7375DFA-450B-FD8A-08E4-D2A3B47840C4";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_Flag_partShape_iog_0_";
+	rename -uid "A6A1C681-46BE-B798-584B-9D97991EFFCA";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_part4Shape_iog_0_";
+	rename -uid "75F2A1BF-43C0-C07C-4E70-C48D2D6B62C2";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_dynamicConstraintShape1_iog_0_";
+	rename -uid "FF35DC80-438F-364C-18D4-9194EDF5A1E3";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_part5Shape_iog_0_";
+	rename -uid "5FF87D60-471E-DB65-7192-6589A0AD9296";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_extrudedSurfaceShape2_iog_0_";
+	rename -uid "F9E82C9E-49D0-BFC8-220F-28A51DD162C0";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_curveShape10_iog_0_";
+	rename -uid "D8FC79C7-4B27-7F58-EF92-AAAE80D709E3";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_follicleShape5_iog_0_";
+	rename -uid "2EA3780A-4C6C-D0AA-ECC7-70AE8402799D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_curve10rebuiltCurveShape1_iog_0_";
+	rename -uid "6459EA5F-41E3-CC7A-4CFA-16BBDB0BD522";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_curveShape9_iog_0_";
+	rename -uid "AEEA43BE-4F6B-105F-E43C-B5AC81C2214E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_hairSystemShape5_iog_0_";
+	rename -uid "6C4E1D01-49F6-453F-9140-26A3AD8F613A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_curveShape8_iog_0_";
+	rename -uid "2E4ECBDA-47B4-024B-0F8F-99B00A51A6DB";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_follicleShape4_iog_0_";
+	rename -uid "253F296F-4E81-A5BF-4400-339F5E23FD97";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_curve8rebuiltCurveShape1_iog_0_";
+	rename -uid "40A29653-4EF4-E07D-3338-A38BF3972C11";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_curveShape7_iog_0_";
+	rename -uid "A0586447-426C-ADDF-FCA4-04B25933867F";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_hairSystemShape4_iog_0_";
+	rename -uid "362AFE66-4868-29E1-DF08-E196FC5EB6EA";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_extrudedSurfaceShape1_iog_0_";
+	rename -uid "C9488846-43A9-484E-A15B-43B1DA2002C4";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_nurbsCircleShape2_iog_0_";
+	rename -uid "0EE91039-40AF-9501-338F-67A6065B4C65";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_nurbsCircleShape1_iog_0_";
+	rename -uid "B6CCDF1D-44BC-E786-1F85-289C6D8CDC56";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_geoShape_iog_0_";
+	rename -uid "1FEBC8BF-4301-DAD6-BC85-7C828F48C82A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_outputCloth1_iog_0_";
+	rename -uid "0130D38D-4166-0E54-ACB2-F89AEEBBBA35";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_nClothShape1_iog_0_";
+	rename -uid "3A93B43B-4FA3-F8F5-A019-D2ACA92D6E24";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_partShape1_iog_0_";
+	rename -uid "93524A77-4DCB-CEE7-7A60-A8A7A913EDC7";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part1|extra_flag1:flag_partShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_Flag_partShape1_iog_0_";
+	rename -uid "8FFD49D6-4C99-FC1E-2883-C9963011B12E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:Flag_part1|extra_flag1:Flag_partShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_partShape2_iog_0_";
+	rename -uid "FAEEB5E2-4347-D2F1-2DDA-EDB2EDF7E492";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part2|extra_flag1:flag_partShape2.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_plag_partShape_iog_0_";
+	rename -uid "8F86FDCC-4C76-5E1E-36D1-64B469D0C837";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:plag_part|extra_flag1:plag_partShape.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_partShape_iog_0_";
+	rename -uid "96FAA991-49B2-90E1-38CC-6080C0E12B76";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part|extra_flag1:flag_partShape.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_Flag_partShape_iog_0_";
+	rename -uid "9B1FD490-4523-C878-5F92-569B313AD656";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:Flag_part|extra_flag1:Flag_partShape.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_part4Shape_iog_0_";
+	rename -uid "7CFAD21B-4AFA-90FC-D08D-7A9C2F05F9DB";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part4|extra_flag1:flag_part4Shape.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_dynamicConstraintShape1_iog_0_";
+	rename -uid "D8F780A9-4E5E-353A-35B9-5D9C48D80454";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part4|extra_flag1:dynamicConstraintShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_part5Shape_iog_0_";
+	rename -uid "26DD0196-40FB-0489-7189-05B99A2D699E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part5|extra_flag1:flag_part5Shape.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_extrudedSurfaceShape2_iog_0_";
+	rename -uid "2DAB474F-405A-5CCB-9085-81A2D6C3AE14";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:extrudedSurface3|extra_flag1:extrudedSurfaceShape2.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_curveShape10_iog_0_";
+	rename -uid "D5A9E74C-4487-060E-1120-48B30B7B605C";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem5OutputCurves|extra_flag1:curve11|extra_flag1:curveShape10.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_follicleShape5_iog_0_";
+	rename -uid "0DCFBC60-48DF-5438-BC55-C092C939C16E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem5Follicles|extra_flag1:follicle5|extra_flag1:follicleShape5.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_curve10rebuiltCurveShape1_iog_0_";
+	rename -uid "E8DB8245-4306-D652-2CBA-319AAB5A761F";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem5Follicles|extra_flag1:follicle5|extra_flag1:curve10|extra_flag1:curve10rebuiltCurveShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_curveShape9_iog_0_";
+	rename -uid "E65FA419-42A8-9002-0700-BDB8B618B871";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem5Follicles|extra_flag1:follicle5|extra_flag1:curve10|extra_flag1:curveShape9.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_hairSystemShape5_iog_0_";
+	rename -uid "FA169B9D-4D7C-C2E3-EFB4-E89B69C0DA58";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem5|extra_flag1:hairSystemShape5.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_curveShape8_iog_0_";
+	rename -uid "C9AB1672-440C-2610-3DB7-3B88258B8C67";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem4OutputCurves|extra_flag1:curve9|extra_flag1:curveShape8.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_follicleShape4_iog_0_";
+	rename -uid "B4B35791-46D1-BCD5-AD94-E8A7E5CD7AAA";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem4Follicles|extra_flag1:follicle4|extra_flag1:follicleShape4.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_curve8rebuiltCurveShape1_iog_0_";
+	rename -uid "BF82C1BA-4BAD-070A-725D-E49BA4381DAE";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem4Follicles|extra_flag1:follicle4|extra_flag1:curve8|extra_flag1:curve8rebuiltCurveShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_curveShape7_iog_0_";
+	rename -uid "95E1BC31-4786-FF62-C9FC-36B0BBD313D3";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem4Follicles|extra_flag1:follicle4|extra_flag1:curve8|extra_flag1:curveShape7.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_hairSystemShape4_iog_0_";
+	rename -uid "FF503123-4F96-D3CB-277F-56B50B8DDF39";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem4|extra_flag1:hairSystemShape4.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_extrudedSurfaceShape1_iog_0_";
+	rename -uid "9DB8B8D4-499D-68C1-8BF1-53893A3FC588";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:extrudedSurface2|extra_flag1:extrudedSurfaceShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_nurbsCircleShape2_iog_0_";
+	rename -uid "F4969C12-4169-90E9-7D8A-E68983DE9708";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:dynamics|extra_flag1:nurbsCircle2|extra_flag1:nurbsCircleShape2.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_nurbsCircleShape1_iog_0_";
+	rename -uid "3F26BE7B-480A-DA59-DE26-86B84B43DC5E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:dynamics|extra_flag1:nurbsCircle1|extra_flag1:nurbsCircleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_geoShape_iog_0_";
+	rename -uid "73438219-4D2E-3142-EDFE-79AC85D3480B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:flag_geo|extra_flag1:flag_geoShape.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_outputCloth1_iog_0_";
+	rename -uid "81D7E3E2-4641-497C-7894-93AB88BBE65C";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:flag_geo|extra_flag1:outputCloth1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_nClothShape1_iog_0_";
+	rename -uid "904A8EC4-41E8-35F1-52FB-70819D74FB32";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:flag_nCloth1|extra_flag1:flag_nClothShape1.instObjGroups[0]";
 select -ne :time1;
 	setAttr -av ".o" 1;
 	setAttr ".unw" 1;
@@ -3888,7 +5004,7 @@ select -ne :postProcessList1;
 select -ne :defaultRenderUtilityList1;
 	setAttr -s 70 ".u";
 select -ne :defaultRenderingList1;
-	setAttr -s 9 ".r";
+	setAttr -s 10 ".r";
 select -ne :lightList1;
 	setAttr -s 2 ".l";
 select -ne :defaultTextureList1;
@@ -3906,7 +5022,7 @@ select -ne :initialShadingGroup;
 	setAttr ".aovs[6].aov_name" -type "string" "volume";
 	setAttr ".aovs[7].aov_name" -type "string" "background";
 	setAttr ".aal" -type "attributeAlias" {"ai_aov_albedo","aiCustomAOVs[0].aovName"
-		,"ai_aov_emission","aiCustomAOVs[1].aovName","ai_aov_coat_indirect","aiCustomAOVs[2].aovName"
+		,"ai_aov_emission","aiCustomAOVs[1]","ai_aov_coat_indirect","aiCustomAOVs[2].aovName"
 		,"ai_aov_diffuse_direct","aiCustomAOVs[3].aovName","ai_aov_opacity","aiCustomAOVs[4].aovName"
 		,"ai_aov_specular","aiCustomAOVs[5].aovName","ai_aov_volume","aiCustomAOVs[6].aovName"
 		,"ai_aov_background","aiCustomAOVs[7].aovName"} ;
@@ -3923,7 +5039,7 @@ select -ne :initialParticleSE;
 	setAttr ".aovs[6].aov_name" -type "string" "volume";
 	setAttr ".aovs[7].aov_name" -type "string" "background";
 	setAttr ".aal" -type "attributeAlias" {"ai_aov_albedo","aiCustomAOVs[0].aovName"
-		,"ai_aov_emission","aiCustomAOVs[1].aovName","ai_aov_coat_indirect","aiCustomAOVs[2].aovName"
+		,"ai_aov_emission","aiCustomAOVs[1]","ai_aov_coat_indirect","aiCustomAOVs[2].aovName"
 		,"ai_aov_diffuse_direct","aiCustomAOVs[3].aovName","ai_aov_opacity","aiCustomAOVs[4].aovName"
 		,"ai_aov_specular","aiCustomAOVs[5].aovName","ai_aov_volume","aiCustomAOVs[6].aovName"
 		,"ai_aov_background","aiCustomAOVs[7].aovName"} ;
@@ -3934,11 +5050,11 @@ select -ne :defaultRenderGlobals;
 	setAttr ".imfkey" -type "string" "jpeg";
 	setAttr ".an" yes;
 	setAttr ".fs" 30;
-	setAttr ".ef" 560;
-	setAttr ".ep" 2;
+	setAttr ".ef" 33;
+	setAttr ".ep" 6;
 	setAttr ".pff" yes;
 	setAttr ".peie" 0;
-	setAttr ".ifp" -type "string" "we dont tqalk about \\(not set; using scene name)";
+	setAttr ".ifp" -type "string" "time for dinnn \\(not set; using scene name)";
 	setAttr ".dss" -type "string" "lambert1";
 select -ne :defaultResolution;
 	setAttr ".pa" 1;
@@ -3955,41 +5071,33 @@ select -ne :hardwareRenderGlobals;
 connectAttr "Spurt_emitter1_rate.o" "SPURTRN.phl[1]";
 connectAttr "Spurt_emitter2_rate.o" "SPURTRN.phl[2]";
 connectAttr "rocket_emitter1_rate1.o" "fireworkfinalRN.phl[1]";
-connectAttr "fireworkfinalRN.phl[2]" "aiStandardSurface1SG.dsm" -na;
-connectAttr "fireworkfinalRN.phl[3]" "fireworkfinalRN.phl[4]";
-connectAttr "fireworkfinalRN.phl[5]" "fireworkfinalRN.phl[6]";
-connectAttr "extra_flagRN1.phl[1]" ":initialShadingGroup.dsm" -na;
-connectAttr "extra_flagRN1.phl[2]" "extra_flagRN1.phl[3]";
-connectAttr "extra_flagRN1.phl[4]" "extra_flagRN1.phl[5]";
-connectAttr "extra_flagRN1.phl[6]" "extra_flagRN1.phl[7]";
-connectAttr "extra_flagRN1.phl[8]" "extra_flagRN1.phl[9]";
-connectAttr "extra_flagRN1.phl[10]" "extra_flagRN1.phl[11]";
-connectAttr "extra_flagRN1.phl[12]" "extra_flagRN1.phl[13]";
+connectAttr "fireworkfinalRN.phl[2]" "materialOverride6.atv";
+connectAttr "fireworkfinalRN.phl[3]" "materialOverride7.atv";
+connectAttr "extra_flagRN1.phl[1]" "materialOverride4.atv";
+connectAttr "extra_flagRN1.phl[2]" "materialOverride5.atv";
+connectAttr "extra_flagRN1.phl[3]" "materialOverride3.atv";
+connectAttr "aiUtility1.out" "extra_flagRN1.phl[4]";
+connectAttr "extra_flagRN1.phl[5]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
+		;
+connectAttr "extra_flagRN1.phl[6]" "aiUtility1.color";
+connectAttr "extra_flagRN1.phl[7]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
+		;
+connectAttr "extra_flagRN1.phl[8]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+		;
+connectAttr "extra_flagRN1.phl[9]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
+		;
+connectAttr "extra_flagRN1.phl[10]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+		;
+connectAttr "extra_flagRN1.phl[11]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+		;
+connectAttr "extra_flagRN1.phl[12]" "materialOverride1.atv";
+connectAttr "extra_flagRN1.phl[13]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+		;
 connectAttr "extra_flagRN1.phl[14]" "extra_flagRN1.phl[15]";
-connectAttr "extra_flagRN1.phl[16]" "extra_flagRN1.phl[17]";
-connectAttr "aiUtility1.out" "extra_flagRN1.phl[18]";
-connectAttr "extra_flagRN1.phl[19]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
-		;
-connectAttr "extra_flagRN1.phl[20]" "aiUtility1.color";
-connectAttr "extra_flagRN1.phl[21]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
-		;
-connectAttr "extra_flagRN1.phl[22]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
-		;
-connectAttr "extra_flagRN1.phl[23]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
-		;
-connectAttr "extra_flagRN1.phl[24]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
-		;
-connectAttr "extra_flagRN1.phl[25]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
-		;
-connectAttr "extra_flagRN1.phl[26]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
-		;
-connectAttr "extra_flagRN1.phl[27]" "extra_flagRN1.phl[28]";
-connectAttr "extra_flagRN1.phl[29]" "extra_flagRN1.phl[30]";
-connectAttr "extra_flagRN1.phl[31]" "extra_flagRN1.phl[32]";
+connectAttr "extra_flagRN1.phl[16]" "materialOverride2.atv";
 connectAttr "rocket_emitter1_rate2.o" "firk_workRN.phl[1]";
-connectAttr "firk_workRN.phl[2]" ":initialParticleSE.dsm" -na;
-connectAttr "firk_workRN.phl[3]" "firk_workRN.phl[4]";
-connectAttr "firk_workRN.phl[5]" "firk_workRN.phl[6]";
+connectAttr "firk_workRN.phl[2]" "materialOverride9.atv";
+connectAttr "firk_workRN.phl[3]" "materialOverride8.atv";
 connectAttr "emitter1_rate4.o" "rocketRN.phl[1]";
 connectAttr "emitter1_visibility.o" "rocketRN.phl[2]";
 connectAttr "emitter1_translateX.o" "rocketRN.phl[3]";
@@ -4031,8 +5139,7 @@ connectAttr "emitter1_randomDirection.o" "rocketRN.phl[38]";
 connectAttr "emitter1_directionalSpeed.o" "rocketRN.phl[39]";
 connectAttr "emitter1_scaleSpeedBySize.o" "rocketRN.phl[40]";
 connectAttr "emitter1_displaySpeed.o" "rocketRN.phl[41]";
-connectAttr "rocketRN.phl[42]" "rocketRN.phl[43]";
-connectAttr "rocketRN.phl[44]" "rocketRN.phl[45]";
+connectAttr "rocketRN.phl[42]" "materialOverride13.atv";
 connectAttr "emitter1_translateZ1.o" "rocketRN1.phl[1]";
 connectAttr "emitter1_translateX1.o" "rocketRN1.phl[2]";
 connectAttr "emitter1_translateY1.o" "rocketRN1.phl[3]";
@@ -4074,8 +5181,7 @@ connectAttr "emitter1_randomDirection1.o" "rocketRN1.phl[38]";
 connectAttr "emitter1_directionalSpeed1.o" "rocketRN1.phl[39]";
 connectAttr "emitter1_scaleSpeedBySize1.o" "rocketRN1.phl[40]";
 connectAttr "emitter1_displaySpeed1.o" "rocketRN1.phl[41]";
-connectAttr "rocketRN1.phl[42]" "rocketRN1.phl[43]";
-connectAttr "rocketRN1.phl[44]" "rocketRN1.phl[45]";
+connectAttr "rocketRN1.phl[42]" "materialOverride10.atv";
 connectAttr "emitter1_translateZ2.o" "rocket1RN.phl[1]";
 connectAttr "emitter1_translateX2.o" "rocket1RN.phl[2]";
 connectAttr "emitter1_translateY2.o" "rocket1RN.phl[3]";
@@ -4117,8 +5223,7 @@ connectAttr "emitter1_randomDirection2.o" "rocket1RN.phl[38]";
 connectAttr "emitter1_directionalSpeed2.o" "rocket1RN.phl[39]";
 connectAttr "emitter1_scaleSpeedBySize2.o" "rocket1RN.phl[40]";
 connectAttr "emitter1_displaySpeed2.o" "rocket1RN.phl[41]";
-connectAttr "rocket1RN.phl[42]" "rocket1RN.phl[43]";
-connectAttr "rocket1RN.phl[44]" "rocket1RN.phl[45]";
+connectAttr "rocket1RN.phl[42]" "materialOverride11.atv";
 connectAttr "emitter1_translateZ3.o" "rocket2RN.phl[1]";
 connectAttr "emitter1_translateX3.o" "rocket2RN.phl[2]";
 connectAttr "emitter1_translateY3.o" "rocket2RN.phl[3]";
@@ -4160,10 +5265,11 @@ connectAttr "emitter1_randomDirection3.o" "rocket2RN.phl[38]";
 connectAttr "emitter1_directionalSpeed3.o" "rocket2RN.phl[39]";
 connectAttr "emitter1_scaleSpeedBySize3.o" "rocket2RN.phl[40]";
 connectAttr "emitter1_displaySpeed3.o" "rocket2RN.phl[41]";
-connectAttr "rocket2RN.phl[42]" "rocket2RN.phl[43]";
-connectAttr "rocket2RN.phl[44]" "rocket2RN.phl[45]";
+connectAttr "rocket2RN.phl[42]" "materialOverride12.atv";
 connectAttr "aiAreaLightShape1__LEItem.en" "aiAreaLightShape1.v";
+connectAttr "rs_renderSetupLayer1.ri" "aiAreaLightShape1.rlio[2]";
 connectAttr "aiSkyDomeLightShape1__LEItem.en" "aiSkyDomeLightShape1.v";
+connectAttr "rs_renderSetupLayer1.ri" "aiSkyDomeLightShape1.rlio[2]";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "aiStandardSurface1SG.message" ":defaultLightSet.message";
@@ -4182,8 +5288,8 @@ connectAttr "aiStandardSurface1.out" "aiStandardSurface1SG.ss";
 connectAttr "aiStandardSurface1SG.msg" "materialInfo1.sg";
 connectAttr "aiStandardSurface1.msg" "materialInfo1.m";
 connectAttr "aiStandardSurface1.msg" "materialInfo1.t" -na;
-connectAttr ":defaultArnoldDriver.msg" "aiAOV_emission.out[0].drvr";
-connectAttr ":defaultArnoldFilter.msg" "aiAOV_emission.out[0].ftr";
+connectAttr "renderSetupLayer1.msg" "renderSetup.frl";
+connectAttr "renderSetupLayer1.msg" "renderSetup.lrl";
 connectAttr "aiAreaLightShape1__LEItem.msg" "lightEditor.fi";
 connectAttr "aiSkyDomeLightShape1__LEItem.msg" "lightEditor.li";
 connectAttr "aiAreaLightShape1.msg" "aiAreaLightShape1__LEItem.lgt";
@@ -4195,7 +5301,1014 @@ connectAttr "aiAreaLightShape1__LEItem.nxt" "aiSkyDomeLightShape1__LEItem.prv";
 connectAttr "lightEditor.lit" "aiSkyDomeLightShape1__LEItem.pls";
 connectAttr "lightEditor.en" "aiSkyDomeLightShape1__LEItem.pen";
 connectAttr "lightEditor.nic" "aiSkyDomeLightShape1__LEItem.pic";
-connectAttr "aiUtility1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+connectAttr ":defaultArnoldDriver.msg" "aiAOV_emission.out[0].drvr";
+connectAttr ":defaultArnoldFilter.msg" "aiAOV_emission.out[0].ftr";
+connectAttr "rs_renderSetupLayer1.msg" "renderSetupLayer1.lrl";
+connectAttr "renderSetup.lit" "renderSetupLayer1.pls";
+connectAttr "collection1.msg" "renderSetupLayer1.cl";
+connectAttr "collection2.msg" "renderSetupLayer1.ch";
+connectAttr "renderLayerManager.rlmi[1]" "rs_renderSetupLayer1.rlid";
+connectAttr "collection1Selector.c" "collection1.sel";
+connectAttr "renderSetupLayer1.lit" "collection1.pls";
+connectAttr "renderSetupLayer1.nic" "collection1.pic";
+connectAttr "materialOverride5.msg" "collection1.cl";
+connectAttr "materialOverride13.msg" "collection1.ch";
+connectAttr "collection2Selector.c" "collection2.sel";
+connectAttr "collection1.nxt" "collection2.prv";
+connectAttr "renderSetupLayer1.lit" "collection2.pls";
+connectAttr "renderSetupLayer1.nic" "collection2.pic";
+connectAttr "materialOverride1.msg" "collection2.cl";
+connectAttr "materialOverride4.msg" "collection2.ch";
+connectAttr "collection2.lit" "materialOverride1.pls";
+connectAttr "collection2.en" "materialOverride1.pen";
+connectAttr "materialOverride1.nxt" "materialOverride2.prv";
+connectAttr "collection2.lit" "materialOverride2.pls";
+connectAttr "collection2.en" "materialOverride2.pen";
+connectAttr "materialOverride2.nxt" "materialOverride3.prv";
+connectAttr "collection2.lit" "materialOverride3.pls";
+connectAttr "collection2.en" "materialOverride3.pen";
+connectAttr "materialOverride3.nxt" "materialOverride4.prv";
+connectAttr "collection2.lit" "materialOverride4.pls";
+connectAttr "collection2.en" "materialOverride4.pen";
+connectAttr "collection1.lit" "materialOverride5.pls";
+connectAttr "collection1.en" "materialOverride5.pen";
+connectAttr "materialOverride5.nxt" "materialOverride6.prv";
+connectAttr "collection1.lit" "materialOverride6.pls";
+connectAttr "collection1.en" "materialOverride6.pen";
+connectAttr "materialOverride6.nxt" "materialOverride7.prv";
+connectAttr "collection1.lit" "materialOverride7.pls";
+connectAttr "collection1.en" "materialOverride7.pen";
+connectAttr "materialOverride7.nxt" "materialOverride8.prv";
+connectAttr "collection1.lit" "materialOverride8.pls";
+connectAttr "collection1.en" "materialOverride8.pen";
+connectAttr "materialOverride8.nxt" "materialOverride9.prv";
+connectAttr "collection1.lit" "materialOverride9.pls";
+connectAttr "collection1.en" "materialOverride9.pen";
+connectAttr "materialOverride9.nxt" "materialOverride10.prv";
+connectAttr "collection1.lit" "materialOverride10.pls";
+connectAttr "collection1.en" "materialOverride10.pen";
+connectAttr "materialOverride10.nxt" "materialOverride11.prv";
+connectAttr "collection1.lit" "materialOverride11.pls";
+connectAttr "collection1.en" "materialOverride11.pen";
+connectAttr "materialOverride11.nxt" "materialOverride12.prv";
+connectAttr "collection1.lit" "materialOverride12.pls";
+connectAttr "collection1.en" "materialOverride12.pen";
+connectAttr "materialOverride12.nxt" "materialOverride13.prv";
+connectAttr "collection1.lit" "materialOverride13.pls";
+connectAttr "collection1.en" "materialOverride13.pen";
+connectAttr "aiUtility1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_rocket_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_SPURT_Spurt_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_SPURT_Spurt_nParticleShape2_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_fireworkfinal_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_fireworkfinal_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_fireworkfinal_burstparticleShape_iog_0_.en"
+		;
+connectAttr "aiStandardSurface1SG.msg" "materialOverride5_fireworkfinal_burstparticleShape_iog_0_.org"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_rocket1_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_rocket1_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_firk_work_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr ":initialParticleSE.msg" "materialOverride5_firk_work_rocket_particleShape1_iog_0_.org"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_rocket3_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_rocket3_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_firk_work_burstparticleShape_iog_0_.en"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_rocket_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_rocket_nParticleShape1_iog_0_.n" "materialOverride6_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_rocket_particleShape1_iog_0_.n" "materialOverride6_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_SPURT_Spurt_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_SPURT_Spurt_nParticleShape1_iog_0_.n" "materialOverride6_SPURT_Spurt_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_SPURT_Spurt_nParticleShape2_iog_0_.en"
+		;
+connectAttr "materialOverride5_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride6_SPURT_Spurt_nParticleShape2_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_rocket2_nParticleShape1_iog_0_.n" "materialOverride6_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_rocket2_particleShape1_iog_0_.n" "materialOverride6_rocket2_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_fireworkfinal_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_fireworkfinal_rocket_particleShape1_iog_0_.n" "materialOverride6_fireworkfinal_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_fireworkfinal_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_fireworkfinal_trail_nParticleShape1_iog_0_.n" "materialOverride6_fireworkfinal_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_fireworkfinal_burstparticleShape_iog_0_.en"
+		;
+connectAttr "aiStandardSurface1SG.msg" "materialOverride6_fireworkfinal_burstparticleShape_iog_0_.org"
+		;
+connectAttr "materialOverride5_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride6_fireworkfinal_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_rocket1_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_rocket1_nParticleShape1_iog_0_.n" "materialOverride6_rocket1_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_rocket1_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_rocket1_particleShape1_iog_0_.n" "materialOverride6_rocket1_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_firk_work_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr ":initialParticleSE.msg" "materialOverride6_firk_work_rocket_particleShape1_iog_0_.org"
+		;
+connectAttr "materialOverride5_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride6_firk_work_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_rocket3_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_rocket3_nParticleShape1_iog_0_.n" "materialOverride6_rocket3_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_rocket3_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_rocket3_particleShape1_iog_0_.n" "materialOverride6_rocket3_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride6_firk_work_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_firk_work_burstparticleShape_iog_0_.en"
+		;
+connectAttr "materialOverride5_firk_work_burstparticleShape_iog_0_.n" "materialOverride6_firk_work_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_rocket_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_rocket_nParticleShape1_iog_0_.n" "materialOverride7_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_rocket_particleShape1_iog_0_.n" "materialOverride7_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_SPURT_Spurt_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_SPURT_Spurt_nParticleShape1_iog_0_.n" "materialOverride7_SPURT_Spurt_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_SPURT_Spurt_nParticleShape2_iog_0_.en"
+		;
+connectAttr "materialOverride6_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride7_SPURT_Spurt_nParticleShape2_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_rocket2_nParticleShape1_iog_0_.n" "materialOverride7_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_rocket2_particleShape1_iog_0_.n" "materialOverride7_rocket2_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_fireworkfinal_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_fireworkfinal_rocket_particleShape1_iog_0_.n" "materialOverride7_fireworkfinal_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_fireworkfinal_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_fireworkfinal_trail_nParticleShape1_iog_0_.n" "materialOverride7_fireworkfinal_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_fireworkfinal_burstparticleShape_iog_0_.en"
+		;
+connectAttr "aiStandardSurface1SG.msg" "materialOverride7_fireworkfinal_burstparticleShape_iog_0_.org"
+		;
+connectAttr "materialOverride6_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride7_fireworkfinal_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_rocket1_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_rocket1_nParticleShape1_iog_0_.n" "materialOverride7_rocket1_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_rocket1_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_rocket1_particleShape1_iog_0_.n" "materialOverride7_rocket1_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_firk_work_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr ":initialParticleSE.msg" "materialOverride7_firk_work_rocket_particleShape1_iog_0_.org"
+		;
+connectAttr "materialOverride6_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride7_firk_work_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_rocket3_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_rocket3_nParticleShape1_iog_0_.n" "materialOverride7_rocket3_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_rocket3_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_rocket3_particleShape1_iog_0_.n" "materialOverride7_rocket3_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride7_firk_work_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_firk_work_burstparticleShape_iog_0_.en"
+		;
+connectAttr "materialOverride6_firk_work_burstparticleShape_iog_0_.n" "materialOverride7_firk_work_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_rocket_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_rocket_nParticleShape1_iog_0_.n" "materialOverride8_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_rocket_particleShape1_iog_0_.n" "materialOverride8_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_SPURT_Spurt_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_SPURT_Spurt_nParticleShape1_iog_0_.n" "materialOverride8_SPURT_Spurt_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_SPURT_Spurt_nParticleShape2_iog_0_.en"
+		;
+connectAttr "materialOverride7_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride8_SPURT_Spurt_nParticleShape2_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_rocket2_nParticleShape1_iog_0_.n" "materialOverride8_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_rocket2_particleShape1_iog_0_.n" "materialOverride8_rocket2_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_fireworkfinal_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_fireworkfinal_rocket_particleShape1_iog_0_.n" "materialOverride8_fireworkfinal_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_fireworkfinal_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_fireworkfinal_trail_nParticleShape1_iog_0_.n" "materialOverride8_fireworkfinal_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_fireworkfinal_burstparticleShape_iog_0_.en"
+		;
+connectAttr "aiStandardSurface1SG.msg" "materialOverride8_fireworkfinal_burstparticleShape_iog_0_.org"
+		;
+connectAttr "materialOverride7_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride8_fireworkfinal_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_rocket1_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_rocket1_nParticleShape1_iog_0_.n" "materialOverride8_rocket1_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_rocket1_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_rocket1_particleShape1_iog_0_.n" "materialOverride8_rocket1_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_firk_work_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr ":initialParticleSE.msg" "materialOverride8_firk_work_rocket_particleShape1_iog_0_.org"
+		;
+connectAttr "materialOverride7_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride8_firk_work_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_rocket3_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_rocket3_nParticleShape1_iog_0_.n" "materialOverride8_rocket3_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_rocket3_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_rocket3_particleShape1_iog_0_.n" "materialOverride8_rocket3_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride8_firk_work_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_firk_work_burstparticleShape_iog_0_.en"
+		;
+connectAttr "materialOverride7_firk_work_burstparticleShape_iog_0_.n" "materialOverride8_firk_work_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_rocket_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_rocket_nParticleShape1_iog_0_.n" "materialOverride9_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_rocket_particleShape1_iog_0_.n" "materialOverride9_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_SPURT_Spurt_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_SPURT_Spurt_nParticleShape1_iog_0_.n" "materialOverride9_SPURT_Spurt_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_SPURT_Spurt_nParticleShape2_iog_0_.en"
+		;
+connectAttr "materialOverride8_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride9_SPURT_Spurt_nParticleShape2_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_rocket2_nParticleShape1_iog_0_.n" "materialOverride9_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_rocket2_particleShape1_iog_0_.n" "materialOverride9_rocket2_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_fireworkfinal_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_fireworkfinal_rocket_particleShape1_iog_0_.n" "materialOverride9_fireworkfinal_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_fireworkfinal_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_fireworkfinal_trail_nParticleShape1_iog_0_.n" "materialOverride9_fireworkfinal_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_fireworkfinal_burstparticleShape_iog_0_.en"
+		;
+connectAttr "aiStandardSurface1SG.msg" "materialOverride9_fireworkfinal_burstparticleShape_iog_0_.org"
+		;
+connectAttr "materialOverride8_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride9_fireworkfinal_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_rocket1_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_rocket1_nParticleShape1_iog_0_.n" "materialOverride9_rocket1_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_rocket1_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_rocket1_particleShape1_iog_0_.n" "materialOverride9_rocket1_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_firk_work_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr ":initialParticleSE.msg" "materialOverride9_firk_work_rocket_particleShape1_iog_0_.org"
+		;
+connectAttr "materialOverride8_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride9_firk_work_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_rocket3_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_rocket3_nParticleShape1_iog_0_.n" "materialOverride9_rocket3_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_rocket3_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_rocket3_particleShape1_iog_0_.n" "materialOverride9_rocket3_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride9_firk_work_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_firk_work_burstparticleShape_iog_0_.en"
+		;
+connectAttr "materialOverride8_firk_work_burstparticleShape_iog_0_.n" "materialOverride9_firk_work_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_rocket_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_rocket_nParticleShape1_iog_0_.n" "materialOverride10_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_rocket_particleShape1_iog_0_.n" "materialOverride10_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_SPURT_Spurt_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_SPURT_Spurt_nParticleShape1_iog_0_.n" "materialOverride10_SPURT_Spurt_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_SPURT_Spurt_nParticleShape2_iog_0_.en"
+		;
+connectAttr "materialOverride9_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride10_SPURT_Spurt_nParticleShape2_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_rocket2_nParticleShape1_iog_0_.n" "materialOverride10_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_rocket2_particleShape1_iog_0_.n" "materialOverride10_rocket2_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_fireworkfinal_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_fireworkfinal_rocket_particleShape1_iog_0_.n" "materialOverride10_fireworkfinal_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_fireworkfinal_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_fireworkfinal_trail_nParticleShape1_iog_0_.n" "materialOverride10_fireworkfinal_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_fireworkfinal_burstparticleShape_iog_0_.en"
+		;
+connectAttr "aiStandardSurface1SG.msg" "materialOverride10_fireworkfinal_burstparticleShape_iog_0_.org"
+		;
+connectAttr "materialOverride9_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride10_fireworkfinal_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_rocket1_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_rocket1_nParticleShape1_iog_0_.n" "materialOverride10_rocket1_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_rocket1_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_rocket1_particleShape1_iog_0_.n" "materialOverride10_rocket1_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_firk_work_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr ":initialParticleSE.msg" "materialOverride10_firk_work_rocket_particleShape1_iog_0_.org"
+		;
+connectAttr "materialOverride9_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride10_firk_work_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_rocket3_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_rocket3_nParticleShape1_iog_0_.n" "materialOverride10_rocket3_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_rocket3_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_rocket3_particleShape1_iog_0_.n" "materialOverride10_rocket3_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride10_firk_work_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_firk_work_burstparticleShape_iog_0_.en"
+		;
+connectAttr "materialOverride9_firk_work_burstparticleShape_iog_0_.n" "materialOverride10_firk_work_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_rocket_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_rocket_nParticleShape1_iog_0_.n" "materialOverride11_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_rocket_particleShape1_iog_0_.n" "materialOverride11_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_SPURT_Spurt_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_SPURT_Spurt_nParticleShape1_iog_0_.n" "materialOverride11_SPURT_Spurt_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_SPURT_Spurt_nParticleShape2_iog_0_.en"
+		;
+connectAttr "materialOverride10_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride11_SPURT_Spurt_nParticleShape2_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_rocket2_nParticleShape1_iog_0_.n" "materialOverride11_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_rocket2_particleShape1_iog_0_.n" "materialOverride11_rocket2_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_fireworkfinal_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_fireworkfinal_rocket_particleShape1_iog_0_.n" "materialOverride11_fireworkfinal_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_fireworkfinal_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_fireworkfinal_trail_nParticleShape1_iog_0_.n" "materialOverride11_fireworkfinal_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_fireworkfinal_burstparticleShape_iog_0_.en"
+		;
+connectAttr "aiStandardSurface1SG.msg" "materialOverride11_fireworkfinal_burstparticleShape_iog_0_.org"
+		;
+connectAttr "materialOverride10_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride11_fireworkfinal_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_rocket1_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_rocket1_nParticleShape1_iog_0_.n" "materialOverride11_rocket1_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_rocket1_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_rocket1_particleShape1_iog_0_.n" "materialOverride11_rocket1_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_firk_work_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr ":initialParticleSE.msg" "materialOverride11_firk_work_rocket_particleShape1_iog_0_.org"
+		;
+connectAttr "materialOverride10_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride11_firk_work_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_rocket3_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_rocket3_nParticleShape1_iog_0_.n" "materialOverride11_rocket3_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_rocket3_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_rocket3_particleShape1_iog_0_.n" "materialOverride11_rocket3_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride11_firk_work_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_firk_work_burstparticleShape_iog_0_.en"
+		;
+connectAttr "materialOverride10_firk_work_burstparticleShape_iog_0_.n" "materialOverride11_firk_work_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_rocket_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_rocket_nParticleShape1_iog_0_.n" "materialOverride12_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_rocket_particleShape1_iog_0_.n" "materialOverride12_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_SPURT_Spurt_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_SPURT_Spurt_nParticleShape1_iog_0_.n" "materialOverride12_SPURT_Spurt_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_SPURT_Spurt_nParticleShape2_iog_0_.en"
+		;
+connectAttr "materialOverride11_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride12_SPURT_Spurt_nParticleShape2_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_rocket2_nParticleShape1_iog_0_.n" "materialOverride12_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_rocket2_particleShape1_iog_0_.n" "materialOverride12_rocket2_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_fireworkfinal_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_fireworkfinal_rocket_particleShape1_iog_0_.n" "materialOverride12_fireworkfinal_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_fireworkfinal_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_fireworkfinal_trail_nParticleShape1_iog_0_.n" "materialOverride12_fireworkfinal_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_fireworkfinal_burstparticleShape_iog_0_.en"
+		;
+connectAttr "aiStandardSurface1SG.msg" "materialOverride12_fireworkfinal_burstparticleShape_iog_0_.org"
+		;
+connectAttr "materialOverride11_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride12_fireworkfinal_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_rocket1_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_rocket1_nParticleShape1_iog_0_.n" "materialOverride12_rocket1_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_rocket1_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_rocket1_particleShape1_iog_0_.n" "materialOverride12_rocket1_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_firk_work_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr ":initialParticleSE.msg" "materialOverride12_firk_work_rocket_particleShape1_iog_0_.org"
+		;
+connectAttr "materialOverride11_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride12_firk_work_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_rocket3_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_rocket3_nParticleShape1_iog_0_.n" "materialOverride12_rocket3_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_rocket3_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_rocket3_particleShape1_iog_0_.n" "materialOverride12_rocket3_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride12_firk_work_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_firk_work_burstparticleShape_iog_0_.en"
+		;
+connectAttr "materialOverride11_firk_work_burstparticleShape_iog_0_.n" "materialOverride12_firk_work_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_rocket_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_rocket_nParticleShape1_iog_0_.n" "materialOverride13_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_rocket_particleShape1_iog_0_.n" "materialOverride13_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_SPURT_Spurt_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_SPURT_Spurt_nParticleShape1_iog_0_.n" "materialOverride13_SPURT_Spurt_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_SPURT_Spurt_nParticleShape2_iog_0_.en"
+		;
+connectAttr "materialOverride12_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride13_SPURT_Spurt_nParticleShape2_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_rocket2_nParticleShape1_iog_0_.n" "materialOverride13_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_rocket2_particleShape1_iog_0_.n" "materialOverride13_rocket2_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_fireworkfinal_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_fireworkfinal_rocket_particleShape1_iog_0_.n" "materialOverride13_fireworkfinal_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_fireworkfinal_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_fireworkfinal_trail_nParticleShape1_iog_0_.n" "materialOverride13_fireworkfinal_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_fireworkfinal_burstparticleShape_iog_0_.en"
+		;
+connectAttr "aiStandardSurface1SG.msg" "materialOverride13_fireworkfinal_burstparticleShape_iog_0_.org"
+		;
+connectAttr "materialOverride12_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride13_fireworkfinal_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_rocket1_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_rocket1_nParticleShape1_iog_0_.n" "materialOverride13_rocket1_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_rocket1_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_rocket1_particleShape1_iog_0_.n" "materialOverride13_rocket1_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_firk_work_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr ":initialParticleSE.msg" "materialOverride13_firk_work_rocket_particleShape1_iog_0_.org"
+		;
+connectAttr "materialOverride12_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride13_firk_work_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_rocket3_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_rocket3_nParticleShape1_iog_0_.n" "materialOverride13_rocket3_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_rocket3_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_rocket3_particleShape1_iog_0_.n" "materialOverride13_rocket3_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride13_firk_work_trail_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_firk_work_burstparticleShape_iog_0_.en"
+		;
+connectAttr "materialOverride12_firk_work_burstparticleShape_iog_0_.n" "materialOverride13_firk_work_burstparticleShape_iog_0_.p"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_flag_partShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_Flag_partShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_flag_partShape2_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_plag_partShape_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_flag_partShape_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_Flag_partShape_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_flag_part4Shape_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_dynamicConstraintShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_flag_part5Shape_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_extrudedSurfaceShape2_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_curveShape10_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_follicleShape5_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_curve10rebuiltCurveShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_curveShape9_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_hairSystemShape5_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_curveShape8_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_follicleShape4_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_curve8rebuiltCurveShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_curveShape7_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_hairSystemShape4_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_extrudedSurfaceShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_nurbsCircleShape2_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_nurbsCircleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_flag_geoShape_iog_0_.en"
+		;
+connectAttr ":initialShadingGroup.msg" "materialOverride1_extra_flag1_flag_geoShape_iog_0_.org"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_outputCloth1_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_flag_nClothShape1_iog_0_.en"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_flag_partShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_flag_partShape1_iog_0_.n" "materialOverride2_extra_flag1_flag_partShape1_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_Flag_partShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_Flag_partShape1_iog_0_.n" "materialOverride2_extra_flag1_Flag_partShape1_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_flag_partShape2_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_flag_partShape2_iog_0_.n" "materialOverride2_extra_flag1_flag_partShape2_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_plag_partShape_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_plag_partShape_iog_0_.n" "materialOverride2_extra_flag1_plag_partShape_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_flag_partShape_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_flag_partShape_iog_0_.n" "materialOverride2_extra_flag1_flag_partShape_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_Flag_partShape_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_Flag_partShape_iog_0_.n" "materialOverride2_extra_flag1_Flag_partShape_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_flag_part4Shape_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_flag_part4Shape_iog_0_.n" "materialOverride2_extra_flag1_flag_part4Shape_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_dynamicConstraintShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_dynamicConstraintShape1_iog_0_.n" "materialOverride2_extra_flag1_dynamicConstraintShape1_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_flag_part5Shape_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_flag_part5Shape_iog_0_.n" "materialOverride2_extra_flag1_flag_part5Shape_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_extrudedSurfaceShape2_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_extrudedSurfaceShape2_iog_0_.n" "materialOverride2_extra_flag1_extrudedSurfaceShape2_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_curveShape10_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_curveShape10_iog_0_.n" "materialOverride2_extra_flag1_curveShape10_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_follicleShape5_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_follicleShape5_iog_0_.n" "materialOverride2_extra_flag1_follicleShape5_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_curve10rebuiltCurveShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_curve10rebuiltCurveShape1_iog_0_.n" "materialOverride2_extra_flag1_curve10rebuiltCurveShape1_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_curveShape9_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_curveShape9_iog_0_.n" "materialOverride2_extra_flag1_curveShape9_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_hairSystemShape5_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_hairSystemShape5_iog_0_.n" "materialOverride2_extra_flag1_hairSystemShape5_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_curveShape8_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_curveShape8_iog_0_.n" "materialOverride2_extra_flag1_curveShape8_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_follicleShape4_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_follicleShape4_iog_0_.n" "materialOverride2_extra_flag1_follicleShape4_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_curve8rebuiltCurveShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_curve8rebuiltCurveShape1_iog_0_.n" "materialOverride2_extra_flag1_curve8rebuiltCurveShape1_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_curveShape7_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_curveShape7_iog_0_.n" "materialOverride2_extra_flag1_curveShape7_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_hairSystemShape4_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_hairSystemShape4_iog_0_.n" "materialOverride2_extra_flag1_hairSystemShape4_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_extrudedSurfaceShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_extrudedSurfaceShape1_iog_0_.n" "materialOverride2_extra_flag1_extrudedSurfaceShape1_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_nurbsCircleShape2_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_nurbsCircleShape2_iog_0_.n" "materialOverride2_extra_flag1_nurbsCircleShape2_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_nurbsCircleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_nurbsCircleShape1_iog_0_.n" "materialOverride2_extra_flag1_nurbsCircleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_flag_geoShape_iog_0_.en"
+		;
+connectAttr ":initialShadingGroup.msg" "materialOverride2_extra_flag1_flag_geoShape_iog_0_.org"
+		;
+connectAttr "materialOverride1_extra_flag1_flag_geoShape_iog_0_.n" "materialOverride2_extra_flag1_flag_geoShape_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_outputCloth1_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_outputCloth1_iog_0_.n" "materialOverride2_extra_flag1_outputCloth1_iog_0_.p"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_flag_nClothShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1_extra_flag1_flag_nClothShape1_iog_0_.n" "materialOverride2_extra_flag1_flag_nClothShape1_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_flag_partShape1_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_flag_partShape1_iog_0_.n" "materialOverride3_extra_flag1_flag_partShape1_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_Flag_partShape1_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_Flag_partShape1_iog_0_.n" "materialOverride3_extra_flag1_Flag_partShape1_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_flag_partShape2_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_flag_partShape2_iog_0_.n" "materialOverride3_extra_flag1_flag_partShape2_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_plag_partShape_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_plag_partShape_iog_0_.n" "materialOverride3_extra_flag1_plag_partShape_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_flag_partShape_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_flag_partShape_iog_0_.n" "materialOverride3_extra_flag1_flag_partShape_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_Flag_partShape_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_Flag_partShape_iog_0_.n" "materialOverride3_extra_flag1_Flag_partShape_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_flag_part4Shape_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_flag_part4Shape_iog_0_.n" "materialOverride3_extra_flag1_flag_part4Shape_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_dynamicConstraintShape1_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_dynamicConstraintShape1_iog_0_.n" "materialOverride3_extra_flag1_dynamicConstraintShape1_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_flag_part5Shape_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_flag_part5Shape_iog_0_.n" "materialOverride3_extra_flag1_flag_part5Shape_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_extrudedSurfaceShape2_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_extrudedSurfaceShape2_iog_0_.n" "materialOverride3_extra_flag1_extrudedSurfaceShape2_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_curveShape10_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_curveShape10_iog_0_.n" "materialOverride3_extra_flag1_curveShape10_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_follicleShape5_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_follicleShape5_iog_0_.n" "materialOverride3_extra_flag1_follicleShape5_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_curve10rebuiltCurveShape1_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_curve10rebuiltCurveShape1_iog_0_.n" "materialOverride3_extra_flag1_curve10rebuiltCurveShape1_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_curveShape9_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_curveShape9_iog_0_.n" "materialOverride3_extra_flag1_curveShape9_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_hairSystemShape5_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_hairSystemShape5_iog_0_.n" "materialOverride3_extra_flag1_hairSystemShape5_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_curveShape8_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_curveShape8_iog_0_.n" "materialOverride3_extra_flag1_curveShape8_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_follicleShape4_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_follicleShape4_iog_0_.n" "materialOverride3_extra_flag1_follicleShape4_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_curve8rebuiltCurveShape1_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_curve8rebuiltCurveShape1_iog_0_.n" "materialOverride3_extra_flag1_curve8rebuiltCurveShape1_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_curveShape7_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_curveShape7_iog_0_.n" "materialOverride3_extra_flag1_curveShape7_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_hairSystemShape4_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_hairSystemShape4_iog_0_.n" "materialOverride3_extra_flag1_hairSystemShape4_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_extrudedSurfaceShape1_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_extrudedSurfaceShape1_iog_0_.n" "materialOverride3_extra_flag1_extrudedSurfaceShape1_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_nurbsCircleShape2_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_nurbsCircleShape2_iog_0_.n" "materialOverride3_extra_flag1_nurbsCircleShape2_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_nurbsCircleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_nurbsCircleShape1_iog_0_.n" "materialOverride3_extra_flag1_nurbsCircleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_flag_geoShape_iog_0_.en"
+		;
+connectAttr ":initialShadingGroup.msg" "materialOverride3_extra_flag1_flag_geoShape_iog_0_.org"
+		;
+connectAttr "materialOverride2_extra_flag1_flag_geoShape_iog_0_.n" "materialOverride3_extra_flag1_flag_geoShape_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_outputCloth1_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_outputCloth1_iog_0_.n" "materialOverride3_extra_flag1_outputCloth1_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_flag_nClothShape1_iog_0_.en"
+		;
+connectAttr "materialOverride2_extra_flag1_flag_nClothShape1_iog_0_.n" "materialOverride3_extra_flag1_flag_nClothShape1_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_flag_partShape1_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_flag_partShape1_iog_0_.n" "materialOverride4_extra_flag1_flag_partShape1_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_Flag_partShape1_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_Flag_partShape1_iog_0_.n" "materialOverride4_extra_flag1_Flag_partShape1_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_flag_partShape2_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_flag_partShape2_iog_0_.n" "materialOverride4_extra_flag1_flag_partShape2_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_plag_partShape_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_plag_partShape_iog_0_.n" "materialOverride4_extra_flag1_plag_partShape_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_flag_partShape_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_flag_partShape_iog_0_.n" "materialOverride4_extra_flag1_flag_partShape_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_Flag_partShape_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_Flag_partShape_iog_0_.n" "materialOverride4_extra_flag1_Flag_partShape_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_flag_part4Shape_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_flag_part4Shape_iog_0_.n" "materialOverride4_extra_flag1_flag_part4Shape_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_dynamicConstraintShape1_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_dynamicConstraintShape1_iog_0_.n" "materialOverride4_extra_flag1_dynamicConstraintShape1_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_flag_part5Shape_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_flag_part5Shape_iog_0_.n" "materialOverride4_extra_flag1_flag_part5Shape_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_extrudedSurfaceShape2_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_extrudedSurfaceShape2_iog_0_.n" "materialOverride4_extra_flag1_extrudedSurfaceShape2_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_curveShape10_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_curveShape10_iog_0_.n" "materialOverride4_extra_flag1_curveShape10_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_follicleShape5_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_follicleShape5_iog_0_.n" "materialOverride4_extra_flag1_follicleShape5_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_curve10rebuiltCurveShape1_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_curve10rebuiltCurveShape1_iog_0_.n" "materialOverride4_extra_flag1_curve10rebuiltCurveShape1_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_curveShape9_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_curveShape9_iog_0_.n" "materialOverride4_extra_flag1_curveShape9_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_hairSystemShape5_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_hairSystemShape5_iog_0_.n" "materialOverride4_extra_flag1_hairSystemShape5_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_curveShape8_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_curveShape8_iog_0_.n" "materialOverride4_extra_flag1_curveShape8_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_follicleShape4_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_follicleShape4_iog_0_.n" "materialOverride4_extra_flag1_follicleShape4_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_curve8rebuiltCurveShape1_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_curve8rebuiltCurveShape1_iog_0_.n" "materialOverride4_extra_flag1_curve8rebuiltCurveShape1_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_curveShape7_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_curveShape7_iog_0_.n" "materialOverride4_extra_flag1_curveShape7_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_hairSystemShape4_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_hairSystemShape4_iog_0_.n" "materialOverride4_extra_flag1_hairSystemShape4_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_extrudedSurfaceShape1_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_extrudedSurfaceShape1_iog_0_.n" "materialOverride4_extra_flag1_extrudedSurfaceShape1_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_nurbsCircleShape2_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_nurbsCircleShape2_iog_0_.n" "materialOverride4_extra_flag1_nurbsCircleShape2_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_nurbsCircleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_nurbsCircleShape1_iog_0_.n" "materialOverride4_extra_flag1_nurbsCircleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_flag_geoShape_iog_0_.en"
+		;
+connectAttr ":initialShadingGroup.msg" "materialOverride4_extra_flag1_flag_geoShape_iog_0_.org"
+		;
+connectAttr "materialOverride3_extra_flag1_flag_geoShape_iog_0_.n" "materialOverride4_extra_flag1_flag_geoShape_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_outputCloth1_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_outputCloth1_iog_0_.n" "materialOverride4_extra_flag1_outputCloth1_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_flag_nClothShape1_iog_0_.en"
+		;
+connectAttr "materialOverride3_extra_flag1_flag_nClothShape1_iog_0_.n" "materialOverride4_extra_flag1_flag_nClothShape1_iog_0_.p"
 		;
 connectAttr "time1_outTime.o" ":time1.o";
 connectAttr "aiStandardSurface1SG.pa" ":renderPartition.st" -na;
@@ -4203,6 +6316,7 @@ connectAttr "aiAtmosphereVolume.msg" ":defaultShaderList1.s" -na;
 connectAttr "aiStandardSurface1.msg" ":defaultShaderList1.s" -na;
 connectAttr "aiUtility1.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "rs_renderSetupLayer1.msg" ":defaultRenderingList1.r" -na;
 connectAttr "aiAreaLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "aiSkyDomeLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "aiAreaLight1.iog" ":defaultLightSet.dsm" -na;
