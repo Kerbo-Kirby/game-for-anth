@@ -1,6 +1,6 @@
 //Maya ASCII 2022 scene
 //Name: fireworkds and flag.ma
-//Last modified: Fri, Dec 03, 2021 07:21:22 AM
+//Last modified: Mon, Dec 06, 2021 08:03:51 PM
 //Codeset: 1252
 file -rdi 1 -ns "SPURT" -rfn "SPURTRN" -op "v=0;" -typ "mayaAscii" "C:/Users/peyto/Documents/game-for-anth/fall 2021//scenes/SPURT.ma";
 file -rdi 1 -ns "fireworkfinal" -rfn "fireworkfinalRN" -op "v=0;" -typ "mayaAscii"
@@ -25,30 +25,29 @@ file -r -ns "rocket3" -dr 1 -rfn "rocket2RN" -typ "mayaAscii" "C:/Users/peyto/Do
 requires maya "2022";
 requires "stereoCamera" "10.0";
 requires -nodeType "aiOptions" -nodeType "aiAOV" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter"
-		 -nodeType "aiSkyDomeLight" -nodeType "aiAreaLight" -nodeType "aiUtility" -nodeType "aiStandardSurface"
+		 -nodeType "aiSkyDomeLight" -nodeType "aiAreaLight" -nodeType "aiStandardSurface"
 		 -nodeType "aiPhysicalSky" -nodeType "aiAtmosphereVolume" "mtoa" "4.2.1";
 requires -nodeType "simpleSelector" -nodeType "renderSetupLayer" -nodeType "renderSetup"
 		 -nodeType "collection" -nodeType "materialOverride" -nodeType "applyConnectionOverride"
 		 -nodeType "lightItem" -nodeType "lightEditor" "renderSetup.py" "1.0";
-requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2022";
 fileInfo "version" "2022";
 fileInfo "cutIdentifier" "202102181415-29bfc1879c";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19042)";
-fileInfo "UUID" "896AE72E-417F-109A-07FB-39A5CDE35E66";
+fileInfo "UUID" "D8CA7CEF-4E9B-7F8E-BAD4-FEB8B4015B8C";
 createNode transform -s -n "persp";
 	rename -uid "0E9CF165-4C6E-AF5F-F593-128DADF6E1E5";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 4.6121183305658962 6.7275552653909578 8.9511285836048149 ;
-	setAttr ".r" -type "double3" -1.5383527296116772 13.799999999999319 -2.5586660838752155e-17 ;
+	setAttr ".t" -type "double3" 10.90756374468026 24.138362382875403 43.273607513124396 ;
+	setAttr ".r" -type "double3" -22.538352729611908 10.999999999999483 4.0501051915310536e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "FCEF899E-412B-BCCB-CE45-FA83AC68599D";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 7.5617656078610977;
+	setAttr ".coi" 45.952855345026322;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -107,7 +106,8 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -n "aiAreaLight1";
 	rename -uid "81A9F0C2-480C-C0D3-5996-34BB933E26A6";
-	setAttr -s 2 ".rlio[0:1]" 1 yes 0 2 yes 0;
+	setAttr -s 3 ".rlio[0:2]" 1 yes 0 2 yes 0 5 
+		yes 0;
 	setAttr ".t" -type "double3" 7.6082046550766442 9.6277820951384818 14.906349621129738 ;
 	setAttr ".r" -type "double3" -21.275980628027071 39.055046985891089 -10.124753489353838 ;
 createNode aiAreaLight -n "aiAreaLightShape1" -p "aiAreaLight1";
@@ -129,16 +129,20 @@ createNode aiAreaLight -n "aiAreaLightShape1" -p "aiAreaLight1";
 createNode transform -n "camera1";
 	rename -uid "FF0F07C3-4303-00F7-6B76-A585A99445C7";
 	setAttr ".rlio[0]" 1 yes 0;
-	setAttr ".t" -type "double3" 3.0935108162332967 -8.7534750478044963 28.269358207558071 ;
-	setAttr ".r" -type "double3" 32.395966351840059 1.8667585754421265 -0.89231432224097151 ;
-	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999989 0.99999999999999989 ;
+	setAttr ".t" -type "double3" 3.6666000652435553 -2.6139451432202216 19.395917595297284 ;
+	setAttr ".r" -type "double3" 32.230479217402809 3.4665643169123359 -0.89347568362056462 ;
+	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999978 0.99999999999999978 ;
+	setAttr ".rp" -type "double3" -4.4408920985006252e-16 1.7763568394002501e-15 0 ;
+	setAttr ".rpt" -type "double3" 8.1575020157806998e-17 -2.678833193307645e-16 9.7249676025693882e-16 ;
+	setAttr ".sp" -type "double3" -4.4408920985006262e-16 1.7763568394002505e-15 0 ;
+	setAttr ".spt" -type "double3" 9.8607613152626465e-32 -3.9443045261050582e-31 0 ;
 createNode camera -n "cameraShape1" -p "camera1";
 	rename -uid "F1B3AB13-4739-A513-9B25-69A69CA5B97C";
 	setAttr -k off ".v";
 	setAttr ".cap" -type "double2" 1.41732 0.94488 ;
 	setAttr ".ff" 0;
 	setAttr ".ovr" 1.3;
-	setAttr ".coi" 42.811127179380975;
+	setAttr ".coi" 31.912977297232864;
 	setAttr ".ow" 30;
 	setAttr ".imn" -type "string" "camera1";
 	setAttr ".den" -type "string" "camera1_depth";
@@ -147,7 +151,8 @@ createNode camera -n "cameraShape1" -p "camera1";
 	setAttr ".ai_translator" -type "string" "perspective";
 createNode transform -n "aiSkyDomeLight1";
 	rename -uid "AC107A30-4003-E74F-9386-F49AB9E64A60";
-	setAttr -s 2 ".rlio[0:1]" 1 yes 0 2 yes 0;
+	setAttr -s 3 ".rlio[0:2]" 1 yes 0 2 yes 0 5 
+		yes 0;
 	setAttr ".t" -type "double3" 0 -85.926540109696674 0 ;
 createNode aiSkyDomeLight -n "aiSkyDomeLightShape1" -p "aiSkyDomeLight1";
 	rename -uid "B1969640-4C72-94EB-7165-9AB0F112A397";
@@ -161,19 +166,19 @@ createNode aiSkyDomeLight -n "aiSkyDomeLightShape1" -p "aiSkyDomeLight1";
 	setAttr ".intensity" 0.25974026322364807;
 	setAttr ".aal" -type "attributeAlias" {"exposure","aiExposure"} ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "E1C33944-4C86-758F-5A0A-45B647F51D6E";
+	rename -uid "4F3C12E9-4470-537B-1BB0-3C9834E0D1FE";
 	setAttr -s 107 ".lnk";
 	setAttr -s 107 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "E8A192EE-4D55-22A9-4EA8-1A9637ECA129";
+	rename -uid "DC128569-434E-2ABD-67A3-CC806A8E1969";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "968FCE5A-4E83-4150-D108-0B93C04164E1";
+	rename -uid "896EF903-4F9C-0976-B8D7-4194DD46C189";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "0EAABC1C-400D-4D94-3267-299B9AA6154E";
+	rename -uid "AE5D94DC-453F-A770-9601-09AEA9039C82";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "1569D1AE-40B4-B4CF-8C20-5CB728EE0019";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "8B4F8280-4206-F81E-4378-C3BAB0F9076B";
+	rename -uid "88B92000-4375-0AAE-720E-D390B556C977";
 	setAttr ".crl" 5;
 	setAttr -s 5 ".rlmi[1:4]"  5 2 3 4;
 	setAttr -s 2 ".rlmi";
@@ -182,8 +187,11 @@ createNode renderLayer -n "defaultRenderLayer";
 	setAttr ".g" yes;
 createNode aiOptions -s -n "defaultArnoldRenderOptions";
 	rename -uid "79AC97E8-43FA-2865-13E9-15BE8E066FB4";
+	addAttr -ci true -sn "ARV_options" -ln "ARV_options" -dt "string";
+	setAttr ".GI_diffuse_samples" 1;
 	setAttr ".mb_en" yes;
 	setAttr ".version" -type "string" "4.2.4";
+	setAttr ".ARV_options" -type "string" "Test Resolution=100%;Camera=cameraShape1;Color Management.Gamma=1;Color Management.Exposure=0;Background.BG=BG Color;Background.Color=0 0 0;Background.Image=;Background.Scale=1  1;Background.Offset=0  0;Background.Apply Color Management=1;Foreground.Enable FG=0;Foreground.Image=;Foreground.Scale=1  1;Foreground.Offset=0  0;Foreground.Apply Color Management=1;";
 createNode aiAOVFilter -s -n "defaultArnoldFilter";
 	rename -uid "F6787B2E-4E22-A20F-B77E-C2B62E994E0E";
 	setAttr ".ai_translator" -type "string" "gaussian";
@@ -203,17 +211,17 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
-		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 556\n            -height 332\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
 		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n"
 		+ "            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n"
-		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n"
+		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 556\n            -height 332\n"
 		+ "            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n"
 		+ "            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n"
 		+ "            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n"
-		+ "            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 844\n            -height 723\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n"
+		+ "            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 846\n            -height 708\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n"
 		+ "            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 1\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 16384\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n"
 		+ "            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n"
-		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 265\n            -height 723\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n"
+		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 266\n            -height 708\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n"
 		+ "\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n"
 		+ "            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n"
 		+ "            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n"
@@ -240,11 +248,11 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n"
 		+ "                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n"
 		+ "        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"vertical2\\\" -ps 1 76 100 -ps 2 24 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Front View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 844\\n    -height 723\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 844\\n    -height 723\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 846\\n    -height 708\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Front View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"camera1\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 846\\n    -height 708\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 265\\n    -height 723\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 265\\n    -height 723\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 266\\n    -height 708\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 1\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 16384\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 266\\n    -height 708\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -306,7 +314,7 @@ createNode reference -n "SPURTRN";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"SPURTRN"
 		"SPURTRN" 0
-		"SPURTRN" 43
+		"SPURTRN" 44
 		2 "|SPURT:Spurt_Grp" "visibility" " 1"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter1" "visibility" " 1"
 		2 "|SPURT:Spurt_Grp|SPURT:Spurt_emitter1" "renderLayerInfo[0]" " 4 1 0"
@@ -364,6 +372,7 @@ createNode reference -n "SPURTRN";
 		
 		2 "SPURT:nParticlePointsSE" "aiCustomAOVs[7].aovName" " -type \"string\" \"background\""
 		
+		2 "SPURT:Spurt_aiStandardSurface1" "emission" " 1"
 		2 "SPURT:aiStandardSurface1SG" "aiCustomAOVs" " -s 8"
 		2 "SPURT:aiStandardSurface1SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
 		
@@ -408,7 +417,7 @@ createNode reference -n "fireworkfinalRN";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"fireworkfinalRN"
 		"fireworkfinalRN" 0
-		"fireworkfinalRN" 158
+		"fireworkfinalRN" 159
 		2 "|fireworkfinal:fanali|fireworkfinal:rocket_emitter1" "renderLayerInfo[0]" 
 		" 4 1 0"
 		2 "|fireworkfinal:fanali|fireworkfinal:rocket_emitter1" "translate" " -type \"double3\" 0 9.41808628122057101 -25.51642567824367092"
@@ -651,6 +660,7 @@ createNode reference -n "fireworkfinalRN";
 		
 		2 "fireworkfinal:surfaceShader1SG" "aiCustomAOVs[7].aovName" " -type \"string\" \"background\""
 		
+		2 "fireworkfinal:burtst" "emission" " 1"
 		2 "fireworkfinal:aiStandardSurface4SG" "aiCustomAOVs" " -s 8"
 		2 "fireworkfinal:aiStandardSurface4SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
 		
@@ -738,7 +748,7 @@ createNode materialInfo -n "materialInfo1";
 	rename -uid "7E7741D6-4CF2-D87B-B86A-F6B06BF76079";
 createNode reference -n "extra_flagRN1";
 	rename -uid "E92DD7FD-4B18-F723-B009-DAA82B9DE309";
-	setAttr -s 16 ".phl";
+	setAttr -s 23 ".phl";
 	setAttr ".phl[1]" 0;
 	setAttr ".phl[2]" 0;
 	setAttr ".phl[3]" 0;
@@ -755,10 +765,17 @@ createNode reference -n "extra_flagRN1";
 	setAttr ".phl[14]" 0;
 	setAttr ".phl[15]" 0;
 	setAttr ".phl[16]" 0;
+	setAttr ".phl[17]" 0;
+	setAttr ".phl[18]" 0;
+	setAttr ".phl[19]" 0;
+	setAttr ".phl[20]" 0;
+	setAttr ".phl[21]" 0;
+	setAttr ".phl[22]" 0;
+	setAttr ".phl[23]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"extra_flagRN1"
 		"extra_flagRN1" 0
-		"extra_flagRN1" 605
+		"extra_flagRN1" 614
 		2 "|extra_flag1:flag|extra_flag1:group1|extra_flag1:Cloth_Nucleas" "gravity" 
 		" 6.04400014877319336"
 		2 "|extra_flag1:flag|extra_flag1:flag_nCloth1|extra_flag1:flag_nClothShape1" 
@@ -1817,6 +1834,8 @@ createNode reference -n "extra_flagRN1";
 		
 		2 "extra_flag1:aiStandardSurface12SG" "aiCustomAOVs[7].aovName" " -type \"string\" \"background\""
 		
+		2 "extra_flag1:aiMultiply8" "input1" " -type \"float3\" 0.5 0.5 0.5"
+		2 "extra_flag1:aiMultiply8" "input2" " -type \"float3\" 0 0 0"
 		2 "extra_flag1:aiStandardSurface15SG" "aiCustomAOVs" " -s 8"
 		2 "extra_flag1:aiStandardSurface15SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
 		
@@ -1834,7 +1853,6 @@ createNode reference -n "extra_flagRN1";
 		
 		2 "extra_flag1:aiStandardSurface15SG" "aiCustomAOVs[7].aovName" " -type \"string\" \"background\""
 		
-		2 "extra_flag1:flag_shader" "Kd" " 1"
 		2 "extra_flag1:aiLambert2SG" "aiCustomAOVs" " -s 8"
 		2 "extra_flag1:aiLambert2SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
 		
@@ -1869,20 +1887,25 @@ createNode reference -n "extra_flagRN1";
 		
 		2 "extra_flag1:aiStandardSurface16SG" "aiCustomAOVs[7].aovName" " -type \"string\" \"background\""
 		
-		3 "extra_flag1:aiMultiply12.outColor" "extra_flag1:rope1.baseColor" ""
+		3 "extra_flag1:aiMultiply8.outColor" "extra_flag1:flag_shader.KdColor" ""
+		
+		3 "|extra_flag1:flag|extra_flag1:flag_geo|extra_flag1:outputCloth1.instObjGroups" 
+		"extra_flag1:aiStandardSurface11SG.dagSetMembers" "-na"
 		3 "extra_flag1:file52.outColor" "extra_flag1:aiMultiply8.input1" ""
-		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface11SG.message" "extra_flagRN1.placeHolderList[1]" 
+		3 "extra_flag1:file53.outColor" "extra_flag1:aiMultiply8.input2" ""
+		3 "extra_flag1:aiMultiply12.outColor" "extra_flag1:rope1.baseColor" ""
+		5 3 "extra_flagRN1" "extra_flag1:the_pole_shader_grp.message" "extra_flagRN1.placeHolderList[1]" 
 		""
 		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface11SG.message" "extra_flagRN1.placeHolderList[2]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface12SG.message" "extra_flagRN1.placeHolderList[3]" 
+		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface11SG.message" "extra_flagRN1.placeHolderList[3]" 
 		""
-		5 4 "extra_flagRN1" "extra_flag1:aiMultiply8.input1" "extra_flagRN1.placeHolderList[4]" 
+		5 3 "extra_flagRN1" "extra_flag1:the_ball_shader_grp.message" "extra_flagRN1.placeHolderList[4]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:aiMultiply8.message" "extra_flagRN1.placeHolderList[5]" 
+		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface12SG.message" "extra_flagRN1.placeHolderList[5]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:file52.outColor" "extra_flagRN1.placeHolderList[6]" 
-		"extra_flag1:aiMultiply8.input1"
+		5 3 "extra_flagRN1" "extra_flag1:aiMultiply8.message" "extra_flagRN1.placeHolderList[6]" 
+		""
 		5 3 "extra_flagRN1" "extra_flag1:file52.message" "extra_flagRN1.placeHolderList[7]" 
 		""
 		5 3 "extra_flagRN1" "extra_flag1:place2dTexture51.message" "extra_flagRN1.placeHolderList[8]" 
@@ -1891,16 +1914,28 @@ createNode reference -n "extra_flagRN1";
 		""
 		5 3 "extra_flagRN1" "extra_flag1:place2dTexture52.message" "extra_flagRN1.placeHolderList[10]" 
 		""
-		5 3 "extra_flagRN1" "extra_flag1:flag_shader.message" "extra_flagRN1.placeHolderList[11]" 
-		""
-		5 3 "extra_flagRN1" "extra_flag1:aiLambert2SG.message" "extra_flagRN1.placeHolderList[12]" 
-		""
-		5 3 "extra_flagRN1" "extra_flag1:aiLambert2SG.message" "extra_flagRN1.placeHolderList[13]" 
-		""
-		5 0 "extra_flagRN1" "extra_flag1:aiMultiply12.outColor" "extra_flag1:rope1.baseColor" 
-		"extra_flagRN1.placeHolderList[14]" "extra_flagRN1.placeHolderList[15]" "extra_flag1:rope1.base_color"
+		5 0 "extra_flagRN1" "extra_flag1:file52.outColor" "extra_flag1:flag_shader.KdColor" 
+		"extra_flagRN1.placeHolderList[11]" "extra_flagRN1.placeHolderList[12]" "extra_flag1:aiMultiply8.input1"
 		
-		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface16SG.message" "extra_flagRN1.placeHolderList[16]" 
+		5 3 "extra_flagRN1" "extra_flag1:flag_shader.message" "extra_flagRN1.placeHolderList[13]" 
+		""
+		5 4 "extra_flagRN1" "extra_flag1:flag_shader.Kd" "extra_flagRN1.placeHolderList[14]" 
+		""
+		5 4 "extra_flagRN1" "extra_flag1:flag_shader.normalCamera" "extra_flagRN1.placeHolderList[15]" 
+		""
+		5 3 "extra_flagRN1" "extra_flag1:aiLambert2SG.message" "extra_flagRN1.placeHolderList[16]" 
+		""
+		5 3 "extra_flagRN1" "extra_flag1:aiLambert2SG.message" "extra_flagRN1.placeHolderList[17]" 
+		""
+		5 0 "extra_flagRN1" "|extra_flag1:flag|extra_flag1:flag_geo|extra_flag1:outputCloth1.instObjGroups" 
+		"extra_flag1:aiLambert2SG.dagSetMembers" "extra_flagRN1.placeHolderList[18]" "extra_flagRN1.placeHolderList[19]" 
+		"extra_flag1:aiStandardSurface11SG.dsm"
+		5 0 "extra_flagRN1" "extra_flag1:aiMultiply12.outColor" "extra_flag1:rope1.baseColor" 
+		"extra_flagRN1.placeHolderList[20]" "extra_flagRN1.placeHolderList[21]" "extra_flag1:rope1.base_color"
+		
+		5 3 "extra_flagRN1" "extra_flag1:rope1.message" "extra_flagRN1.placeHolderList[22]" 
+		""
+		5 3 "extra_flagRN1" "extra_flag1:aiStandardSurface16SG.message" "extra_flagRN1.placeHolderList[23]" 
 		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -1913,7 +1948,7 @@ createNode reference -n "firk_workRN";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"firk_workRN"
 		"firk_workRN" 0
-		"firk_workRN" 143
+		"firk_workRN" 145
 		2 "|firk_work:rocket_emitter1" "visibility" " 0"
 		2 "|firk_work:rocket_emitter1" "renderLayerInfo[0]" " 5 1 0"
 		2 "|firk_work:rocket_emitter1" "translate" " -type \"double3\" 0 11.06015040906625124 -21.08013326068751425"
@@ -2139,6 +2174,7 @@ createNode reference -n "firk_workRN";
 		
 		2 "firk_work:aiStandardHair1SG" "aiCustomAOVs[7].aovName" " -type \"string\" \"background\""
 		
+		2 "firk_work:trail_shader" "emission" " 1"
 		2 "firk_work:aiStandardSurface4SG" "aiCustomAOVs" " -s 8"
 		2 "firk_work:aiStandardSurface4SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
 		
@@ -2156,6 +2192,7 @@ createNode reference -n "firk_workRN";
 		
 		2 "firk_work:aiStandardSurface4SG" "aiCustomAOVs[7].aovName" " -type \"string\" \"background\""
 		
+		2 "firk_work:burst_shader" "emission" " 1"
 		2 "firk_work:standardSurface3SG" "aiCustomAOVs" " -s 8"
 		2 "firk_work:standardSurface3SG" "aiCustomAOVs[0].aovName" " -type \"string\" \"albedo\""
 		
@@ -3775,8 +3812,6 @@ createNode lightItem -n "aiSkyDomeLightShape1__LEItem";
 	rename -uid "4451CE6F-4931-FF0D-B821-D592659711ED";
 createNode materialInfo -n "materialInfo2";
 	rename -uid "AA0127EB-4CFE-D49B-D584-108CB34D1804";
-createNode aiUtility -n "aiUtility1";
-	rename -uid "0F186AFE-4D13-3DA3-6048-A8A315A1C960";
 createNode aiAOV -n "aiAOV_emission";
 	rename -uid "D7415C7C-465E-73FC-C24D-80809162EDCC";
 	setAttr ".aovn" -type "string" "emission";
@@ -3805,7 +3840,7 @@ createNode collection -n "collection2";
 	setAttr ".es" yes;
 createNode simpleSelector -n "collection2Selector";
 	rename -uid "F00F5797-44D2-28CB-2BAC-3D81305E6EB7";
-	setAttr ".ssl" -type "string" "|extra_flag1:flag\n|extra_flag1:flag|extra_flag1:group1\n|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole\n|extra_flag1:flag|extra_flag1:group1|extra_flag1:clothe\n|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope\n|extra_flag1:flag|extra_flag1:group1|extra_flag1:dynamics";
+	setAttr ".ssl" -type "string" "|extra_flag1:flag\n|extra_flag1:flag|extra_flag1:group1\n|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole\n|extra_flag1:flag|extra_flag1:group1|extra_flag1:clothe\n|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope\n|extra_flag1:flag|extra_flag1:group1|extra_flag1:dynamics\n|aiSkyDomeLight1\n|aiAreaLight1";
 createNode materialOverride -n "materialOverride1";
 	rename -uid "2542BF7C-422D-0E34-53D2-B88B9C98C553";
 	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
@@ -3871,1120 +3906,1187 @@ createNode materialOverride -n "materialOverride13";
 	addAttr -s false -ci true -sn "atv" -ln "attrValue" -at "message";
 	addAttr -ci true -sn "es" -ln "expandedState" -min 0 -max 1 -at "bool";
 	setAttr ".es" yes;
-createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "4F78E039-469F-12DE-3CF8-9389F777DAE2";
-	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" -10134.350742335249 1972.9688419938502 ;
-	setAttr ".tgi[0].vh" -type "double2" -4182.5516331460221 3255.6841672501496 ;
-	setAttr -s 8 ".tgi[0].ni";
-	setAttr ".tgi[0].ni[0].x" -3530;
-	setAttr ".tgi[0].ni[0].y" 581.4285888671875;
-	setAttr ".tgi[0].ni[0].nvs" 1923;
-	setAttr ".tgi[0].ni[1].x" -2517.142822265625;
-	setAttr ".tgi[0].ni[1].y" 570;
-	setAttr ".tgi[0].ni[1].nvs" 1923;
-	setAttr ".tgi[0].ni[2].x" -3530;
-	setAttr ".tgi[0].ni[2].y" 405.71429443359375;
-	setAttr ".tgi[0].ni[2].nvs" 1923;
-	setAttr ".tgi[0].ni[3].x" -3007.200439453125;
-	setAttr ".tgi[0].ni[3].y" 727.395263671875;
-	setAttr ".tgi[0].ni[3].nvs" 1923;
-	setAttr ".tgi[0].ni[4].x" -2210;
-	setAttr ".tgi[0].ni[4].y" 570;
-	setAttr ".tgi[0].ni[4].nvs" 1923;
-	setAttr ".tgi[0].ni[5].x" -2824.28564453125;
-	setAttr ".tgi[0].ni[5].y" 525.71429443359375;
-	setAttr ".tgi[0].ni[5].nvs" 1923;
-	setAttr ".tgi[0].ni[6].x" -3222.857177734375;
-	setAttr ".tgi[0].ni[6].y" 602.85711669921875;
-	setAttr ".tgi[0].ni[6].nvs" 1923;
-	setAttr ".tgi[0].ni[7].x" -3222.857177734375;
-	setAttr ".tgi[0].ni[7].y" 427.14285278320312;
-	setAttr ".tgi[0].ni[7].nvs" 1923;
-createNode applyConnectionOverride -n "materialOverride5_rocket_nParticleShape1_iog_0_";
-	rename -uid "98FFF70D-447A-C174-5EDF-0580A316CA0E";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
-	setAttr ".tg" -type "TdataCompound" ;
-	setAttr ".sen" -type "string" "rocket:aiStandardSurface1SG";
-createNode applyConnectionOverride -n "materialOverride5_rocket_particleShape1_iog_0_";
-	rename -uid "F46E49E4-44F8-1707-4641-1582507ADC87";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
-	setAttr ".tg" -type "TdataCompound" ;
-	setAttr ".sen" -type "string" "rocket:aiStandardSurface1SG";
-createNode applyConnectionOverride -n "materialOverride5_SPURT_Spurt_nParticleShape1_iog_0_";
-	rename -uid "97E1C53D-4A8E-2809-466E-E3A3904E49CB";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
-	setAttr ".tg" -type "TdataCompound" ;
-	setAttr ".sen" -type "string" "SPURT:aiStandardSurface1SG";
-createNode applyConnectionOverride -n "materialOverride5_SPURT_Spurt_nParticleShape2_iog_0_";
-	rename -uid "FFE6B265-4BB9-218F-EFD4-AD8D4F342A57";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
-	setAttr ".tg" -type "TdataCompound" ;
-	setAttr ".sen" -type "string" "SPURT:aiStandardSurface1SG";
 createNode applyConnectionOverride -n "materialOverride5_rocket2_nParticleShape1_iog_0_";
-	rename -uid "B044947D-4004-4FE2-28CA-5797A06BC809";
+	rename -uid "9EC455E7-4E2C-3C28-C282-12A68DE38EA0";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "rocket2:aiStandardSurface1SG";
 createNode applyConnectionOverride -n "materialOverride5_rocket2_particleShape1_iog_0_";
-	rename -uid "0887BB27-493E-860B-5B6E-FAA12DAD506F";
+	rename -uid "078D1307-4953-65BC-0739-4AABD8E7B443";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "rocket2:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "5669D14D-4188-2AC0-C75C-5C80693AACCC";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "SPURT:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "5B38FC4D-45DA-B77B-41E6-71916073762B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "SPURT:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_firk_work_burstparticleShape_iog_0_";
+	rename -uid "00298845-4975-40ED-B29E-FBB8BDA62AAF";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "firk_work:standardSurface3SG";
+createNode applyConnectionOverride -n "materialOverride5_rocket_nParticleShape1_iog_0_";
+	rename -uid "946006BD-4E36-D90E-CE62-16ADCD4AE6F2";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "rocket:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_rocket_particleShape1_iog_0_";
+	rename -uid "225E60D3-4EAA-06E3-4DF6-CA8C6BF15354";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "rocket:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "F0C1D47A-4F50-804A-5246-9B9B6CD874A0";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
+	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "firk_work:aiStandardSurface4SG";
 createNode applyConnectionOverride -n "materialOverride5_fireworkfinal_rocket_particleShape1_iog_0_";
-	rename -uid "183C7391-4192-12D7-CB36-FA8FCF0E8B54";
+	rename -uid "6CF0FDDA-4002-4AE8-C53A-529E059FDEBE";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "fireworkfinal:standardSurface2SG";
 createNode applyConnectionOverride -n "materialOverride5_fireworkfinal_trail_nParticleShape1_iog_0_";
-	rename -uid "5EA5D3D6-4359-E280-6B19-17BDD051D006";
+	rename -uid "7F620468-4C1D-B170-9422-9BB9344C8083";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "fireworkfinal:standardSurface2SG";
 createNode applyConnectionOverride -n "materialOverride5_fireworkfinal_burstparticleShape_iog_0_";
-	rename -uid "EC472FC4-4F5C-6755-EB33-A09674341D89";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride5_rocket1_nParticleShape1_iog_0_";
-	rename -uid "86DF3D62-43A7-321C-0B1E-C39E48126D1F";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
-	setAttr ".tg" -type "TdataCompound" ;
-	setAttr ".sen" -type "string" "rocket1:aiStandardSurface1SG";
-createNode applyConnectionOverride -n "materialOverride5_rocket1_particleShape1_iog_0_";
-	rename -uid "AEFD9088-4C58-1DA8-1480-3396DF62033A";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
-	setAttr ".tg" -type "TdataCompound" ;
-	setAttr ".sen" -type "string" "rocket1:aiStandardSurface1SG";
-createNode applyConnectionOverride -n "materialOverride5_firk_work_rocket_particleShape1_iog_0_";
-	rename -uid "6C3C9E51-48F0-9E09-F221-1BBA9EE729FC";
+	rename -uid "3CE36DDF-46AB-F7EA-2443-A5A2A6DC0A1F";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride5_rocket3_nParticleShape1_iog_0_";
-	rename -uid "DBE02794-41CB-1B36-5519-DF9494392FAA";
+	rename -uid "D7BDF7C6-46F6-1B0D-C893-6C95BAC11AB1";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "rocket3:aiStandardSurface1SG";
 createNode applyConnectionOverride -n "materialOverride5_rocket3_particleShape1_iog_0_";
-	rename -uid "DB23951F-40C8-5B17-9F4D-2697E03AC787";
+	rename -uid "1F1BA1E5-4FB7-0C71-9314-888D0AF3D341";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "rocket3:aiStandardSurface1SG";
-createNode applyConnectionOverride -n "materialOverride5_firk_work_trail_nParticleShape1_iog_0_";
-	rename -uid "E243441E-4004-DA0B-DDB5-DA9E305CCB87";
+createNode applyConnectionOverride -n "materialOverride5_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "33143E51-4D12-84DD-5859-88B50413D80F";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride5_rocket1_nParticleShape1_iog_0_";
+	rename -uid "B9805D17-4945-A8D8-2532-4C8D11731A90";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
-	setAttr ".sen" -type "string" "firk_work:aiStandardSurface4SG";
-createNode applyConnectionOverride -n "materialOverride5_firk_work_burstparticleShape_iog_0_";
-	rename -uid "C83869B4-4702-1712-33EB-3B941E6B954D";
+	setAttr ".sen" -type "string" "rocket1:aiStandardSurface1SG";
+createNode applyConnectionOverride -n "materialOverride5_rocket1_particleShape1_iog_0_";
+	rename -uid "9B4A377B-4A01-B5AC-64BA-3CB2AB0D97C6";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
-	setAttr ".sen" -type "string" "firk_work:standardSurface3SG";
-createNode applyConnectionOverride -n "materialOverride6_rocket_nParticleShape1_iog_0_";
-	rename -uid "BFF8DF65-418E-2864-65F1-5B8D26E0491B";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride6_rocket_particleShape1_iog_0_";
-	rename -uid "D92DCD40-4E0C-0195-3F97-3BA3FEE51511";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride6_SPURT_Spurt_nParticleShape1_iog_0_";
-	rename -uid "0C4E51DE-46F6-8EE6-B3B6-7284F32EAC47";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride6_SPURT_Spurt_nParticleShape2_iog_0_";
-	rename -uid "1E178B7A-4CE7-A5FB-F54F-46B97CE11C9E";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
+	setAttr ".sen" -type "string" "rocket1:aiStandardSurface1SG";
 createNode applyConnectionOverride -n "materialOverride6_rocket2_nParticleShape1_iog_0_";
-	rename -uid "3FA0C3F2-4AA5-EF4E-28DC-E1AFDC29B7BD";
+	rename -uid "8B3AB5A4-4853-753C-159D-ACBCFD5503B5";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride6_rocket2_particleShape1_iog_0_";
-	rename -uid "83D77F85-4D50-F9B1-C18A-B88434055A69";
+	rename -uid "D6FDCE73-4C9D-62B1-8FDC-22A1B7F86CD9";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride6_fireworkfinal_rocket_particleShape1_iog_0_";
-	rename -uid "B590FA79-4337-B6B0-C386-9DA23E934078";
+createNode applyConnectionOverride -n "materialOverride6_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "D810D19A-4656-C5B9-753C-C3B1733305F6";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride6_fireworkfinal_trail_nParticleShape1_iog_0_";
-	rename -uid "302F15C3-4089-11DE-DE39-52815E65C948";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride6_fireworkfinal_burstparticleShape_iog_0_";
-	rename -uid "2BB80FBB-46D6-94EE-31E0-45B1C3F315FD";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride6_rocket1_nParticleShape1_iog_0_";
-	rename -uid "ED9CE47D-4DDD-6BA6-1EE8-E5BB9180DD48";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride6_rocket1_particleShape1_iog_0_";
-	rename -uid "8878D140-4A99-87A6-3537-30897C594EBA";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride6_firk_work_rocket_particleShape1_iog_0_";
-	rename -uid "E52F970D-4022-03E8-9BB6-9C8FA6642946";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride6_rocket3_nParticleShape1_iog_0_";
-	rename -uid "558CCE4B-4C5B-1DF5-4C12-E7B22B70833B";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride6_rocket3_particleShape1_iog_0_";
-	rename -uid "64A33BE3-47A4-AEEC-3AD1-DCB0080EA55F";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride6_firk_work_trail_nParticleShape1_iog_0_";
-	rename -uid "0AB26748-4800-6859-BBC4-B2BAF54224D8";
+createNode applyConnectionOverride -n "materialOverride6_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "33E53285-4DAF-36C9-A1B7-278D366A2A95";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride6_firk_work_burstparticleShape_iog_0_";
-	rename -uid "1DFDAB34-47A5-3897-7B3F-F68EF6E0104D";
+	rename -uid "770B34AD-4F56-2343-134B-68938F187B0B";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride7_rocket_nParticleShape1_iog_0_";
-	rename -uid "B5B277CD-4E6B-03C9-64D6-3DB27C41130C";
+createNode applyConnectionOverride -n "materialOverride6_rocket_nParticleShape1_iog_0_";
+	rename -uid "44D1F490-4DC5-062D-0F93-5288C5CEB162";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride7_rocket_particleShape1_iog_0_";
-	rename -uid "9693EB62-42E1-CC9A-4AC0-C4BBC53F03CF";
+createNode applyConnectionOverride -n "materialOverride6_rocket_particleShape1_iog_0_";
+	rename -uid "7696D405-430E-E36F-CD4A-64B8ABDB6A46";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride7_SPURT_Spurt_nParticleShape1_iog_0_";
-	rename -uid "8E3D54D7-4D8E-2FB1-80CC-AEA681C3C079";
+createNode applyConnectionOverride -n "materialOverride6_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "97AF325E-4DB7-01D6-C467-E4BC0AF61988";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride7_SPURT_Spurt_nParticleShape2_iog_0_";
-	rename -uid "16F3A8A1-44D6-D6B0-40EA-52ADECEDCAC8";
+createNode applyConnectionOverride -n "materialOverride6_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "ED44E266-45C0-C5F1-4C65-FB80146EF0ED";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "786C8776-4DF5-92B8-E7A4-45925EC1A8E1";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "72B44505-4C2D-38C6-D019-49976A032C07";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_rocket3_nParticleShape1_iog_0_";
+	rename -uid "2CE4EC56-4EC7-3B5A-BCA5-EB9DDBD8A627";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_rocket3_particleShape1_iog_0_";
+	rename -uid "23A549F5-4D4D-766F-0285-CE8267C97080";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "93D6821B-4FAA-82AF-EE09-AF9BFE2489A8";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_rocket1_nParticleShape1_iog_0_";
+	rename -uid "C3998743-4178-24FE-6902-50A0503065EC";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride6_rocket1_particleShape1_iog_0_";
+	rename -uid "42DD61B9-4E76-0B9A-1588-06A1E80C304E";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride7_rocket2_nParticleShape1_iog_0_";
-	rename -uid "0AFB557A-470A-D0EA-C7CA-DEBF86A9A567";
+	rename -uid "E2604E76-4EFA-84FF-559E-26ADD025178D";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride7_rocket2_particleShape1_iog_0_";
-	rename -uid "32C6970A-43E6-8D43-2BDA-1FA71AD486C4";
+	rename -uid "2CA4B825-48D7-B041-5FD4-B6B647AE0598";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride7_fireworkfinal_rocket_particleShape1_iog_0_";
-	rename -uid "3CE7EF63-4A65-9E18-615A-6FAB3909F0DD";
+createNode applyConnectionOverride -n "materialOverride7_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "D5B7FB9D-45F8-7603-6125-888BA5D9EE6C";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride7_fireworkfinal_trail_nParticleShape1_iog_0_";
-	rename -uid "627F98EE-4CA2-D3AA-B21B-A0A4FB8FD327";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride7_fireworkfinal_burstparticleShape_iog_0_";
-	rename -uid "CA8A569D-4D3D-5A2E-FC02-A6B37E951AAD";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride7_rocket1_nParticleShape1_iog_0_";
-	rename -uid "1DE36404-496F-083C-74D1-76A72594542A";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride7_rocket1_particleShape1_iog_0_";
-	rename -uid "A9DDD8CA-432C-0CB9-95C2-05B2D673D446";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride7_firk_work_rocket_particleShape1_iog_0_";
-	rename -uid "9E1BD989-414E-C226-9A2A-4B89C2E09CDE";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride7_rocket3_nParticleShape1_iog_0_";
-	rename -uid "6C8CFB4B-4C2C-3BFD-BDE0-F9B4A0171AFA";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride7_rocket3_particleShape1_iog_0_";
-	rename -uid "F4E635CF-4F20-EBF5-65BD-848C19158C09";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride7_firk_work_trail_nParticleShape1_iog_0_";
-	rename -uid "5BEBCC3E-447B-34EF-C5D7-E18AA1A3BE34";
+createNode applyConnectionOverride -n "materialOverride7_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "E817E0F2-488D-FAB3-0DD1-2E863E6F78AF";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride7_firk_work_burstparticleShape_iog_0_";
-	rename -uid "56EC5C19-4764-1591-604E-1FB46CDEC89D";
+	rename -uid "FEE6A4A9-4A2C-DAC6-0A76-41A534F44545";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride8_rocket_nParticleShape1_iog_0_";
-	rename -uid "7D042212-480D-A208-5395-4F98F81E40E8";
+createNode applyConnectionOverride -n "materialOverride7_rocket_nParticleShape1_iog_0_";
+	rename -uid "17EBF8F0-4DB2-7284-623B-11931C658504";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride8_rocket_particleShape1_iog_0_";
-	rename -uid "0E4E8F81-479E-271E-73F9-E8AAEA8C8EA8";
+createNode applyConnectionOverride -n "materialOverride7_rocket_particleShape1_iog_0_";
+	rename -uid "5530B18B-499B-5D57-6168-EFBF7852CD9E";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride8_SPURT_Spurt_nParticleShape1_iog_0_";
-	rename -uid "7437254A-4441-87CD-FDB6-A3A39736BA07";
+createNode applyConnectionOverride -n "materialOverride7_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "0DDC3BB0-4069-A30A-2C09-28AF475702FB";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride8_SPURT_Spurt_nParticleShape2_iog_0_";
-	rename -uid "CC4F9136-439A-3691-6BA9-85917D2B9F6F";
+createNode applyConnectionOverride -n "materialOverride7_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "8E03B009-4A12-FC26-DA88-32AFFF13CB00";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "3A4F9AEF-49D6-3183-1065-07ABA2EE5F1D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "1D129195-4A15-4204-607F-C6B317DF2656";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_rocket3_nParticleShape1_iog_0_";
+	rename -uid "A6F91C92-4262-8978-3F3F-FCBD9517EE42";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_rocket3_particleShape1_iog_0_";
+	rename -uid "185BEE5F-4AEA-FB9C-9D29-1B824062277D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "77924B58-493F-F040-2706-9F8C66B22812";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_rocket1_nParticleShape1_iog_0_";
+	rename -uid "C373C065-4A9B-C8C6-A550-319D963A5370";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride7_rocket1_particleShape1_iog_0_";
+	rename -uid "1AF751A5-4C1F-0216-6A47-E284220395EC";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride8_rocket2_nParticleShape1_iog_0_";
-	rename -uid "D7552AC2-443A-FBB6-042A-7E9AB701A697";
+	rename -uid "F23FACD6-4896-EAA5-A64B-B2AB43D43A09";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride8_rocket2_particleShape1_iog_0_";
-	rename -uid "A3FE70AE-4CF9-C890-EE06-3EA1E838F61D";
+	rename -uid "A6C0D0AF-4647-3206-C583-8EBD2EAF2EFF";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride8_fireworkfinal_rocket_particleShape1_iog_0_";
-	rename -uid "1C0F12C0-4D37-9208-AFA3-7F837BBCEFF5";
+createNode applyConnectionOverride -n "materialOverride8_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "57D32207-4260-5B07-B475-98A032A1D2BB";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride8_fireworkfinal_trail_nParticleShape1_iog_0_";
-	rename -uid "69172153-469C-CB85-53F6-14A747B1E2BE";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride8_fireworkfinal_burstparticleShape_iog_0_";
-	rename -uid "050B090C-410F-8147-6316-EF832FABBE01";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride8_rocket1_nParticleShape1_iog_0_";
-	rename -uid "CD2DEEF5-44E5-1880-8B1A-AC906C0AD395";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride8_rocket1_particleShape1_iog_0_";
-	rename -uid "7F87F6CA-4977-0C92-9363-59B30E6FE966";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride8_firk_work_rocket_particleShape1_iog_0_";
-	rename -uid "E06B1535-43E4-17D6-BB25-09B585EA7CDF";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride8_rocket3_nParticleShape1_iog_0_";
-	rename -uid "072A9492-4C53-E793-167C-64A08C8512DA";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride8_rocket3_particleShape1_iog_0_";
-	rename -uid "E0613999-4233-5603-C680-5DB4EAD39EE5";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride8_firk_work_trail_nParticleShape1_iog_0_";
-	rename -uid "6E01CF60-4783-9D25-2BBA-D5B721503F3F";
+createNode applyConnectionOverride -n "materialOverride8_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "87656D85-4A0F-EA15-52C4-C5A0D5A3E220";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride8_firk_work_burstparticleShape_iog_0_";
-	rename -uid "591A939B-48CE-F704-6057-B292D7E48818";
+	rename -uid "AA5876D1-47CC-A09F-0A6C-0DA34384F408";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride9_rocket_nParticleShape1_iog_0_";
-	rename -uid "00F8517C-421D-0BBF-9C66-A190FB0E6855";
+createNode applyConnectionOverride -n "materialOverride8_rocket_nParticleShape1_iog_0_";
+	rename -uid "B5A45656-45A4-5BD4-8C9D-5DB1148AE6FA";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride9_rocket_particleShape1_iog_0_";
-	rename -uid "B5C3DCAF-47AB-9893-FF00-EF93EB415E32";
+createNode applyConnectionOverride -n "materialOverride8_rocket_particleShape1_iog_0_";
+	rename -uid "F3EE7CE3-417B-6F5C-EA64-C7BD3CA590EA";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride9_SPURT_Spurt_nParticleShape1_iog_0_";
-	rename -uid "CA7F03F4-4B9D-3501-94DF-BFABD428B6D2";
+createNode applyConnectionOverride -n "materialOverride8_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "C7F3E6C6-4C63-8669-6D27-2985A91204BD";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride9_SPURT_Spurt_nParticleShape2_iog_0_";
-	rename -uid "29C61474-41B4-52D2-8B74-5B8C5F0043AB";
+createNode applyConnectionOverride -n "materialOverride8_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "944FACB7-42E0-2107-2AEA-89982E6DE426";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "C2EAB697-4970-A2B9-3EA9-1AAFD236821C";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "F29A46EC-444D-3ECB-3201-33B981386EDA";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_rocket3_nParticleShape1_iog_0_";
+	rename -uid "BDB5A53F-45B7-B84B-0FF2-C0948DA24B46";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_rocket3_particleShape1_iog_0_";
+	rename -uid "B7411A89-4300-2942-4BC3-99999B1C7AC4";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "199E0D3D-4455-FA75-55EB-8398371758B8";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_rocket1_nParticleShape1_iog_0_";
+	rename -uid "7BD4D985-4B2F-D89D-566D-4294362F6DF4";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride8_rocket1_particleShape1_iog_0_";
+	rename -uid "69617844-4637-77C3-EC98-0E99C8CCF04B";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride9_rocket2_nParticleShape1_iog_0_";
-	rename -uid "C8CA4CD9-468B-764B-6583-68A0A170D726";
+	rename -uid "7BD6D53A-4290-0A49-A2A0-BF9C1007B4FA";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride9_rocket2_particleShape1_iog_0_";
-	rename -uid "95EA8ED5-4DB0-8057-5AA2-B7B35538B64D";
+	rename -uid "F7DCCC4C-4C9D-C171-1581-3680370AB8E9";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride9_fireworkfinal_rocket_particleShape1_iog_0_";
-	rename -uid "B2D20BCB-41B7-1B54-9C55-D5A1FFFDB5F2";
+createNode applyConnectionOverride -n "materialOverride9_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "DD1C56FB-4927-44C8-F1D2-EE8090D3315B";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride9_fireworkfinal_trail_nParticleShape1_iog_0_";
-	rename -uid "B0CD47FF-46C8-DEC2-4F9E-7981F1D85288";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride9_fireworkfinal_burstparticleShape_iog_0_";
-	rename -uid "F50C02E8-4715-85B8-D706-C2A98D2DBAEA";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride9_rocket1_nParticleShape1_iog_0_";
-	rename -uid "54B44DB6-499F-A152-6377-E3924D030B65";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride9_rocket1_particleShape1_iog_0_";
-	rename -uid "60807BE7-433A-AD05-3893-1BBF988791E6";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride9_firk_work_rocket_particleShape1_iog_0_";
-	rename -uid "8E9665BC-4BC2-0854-80FF-5F87C2DA7A80";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride9_rocket3_nParticleShape1_iog_0_";
-	rename -uid "912691CD-4EFE-6022-DD71-948D9C00371E";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride9_rocket3_particleShape1_iog_0_";
-	rename -uid "CFD63DF9-49BA-E93D-5182-ABA1B01F5FC7";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride9_firk_work_trail_nParticleShape1_iog_0_";
-	rename -uid "E3637243-4F30-43F7-A953-37A5C8B812FB";
+createNode applyConnectionOverride -n "materialOverride9_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "A39F4CC0-4243-CD54-CA9F-E284FB0D8E17";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride9_firk_work_burstparticleShape_iog_0_";
-	rename -uid "3454E6C9-4875-C329-D58F-768C2397BF01";
+	rename -uid "0A08FD9E-4512-CC3E-3BBD-D6A1C5C0A7F6";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride10_rocket_nParticleShape1_iog_0_";
-	rename -uid "87C31E5C-43A4-6353-76CE-5DB1C8EDE561";
+createNode applyConnectionOverride -n "materialOverride9_rocket_nParticleShape1_iog_0_";
+	rename -uid "6EDAE477-4695-70EA-8375-DDB93C08CACF";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride10_rocket_particleShape1_iog_0_";
-	rename -uid "9B979A95-4DAE-964D-7505-DFA46756D10D";
+createNode applyConnectionOverride -n "materialOverride9_rocket_particleShape1_iog_0_";
+	rename -uid "C3EA01C5-40CF-F79B-9E97-EC92C03C8B20";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride10_SPURT_Spurt_nParticleShape1_iog_0_";
-	rename -uid "CB74059C-414B-08A8-C0B5-419398457F04";
+createNode applyConnectionOverride -n "materialOverride9_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "E8D2C5A1-4508-1391-9F40-18A64AFF729B";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride10_SPURT_Spurt_nParticleShape2_iog_0_";
-	rename -uid "D8851C0E-403B-0945-DE92-CA80C689A932";
+createNode applyConnectionOverride -n "materialOverride9_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "14DC4FB3-4879-E2F5-60B7-17B1D94CCA97";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "D134C18C-49DD-CB2A-81E7-FF820B5EF0BC";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "159453B7-42BB-EDA1-157E-5C86661D98D3";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_rocket3_nParticleShape1_iog_0_";
+	rename -uid "B3475FDA-4A0B-E314-2413-C2AE18AC55D9";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_rocket3_particleShape1_iog_0_";
+	rename -uid "C420C3F1-4999-A6B2-85BC-CD9B1B9B3400";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "2ECFBE54-4C0C-2D3C-6236-AE8203ED731B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_rocket1_nParticleShape1_iog_0_";
+	rename -uid "1E8677AE-48F5-5C4B-AC27-40973CD30374";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride9_rocket1_particleShape1_iog_0_";
+	rename -uid "76802F35-4A63-B5A0-8965-CAABD33A9844";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride10_rocket2_nParticleShape1_iog_0_";
-	rename -uid "E73DD5E6-4625-3531-F75F-869598F65825";
+	rename -uid "B6DC93CA-45C6-E9FF-8AD6-3F8558E08557";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride10_rocket2_particleShape1_iog_0_";
-	rename -uid "A07D1B62-4CBD-8A15-F068-7092DF034745";
+	rename -uid "14A32765-4E41-9691-2415-B2A6EEBD5903";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride10_fireworkfinal_rocket_particleShape1_iog_0_";
-	rename -uid "1C234448-4189-E83D-D4C2-16B78617E708";
+createNode applyConnectionOverride -n "materialOverride10_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "279B8E9A-4DA4-0BA8-632E-DDA46F4CA2A2";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride10_fireworkfinal_trail_nParticleShape1_iog_0_";
-	rename -uid "FB2D3624-4558-C0F7-971C-9E92ED221E7D";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride10_fireworkfinal_burstparticleShape_iog_0_";
-	rename -uid "B9C58CC8-49FD-1E7B-0F88-AABBECF934A4";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride10_rocket1_nParticleShape1_iog_0_";
-	rename -uid "B839C318-4707-7C0D-3A9D-9AB1D948EB74";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride10_rocket1_particleShape1_iog_0_";
-	rename -uid "4EA47A4F-4F00-4632-23F3-78A535AB8D69";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride10_firk_work_rocket_particleShape1_iog_0_";
-	rename -uid "74D64552-4AE9-0240-BB1D-70954ECA5991";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride10_rocket3_nParticleShape1_iog_0_";
-	rename -uid "CB549CA6-4563-7174-AEA0-3A8480C3F84D";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride10_rocket3_particleShape1_iog_0_";
-	rename -uid "99E320FD-4C9A-0C4E-8598-F09DF0446E94";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride10_firk_work_trail_nParticleShape1_iog_0_";
-	rename -uid "90B75EF6-4E9D-97D1-AAD9-31B5BC3C24D6";
+createNode applyConnectionOverride -n "materialOverride10_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "34ED4738-4139-66CD-F23C-79ABE63A3C77";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride10_firk_work_burstparticleShape_iog_0_";
-	rename -uid "6E9D9A8B-4EAB-9D06-38C7-B8A03A989504";
+	rename -uid "8F75479A-4169-E630-183F-5A842044B5BF";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride11_rocket_nParticleShape1_iog_0_";
-	rename -uid "BA0ABB6A-4FC7-3435-2B33-2E8693CF139B";
+createNode applyConnectionOverride -n "materialOverride10_rocket_nParticleShape1_iog_0_";
+	rename -uid "8C767367-4487-65D2-59AD-ACA6AA9D1D67";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride11_rocket_particleShape1_iog_0_";
-	rename -uid "0B19A8EC-4D88-EC3C-858D-338E2DB45CCD";
+createNode applyConnectionOverride -n "materialOverride10_rocket_particleShape1_iog_0_";
+	rename -uid "382F0B02-4E43-4D61-401B-E59443BF1B8B";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride11_SPURT_Spurt_nParticleShape1_iog_0_";
-	rename -uid "9B9C1473-4E5E-CCB9-3421-20B53AE21272";
+createNode applyConnectionOverride -n "materialOverride10_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "4CC0C604-4D04-A9B2-00D8-0DA6013F403C";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride11_SPURT_Spurt_nParticleShape2_iog_0_";
-	rename -uid "920BF6D7-42A9-228A-4CF2-2289194DE26B";
+createNode applyConnectionOverride -n "materialOverride10_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "AA593F28-4A43-6F57-8C56-E2A8627E3C1A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "5FBD9832-4F58-DF1D-959B-D1B1EDA5FF2B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "276028B4-4734-54CF-1807-FCBD595B110A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_rocket3_nParticleShape1_iog_0_";
+	rename -uid "8D27C6E6-4169-9F7A-8E5D-66A8A9E051F7";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_rocket3_particleShape1_iog_0_";
+	rename -uid "D30D4F51-481F-BC27-B3C9-7294F9859377";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "091D94E6-4745-7130-F224-E690F8317F62";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_rocket1_nParticleShape1_iog_0_";
+	rename -uid "61A191F3-4E6F-09B5-EFE7-118F656B7D5A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride10_rocket1_particleShape1_iog_0_";
+	rename -uid "F1549638-4B24-1C60-FEDF-8F9C6F3AFE27";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride11_rocket2_nParticleShape1_iog_0_";
-	rename -uid "A749A94E-4528-91D3-88C9-FEBC4CB92727";
+	rename -uid "63BA1BC9-4227-18EC-C0E2-FF8B00CB510D";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride11_rocket2_particleShape1_iog_0_";
-	rename -uid "43884B63-4127-9219-27C0-0DA90A428B2A";
+	rename -uid "F8E8CF61-463C-B1C9-C903-C3A45E0A0A04";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride11_fireworkfinal_rocket_particleShape1_iog_0_";
-	rename -uid "7E021333-4310-9886-51A7-36817D92835B";
+createNode applyConnectionOverride -n "materialOverride11_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "D58B33C6-4CC3-0156-65B1-B6A169168A32";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride11_fireworkfinal_trail_nParticleShape1_iog_0_";
-	rename -uid "74C982B2-4164-50E2-9A08-FCAC30A6F999";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride11_fireworkfinal_burstparticleShape_iog_0_";
-	rename -uid "B8F0852A-432C-C8F5-DEF5-499BBB6480A5";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride11_rocket1_nParticleShape1_iog_0_";
-	rename -uid "84189FDF-4B9C-4B59-C151-3EBEB38974FB";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride11_rocket1_particleShape1_iog_0_";
-	rename -uid "71E85194-4957-4130-3E70-CFB4BE06887E";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride11_firk_work_rocket_particleShape1_iog_0_";
-	rename -uid "262A44DF-4B85-AB16-230E-47B879C95520";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride11_rocket3_nParticleShape1_iog_0_";
-	rename -uid "A64DF444-43E7-6358-46A7-DAAE23FA1EFE";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride11_rocket3_particleShape1_iog_0_";
-	rename -uid "F32EDF64-4D00-7E4A-E199-09864643DEF1";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride11_firk_work_trail_nParticleShape1_iog_0_";
-	rename -uid "6179E6E5-4E7F-81EC-AD67-49ABC27DBB3E";
+createNode applyConnectionOverride -n "materialOverride11_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "82410629-414E-D320-4787-018BAF7DB938";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride11_firk_work_burstparticleShape_iog_0_";
-	rename -uid "AD73A2BF-43A5-589F-2446-9DAB3E564412";
+	rename -uid "E10D09CC-4B10-923D-19BF-608E1CE48652";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride12_rocket_nParticleShape1_iog_0_";
-	rename -uid "B51F71E2-4C97-AB17-521E-7B82FD75A47F";
+createNode applyConnectionOverride -n "materialOverride11_rocket_nParticleShape1_iog_0_";
+	rename -uid "156D2F16-4235-9182-C13F-558E1FB3EBB3";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride12_rocket_particleShape1_iog_0_";
-	rename -uid "0075E25D-41FA-B292-5E67-65B4BD3EE11A";
+createNode applyConnectionOverride -n "materialOverride11_rocket_particleShape1_iog_0_";
+	rename -uid "7CF17781-4BD9-E158-A4C8-EB982FA5C297";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride12_SPURT_Spurt_nParticleShape1_iog_0_";
-	rename -uid "5F23D9F2-4534-9C77-E6F7-629A0723DB17";
+createNode applyConnectionOverride -n "materialOverride11_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "C005582F-46F1-A46F-3757-CA9E36856A16";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride12_SPURT_Spurt_nParticleShape2_iog_0_";
-	rename -uid "FD3A86A0-41AE-DFB5-C16D-A1B4FB99B7B3";
+createNode applyConnectionOverride -n "materialOverride11_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "B9E5BA0E-4B28-0A66-0CB3-C7B4A8E74005";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "69E6B083-4E9C-17F3-EE41-C79CDEF65B7D";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "147BEBCB-4B1A-3901-0303-CE867A71250A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_rocket3_nParticleShape1_iog_0_";
+	rename -uid "45D9F032-49D7-ED25-C652-268D96591378";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_rocket3_particleShape1_iog_0_";
+	rename -uid "DE7673A8-4E21-E49B-EB75-6C80DCA3145C";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "0198A513-4876-2133-42F2-5BBCB9D34E2A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_rocket1_nParticleShape1_iog_0_";
+	rename -uid "4E18D02B-4B12-3EBD-0A81-10B32519FB46";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride11_rocket1_particleShape1_iog_0_";
+	rename -uid "2153FA1D-490A-2B29-FB96-93881B635FCA";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride12_rocket2_nParticleShape1_iog_0_";
-	rename -uid "88E74932-47FB-FFB2-667B-DB8DFA1B03D6";
+	rename -uid "B48CB34A-4232-AE1C-5DEA-EDB8458F2C17";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride12_rocket2_particleShape1_iog_0_";
-	rename -uid "F41BBDEB-471C-56FE-4B0D-8599FE1999F9";
+	rename -uid "D37B0D03-4758-21DF-15E8-AD8FA06E22D1";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride12_fireworkfinal_rocket_particleShape1_iog_0_";
-	rename -uid "335B6D37-4BB3-5862-DE46-21A510F126BC";
+createNode applyConnectionOverride -n "materialOverride12_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "8CB0E4B4-4B8B-08A9-432F-2F97931AEFA3";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride12_fireworkfinal_trail_nParticleShape1_iog_0_";
-	rename -uid "9A1B07CD-49D1-F4E1-328E-C0A692E2FBAF";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride12_fireworkfinal_burstparticleShape_iog_0_";
-	rename -uid "FA6A867E-4E2E-D85B-8EE5-63A69FD7F617";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride12_rocket1_nParticleShape1_iog_0_";
-	rename -uid "9830FC1D-4DDA-D11F-1DF3-8B9B3EEB9A9F";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride12_rocket1_particleShape1_iog_0_";
-	rename -uid "A28ECB5D-4A4C-CFF0-D995-D4A8AB6BB9C8";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride12_firk_work_rocket_particleShape1_iog_0_";
-	rename -uid "C309B55E-44F7-1421-495D-E8B5C2DB75E1";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride12_rocket3_nParticleShape1_iog_0_";
-	rename -uid "4CD63A74-46C9-6A07-0986-5E8C62374B6A";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride12_rocket3_particleShape1_iog_0_";
-	rename -uid "C67F6AB5-480C-B0AB-7AFB-348EA8BE76F1";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride12_firk_work_trail_nParticleShape1_iog_0_";
-	rename -uid "A7750EA2-40B9-22B6-44F6-0D9EBBF3E849";
+createNode applyConnectionOverride -n "materialOverride12_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "39E39692-4100-3482-C0D7-2998F9754E5B";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride12_firk_work_burstparticleShape_iog_0_";
-	rename -uid "F979B0DD-41C9-FF4F-77FD-7DB058609492";
+	rename -uid "5258562D-4702-F5F9-EE38-BC993E7B02F0";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
-createNode applyConnectionOverride -n "materialOverride13_rocket_nParticleShape1_iog_0_";
-	rename -uid "DFB68651-4183-67B1-7568-3A81CD5652F3";
+createNode applyConnectionOverride -n "materialOverride12_rocket_nParticleShape1_iog_0_";
+	rename -uid "58BDEACB-43EC-016E-6DE6-4C8B33A0C549";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
-	setAttr ".tgn" -type "string" "|rocket:rocket1|rocket:nParticle1|rocket:nParticleShape1.instObjGroups[0]";
-createNode applyConnectionOverride -n "materialOverride13_rocket_particleShape1_iog_0_";
-	rename -uid "E02D621F-432E-ED4F-C207-7789E6CB9031";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_rocket_particleShape1_iog_0_";
+	rename -uid "093E3B0A-4E6A-C570-C31A-629666460020";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
-	setAttr ".tgn" -type "string" "|rocket:rocket1|rocket:particle1|rocket:particleShape1.instObjGroups[0]";
-createNode applyConnectionOverride -n "materialOverride13_SPURT_Spurt_nParticleShape1_iog_0_";
-	rename -uid "657E95C4-4565-D333-5637-2CB06D43958A";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "A41837A7-444C-255E-65CB-FD8AB66AD9D1";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
-	setAttr ".tgn" -type "string" "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1|SPURT:Spurt_nParticleShape1.instObjGroups[0]";
-createNode applyConnectionOverride -n "materialOverride13_SPURT_Spurt_nParticleShape2_iog_0_";
-	rename -uid "6977036D-4707-B2F4-0BCB-2A9CC0303995";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_fireworkfinal_rocket_particleShape1_iog_0_";
+	rename -uid "63694F63-4538-9828-7E2A-B5978C7A0887";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
-	setAttr ".tgn" -type "string" "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2|SPURT:Spurt_nParticleShape2.instObjGroups[0]";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_fireworkfinal_trail_nParticleShape1_iog_0_";
+	rename -uid "BBF8ABD4-43A1-3A89-49C5-54892904CB25";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_fireworkfinal_burstparticleShape_iog_0_";
+	rename -uid "5AFF065E-4696-90D4-8B5D-04A448343F70";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_rocket3_nParticleShape1_iog_0_";
+	rename -uid "354A659A-4DBF-CC33-63F9-56A71F63A19B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_rocket3_particleShape1_iog_0_";
+	rename -uid "D581F0C7-441D-6A36-E3BF-8488B386665E";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "D1FF85A9-4CEE-0DF7-B091-76A433A269BC";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_rocket1_nParticleShape1_iog_0_";
+	rename -uid "8926AFAF-4F35-6477-2A25-93B3C5472601";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride12_rocket1_particleShape1_iog_0_";
+	rename -uid "B36C5C7D-4FC9-B544-0360-40A8CB234D68";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride13_rocket2_nParticleShape1_iog_0_";
-	rename -uid "0DB40A50-4A27-F625-F404-0E91827D55DE";
+	rename -uid "C6488C92-4C0D-11A3-51FA-E489AD66EF84";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|rocket2:rocket1|rocket2:nParticle1|rocket2:nParticleShape1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride13_rocket2_particleShape1_iog_0_";
-	rename -uid "32714E27-4C07-4483-20FD-D3B3B9E5A63C";
+	rename -uid "71D89B9F-4FDC-03F3-FFA8-B1BCDA91780F";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|rocket2:rocket1|rocket2:particle1|rocket2:particleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_SPURT_Spurt_nParticleShape1_iog_0_";
+	rename -uid "D68130FC-4909-8E29-04A6-E0B8ED02E010";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle1|SPURT:Spurt_nParticleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_SPURT_Spurt_nParticleShape2_iog_0_";
+	rename -uid "7DD321B2-4F67-5565-803D-6A91BBB57B29";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|SPURT:Spurt_Grp|SPURT:Spurt_nParticle2|SPURT:Spurt_nParticleShape2.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_firk_work_burstparticleShape_iog_0_";
+	rename -uid "867A8A8F-4158-8B6F-F0CD-F1B02A29C470";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|firk_work:burstparticle|firk_work:burstparticleShape.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_rocket_nParticleShape1_iog_0_";
+	rename -uid "BC75EA66-4D9F-C8E7-74B0-E68CE76755E6";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|rocket:rocket1|rocket:nParticle1|rocket:nParticleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_rocket_particleShape1_iog_0_";
+	rename -uid "3859D808-4E5E-ECB0-38E2-659C779C5FF0";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|rocket:rocket1|rocket:particle1|rocket:particleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_firk_work_trail_nParticleShape1_iog_0_";
+	rename -uid "BE1C3151-4FEC-CF23-D4D5-C6A93C699771";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|firk_work:trail_nParticle1|firk_work:trail_nParticleShape1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride13_fireworkfinal_rocket_particleShape1_iog_0_";
-	rename -uid "49110976-40E4-39BF-0D2D-54812DAE141A";
+	rename -uid "3C0ACAF7-4286-A2CF-8AC4-0E82B28BC984";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|fireworkfinal:fanali|fireworkfinal:rocket_particle1|fireworkfinal:rocket_particleShape1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride13_fireworkfinal_trail_nParticleShape1_iog_0_";
-	rename -uid "EE313779-4F62-B0B4-DB5C-598050B6FB6F";
+	rename -uid "46AAF98C-4A37-ECE1-D610-38956F64A422";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|fireworkfinal:fanali|fireworkfinal:trail_nParticle1|fireworkfinal:trail_nParticleShape1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride13_fireworkfinal_burstparticleShape_iog_0_";
-	rename -uid "7ECBD308-46AC-CB0C-6AA1-57BAD5D2B013";
+	rename -uid "697D7A8E-4813-E0A8-3315-A79428D3DB4B";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|fireworkfinal:fanali|fireworkfinal:burstparticle|fireworkfinal:burstparticleShape.instObjGroups[0]";
-createNode applyConnectionOverride -n "materialOverride13_rocket1_nParticleShape1_iog_0_";
-	rename -uid "FE3BA432-42FC-DEF6-331D-A1BEB8C84F4D";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
-	setAttr ".tgn" -type "string" "|rocket1:rocket1|rocket1:nParticle1|rocket1:nParticleShape1.instObjGroups[0]";
-createNode applyConnectionOverride -n "materialOverride13_rocket1_particleShape1_iog_0_";
-	rename -uid "738B6A7E-4C33-C6A8-0BE2-CD8B48E57F2B";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
-	setAttr ".tgn" -type "string" "|rocket1:rocket1|rocket1:particle1|rocket1:particleShape1.instObjGroups[0]";
-createNode applyConnectionOverride -n "materialOverride13_firk_work_rocket_particleShape1_iog_0_";
-	rename -uid "BE596BFD-4EC1-BE67-702E-4494C7D0861B";
-	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
-	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
-	setAttr ".tgn" -type "string" "|firk_work:rocket_particle1|firk_work:rocket_particleShape1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride13_rocket3_nParticleShape1_iog_0_";
-	rename -uid "92DECEA4-45C2-06BA-67ED-A299E8B0E0D6";
+	rename -uid "8CC19C96-423F-1A1F-FCC2-38A3AA02A35E";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|rocket3:rocket1|rocket3:nParticle1|rocket3:nParticleShape1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride13_rocket3_particleShape1_iog_0_";
-	rename -uid "BB1229DA-4BE7-FB2A-BC4D-A18FDBA5F89D";
+	rename -uid "C4DF4452-4E5F-D672-2CA6-4E931802BD20";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|rocket3:rocket1|rocket3:particle1|rocket3:particleShape1.instObjGroups[0]";
-createNode applyConnectionOverride -n "materialOverride13_firk_work_trail_nParticleShape1_iog_0_";
-	rename -uid "613ADB34-4F65-ACD8-561A-A6832FDD6BEB";
+createNode applyConnectionOverride -n "materialOverride13_firk_work_rocket_particleShape1_iog_0_";
+	rename -uid "AF176759-44F8-34AA-8EF9-17B4219106C7";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
-	setAttr ".tgn" -type "string" "|firk_work:trail_nParticle1|firk_work:trail_nParticleShape1.instObjGroups[0]";
-createNode applyConnectionOverride -n "materialOverride13_firk_work_burstparticleShape_iog_0_";
-	rename -uid "8D62A9E2-44EC-9DBB-F544-D2AF9C580BBF";
+	setAttr ".tgn" -type "string" "|firk_work:rocket_particle1|firk_work:rocket_particleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_rocket1_nParticleShape1_iog_0_";
+	rename -uid "F19313CC-475B-A782-1A0C-B6A428647006";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
-	setAttr ".tgn" -type "string" "|firk_work:burstparticle|firk_work:burstparticleShape.instObjGroups[0]";
+	setAttr ".tgn" -type "string" "|rocket1:rocket1|rocket1:nParticle1|rocket1:nParticleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride13_rocket1_particleShape1_iog_0_";
+	rename -uid "41056274-4BBC-B977-F1A3-8F913520CC87";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
+	setAttr ".tgn" -type "string" "|rocket1:rocket1|rocket1:particle1|rocket1:particleShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride1_aiAreaLightShape1_iog_0_";
+	rename -uid "7AD18192-46F6-86EB-4CB3-1C8BDAF1ACE0";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_partShape1_iog_0_";
-	rename -uid "0AD5600C-4ECA-986B-AB94-F1ADE649B4E6";
+	rename -uid "B6E425A1-47BD-A04F-054E-BB8F146122C9";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface12SG";
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_Flag_partShape1_iog_0_";
-	rename -uid "86E9E7E9-4EF2-BAE8-78B6-D1859C36DEB4";
+	rename -uid "6E027A0B-485C-8BCF-841A-79B002F321FA";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_partShape2_iog_0_";
-	rename -uid "AC0C541F-4C8C-DC9B-ECBC-DE8F5C6A07F4";
+	rename -uid "78C82B2F-4F24-A2F9-ACD0-05ADC10AA2EC";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_plag_partShape_iog_0_";
-	rename -uid "040D9150-4C5A-B136-2706-5DB81F2E955C";
+	rename -uid "E19FCAA6-4908-996E-444D-B2B07968492A";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_partShape_iog_0_";
-	rename -uid "B374BA56-4140-90DC-B88B-8DA35B4D260F";
+	rename -uid "64320B23-46CE-B2C2-68D5-C09DA3D4AA0C";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_Flag_partShape_iog_0_";
-	rename -uid "8CF35C05-4516-33DB-3146-558D3D90963E";
+	rename -uid "A56C37C4-4CCC-0465-E4ED-17B8624FF783";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_part4Shape_iog_0_";
-	rename -uid "C0CDD17F-4BE1-FB2B-AF5A-A5A43EC15EC6";
+	rename -uid "2055638E-4E9C-F0D1-661B-F1869DC5C89B";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_dynamicConstraintShape1_iog_0_";
-	rename -uid "470B5B88-402F-86C7-1DFA-86A02450C0E7";
+	rename -uid "8C33F0DF-4834-B4B5-148E-4AB534D21F51";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_part5Shape_iog_0_";
-	rename -uid "A1BDAB47-4A35-561B-1585-E1A7C1956D5A";
+	rename -uid "73D0AF2D-4079-6221-2D45-0D9003764DB9";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface11SG";
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_extrudedSurfaceShape2_iog_0_";
-	rename -uid "B0587282-4BB0-AF08-5554-7AA036BFF95A";
+	rename -uid "B9E29360-4593-78BB-C06D-29845546FD6F";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface16SG";
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_curveShape10_iog_0_";
-	rename -uid "4730BEBF-4795-8651-678C-DFAEC521F71B";
+	rename -uid "628CB877-4357-06A1-D8D5-2EA8A33DEEDE";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_follicleShape5_iog_0_";
-	rename -uid "A9034C42-4B8C-7AC9-DBAB-A8BE9C22B058";
+	rename -uid "9FF45AB0-41C8-1C71-8DBC-F1BAD2438F91";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_curve10rebuiltCurveShape1_iog_0_";
-	rename -uid "1E906001-4CF4-9BCC-EFC0-C88F80654E8D";
+	rename -uid "6C98B857-4EB9-7F23-A278-E48183C6E16C";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_curveShape9_iog_0_";
-	rename -uid "DC2EEEF0-44CA-D1DB-EDEC-96A41F73A1F4";
+	rename -uid "4DA81834-4199-2662-1E6F-E490108790D3";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_hairSystemShape5_iog_0_";
-	rename -uid "B36A604C-459F-B7FF-1F6C-92BD10833D24";
+	rename -uid "79A09651-44A2-40F4-9EBD-5F8CF36974E9";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_curveShape8_iog_0_";
-	rename -uid "A5518ADA-457E-2853-1D6A-EF82788F855B";
+	rename -uid "C2FD80AB-4544-EE25-E0C9-5C9F1D678176";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_follicleShape4_iog_0_";
-	rename -uid "EAF0B8E3-45E2-BC46-681E-CDB156519D01";
+	rename -uid "5717846B-4FF3-40C5-735D-B0AD42BF671F";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_curve8rebuiltCurveShape1_iog_0_";
-	rename -uid "C07512F0-4665-F1BC-3F6F-659E07AC32E6";
+	rename -uid "5DBA5631-43C8-BEE2-0983-D9949D2A88F0";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_curveShape7_iog_0_";
-	rename -uid "711866EA-4C57-7231-EED3-6F8DD541279E";
+	rename -uid "9A53BD6C-476C-6F9C-56A8-9FA375B6F586";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_hairSystemShape4_iog_0_";
-	rename -uid "94F20917-4000-F933-92CB-7DBDD892C9BB";
+	rename -uid "CC174204-4124-F3BD-FE4B-A4B0497AF38F";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_extrudedSurfaceShape1_iog_0_";
-	rename -uid "4964922E-4C5E-C1CA-0C04-83A0F35C7F45";
+	rename -uid "30B8C683-49EC-74BB-CB8F-DCA88576DD85";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "extra_flag1:aiStandardSurface16SG";
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_nurbsCircleShape2_iog_0_";
-	rename -uid "3885D557-4395-65E2-4160-13A4A5A7F9F3";
+	rename -uid "04A335B3-4600-2738-59B2-81A610EA7A26";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_nurbsCircleShape1_iog_0_";
-	rename -uid "D4AE6FBA-49CF-D43F-E791-BFAFE5BD7065";
+	rename -uid "56B70E12-4325-07C9-4E7F-D2A35B56E81B";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_geoShape_iog_0_";
-	rename -uid "1F2B3FED-4885-FB43-EF84-E492273030CE";
+	rename -uid "EF4B3A3E-4350-4776-8BD1-92AA73AE64F8";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_outputCloth1_iog_0_";
-	rename -uid "FB6047F0-41CB-97E5-5D13-0A93D40ECDF9";
+	rename -uid "C342E1C9-4A56-80EE-BDF8-A7BF54C35AFA";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "sen" -ln "shadingEngineName" -dt "string";
 	setAttr ".tg" -type "TdataCompound" ;
 	setAttr ".sen" -type "string" "extra_flag1:aiLambert2SG";
 createNode applyConnectionOverride -n "materialOverride1_extra_flag1_flag_nClothShape1_iog_0_";
-	rename -uid "0A13C7CA-4902-932F-F204-F49976D0DB81";
+	rename -uid "56EF4068-4402-9DEF-74A2-2094F5FEB2F3";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride1_aiSkyDomeLightShape1_iog_0_";
+	rename -uid "2096D24C-46FF-60AC-8C33-E2BB21A212B2";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_aiAreaLightShape1_iog_0_";
+	rename -uid "A5216EC2-4FF4-9E2D-5D9D-68BA238CC6C6";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_partShape1_iog_0_";
-	rename -uid "BA42D1FB-43A7-A0C8-E065-4FBD767C06A4";
+	rename -uid "D657C573-47DE-CE34-4DB7-BC839A96FD25";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_Flag_partShape1_iog_0_";
-	rename -uid "D08CFBDE-4794-1EEC-C24B-339A99DA8AB8";
+	rename -uid "690DD439-4C7B-E211-5054-8196CEFC7A9C";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_partShape2_iog_0_";
-	rename -uid "6DCA65B8-41B2-9CE7-5081-26B58C364005";
+	rename -uid "DD3811EF-4F3F-7EC2-4BE3-179B1531BE55";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_plag_partShape_iog_0_";
-	rename -uid "2DA69FF1-481F-2CC8-2399-8387591B9C60";
+	rename -uid "14D84857-488D-B82E-A3F1-849BB8970559";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_partShape_iog_0_";
-	rename -uid "53B74510-434B-761B-F274-978C7060F3B9";
+	rename -uid "97650646-4E7C-276F-85AC-1999431E55E0";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_Flag_partShape_iog_0_";
-	rename -uid "00B43803-4B16-200C-9456-88A8A4112CBF";
+	rename -uid "31E0AFE2-4566-16A1-E9B4-90A016B61654";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_part4Shape_iog_0_";
-	rename -uid "B1789106-4A3F-C64F-548A-7D8854B43DB6";
+	rename -uid "57733D43-4F7E-54CD-DF66-8FAE468FEC3B";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_dynamicConstraintShape1_iog_0_";
-	rename -uid "E756DAA9-4F88-BA4D-C834-E789665E779E";
+	rename -uid "76EAEF87-4F49-A5CD-E417-79801B5F5CA1";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_part5Shape_iog_0_";
-	rename -uid "E91CF137-40F5-C918-527D-67BC66E1C440";
+	rename -uid "F056A1E1-42D4-A443-8202-9790E9B39B2D";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_extrudedSurfaceShape2_iog_0_";
-	rename -uid "E814A706-4E5C-3604-A919-E698345BEEDD";
+	rename -uid "09544842-46D2-C8D3-023D-91AD31BE7BA5";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_curveShape10_iog_0_";
-	rename -uid "7413ABA0-4D5C-D14C-D762-D3A735F30E54";
+	rename -uid "069B5A30-48D9-8768-B53B-7EB8EE2C06AB";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_follicleShape5_iog_0_";
-	rename -uid "B341AD43-4066-F1F0-CB6F-BD8ED93B8A51";
+	rename -uid "AFFFA449-488E-30FB-A493-5985FD6B7FD6";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_curve10rebuiltCurveShape1_iog_0_";
-	rename -uid "512EB767-41A5-6964-A758-98ABD76565A5";
+	rename -uid "E978CAA2-4EDD-0DF6-A7D2-30A0576BA093";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_curveShape9_iog_0_";
-	rename -uid "310F9100-4AAC-ADBA-E0CC-5FA9390CC5B4";
+	rename -uid "E7BDF1CC-4D5F-5DA1-3416-69B072020E87";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_hairSystemShape5_iog_0_";
-	rename -uid "BC1BDAB7-4F3F-A448-75AE-6B85475247D4";
+	rename -uid "6D752288-460C-84A7-A820-C191AF695585";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_curveShape8_iog_0_";
-	rename -uid "F795CB6B-4199-9550-AC0A-448BE438A5A0";
+	rename -uid "A0D93D58-446E-94F3-4E23-40B8F848CA78";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_follicleShape4_iog_0_";
-	rename -uid "286903AD-4487-E433-2484-7FA5E37EFE6A";
+	rename -uid "C4E81E85-4C46-C2AE-39CB-A58BA8235005";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_curve8rebuiltCurveShape1_iog_0_";
-	rename -uid "FA70F83A-4019-FE84-0313-9183CCE37A16";
+	rename -uid "EC166E4E-4A3F-2B09-E539-E587D3C11270";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_curveShape7_iog_0_";
-	rename -uid "C73166BC-4434-E940-D8CF-6A9F7F6CE560";
+	rename -uid "4BA5EEE1-47ED-2DA4-2DBC-9180C69E7D3C";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_hairSystemShape4_iog_0_";
-	rename -uid "93775533-4F4F-0CD6-4E1B-60B6F21CBDC1";
+	rename -uid "9207B5B4-4E34-1B20-08B5-F587E0B92241";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_extrudedSurfaceShape1_iog_0_";
-	rename -uid "07760A87-493D-A14A-DFE3-5BADED1C4E7D";
+	rename -uid "5F9273E0-4866-9317-2501-BE9FA29DCD85";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_nurbsCircleShape2_iog_0_";
-	rename -uid "96C05744-4B72-9FE7-7DCB-68A4A770F113";
+	rename -uid "96951F79-41DA-EA29-6CF3-8984BC4F1283";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_nurbsCircleShape1_iog_0_";
-	rename -uid "CCD08A83-49CA-D458-8BD5-06AC27638D91";
+	rename -uid "A6ABDB1E-41EF-7AB0-2362-909BAF88077A";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_geoShape_iog_0_";
-	rename -uid "19708DD4-4529-B5EB-1BFF-D894879CB768";
+	rename -uid "97443851-4784-2013-6330-AA9863EE6120";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_outputCloth1_iog_0_";
-	rename -uid "1FE7EAE4-4D9E-2FBD-3B01-8AB5518D0B9C";
+	rename -uid "90613ADE-4420-C30A-8E4C-8C99D3517027";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride2_extra_flag1_flag_nClothShape1_iog_0_";
-	rename -uid "1315CE39-4C69-A2E2-9764-5BA16FBE8617";
+	rename -uid "A7420F66-454C-961A-8728-BBBDC9871F35";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride2_aiSkyDomeLightShape1_iog_0_";
+	rename -uid "CC6893A6-41BA-CE01-94DC-9889E1040F12";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_aiAreaLightShape1_iog_0_";
+	rename -uid "7D1789A6-4362-9C38-9EEA-26B4B662889C";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_partShape1_iog_0_";
-	rename -uid "9F997949-495F-037E-A092-B787C19D9F9F";
+	rename -uid "5B130292-41B7-17EA-28CB-0CBB9C5267FE";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_Flag_partShape1_iog_0_";
-	rename -uid "8F91EA15-43DA-DE60-4769-0EB192E8FC9E";
+	rename -uid "A9EBDE87-4C66-2C20-7652-A69E7FA87E20";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_partShape2_iog_0_";
-	rename -uid "83352E22-47EE-BFF7-119F-78A722AB6DBD";
+	rename -uid "C630B922-4BC2-6481-DA09-799E4AF57C08";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_plag_partShape_iog_0_";
-	rename -uid "BDE313C1-418B-2A6E-AC9B-69AC6460C2CA";
+	rename -uid "9B724E9F-4711-679A-B366-CFAF6A3C8FD8";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_partShape_iog_0_";
-	rename -uid "E7375DFA-450B-FD8A-08E4-D2A3B47840C4";
+	rename -uid "AFC81A21-403A-5CE0-17AE-34B655A6097D";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_Flag_partShape_iog_0_";
-	rename -uid "A6A1C681-46BE-B798-584B-9D97991EFFCA";
+	rename -uid "B543659C-4553-2B13-A12F-1991DB1D46FE";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_part4Shape_iog_0_";
-	rename -uid "75F2A1BF-43C0-C07C-4E70-C48D2D6B62C2";
+	rename -uid "F0FF403E-4B35-1D73-9EB9-3480BBD3E90F";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_dynamicConstraintShape1_iog_0_";
-	rename -uid "FF35DC80-438F-364C-18D4-9194EDF5A1E3";
+	rename -uid "2E65EDEF-4DC6-73E6-D9E5-8083499657D9";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_part5Shape_iog_0_";
-	rename -uid "5FF87D60-471E-DB65-7192-6589A0AD9296";
+	rename -uid "46DD9D41-4312-BEB2-CFE9-61AEDDA2DC9D";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_extrudedSurfaceShape2_iog_0_";
-	rename -uid "F9E82C9E-49D0-BFC8-220F-28A51DD162C0";
+	rename -uid "0969668B-4A2D-83FC-3D79-749D7653A276";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_curveShape10_iog_0_";
-	rename -uid "D8FC79C7-4B27-7F58-EF92-AAAE80D709E3";
+	rename -uid "4CD76E2C-45BF-2F2A-09CC-70A828C0AD00";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_follicleShape5_iog_0_";
-	rename -uid "2EA3780A-4C6C-D0AA-ECC7-70AE8402799D";
+	rename -uid "F54E93EB-4320-6455-2849-FD8809DC0CBE";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_curve10rebuiltCurveShape1_iog_0_";
-	rename -uid "6459EA5F-41E3-CC7A-4CFA-16BBDB0BD522";
+	rename -uid "5BD818CC-439C-695D-395F-B19F6EE88F7C";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_curveShape9_iog_0_";
-	rename -uid "AEEA43BE-4F6B-105F-E43C-B5AC81C2214E";
+	rename -uid "32AA9663-4FC4-02F3-D31C-25B7F2E9BB2A";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_hairSystemShape5_iog_0_";
-	rename -uid "6C4E1D01-49F6-453F-9140-26A3AD8F613A";
+	rename -uid "4574134A-4CFE-1C6E-6238-C88DA9A10C16";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_curveShape8_iog_0_";
-	rename -uid "2E4ECBDA-47B4-024B-0F8F-99B00A51A6DB";
+	rename -uid "E39259F7-4E66-2F03-2D14-67A04FB6D4D9";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_follicleShape4_iog_0_";
-	rename -uid "253F296F-4E81-A5BF-4400-339F5E23FD97";
+	rename -uid "CA50AC27-44D3-9394-090A-22B23A9BDF19";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_curve8rebuiltCurveShape1_iog_0_";
-	rename -uid "40A29653-4EF4-E07D-3338-A38BF3972C11";
+	rename -uid "AEC1A624-476B-49E1-2CF5-1F9C090ADE45";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_curveShape7_iog_0_";
-	rename -uid "A0586447-426C-ADDF-FCA4-04B25933867F";
+	rename -uid "682D4E18-47A8-D41A-E7F3-71B41A89656E";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_hairSystemShape4_iog_0_";
-	rename -uid "362AFE66-4868-29E1-DF08-E196FC5EB6EA";
+	rename -uid "46CD3CD9-4E77-65D7-B65D-A7ABFCDDBB1A";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_extrudedSurfaceShape1_iog_0_";
-	rename -uid "C9488846-43A9-484E-A15B-43B1DA2002C4";
+	rename -uid "A8CF226B-4534-AE4C-2060-CCB28E166602";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_nurbsCircleShape2_iog_0_";
-	rename -uid "0EE91039-40AF-9501-338F-67A6065B4C65";
+	rename -uid "40BDE68C-4325-282A-E26E-7CB8DFBD1B21";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_nurbsCircleShape1_iog_0_";
-	rename -uid "B6CCDF1D-44BC-E786-1F85-289C6D8CDC56";
+	rename -uid "17A1371F-472C-321A-4A7A-10822221F03C";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_geoShape_iog_0_";
-	rename -uid "1FEBC8BF-4301-DAD6-BC85-7C828F48C82A";
+	rename -uid "0D4BFBD5-4DFF-E880-439C-23BB265F01A2";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_outputCloth1_iog_0_";
-	rename -uid "0130D38D-4166-0E54-ACB2-F89AEEBBBA35";
+	rename -uid "3EF28A2E-485E-BD70-CEA5-D4B05862418E";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
 createNode applyConnectionOverride -n "materialOverride3_extra_flag1_flag_nClothShape1_iog_0_";
-	rename -uid "3A93B43B-4FA3-F8F5-A019-D2ACA92D6E24";
+	rename -uid "DD9437FF-4988-0F6C-B173-4485F1676B32";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride3_aiSkyDomeLightShape1_iog_0_";
+	rename -uid "EB19A96F-49FA-E01B-E4A6-A98A36508F0B";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+	setAttr ".tg" -type "TdataCompound" ;
+createNode applyConnectionOverride -n "materialOverride4_aiAreaLightShape1_iog_0_";
+	rename -uid "CF3CEA57-4520-0318-4FFF-138BB628DF99";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_partShape1_iog_0_";
-	rename -uid "93524A77-4DCB-CEE7-7A60-A8A7A913EDC7";
+	rename -uid "A1F40D06-4E85-BC26-2ED3-08B3045BCEA2";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part1|extra_flag1:flag_partShape1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_Flag_partShape1_iog_0_";
-	rename -uid "8FFD49D6-4C99-FC1E-2883-C9963011B12E";
+	rename -uid "7161FF89-403B-CEBA-2860-7887F5EB2112";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:Flag_part1|extra_flag1:Flag_partShape1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_partShape2_iog_0_";
-	rename -uid "FAEEB5E2-4347-D2F1-2DDA-EDB2EDF7E492";
+	rename -uid "B348392F-418E-8B0D-BC9A-82A48495202E";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part2|extra_flag1:flag_partShape2.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_plag_partShape_iog_0_";
-	rename -uid "8F86FDCC-4C76-5E1E-36D1-64B469D0C837";
+	rename -uid "40CBD7C2-4827-9905-BB44-A8A03976C5B9";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:plag_part|extra_flag1:plag_partShape.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_partShape_iog_0_";
-	rename -uid "96FAA991-49B2-90E1-38CC-6080C0E12B76";
+	rename -uid "03455E9C-4187-60CE-BA3C-76BF4894404F";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part|extra_flag1:flag_partShape.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_Flag_partShape_iog_0_";
-	rename -uid "9B1FD490-4523-C878-5F92-569B313AD656";
+	rename -uid "58682340-4FF1-605D-3C32-B2A101B118C4";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:Flag_part|extra_flag1:Flag_partShape.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_part4Shape_iog_0_";
-	rename -uid "7CFAD21B-4AFA-90FC-D08D-7A9C2F05F9DB";
+	rename -uid "AECAF3B5-49FA-BFE2-A1A1-7EBFF18EA189";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part4|extra_flag1:flag_part4Shape.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_dynamicConstraintShape1_iog_0_";
-	rename -uid "D8F780A9-4E5E-353A-35B9-5D9C48D80454";
+	rename -uid "FB23A651-491A-FF1A-5EAE-47A25E9DC01F";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part4|extra_flag1:dynamicConstraintShape1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_part5Shape_iog_0_";
-	rename -uid "26DD0196-40FB-0489-7189-05B99A2D699E";
+	rename -uid "E50E2951-4748-8772-6568-32AF8F615742";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:pole|extra_flag1:flag_part5|extra_flag1:flag_part5Shape.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_extrudedSurfaceShape2_iog_0_";
-	rename -uid "2DAB474F-405A-5CCB-9085-81A2D6C3AE14";
+	rename -uid "09A598A8-4B85-8538-2B6A-6AB8F8A9DA0D";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:extrudedSurface3|extra_flag1:extrudedSurfaceShape2.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_curveShape10_iog_0_";
-	rename -uid "D5A9E74C-4487-060E-1120-48B30B7B605C";
+	rename -uid "CB4BF34B-4DF9-B850-EBF1-6384E658CEFB";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem5OutputCurves|extra_flag1:curve11|extra_flag1:curveShape10.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_follicleShape5_iog_0_";
-	rename -uid "0DCFBC60-48DF-5438-BC55-C092C939C16E";
+	rename -uid "2BAB119C-451F-A35B-F8A6-99ABF229CC59";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem5Follicles|extra_flag1:follicle5|extra_flag1:follicleShape5.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_curve10rebuiltCurveShape1_iog_0_";
-	rename -uid "E8DB8245-4306-D652-2CBA-319AAB5A761F";
+	rename -uid "C2597B97-442F-3596-5AA1-CDA356816EBA";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem5Follicles|extra_flag1:follicle5|extra_flag1:curve10|extra_flag1:curve10rebuiltCurveShape1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_curveShape9_iog_0_";
-	rename -uid "E65FA419-42A8-9002-0700-BDB8B618B871";
+	rename -uid "1BAD58E0-412A-6728-76B2-109C955AA9B6";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem5Follicles|extra_flag1:follicle5|extra_flag1:curve10|extra_flag1:curveShape9.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_hairSystemShape5_iog_0_";
-	rename -uid "FA169B9D-4D7C-C2E3-EFB4-E89B69C0DA58";
+	rename -uid "65F04548-4FD8-1BE4-934A-6395863DB608";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem5|extra_flag1:hairSystemShape5.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_curveShape8_iog_0_";
-	rename -uid "C9AB1672-440C-2610-3DB7-3B88258B8C67";
+	rename -uid "8087D4CD-4F1A-9519-B547-D084B4C6B500";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem4OutputCurves|extra_flag1:curve9|extra_flag1:curveShape8.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_follicleShape4_iog_0_";
-	rename -uid "B4B35791-46D1-BCD5-AD94-E8A7E5CD7AAA";
+	rename -uid "767EE6C6-4F52-F4DC-CCE4-A2A4D6B0633C";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem4Follicles|extra_flag1:follicle4|extra_flag1:follicleShape4.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_curve8rebuiltCurveShape1_iog_0_";
-	rename -uid "BF82C1BA-4BAD-070A-725D-E49BA4381DAE";
+	rename -uid "6135FCBA-494C-3A1B-C3EC-10B6C950E2EA";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem4Follicles|extra_flag1:follicle4|extra_flag1:curve8|extra_flag1:curve8rebuiltCurveShape1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_curveShape7_iog_0_";
-	rename -uid "95E1BC31-4786-FF62-C9FC-36B0BBD313D3";
+	rename -uid "DC2E754D-42A0-D716-2E8E-0D8EB88509CE";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem4Follicles|extra_flag1:follicle4|extra_flag1:curve8|extra_flag1:curveShape7.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_hairSystemShape4_iog_0_";
-	rename -uid "FF503123-4F96-D3CB-277F-56B50B8DDF39";
+	rename -uid "B90B7B66-40D2-89D3-63AE-02AE4446C889";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:hairSystem4|extra_flag1:hairSystemShape4.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_extrudedSurfaceShape1_iog_0_";
-	rename -uid "9DB8B8D4-499D-68C1-8BF1-53893A3FC588";
+	rename -uid "30874215-439F-415E-E748-BFA1EECD3434";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:rope|extra_flag1:extrudedSurface2|extra_flag1:extrudedSurfaceShape1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_nurbsCircleShape2_iog_0_";
-	rename -uid "F4969C12-4169-90E9-7D8A-E68983DE9708";
+	rename -uid "EE7979B4-4269-393A-2867-F5B7C0D68691";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:dynamics|extra_flag1:nurbsCircle2|extra_flag1:nurbsCircleShape2.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_nurbsCircleShape1_iog_0_";
-	rename -uid "3F26BE7B-480A-DA59-DE26-86B84B43DC5E";
+	rename -uid "5CED31B4-4809-CE1A-0B1C-37A544008E64";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:group1|extra_flag1:dynamics|extra_flag1:nurbsCircle1|extra_flag1:nurbsCircleShape1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_geoShape_iog_0_";
-	rename -uid "73438219-4D2E-3142-EDFE-79AC85D3480B";
+	rename -uid "7C298A9C-429E-908A-7F87-1AA366E6D51A";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:flag_geo|extra_flag1:flag_geoShape.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_outputCloth1_iog_0_";
-	rename -uid "81D7E3E2-4641-497C-7894-93AB88BBE65C";
+	rename -uid "B344B8FD-4AA9-2388-15F3-0D9BE13A98E2";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:flag_geo|extra_flag1:outputCloth1.instObjGroups[0]";
 createNode applyConnectionOverride -n "materialOverride4_extra_flag1_flag_nClothShape1_iog_0_";
-	rename -uid "904A8EC4-41E8-35F1-52FB-70819D74FB32";
+	rename -uid "83F1A0BE-42F5-6BC8-E134-DF8E3D299B43";
 	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
 	addAttr -ci true -sn "tgn" -ln "targetName" -dt "string";
 	setAttr ".tgn" -type "string" "|extra_flag1:flag|extra_flag1:flag_nCloth1|extra_flag1:flag_nClothShape1.instObjGroups[0]";
+createNode applyConnectionOverride -n "materialOverride4_aiSkyDomeLightShape1_iog_0_";
+	rename -uid "B66F8520-409F-1B0E-4334-618CAAC12E8A";
+	addAttr -s false -ci true -sn "org" -ln "original" -at "message";
+createNode file -n "file1";
+	rename -uid "30621F4F-4F09-4813-CC16-058E6B9AB27E";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture1";
+	rename -uid "EAB7E27E-4BC0-84D1-22B5-3CAF497A904D";
+createNode file -n "file2";
+	rename -uid "FA3F9C96-49E9-1533-3E03-388CB06B26A3";
+	setAttr ".ail" yes;
+	setAttr ".ftn" -type "string" "C:/Users/peyto/Documents/Allegorithmic/Substance Painter/export/New folder (2)/american flag_aiLambert2_Normal.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture2";
+	rename -uid "C32E6DBE-4146-6E9C-37C4-F797B73827A9";
+createNode bump2d -n "bump2d1";
+	rename -uid "1F4C2E66-47E4-E4B2-A5BC-6AB8EE0F0A06";
+	setAttr ".vc1" -type "float3" 0 9.9999997e-06 0 ;
+	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
+createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
+	rename -uid "7FB6445D-4EEA-5438-7FCB-4793DFFEBC6D";
+	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
+	setAttr ".tgi[0].vl" -type "double2" -10706.467843182845 2380.344803444942 ;
+	setAttr ".tgi[0].vh" -type "double2" -9631.8559864454255 2631.3741331788037 ;
+	setAttr -s 15 ".tgi[0].ni";
+	setAttr ".tgi[0].ni[0].x" -10418.3642578125;
+	setAttr ".tgi[0].ni[0].y" 2548.40234375;
+	setAttr ".tgi[0].ni[0].nvs" 1923;
+	setAttr ".tgi[0].ni[1].x" -9938.5712890625;
+	setAttr ".tgi[0].ni[1].y" 2178.571533203125;
+	setAttr ".tgi[0].ni[1].nvs" 1923;
+	setAttr ".tgi[0].ni[2].x" -10108.7900390625;
+	setAttr ".tgi[0].ni[2].y" 2573.69091796875;
+	setAttr ".tgi[0].ni[2].nvs" 1923;
+	setAttr ".tgi[0].ni[3].x" -10245.7138671875;
+	setAttr ".tgi[0].ni[3].y" 2155.71435546875;
+	setAttr ".tgi[0].ni[3].nvs" 1923;
+	setAttr ".tgi[0].ni[4].x" -10723.0751953125;
+	setAttr ".tgi[0].ni[4].y" 2529.4052734375;
+	setAttr ".tgi[0].ni[4].nvs" 1923;
+	setAttr ".tgi[0].ni[5].x" -8622.685546875;
+	setAttr ".tgi[0].ni[5].y" 2063.154541015625;
+	setAttr ".tgi[0].ni[5].nvs" 2387;
+	setAttr ".tgi[0].ni[6].x" -10808.3359375;
+	setAttr ".tgi[0].ni[6].y" 1809.6837158203125;
+	setAttr ".tgi[0].ni[6].nvs" 1923;
+	setAttr ".tgi[0].ni[7].x" -10401.1669921875;
+	setAttr ".tgi[0].ni[7].y" 1834.551025390625;
+	setAttr ".tgi[0].ni[7].nvs" 1923;
+	setAttr ".tgi[0].ni[8].x" -9004.1416015625;
+	setAttr ".tgi[0].ni[8].y" 2560.935791015625;
+	setAttr ".tgi[0].ni[8].nvs" 1923;
+	setAttr ".tgi[0].ni[9].x" -9990.15234375;
+	setAttr ".tgi[0].ni[9].y" 2450.571044921875;
+	setAttr ".tgi[0].ni[9].nvs" 1923;
+	setAttr ".tgi[0].ni[10].x" -10245.7138671875;
+	setAttr ".tgi[0].ni[10].y" 2332.857177734375;
+	setAttr ".tgi[0].ni[10].nvs" 1923;
+	setAttr ".tgi[0].ni[11].x" -9230.8466796875;
+	setAttr ".tgi[0].ni[11].y" 2557.390869140625;
+	setAttr ".tgi[0].ni[11].nvs" 1923;
+	setAttr ".tgi[0].ni[12].x" -9500.1630859375;
+	setAttr ".tgi[0].ni[12].y" 2545.355224609375;
+	setAttr ".tgi[0].ni[12].nvs" 1923;
+	setAttr ".tgi[0].ni[13].x" -9924.798828125;
+	setAttr ".tgi[0].ni[13].y" 1301.7486572265625;
+	setAttr ".tgi[0].ni[13].nvs" 2387;
+	setAttr ".tgi[0].ni[14].x" -9380.181640625;
+	setAttr ".tgi[0].ni[14].y" 2319.333251953125;
+	setAttr ".tgi[0].ni[14].nvs" 2387;
 select -ne :time1;
 	setAttr -av ".o" 1;
 	setAttr ".unw" 1;
@@ -4998,17 +5100,17 @@ select -ne :renderPartition;
 	setAttr -s 107 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 21 ".s";
+	setAttr -s 20 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderUtilityList1;
-	setAttr -s 70 ".u";
+	setAttr -s 73 ".u";
 select -ne :defaultRenderingList1;
 	setAttr -s 10 ".r";
 select -ne :lightList1;
 	setAttr -s 2 ".l";
 select -ne :defaultTextureList1;
-	setAttr -s 62 ".tx";
+	setAttr -s 64 ".tx";
 select -ne :initialShadingGroup;
 	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr ".ro" yes;
@@ -5048,12 +5150,11 @@ select -ne :defaultRenderGlobals;
 	setAttr ".ren" -type "string" "arnold";
 	setAttr ".outf" 51;
 	setAttr ".imfkey" -type "string" "jpeg";
-	setAttr ".an" yes;
 	setAttr ".fs" 30;
 	setAttr ".ef" 33;
 	setAttr ".ep" 6;
+	setAttr ".ofc" 1;
 	setAttr ".pff" yes;
-	setAttr ".peie" 0;
 	setAttr ".ifp" -type "string" "time for dinnn \\(not set; using scene name)";
 	setAttr ".dss" -type "string" "lambert1";
 select -ne :defaultResolution;
@@ -5073,28 +5174,36 @@ connectAttr "Spurt_emitter2_rate.o" "SPURTRN.phl[2]";
 connectAttr "rocket_emitter1_rate1.o" "fireworkfinalRN.phl[1]";
 connectAttr "fireworkfinalRN.phl[2]" "materialOverride6.atv";
 connectAttr "fireworkfinalRN.phl[3]" "materialOverride7.atv";
-connectAttr "extra_flagRN1.phl[1]" "materialOverride4.atv";
-connectAttr "extra_flagRN1.phl[2]" "materialOverride5.atv";
-connectAttr "extra_flagRN1.phl[3]" "materialOverride3.atv";
-connectAttr "aiUtility1.out" "extra_flagRN1.phl[4]";
-connectAttr "extra_flagRN1.phl[5]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
+connectAttr "extra_flagRN1.phl[1]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[14].dn"
 		;
-connectAttr "extra_flagRN1.phl[6]" "aiUtility1.color";
-connectAttr "extra_flagRN1.phl[7]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
+connectAttr "extra_flagRN1.phl[2]" "materialOverride4.atv";
+connectAttr "extra_flagRN1.phl[3]" "materialOverride5.atv";
+connectAttr "extra_flagRN1.phl[4]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[13].dn"
 		;
-connectAttr "extra_flagRN1.phl[8]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+connectAttr "extra_flagRN1.phl[5]" "materialOverride3.atv";
+connectAttr "extra_flagRN1.phl[6]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
+		;
+connectAttr "extra_flagRN1.phl[7]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
+		;
+connectAttr "extra_flagRN1.phl[8]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
 		;
 connectAttr "extra_flagRN1.phl[9]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
 		;
-connectAttr "extra_flagRN1.phl[10]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+connectAttr "extra_flagRN1.phl[10]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
 		;
-connectAttr "extra_flagRN1.phl[11]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+connectAttr "extra_flagRN1.phl[11]" "extra_flagRN1.phl[12]";
+connectAttr "extra_flagRN1.phl[13]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[12].dn"
 		;
-connectAttr "extra_flagRN1.phl[12]" "materialOverride1.atv";
-connectAttr "extra_flagRN1.phl[13]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+connectAttr "file1.oa" "extra_flagRN1.phl[14]";
+connectAttr "bump2d1.o" "extra_flagRN1.phl[15]";
+connectAttr "extra_flagRN1.phl[16]" "materialOverride1.atv";
+connectAttr "extra_flagRN1.phl[17]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
 		;
-connectAttr "extra_flagRN1.phl[14]" "extra_flagRN1.phl[15]";
-connectAttr "extra_flagRN1.phl[16]" "materialOverride2.atv";
+connectAttr "extra_flagRN1.phl[18]" "extra_flagRN1.phl[19]";
+connectAttr "extra_flagRN1.phl[20]" "extra_flagRN1.phl[21]";
+connectAttr "extra_flagRN1.phl[22]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
+		;
+connectAttr "extra_flagRN1.phl[23]" "materialOverride2.atv";
 connectAttr "rocket_emitter1_rate2.o" "firk_workRN.phl[1]";
 connectAttr "firk_workRN.phl[2]" "materialOverride9.atv";
 connectAttr "firk_workRN.phl[3]" "materialOverride8.atv";
@@ -5266,10 +5375,10 @@ connectAttr "emitter1_directionalSpeed3.o" "rocket2RN.phl[39]";
 connectAttr "emitter1_scaleSpeedBySize3.o" "rocket2RN.phl[40]";
 connectAttr "emitter1_displaySpeed3.o" "rocket2RN.phl[41]";
 connectAttr "rocket2RN.phl[42]" "materialOverride12.atv";
+connectAttr "rs_renderSetupLayer1.ri" "aiAreaLight1.rlio[2]";
 connectAttr "aiAreaLightShape1__LEItem.en" "aiAreaLightShape1.v";
-connectAttr "rs_renderSetupLayer1.ri" "aiAreaLightShape1.rlio[2]";
+connectAttr "rs_renderSetupLayer1.ri" "aiSkyDomeLight1.rlio[2]";
 connectAttr "aiSkyDomeLightShape1__LEItem.en" "aiSkyDomeLightShape1.v";
-connectAttr "rs_renderSetupLayer1.ri" "aiSkyDomeLightShape1.rlio[2]";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "aiStandardSurface1SG.message" ":defaultLightSet.message";
@@ -5356,19 +5465,21 @@ connectAttr "collection1.en" "materialOverride12.pen";
 connectAttr "materialOverride12.nxt" "materialOverride13.prv";
 connectAttr "collection1.lit" "materialOverride13.pls";
 connectAttr "collection1.en" "materialOverride13.pen";
-connectAttr "aiUtility1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+connectAttr "materialOverride5.en" "materialOverride5_rocket2_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride5.en" "materialOverride5_rocket_nParticleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride5.en" "materialOverride5_rocket_particleShape1_iog_0_.en"
+connectAttr "materialOverride5.en" "materialOverride5_rocket2_particleShape1_iog_0_.en"
 		;
 connectAttr "materialOverride5.en" "materialOverride5_SPURT_Spurt_nParticleShape1_iog_0_.en"
 		;
 connectAttr "materialOverride5.en" "materialOverride5_SPURT_Spurt_nParticleShape2_iog_0_.en"
 		;
-connectAttr "materialOverride5.en" "materialOverride5_rocket2_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride5.en" "materialOverride5_firk_work_burstparticleShape_iog_0_.en"
 		;
-connectAttr "materialOverride5.en" "materialOverride5_rocket2_particleShape1_iog_0_.en"
+connectAttr "materialOverride5.en" "materialOverride5_rocket_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5.en" "materialOverride5_firk_work_trail_nParticleShape1_iog_0_.en"
 		;
 connectAttr "materialOverride5.en" "materialOverride5_fireworkfinal_rocket_particleShape1_iog_0_.en"
 		;
@@ -5378,29 +5489,25 @@ connectAttr "materialOverride5.en" "materialOverride5_fireworkfinal_burstparticl
 		;
 connectAttr "aiStandardSurface1SG.msg" "materialOverride5_fireworkfinal_burstparticleShape_iog_0_.org"
 		;
-connectAttr "materialOverride5.en" "materialOverride5_rocket1_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride5.en" "materialOverride5_rocket3_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride5.en" "materialOverride5_rocket1_particleShape1_iog_0_.en"
+connectAttr "materialOverride5.en" "materialOverride5_rocket3_particleShape1_iog_0_.en"
 		;
 connectAttr "materialOverride5.en" "materialOverride5_firk_work_rocket_particleShape1_iog_0_.en"
 		;
 connectAttr ":initialParticleSE.msg" "materialOverride5_firk_work_rocket_particleShape1_iog_0_.org"
 		;
-connectAttr "materialOverride5.en" "materialOverride5_rocket3_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride5.en" "materialOverride5_rocket1_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride5.en" "materialOverride5_rocket3_particleShape1_iog_0_.en"
+connectAttr "materialOverride5.en" "materialOverride5_rocket1_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride5.en" "materialOverride5_firk_work_trail_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride6.en" "materialOverride6_rocket2_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride5.en" "materialOverride5_firk_work_burstparticleShape_iog_0_.en"
+connectAttr "materialOverride5_rocket2_nParticleShape1_iog_0_.n" "materialOverride6_rocket2_nParticleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride6.en" "materialOverride6_rocket_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride6.en" "materialOverride6_rocket2_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride5_rocket_nParticleShape1_iog_0_.n" "materialOverride6_rocket_nParticleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride6.en" "materialOverride6_rocket_particleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride5_rocket_particleShape1_iog_0_.n" "materialOverride6_rocket_particleShape1_iog_0_.p"
+connectAttr "materialOverride5_rocket2_particleShape1_iog_0_.n" "materialOverride6_rocket2_particleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride6.en" "materialOverride6_SPURT_Spurt_nParticleShape1_iog_0_.en"
 		;
@@ -5410,13 +5517,21 @@ connectAttr "materialOverride6.en" "materialOverride6_SPURT_Spurt_nParticleShape
 		;
 connectAttr "materialOverride5_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride6_SPURT_Spurt_nParticleShape2_iog_0_.p"
 		;
-connectAttr "materialOverride6.en" "materialOverride6_rocket2_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride6.en" "materialOverride6_firk_work_burstparticleShape_iog_0_.en"
 		;
-connectAttr "materialOverride5_rocket2_nParticleShape1_iog_0_.n" "materialOverride6_rocket2_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride5_firk_work_burstparticleShape_iog_0_.n" "materialOverride6_firk_work_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride6.en" "materialOverride6_rocket2_particleShape1_iog_0_.en"
+connectAttr "materialOverride6.en" "materialOverride6_rocket_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride5_rocket2_particleShape1_iog_0_.n" "materialOverride6_rocket2_particleShape1_iog_0_.p"
+connectAttr "materialOverride5_rocket_nParticleShape1_iog_0_.n" "materialOverride6_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_rocket_particleShape1_iog_0_.n" "materialOverride6_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride6.en" "materialOverride6_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride5_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride6_firk_work_trail_nParticleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride6.en" "materialOverride6_fireworkfinal_rocket_particleShape1_iog_0_.en"
 		;
@@ -5432,20 +5547,6 @@ connectAttr "aiStandardSurface1SG.msg" "materialOverride6_fireworkfinal_burstpar
 		;
 connectAttr "materialOverride5_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride6_fireworkfinal_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride6.en" "materialOverride6_rocket1_nParticleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride5_rocket1_nParticleShape1_iog_0_.n" "materialOverride6_rocket1_nParticleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride6.en" "materialOverride6_rocket1_particleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride5_rocket1_particleShape1_iog_0_.n" "materialOverride6_rocket1_particleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride6.en" "materialOverride6_firk_work_rocket_particleShape1_iog_0_.en"
-		;
-connectAttr ":initialParticleSE.msg" "materialOverride6_firk_work_rocket_particleShape1_iog_0_.org"
-		;
-connectAttr "materialOverride5_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride6_firk_work_rocket_particleShape1_iog_0_.p"
-		;
 connectAttr "materialOverride6.en" "materialOverride6_rocket3_nParticleShape1_iog_0_.en"
 		;
 connectAttr "materialOverride5_rocket3_nParticleShape1_iog_0_.n" "materialOverride6_rocket3_nParticleShape1_iog_0_.p"
@@ -5454,21 +5555,27 @@ connectAttr "materialOverride6.en" "materialOverride6_rocket3_particleShape1_iog
 		;
 connectAttr "materialOverride5_rocket3_particleShape1_iog_0_.n" "materialOverride6_rocket3_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride6.en" "materialOverride6_firk_work_trail_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride6.en" "materialOverride6_firk_work_rocket_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride5_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride6_firk_work_trail_nParticleShape1_iog_0_.p"
+connectAttr ":initialParticleSE.msg" "materialOverride6_firk_work_rocket_particleShape1_iog_0_.org"
 		;
-connectAttr "materialOverride6.en" "materialOverride6_firk_work_burstparticleShape_iog_0_.en"
+connectAttr "materialOverride5_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride6_firk_work_rocket_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride5_firk_work_burstparticleShape_iog_0_.n" "materialOverride6_firk_work_burstparticleShape_iog_0_.p"
+connectAttr "materialOverride6.en" "materialOverride6_rocket1_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride7.en" "materialOverride7_rocket_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride5_rocket1_nParticleShape1_iog_0_.n" "materialOverride6_rocket1_nParticleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride6_rocket_nParticleShape1_iog_0_.n" "materialOverride7_rocket_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride6.en" "materialOverride6_rocket1_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride7.en" "materialOverride7_rocket_particleShape1_iog_0_.en"
+connectAttr "materialOverride5_rocket1_particleShape1_iog_0_.n" "materialOverride6_rocket1_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride6_rocket_particleShape1_iog_0_.n" "materialOverride7_rocket_particleShape1_iog_0_.p"
+connectAttr "materialOverride7.en" "materialOverride7_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_rocket2_nParticleShape1_iog_0_.n" "materialOverride7_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_rocket2_particleShape1_iog_0_.n" "materialOverride7_rocket2_particleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride7.en" "materialOverride7_SPURT_Spurt_nParticleShape1_iog_0_.en"
 		;
@@ -5478,13 +5585,21 @@ connectAttr "materialOverride7.en" "materialOverride7_SPURT_Spurt_nParticleShape
 		;
 connectAttr "materialOverride6_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride7_SPURT_Spurt_nParticleShape2_iog_0_.p"
 		;
-connectAttr "materialOverride7.en" "materialOverride7_rocket2_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride7.en" "materialOverride7_firk_work_burstparticleShape_iog_0_.en"
 		;
-connectAttr "materialOverride6_rocket2_nParticleShape1_iog_0_.n" "materialOverride7_rocket2_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride6_firk_work_burstparticleShape_iog_0_.n" "materialOverride7_firk_work_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride7.en" "materialOverride7_rocket2_particleShape1_iog_0_.en"
+connectAttr "materialOverride7.en" "materialOverride7_rocket_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride6_rocket2_particleShape1_iog_0_.n" "materialOverride7_rocket2_particleShape1_iog_0_.p"
+connectAttr "materialOverride6_rocket_nParticleShape1_iog_0_.n" "materialOverride7_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_rocket_particleShape1_iog_0_.n" "materialOverride7_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride7.en" "materialOverride7_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride6_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride7_firk_work_trail_nParticleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride7.en" "materialOverride7_fireworkfinal_rocket_particleShape1_iog_0_.en"
 		;
@@ -5500,20 +5615,6 @@ connectAttr "aiStandardSurface1SG.msg" "materialOverride7_fireworkfinal_burstpar
 		;
 connectAttr "materialOverride6_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride7_fireworkfinal_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride7.en" "materialOverride7_rocket1_nParticleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride6_rocket1_nParticleShape1_iog_0_.n" "materialOverride7_rocket1_nParticleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride7.en" "materialOverride7_rocket1_particleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride6_rocket1_particleShape1_iog_0_.n" "materialOverride7_rocket1_particleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride7.en" "materialOverride7_firk_work_rocket_particleShape1_iog_0_.en"
-		;
-connectAttr ":initialParticleSE.msg" "materialOverride7_firk_work_rocket_particleShape1_iog_0_.org"
-		;
-connectAttr "materialOverride6_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride7_firk_work_rocket_particleShape1_iog_0_.p"
-		;
 connectAttr "materialOverride7.en" "materialOverride7_rocket3_nParticleShape1_iog_0_.en"
 		;
 connectAttr "materialOverride6_rocket3_nParticleShape1_iog_0_.n" "materialOverride7_rocket3_nParticleShape1_iog_0_.p"
@@ -5522,21 +5623,27 @@ connectAttr "materialOverride7.en" "materialOverride7_rocket3_particleShape1_iog
 		;
 connectAttr "materialOverride6_rocket3_particleShape1_iog_0_.n" "materialOverride7_rocket3_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride7.en" "materialOverride7_firk_work_trail_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride7.en" "materialOverride7_firk_work_rocket_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride6_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride7_firk_work_trail_nParticleShape1_iog_0_.p"
+connectAttr ":initialParticleSE.msg" "materialOverride7_firk_work_rocket_particleShape1_iog_0_.org"
 		;
-connectAttr "materialOverride7.en" "materialOverride7_firk_work_burstparticleShape_iog_0_.en"
+connectAttr "materialOverride6_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride7_firk_work_rocket_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride6_firk_work_burstparticleShape_iog_0_.n" "materialOverride7_firk_work_burstparticleShape_iog_0_.p"
+connectAttr "materialOverride7.en" "materialOverride7_rocket1_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride8.en" "materialOverride8_rocket_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride6_rocket1_nParticleShape1_iog_0_.n" "materialOverride7_rocket1_nParticleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride7_rocket_nParticleShape1_iog_0_.n" "materialOverride8_rocket_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride7.en" "materialOverride7_rocket1_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride8.en" "materialOverride8_rocket_particleShape1_iog_0_.en"
+connectAttr "materialOverride6_rocket1_particleShape1_iog_0_.n" "materialOverride7_rocket1_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride7_rocket_particleShape1_iog_0_.n" "materialOverride8_rocket_particleShape1_iog_0_.p"
+connectAttr "materialOverride8.en" "materialOverride8_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_rocket2_nParticleShape1_iog_0_.n" "materialOverride8_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_rocket2_particleShape1_iog_0_.n" "materialOverride8_rocket2_particleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride8.en" "materialOverride8_SPURT_Spurt_nParticleShape1_iog_0_.en"
 		;
@@ -5546,13 +5653,21 @@ connectAttr "materialOverride8.en" "materialOverride8_SPURT_Spurt_nParticleShape
 		;
 connectAttr "materialOverride7_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride8_SPURT_Spurt_nParticleShape2_iog_0_.p"
 		;
-connectAttr "materialOverride8.en" "materialOverride8_rocket2_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride8.en" "materialOverride8_firk_work_burstparticleShape_iog_0_.en"
 		;
-connectAttr "materialOverride7_rocket2_nParticleShape1_iog_0_.n" "materialOverride8_rocket2_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride7_firk_work_burstparticleShape_iog_0_.n" "materialOverride8_firk_work_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride8.en" "materialOverride8_rocket2_particleShape1_iog_0_.en"
+connectAttr "materialOverride8.en" "materialOverride8_rocket_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride7_rocket2_particleShape1_iog_0_.n" "materialOverride8_rocket2_particleShape1_iog_0_.p"
+connectAttr "materialOverride7_rocket_nParticleShape1_iog_0_.n" "materialOverride8_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_rocket_particleShape1_iog_0_.n" "materialOverride8_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride8.en" "materialOverride8_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride7_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride8_firk_work_trail_nParticleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride8.en" "materialOverride8_fireworkfinal_rocket_particleShape1_iog_0_.en"
 		;
@@ -5568,20 +5683,6 @@ connectAttr "aiStandardSurface1SG.msg" "materialOverride8_fireworkfinal_burstpar
 		;
 connectAttr "materialOverride7_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride8_fireworkfinal_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride8.en" "materialOverride8_rocket1_nParticleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride7_rocket1_nParticleShape1_iog_0_.n" "materialOverride8_rocket1_nParticleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride8.en" "materialOverride8_rocket1_particleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride7_rocket1_particleShape1_iog_0_.n" "materialOverride8_rocket1_particleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride8.en" "materialOverride8_firk_work_rocket_particleShape1_iog_0_.en"
-		;
-connectAttr ":initialParticleSE.msg" "materialOverride8_firk_work_rocket_particleShape1_iog_0_.org"
-		;
-connectAttr "materialOverride7_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride8_firk_work_rocket_particleShape1_iog_0_.p"
-		;
 connectAttr "materialOverride8.en" "materialOverride8_rocket3_nParticleShape1_iog_0_.en"
 		;
 connectAttr "materialOverride7_rocket3_nParticleShape1_iog_0_.n" "materialOverride8_rocket3_nParticleShape1_iog_0_.p"
@@ -5590,21 +5691,27 @@ connectAttr "materialOverride8.en" "materialOverride8_rocket3_particleShape1_iog
 		;
 connectAttr "materialOverride7_rocket3_particleShape1_iog_0_.n" "materialOverride8_rocket3_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride8.en" "materialOverride8_firk_work_trail_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride8.en" "materialOverride8_firk_work_rocket_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride7_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride8_firk_work_trail_nParticleShape1_iog_0_.p"
+connectAttr ":initialParticleSE.msg" "materialOverride8_firk_work_rocket_particleShape1_iog_0_.org"
 		;
-connectAttr "materialOverride8.en" "materialOverride8_firk_work_burstparticleShape_iog_0_.en"
+connectAttr "materialOverride7_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride8_firk_work_rocket_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride7_firk_work_burstparticleShape_iog_0_.n" "materialOverride8_firk_work_burstparticleShape_iog_0_.p"
+connectAttr "materialOverride8.en" "materialOverride8_rocket1_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride9.en" "materialOverride9_rocket_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride7_rocket1_nParticleShape1_iog_0_.n" "materialOverride8_rocket1_nParticleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride8_rocket_nParticleShape1_iog_0_.n" "materialOverride9_rocket_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride8.en" "materialOverride8_rocket1_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride9.en" "materialOverride9_rocket_particleShape1_iog_0_.en"
+connectAttr "materialOverride7_rocket1_particleShape1_iog_0_.n" "materialOverride8_rocket1_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride8_rocket_particleShape1_iog_0_.n" "materialOverride9_rocket_particleShape1_iog_0_.p"
+connectAttr "materialOverride9.en" "materialOverride9_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_rocket2_nParticleShape1_iog_0_.n" "materialOverride9_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_rocket2_particleShape1_iog_0_.n" "materialOverride9_rocket2_particleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride9.en" "materialOverride9_SPURT_Spurt_nParticleShape1_iog_0_.en"
 		;
@@ -5614,13 +5721,21 @@ connectAttr "materialOverride9.en" "materialOverride9_SPURT_Spurt_nParticleShape
 		;
 connectAttr "materialOverride8_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride9_SPURT_Spurt_nParticleShape2_iog_0_.p"
 		;
-connectAttr "materialOverride9.en" "materialOverride9_rocket2_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride9.en" "materialOverride9_firk_work_burstparticleShape_iog_0_.en"
 		;
-connectAttr "materialOverride8_rocket2_nParticleShape1_iog_0_.n" "materialOverride9_rocket2_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride8_firk_work_burstparticleShape_iog_0_.n" "materialOverride9_firk_work_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride9.en" "materialOverride9_rocket2_particleShape1_iog_0_.en"
+connectAttr "materialOverride9.en" "materialOverride9_rocket_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride8_rocket2_particleShape1_iog_0_.n" "materialOverride9_rocket2_particleShape1_iog_0_.p"
+connectAttr "materialOverride8_rocket_nParticleShape1_iog_0_.n" "materialOverride9_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_rocket_particleShape1_iog_0_.n" "materialOverride9_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride9.en" "materialOverride9_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride8_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride9_firk_work_trail_nParticleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride9.en" "materialOverride9_fireworkfinal_rocket_particleShape1_iog_0_.en"
 		;
@@ -5636,20 +5751,6 @@ connectAttr "aiStandardSurface1SG.msg" "materialOverride9_fireworkfinal_burstpar
 		;
 connectAttr "materialOverride8_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride9_fireworkfinal_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride9.en" "materialOverride9_rocket1_nParticleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride8_rocket1_nParticleShape1_iog_0_.n" "materialOverride9_rocket1_nParticleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride9.en" "materialOverride9_rocket1_particleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride8_rocket1_particleShape1_iog_0_.n" "materialOverride9_rocket1_particleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride9.en" "materialOverride9_firk_work_rocket_particleShape1_iog_0_.en"
-		;
-connectAttr ":initialParticleSE.msg" "materialOverride9_firk_work_rocket_particleShape1_iog_0_.org"
-		;
-connectAttr "materialOverride8_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride9_firk_work_rocket_particleShape1_iog_0_.p"
-		;
 connectAttr "materialOverride9.en" "materialOverride9_rocket3_nParticleShape1_iog_0_.en"
 		;
 connectAttr "materialOverride8_rocket3_nParticleShape1_iog_0_.n" "materialOverride9_rocket3_nParticleShape1_iog_0_.p"
@@ -5658,21 +5759,27 @@ connectAttr "materialOverride9.en" "materialOverride9_rocket3_particleShape1_iog
 		;
 connectAttr "materialOverride8_rocket3_particleShape1_iog_0_.n" "materialOverride9_rocket3_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride9.en" "materialOverride9_firk_work_trail_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride9.en" "materialOverride9_firk_work_rocket_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride8_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride9_firk_work_trail_nParticleShape1_iog_0_.p"
+connectAttr ":initialParticleSE.msg" "materialOverride9_firk_work_rocket_particleShape1_iog_0_.org"
 		;
-connectAttr "materialOverride9.en" "materialOverride9_firk_work_burstparticleShape_iog_0_.en"
+connectAttr "materialOverride8_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride9_firk_work_rocket_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride8_firk_work_burstparticleShape_iog_0_.n" "materialOverride9_firk_work_burstparticleShape_iog_0_.p"
+connectAttr "materialOverride9.en" "materialOverride9_rocket1_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride10.en" "materialOverride10_rocket_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride8_rocket1_nParticleShape1_iog_0_.n" "materialOverride9_rocket1_nParticleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride9_rocket_nParticleShape1_iog_0_.n" "materialOverride10_rocket_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride9.en" "materialOverride9_rocket1_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride10.en" "materialOverride10_rocket_particleShape1_iog_0_.en"
+connectAttr "materialOverride8_rocket1_particleShape1_iog_0_.n" "materialOverride9_rocket1_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride9_rocket_particleShape1_iog_0_.n" "materialOverride10_rocket_particleShape1_iog_0_.p"
+connectAttr "materialOverride10.en" "materialOverride10_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_rocket2_nParticleShape1_iog_0_.n" "materialOverride10_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_rocket2_particleShape1_iog_0_.n" "materialOverride10_rocket2_particleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride10.en" "materialOverride10_SPURT_Spurt_nParticleShape1_iog_0_.en"
 		;
@@ -5682,13 +5789,21 @@ connectAttr "materialOverride10.en" "materialOverride10_SPURT_Spurt_nParticleSha
 		;
 connectAttr "materialOverride9_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride10_SPURT_Spurt_nParticleShape2_iog_0_.p"
 		;
-connectAttr "materialOverride10.en" "materialOverride10_rocket2_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride10.en" "materialOverride10_firk_work_burstparticleShape_iog_0_.en"
 		;
-connectAttr "materialOverride9_rocket2_nParticleShape1_iog_0_.n" "materialOverride10_rocket2_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride9_firk_work_burstparticleShape_iog_0_.n" "materialOverride10_firk_work_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride10.en" "materialOverride10_rocket2_particleShape1_iog_0_.en"
+connectAttr "materialOverride10.en" "materialOverride10_rocket_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride9_rocket2_particleShape1_iog_0_.n" "materialOverride10_rocket2_particleShape1_iog_0_.p"
+connectAttr "materialOverride9_rocket_nParticleShape1_iog_0_.n" "materialOverride10_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_rocket_particleShape1_iog_0_.n" "materialOverride10_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride10.en" "materialOverride10_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride9_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride10_firk_work_trail_nParticleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride10.en" "materialOverride10_fireworkfinal_rocket_particleShape1_iog_0_.en"
 		;
@@ -5704,20 +5819,6 @@ connectAttr "aiStandardSurface1SG.msg" "materialOverride10_fireworkfinal_burstpa
 		;
 connectAttr "materialOverride9_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride10_fireworkfinal_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride10.en" "materialOverride10_rocket1_nParticleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride9_rocket1_nParticleShape1_iog_0_.n" "materialOverride10_rocket1_nParticleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride10.en" "materialOverride10_rocket1_particleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride9_rocket1_particleShape1_iog_0_.n" "materialOverride10_rocket1_particleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride10.en" "materialOverride10_firk_work_rocket_particleShape1_iog_0_.en"
-		;
-connectAttr ":initialParticleSE.msg" "materialOverride10_firk_work_rocket_particleShape1_iog_0_.org"
-		;
-connectAttr "materialOverride9_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride10_firk_work_rocket_particleShape1_iog_0_.p"
-		;
 connectAttr "materialOverride10.en" "materialOverride10_rocket3_nParticleShape1_iog_0_.en"
 		;
 connectAttr "materialOverride9_rocket3_nParticleShape1_iog_0_.n" "materialOverride10_rocket3_nParticleShape1_iog_0_.p"
@@ -5726,21 +5827,27 @@ connectAttr "materialOverride10.en" "materialOverride10_rocket3_particleShape1_i
 		;
 connectAttr "materialOverride9_rocket3_particleShape1_iog_0_.n" "materialOverride10_rocket3_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride10.en" "materialOverride10_firk_work_trail_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride10.en" "materialOverride10_firk_work_rocket_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride9_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride10_firk_work_trail_nParticleShape1_iog_0_.p"
+connectAttr ":initialParticleSE.msg" "materialOverride10_firk_work_rocket_particleShape1_iog_0_.org"
 		;
-connectAttr "materialOverride10.en" "materialOverride10_firk_work_burstparticleShape_iog_0_.en"
+connectAttr "materialOverride9_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride10_firk_work_rocket_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride9_firk_work_burstparticleShape_iog_0_.n" "materialOverride10_firk_work_burstparticleShape_iog_0_.p"
+connectAttr "materialOverride10.en" "materialOverride10_rocket1_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride11.en" "materialOverride11_rocket_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride9_rocket1_nParticleShape1_iog_0_.n" "materialOverride10_rocket1_nParticleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride10_rocket_nParticleShape1_iog_0_.n" "materialOverride11_rocket_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride10.en" "materialOverride10_rocket1_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride11.en" "materialOverride11_rocket_particleShape1_iog_0_.en"
+connectAttr "materialOverride9_rocket1_particleShape1_iog_0_.n" "materialOverride10_rocket1_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride10_rocket_particleShape1_iog_0_.n" "materialOverride11_rocket_particleShape1_iog_0_.p"
+connectAttr "materialOverride11.en" "materialOverride11_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_rocket2_nParticleShape1_iog_0_.n" "materialOverride11_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_rocket2_particleShape1_iog_0_.n" "materialOverride11_rocket2_particleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride11.en" "materialOverride11_SPURT_Spurt_nParticleShape1_iog_0_.en"
 		;
@@ -5750,13 +5857,21 @@ connectAttr "materialOverride11.en" "materialOverride11_SPURT_Spurt_nParticleSha
 		;
 connectAttr "materialOverride10_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride11_SPURT_Spurt_nParticleShape2_iog_0_.p"
 		;
-connectAttr "materialOverride11.en" "materialOverride11_rocket2_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride11.en" "materialOverride11_firk_work_burstparticleShape_iog_0_.en"
 		;
-connectAttr "materialOverride10_rocket2_nParticleShape1_iog_0_.n" "materialOverride11_rocket2_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride10_firk_work_burstparticleShape_iog_0_.n" "materialOverride11_firk_work_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride11.en" "materialOverride11_rocket2_particleShape1_iog_0_.en"
+connectAttr "materialOverride11.en" "materialOverride11_rocket_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride10_rocket2_particleShape1_iog_0_.n" "materialOverride11_rocket2_particleShape1_iog_0_.p"
+connectAttr "materialOverride10_rocket_nParticleShape1_iog_0_.n" "materialOverride11_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_rocket_particleShape1_iog_0_.n" "materialOverride11_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride11.en" "materialOverride11_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride10_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride11_firk_work_trail_nParticleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride11.en" "materialOverride11_fireworkfinal_rocket_particleShape1_iog_0_.en"
 		;
@@ -5772,20 +5887,6 @@ connectAttr "aiStandardSurface1SG.msg" "materialOverride11_fireworkfinal_burstpa
 		;
 connectAttr "materialOverride10_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride11_fireworkfinal_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride11.en" "materialOverride11_rocket1_nParticleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride10_rocket1_nParticleShape1_iog_0_.n" "materialOverride11_rocket1_nParticleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride11.en" "materialOverride11_rocket1_particleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride10_rocket1_particleShape1_iog_0_.n" "materialOverride11_rocket1_particleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride11.en" "materialOverride11_firk_work_rocket_particleShape1_iog_0_.en"
-		;
-connectAttr ":initialParticleSE.msg" "materialOverride11_firk_work_rocket_particleShape1_iog_0_.org"
-		;
-connectAttr "materialOverride10_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride11_firk_work_rocket_particleShape1_iog_0_.p"
-		;
 connectAttr "materialOverride11.en" "materialOverride11_rocket3_nParticleShape1_iog_0_.en"
 		;
 connectAttr "materialOverride10_rocket3_nParticleShape1_iog_0_.n" "materialOverride11_rocket3_nParticleShape1_iog_0_.p"
@@ -5794,21 +5895,27 @@ connectAttr "materialOverride11.en" "materialOverride11_rocket3_particleShape1_i
 		;
 connectAttr "materialOverride10_rocket3_particleShape1_iog_0_.n" "materialOverride11_rocket3_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride11.en" "materialOverride11_firk_work_trail_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride11.en" "materialOverride11_firk_work_rocket_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride10_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride11_firk_work_trail_nParticleShape1_iog_0_.p"
+connectAttr ":initialParticleSE.msg" "materialOverride11_firk_work_rocket_particleShape1_iog_0_.org"
 		;
-connectAttr "materialOverride11.en" "materialOverride11_firk_work_burstparticleShape_iog_0_.en"
+connectAttr "materialOverride10_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride11_firk_work_rocket_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride10_firk_work_burstparticleShape_iog_0_.n" "materialOverride11_firk_work_burstparticleShape_iog_0_.p"
+connectAttr "materialOverride11.en" "materialOverride11_rocket1_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride12.en" "materialOverride12_rocket_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride10_rocket1_nParticleShape1_iog_0_.n" "materialOverride11_rocket1_nParticleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride11_rocket_nParticleShape1_iog_0_.n" "materialOverride12_rocket_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride11.en" "materialOverride11_rocket1_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride12.en" "materialOverride12_rocket_particleShape1_iog_0_.en"
+connectAttr "materialOverride10_rocket1_particleShape1_iog_0_.n" "materialOverride11_rocket1_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride11_rocket_particleShape1_iog_0_.n" "materialOverride12_rocket_particleShape1_iog_0_.p"
+connectAttr "materialOverride12.en" "materialOverride12_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_rocket2_nParticleShape1_iog_0_.n" "materialOverride12_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_rocket2_particleShape1_iog_0_.n" "materialOverride12_rocket2_particleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride12.en" "materialOverride12_SPURT_Spurt_nParticleShape1_iog_0_.en"
 		;
@@ -5818,13 +5925,21 @@ connectAttr "materialOverride12.en" "materialOverride12_SPURT_Spurt_nParticleSha
 		;
 connectAttr "materialOverride11_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride12_SPURT_Spurt_nParticleShape2_iog_0_.p"
 		;
-connectAttr "materialOverride12.en" "materialOverride12_rocket2_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride12.en" "materialOverride12_firk_work_burstparticleShape_iog_0_.en"
 		;
-connectAttr "materialOverride11_rocket2_nParticleShape1_iog_0_.n" "materialOverride12_rocket2_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride11_firk_work_burstparticleShape_iog_0_.n" "materialOverride12_firk_work_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride12.en" "materialOverride12_rocket2_particleShape1_iog_0_.en"
+connectAttr "materialOverride12.en" "materialOverride12_rocket_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride11_rocket2_particleShape1_iog_0_.n" "materialOverride12_rocket2_particleShape1_iog_0_.p"
+connectAttr "materialOverride11_rocket_nParticleShape1_iog_0_.n" "materialOverride12_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_rocket_particleShape1_iog_0_.n" "materialOverride12_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride12.en" "materialOverride12_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride11_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride12_firk_work_trail_nParticleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride12.en" "materialOverride12_fireworkfinal_rocket_particleShape1_iog_0_.en"
 		;
@@ -5840,20 +5955,6 @@ connectAttr "aiStandardSurface1SG.msg" "materialOverride12_fireworkfinal_burstpa
 		;
 connectAttr "materialOverride11_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride12_fireworkfinal_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride12.en" "materialOverride12_rocket1_nParticleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride11_rocket1_nParticleShape1_iog_0_.n" "materialOverride12_rocket1_nParticleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride12.en" "materialOverride12_rocket1_particleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride11_rocket1_particleShape1_iog_0_.n" "materialOverride12_rocket1_particleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride12.en" "materialOverride12_firk_work_rocket_particleShape1_iog_0_.en"
-		;
-connectAttr ":initialParticleSE.msg" "materialOverride12_firk_work_rocket_particleShape1_iog_0_.org"
-		;
-connectAttr "materialOverride11_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride12_firk_work_rocket_particleShape1_iog_0_.p"
-		;
 connectAttr "materialOverride12.en" "materialOverride12_rocket3_nParticleShape1_iog_0_.en"
 		;
 connectAttr "materialOverride11_rocket3_nParticleShape1_iog_0_.n" "materialOverride12_rocket3_nParticleShape1_iog_0_.p"
@@ -5862,21 +5963,27 @@ connectAttr "materialOverride12.en" "materialOverride12_rocket3_particleShape1_i
 		;
 connectAttr "materialOverride11_rocket3_particleShape1_iog_0_.n" "materialOverride12_rocket3_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride12.en" "materialOverride12_firk_work_trail_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride12.en" "materialOverride12_firk_work_rocket_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride11_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride12_firk_work_trail_nParticleShape1_iog_0_.p"
+connectAttr ":initialParticleSE.msg" "materialOverride12_firk_work_rocket_particleShape1_iog_0_.org"
 		;
-connectAttr "materialOverride12.en" "materialOverride12_firk_work_burstparticleShape_iog_0_.en"
+connectAttr "materialOverride11_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride12_firk_work_rocket_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride11_firk_work_burstparticleShape_iog_0_.n" "materialOverride12_firk_work_burstparticleShape_iog_0_.p"
+connectAttr "materialOverride12.en" "materialOverride12_rocket1_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride13.en" "materialOverride13_rocket_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride11_rocket1_nParticleShape1_iog_0_.n" "materialOverride12_rocket1_nParticleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride12_rocket_nParticleShape1_iog_0_.n" "materialOverride13_rocket_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride12.en" "materialOverride12_rocket1_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride13.en" "materialOverride13_rocket_particleShape1_iog_0_.en"
+connectAttr "materialOverride11_rocket1_particleShape1_iog_0_.n" "materialOverride12_rocket1_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride12_rocket_particleShape1_iog_0_.n" "materialOverride13_rocket_particleShape1_iog_0_.p"
+connectAttr "materialOverride13.en" "materialOverride13_rocket2_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_rocket2_nParticleShape1_iog_0_.n" "materialOverride13_rocket2_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_rocket2_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_rocket2_particleShape1_iog_0_.n" "materialOverride13_rocket2_particleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride13.en" "materialOverride13_SPURT_Spurt_nParticleShape1_iog_0_.en"
 		;
@@ -5886,13 +5993,21 @@ connectAttr "materialOverride13.en" "materialOverride13_SPURT_Spurt_nParticleSha
 		;
 connectAttr "materialOverride12_SPURT_Spurt_nParticleShape2_iog_0_.n" "materialOverride13_SPURT_Spurt_nParticleShape2_iog_0_.p"
 		;
-connectAttr "materialOverride13.en" "materialOverride13_rocket2_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride13.en" "materialOverride13_firk_work_burstparticleShape_iog_0_.en"
 		;
-connectAttr "materialOverride12_rocket2_nParticleShape1_iog_0_.n" "materialOverride13_rocket2_nParticleShape1_iog_0_.p"
+connectAttr "materialOverride12_firk_work_burstparticleShape_iog_0_.n" "materialOverride13_firk_work_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride13.en" "materialOverride13_rocket2_particleShape1_iog_0_.en"
+connectAttr "materialOverride13.en" "materialOverride13_rocket_nParticleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride12_rocket2_particleShape1_iog_0_.n" "materialOverride13_rocket2_particleShape1_iog_0_.p"
+connectAttr "materialOverride12_rocket_nParticleShape1_iog_0_.n" "materialOverride13_rocket_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_rocket_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_rocket_particleShape1_iog_0_.n" "materialOverride13_rocket_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_firk_work_trail_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride13_firk_work_trail_nParticleShape1_iog_0_.p"
 		;
 connectAttr "materialOverride13.en" "materialOverride13_fireworkfinal_rocket_particleShape1_iog_0_.en"
 		;
@@ -5908,20 +6023,6 @@ connectAttr "aiStandardSurface1SG.msg" "materialOverride13_fireworkfinal_burstpa
 		;
 connectAttr "materialOverride12_fireworkfinal_burstparticleShape_iog_0_.n" "materialOverride13_fireworkfinal_burstparticleShape_iog_0_.p"
 		;
-connectAttr "materialOverride13.en" "materialOverride13_rocket1_nParticleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride12_rocket1_nParticleShape1_iog_0_.n" "materialOverride13_rocket1_nParticleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride13.en" "materialOverride13_rocket1_particleShape1_iog_0_.en"
-		;
-connectAttr "materialOverride12_rocket1_particleShape1_iog_0_.n" "materialOverride13_rocket1_particleShape1_iog_0_.p"
-		;
-connectAttr "materialOverride13.en" "materialOverride13_firk_work_rocket_particleShape1_iog_0_.en"
-		;
-connectAttr ":initialParticleSE.msg" "materialOverride13_firk_work_rocket_particleShape1_iog_0_.org"
-		;
-connectAttr "materialOverride12_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride13_firk_work_rocket_particleShape1_iog_0_.p"
-		;
 connectAttr "materialOverride13.en" "materialOverride13_rocket3_nParticleShape1_iog_0_.en"
 		;
 connectAttr "materialOverride12_rocket3_nParticleShape1_iog_0_.n" "materialOverride13_rocket3_nParticleShape1_iog_0_.p"
@@ -5930,13 +6031,21 @@ connectAttr "materialOverride13.en" "materialOverride13_rocket3_particleShape1_i
 		;
 connectAttr "materialOverride12_rocket3_particleShape1_iog_0_.n" "materialOverride13_rocket3_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride13.en" "materialOverride13_firk_work_trail_nParticleShape1_iog_0_.en"
+connectAttr "materialOverride13.en" "materialOverride13_firk_work_rocket_particleShape1_iog_0_.en"
 		;
-connectAttr "materialOverride12_firk_work_trail_nParticleShape1_iog_0_.n" "materialOverride13_firk_work_trail_nParticleShape1_iog_0_.p"
+connectAttr ":initialParticleSE.msg" "materialOverride13_firk_work_rocket_particleShape1_iog_0_.org"
 		;
-connectAttr "materialOverride13.en" "materialOverride13_firk_work_burstparticleShape_iog_0_.en"
+connectAttr "materialOverride12_firk_work_rocket_particleShape1_iog_0_.n" "materialOverride13_firk_work_rocket_particleShape1_iog_0_.p"
 		;
-connectAttr "materialOverride12_firk_work_burstparticleShape_iog_0_.n" "materialOverride13_firk_work_burstparticleShape_iog_0_.p"
+connectAttr "materialOverride13.en" "materialOverride13_rocket1_nParticleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_rocket1_nParticleShape1_iog_0_.n" "materialOverride13_rocket1_nParticleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride13.en" "materialOverride13_rocket1_particleShape1_iog_0_.en"
+		;
+connectAttr "materialOverride12_rocket1_particleShape1_iog_0_.n" "materialOverride13_rocket1_particleShape1_iog_0_.p"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_aiAreaLightShape1_iog_0_.en"
 		;
 connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_flag_partShape1_iog_0_.en"
 		;
@@ -5991,6 +6100,12 @@ connectAttr ":initialShadingGroup.msg" "materialOverride1_extra_flag1_flag_geoSh
 connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_outputCloth1_iog_0_.en"
 		;
 connectAttr "materialOverride1.en" "materialOverride1_extra_flag1_flag_nClothShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1.en" "materialOverride1_aiSkyDomeLightShape1_iog_0_.en"
+		;
+connectAttr "materialOverride2.en" "materialOverride2_aiAreaLightShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1_aiAreaLightShape1_iog_0_.n" "materialOverride2_aiAreaLightShape1_iog_0_.p"
 		;
 connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_flag_partShape1_iog_0_.en"
 		;
@@ -6098,6 +6213,14 @@ connectAttr "materialOverride2.en" "materialOverride2_extra_flag1_flag_nClothSha
 		;
 connectAttr "materialOverride1_extra_flag1_flag_nClothShape1_iog_0_.n" "materialOverride2_extra_flag1_flag_nClothShape1_iog_0_.p"
 		;
+connectAttr "materialOverride2.en" "materialOverride2_aiSkyDomeLightShape1_iog_0_.en"
+		;
+connectAttr "materialOverride1_aiSkyDomeLightShape1_iog_0_.n" "materialOverride2_aiSkyDomeLightShape1_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_aiAreaLightShape1_iog_0_.en"
+		;
+connectAttr "materialOverride2_aiAreaLightShape1_iog_0_.n" "materialOverride3_aiAreaLightShape1_iog_0_.p"
+		;
 connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_flag_partShape1_iog_0_.en"
 		;
 connectAttr "materialOverride2_extra_flag1_flag_partShape1_iog_0_.n" "materialOverride3_extra_flag1_flag_partShape1_iog_0_.p"
@@ -6203,6 +6326,16 @@ connectAttr "materialOverride2_extra_flag1_outputCloth1_iog_0_.n" "materialOverr
 connectAttr "materialOverride3.en" "materialOverride3_extra_flag1_flag_nClothShape1_iog_0_.en"
 		;
 connectAttr "materialOverride2_extra_flag1_flag_nClothShape1_iog_0_.n" "materialOverride3_extra_flag1_flag_nClothShape1_iog_0_.p"
+		;
+connectAttr "materialOverride3.en" "materialOverride3_aiSkyDomeLightShape1_iog_0_.en"
+		;
+connectAttr "materialOverride2_aiSkyDomeLightShape1_iog_0_.n" "materialOverride3_aiSkyDomeLightShape1_iog_0_.p"
+		;
+connectAttr "materialOverride4.en" "materialOverride4_aiAreaLightShape1_iog_0_.en"
+		;
+connectAttr "materialOverride3_aiAreaLightShape1_iog_0_.n" "materialOverride4_aiAreaLightShape1_iog_0_.p"
+		;
+connectAttr "aiAreaLightShape1.iog" "materialOverride4_aiAreaLightShape1_iog_0_.tg"
 		;
 connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_flag_partShape1_iog_0_.en"
 		;
@@ -6310,15 +6443,80 @@ connectAttr "materialOverride4.en" "materialOverride4_extra_flag1_flag_nClothSha
 		;
 connectAttr "materialOverride3_extra_flag1_flag_nClothShape1_iog_0_.n" "materialOverride4_extra_flag1_flag_nClothShape1_iog_0_.p"
 		;
+connectAttr "materialOverride4.en" "materialOverride4_aiSkyDomeLightShape1_iog_0_.en"
+		;
+connectAttr "materialOverride3_aiSkyDomeLightShape1_iog_0_.n" "materialOverride4_aiSkyDomeLightShape1_iog_0_.p"
+		;
+connectAttr "aiSkyDomeLightShape1.iog" "materialOverride4_aiSkyDomeLightShape1_iog_0_.tg"
+		;
+connectAttr ":defaultColorMgtGlobals.cme" "file1.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file1.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file1.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file1.ws";
+connectAttr "place2dTexture1.c" "file1.c";
+connectAttr "place2dTexture1.tf" "file1.tf";
+connectAttr "place2dTexture1.rf" "file1.rf";
+connectAttr "place2dTexture1.mu" "file1.mu";
+connectAttr "place2dTexture1.mv" "file1.mv";
+connectAttr "place2dTexture1.s" "file1.s";
+connectAttr "place2dTexture1.wu" "file1.wu";
+connectAttr "place2dTexture1.wv" "file1.wv";
+connectAttr "place2dTexture1.re" "file1.re";
+connectAttr "place2dTexture1.of" "file1.of";
+connectAttr "place2dTexture1.r" "file1.ro";
+connectAttr "place2dTexture1.n" "file1.n";
+connectAttr "place2dTexture1.vt1" "file1.vt1";
+connectAttr "place2dTexture1.vt2" "file1.vt2";
+connectAttr "place2dTexture1.vt3" "file1.vt3";
+connectAttr "place2dTexture1.vc1" "file1.vc1";
+connectAttr "place2dTexture1.o" "file1.uv";
+connectAttr "place2dTexture1.ofs" "file1.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "file2.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "file2.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "file2.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "file2.ws";
+connectAttr "place2dTexture2.c" "file2.c";
+connectAttr "place2dTexture2.tf" "file2.tf";
+connectAttr "place2dTexture2.rf" "file2.rf";
+connectAttr "place2dTexture2.mu" "file2.mu";
+connectAttr "place2dTexture2.mv" "file2.mv";
+connectAttr "place2dTexture2.s" "file2.s";
+connectAttr "place2dTexture2.wu" "file2.wu";
+connectAttr "place2dTexture2.wv" "file2.wv";
+connectAttr "place2dTexture2.re" "file2.re";
+connectAttr "place2dTexture2.of" "file2.of";
+connectAttr "place2dTexture2.r" "file2.ro";
+connectAttr "place2dTexture2.n" "file2.n";
+connectAttr "place2dTexture2.vt1" "file2.vt1";
+connectAttr "place2dTexture2.vt2" "file2.vt2";
+connectAttr "place2dTexture2.vt3" "file2.vt3";
+connectAttr "place2dTexture2.vc1" "file2.vc1";
+connectAttr "place2dTexture2.o" "file2.uv";
+connectAttr "place2dTexture2.ofs" "file2.fs";
+connectAttr "file2.oa" "bump2d1.bv";
+connectAttr "file2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+		;
+connectAttr "file1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+		;
+connectAttr "bump2d1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+		;
+connectAttr "place2dTexture1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+		;
+connectAttr "place2dTexture2.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+		;
 connectAttr "time1_outTime.o" ":time1.o";
 connectAttr "aiStandardSurface1SG.pa" ":renderPartition.st" -na;
 connectAttr "aiAtmosphereVolume.msg" ":defaultShaderList1.s" -na;
 connectAttr "aiStandardSurface1.msg" ":defaultShaderList1.s" -na;
-connectAttr "aiUtility1.msg" ":defaultShaderList1.s" -na;
+connectAttr "place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture2.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "bump2d1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "rs_renderSetupLayer1.msg" ":defaultRenderingList1.r" -na;
 connectAttr "aiAreaLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "aiSkyDomeLightShape1.ltd" ":lightList1.l" -na;
+connectAttr "file1.msg" ":defaultTextureList1.tx" -na;
+connectAttr "file2.msg" ":defaultTextureList1.tx" -na;
 connectAttr "aiAreaLight1.iog" ":defaultLightSet.dsm" -na;
 connectAttr "aiSkyDomeLight1.iog" ":defaultLightSet.dsm" -na;
 // End of fireworkds and flag.ma
